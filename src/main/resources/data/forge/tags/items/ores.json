@@ -1,0 +1,10 @@
+{
+  "values": [
+    "#forge:ores/jade",
+    "#forge:ores/silver",
+    "#forge:ores/topaz",
+    "#forge:ores/lead",
+    "#forge:ores/tin",
+    "#forge:ores/platinum"
+  ]
+}

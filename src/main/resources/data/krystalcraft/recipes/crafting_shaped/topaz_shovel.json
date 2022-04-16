@@ -1,0 +1,20 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "1",
+    "1"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:gems/topaz"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:topaz_shovel"
+  }
+}

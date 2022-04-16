@@ -1,0 +1,25 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " 00",
+    " 10",
+    " 1 "
+  ],
+  "pattern1": [
+    "00 ",
+    "01 ",
+    " 1 "
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:ingots/lead"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:lead_axe"
+  }
+}
