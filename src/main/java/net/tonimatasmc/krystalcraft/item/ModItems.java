@@ -17,7 +17,6 @@ import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 
-@SuppressWarnings("unused")
 public class ModItems {
         public static final DeferredRegister<Item> ITEMS = create(ForgeRegistries.ITEMS);
     
