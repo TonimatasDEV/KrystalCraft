@@ -1,0 +1,17 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:gems/jade"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:jade_block"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "replace": false,
+  "values": [
+    "krystalcraft:jade_sword",
+    "krystalcraft:jade_pickaxe",
+    "krystalcraft:jade_axe",
+    "krystalcraft:jade_shovel",
+    "krystalcraft:jade_hoe",
+
+    "krystalcraft:silver_sword",
+    "krystalcraft:silver_pickaxe",
+    "krystalcraft:silver_axe",
+    "krystalcraft:silver_shovel",
+    "krystalcraft:silver_hoe",
+
+    "krystalcraft:lead_sword",
+    "krystalcraft:lead_pickaxe",
+    "krystalcraft:lead_axe",
+    "krystalcraft:lead_shovel",
+    "krystalcraft:lead_hoe",
+
+    "krystalcraft:tin_sword",
+    "krystalcraft:tin_pickaxe",
+    "krystalcraft:tin_axe",
+    "krystalcraft:tin_shovel",
+    "krystalcraft:tin_hoe",
+
+    "krystalcraft:copper_sword",
+    "krystalcraft:copper_pickaxe",
+    "krystalcraft:copper_axe",
+    "krystalcraft:copper_shovel",
+    "krystalcraft:copper_hoe",
+
+    "krystalcraft:platinum_sword",
+    "krystalcraft:platinum_pickaxe",
+    "krystalcraft:platinum_axe",
+    "krystalcraft:platinum_shovel",
+    "krystalcraft:platinum_hoe",
+
+    "krystalcraft:topaz_sword",
+    "krystalcraft:topaz_pickaxe",
+    "krystalcraft:topaz_axe",
+    "krystalcraft:topaz_shovel",
+    "krystalcraft:topaz_hoe"
+  ]
+}
