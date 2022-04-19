@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "krystalcraft:platinum_ore"
+    "krystalcraft:platinum_ore",
+    "krystalcraft:deepslate_platinum_ore"
   ]
 }
