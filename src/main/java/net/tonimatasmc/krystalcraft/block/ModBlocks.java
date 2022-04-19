@@ -28,11 +28,17 @@ public class ModBlocks {
     public static final RegistryObject<Block> SILVER_ORE = register("silver_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
     public static final RegistryObject<Block> JADE_BLOCK = register("jade_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> JADE_ORE = register("jade_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = register("deepslate_jade_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(5, 11).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> TOPAZ_BLOCK = register("topaz_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).strength(3, 9).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
@@ -40,11 +46,17 @@ public class ModBlocks {
     public static final RegistryObject<Block> TOPAZ_ORE = register("topaz_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3, 9).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
+    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = register("deepslate_topaz_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
     public static final RegistryObject<Block> LEAD_BLOCK = register("lead_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> LEAD_ORE = register("lead_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = register("deepslate_lead_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
     public static final RegistryObject<Block> TIN_BLOCK = register("tin_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.METAL)));
@@ -52,10 +64,16 @@ public class ModBlocks {
     public static final RegistryObject<Block> TIN_ORE = register("tin_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
+    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = register("deepslate_tin_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
     public static final RegistryObject<Block> PLATINUM_BLOCK = register("platinum_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     public static final RegistryObject<Block> PLATINUM_ORE = register("platinum_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+
+    public static final RegistryObject<Block> DEEPSLATE_PLATINUM_ORE = register("deepslate_platinum_ore", () ->
             new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
 

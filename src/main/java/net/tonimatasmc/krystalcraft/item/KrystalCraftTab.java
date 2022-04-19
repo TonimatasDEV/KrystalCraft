@@ -11,6 +11,6 @@ public class KrystalCraftTab {
         @Nonnull
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.SILVER_INGOT.get());
-        }
+        } 
     };
 }

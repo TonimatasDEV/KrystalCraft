@@ -1,6 +1,7 @@
 {
   "item.krystalcraft.silver_ingot": "Lingote de plata",
   "block.krystalcraft.silver_ore": "Mineral de plata",
+  "block.krystalcraft.deepslate_silver_ore": "Mineral de pizarra de plata",
   "block.krystalcraft.silver_block": "Bloque de plata",
   "item.krystalcraft.silver_sword": "Espada de plata",
   "item.krystalcraft.silver_pickaxe": "Pico de plata",
@@ -16,6 +17,7 @@
 
   "item.krystalcraft.tin_ingot": "Lingote de estaño",
   "block.krystalcraft.tin_ore": "Mineral de estaño",
+  "block.krystalcraft.deepslate_tin_ore": "Mineral de pizarra de estaño",
   "block.krystalcraft.tin_block": "Bloque de estaño",
   "item.krystalcraft.tin_sword": "Espada de estaño",
   "item.krystalcraft.tin_pickaxe": "Pico de estaño",
@@ -41,6 +43,7 @@
 
   "item.krystalcraft.lead_ingot": "Lingote de plomo",
   "block.krystalcraft.lead_ore": "Mineral de plomo",
+  "block.krystalcraft.deepslate_lead_ore": "Mineral de pizarra de plomo",
   "block.krystalcraft.lead_block": "Bloque de plomo",
   "item.krystalcraft.lead_sword": "Espada de plomo",
   "item.krystalcraft.lead_pickaxe": "Pico de plomo",
@@ -56,6 +59,7 @@
 
   "item.krystalcraft.platinum_ingot": "Lingote de platino",
   "block.krystalcraft.platinum_ore": "Mineral de platino",
+  "block.krystalcraft.deepslate_platinum_ore": "Mineral de pizarra de platino",
   "block.krystalcraft.platinum_block": "Bloque de platino",
   "item.krystalcraft.platinum_sword": "Espada de platino",
   "item.krystalcraft.platinum_pickaxe": "Pico de platino",
@@ -81,6 +85,7 @@
   "item.krystalcraft.jade_leggings": "Pantalones de jade",
   "item.krystalcraft.jade_boots": "Botas de jade",
   "block.krystalcraft.jade_ore": "Mineral de jade",
+  "block.krystalcraft.deepslate_jade_ore": "Mineral de pizarra de jade",
   "block.krystalcraft.jade_block": "Bloque de jade",
 
   "item.krystalcraft.topaz": "Topacio",
@@ -94,6 +99,7 @@
   "item.krystalcraft.topaz_leggings": "Pantalones de topacio",
   "item.krystalcraft.topaz_boots": "Botas de topacio",
   "block.krystalcraft.topaz_ore": "Mineral de topacio",
+  "block.krystalcraft.deepslate_topaz_ore": "Mineral de pizarra de topacio",
   "block.krystalcraft.topaz_block": "Bloque de topacio",
 
   "itemGroup.KrystalCraft": "KrystalCraft"

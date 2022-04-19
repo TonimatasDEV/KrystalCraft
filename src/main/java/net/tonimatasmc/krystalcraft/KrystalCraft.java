@@ -22,7 +22,7 @@ public class KrystalCraft {
 
         ModBlocks.register(modEventBus);
         ModItems.register(modEventBus);
-
+        
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
         

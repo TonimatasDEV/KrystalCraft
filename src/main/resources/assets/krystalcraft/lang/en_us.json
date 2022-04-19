@@ -1,6 +1,7 @@
 {
   "item.krystalcraft.silver_ingot": "Silver Ingot",
   "block.krystalcraft.silver_ore": "Silver Ore",
+  "block.krystalcraft.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.krystalcraft.silver_block": "Silver Block",
   "item.krystalcraft.silver_sword": "Silver Sword",
   "item.krystalcraft.silver_pickaxe": "Silver Pickaxe",
@@ -16,6 +17,7 @@
 
   "item.krystalcraft.tin_ingot": "Tin Ingot",
   "block.krystalcraft.tin_ore": "Tin Ore",
+  "block.krystalcraft.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.krystalcraft.tin_block": "Tin Block",
   "item.krystalcraft.tin_sword": "Tin Sword",
   "item.krystalcraft.tin_pickaxe": "Tin Pickaxe",
@@ -41,6 +43,7 @@
 
   "item.krystalcraft.lead_ingot": "Lead Ingot",
   "block.krystalcraft.lead_ore": "Lead Ore",
+  "block.krystalcraft.deepslate_lead_ore": "Deepslate Lead Ore",
   "block.krystalcraft.lead_block": "Lead Block",
   "item.krystalcraft.lead_sword": "Lead Sword",
   "item.krystalcraft.lead_pickaxe": "Lead Pickaxe",
@@ -56,6 +59,7 @@
 
   "item.krystalcraft.platinum_ingot": "Platinum Ingot",
   "block.krystalcraft.platinum_ore": "Platinum Ore",
+  "block.krystalcraft.deepslate_platinum_ore": "Deepslate Platinum Ore",
   "block.krystalcraft.platinum_block": "Platinum Block",
   "item.krystalcraft.platinum_sword": "Platinum Sword",
   "item.krystalcraft.platinum_pickaxe": "Platinum Pickaxe",
@@ -81,6 +85,7 @@
   "item.krystalcraft.jade_leggings": "Jade Leggings",
   "item.krystalcraft.jade_boots": "Jade Boots",
   "block.krystalcraft.jade_ore": "Jade Ore",
+  "block.krystalcraft.deepslate_jade_ore": "Deepslate Jade Ore",
   "block.krystalcraft.jade_block": "Jade Block",
 
   "item.krystalcraft.topaz": "Topaz",
@@ -94,6 +99,7 @@
   "item.krystalcraft.topaz_leggings": "Topaz Leggings",
   "item.krystalcraft.topaz_boots": "Topaz Boots",
   "block.krystalcraft.topaz_ore": "Topaz Ore",
+  "block.krystalcraft.deepslate_topaz_ore": "Deepslate Topaz Ore",
   "block.krystalcraft.topaz_block": "Topaz Block",
 
   "itemGroup.KrystalCraft": "KrystalCraft"
