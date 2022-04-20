@@ -3,13 +3,13 @@ loaderVersion="[40,)"
 license="All rights reserved"
 [[mods]]
 modId="krystalcraft"
-version="0.0.1.2"
+version="0.0.1.3"
 displayName="KrystalCraft"
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+#displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
 #logoFile="examplemod.png"
 #credits=""
-authors="TonimatasMC [Lead] - danizml [Artist]" #optional
+authors="TonimatasMC [Lead] - danizml [Artist]"
 description='''
 
 '''

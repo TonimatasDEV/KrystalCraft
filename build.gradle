@@ -15,7 +15,7 @@ plugins {
 apply plugin: 'net.minecraftforge.gradle'
 
 
-version = '0.0.1.2'
+version = '0.0.1.3'
 group = 'net.tonimatasmc.krystalcraft'
 archivesBaseName = 'krystalcraft'
 
@@ -83,10 +83,17 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
+    maven {
+        name 'Progwml6 maven'
+        url 'https://dvs1.progwml6.com/files/maven'
+    }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.0.46'
+
+    compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.0.+:api")
+    runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.0.+")
 }
 
 jar {
@@ -94,7 +101,7 @@ jar {
         attributes([
                 "Specification-Title"     : "krystalcraft",
                 "Specification-Vendor"    : "tonimatasmc",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
+                "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "tonimatasmc",
