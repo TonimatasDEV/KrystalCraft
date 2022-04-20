@@ -9,8 +9,6 @@ public class KrystalCraftModClientConfigs {
     static {
         BUILDER.push("Configs for KrystalCraft");
 
-        // HERE DEFINE YOUR CONFIGS
-
         BUILDER.pop();
         SPEC = BUILDER.build();
     }
