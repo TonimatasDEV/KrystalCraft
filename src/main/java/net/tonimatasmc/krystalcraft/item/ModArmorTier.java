@@ -31,8 +31,12 @@ public enum ModArmorTier implements ArmorMaterial {
     TIN("tin", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0,() ->
             Ingredient.of(ModItems.TIN_INGOT.get())),
 
+    PLATINUM("platinum", new int[] {3, 5, 6, 2}, new int[] {480, 570, 510, 400}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0, () ->
+            Ingredient.of(ModItems.PLATINUM_INGOT.get())),
+
     COPPER("copper", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0, () ->
             Ingredient.of(Items.COPPER_INGOT));
+
 
     private final int[] MAX_DAMAGE_ARRAY;
     private final String name;

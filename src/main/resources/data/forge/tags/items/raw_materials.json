@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#forge:raw_materials/jade",
+    "#forge:raw_materials/silver",
+    "#forge:raw_materials/topaz",
+    "#forge:raw_materials/lead",
+    "#forge:raw_materials/tin",
+    "#forge:raw_materials/diamond",
+    "#forge:raw_materials/redstone",
+    "#forge:raw_materials/lapis",
+    "#forge:raw_materials/emerald",
+    "#forge:raw_materials/platinum"
+  ]
+}
