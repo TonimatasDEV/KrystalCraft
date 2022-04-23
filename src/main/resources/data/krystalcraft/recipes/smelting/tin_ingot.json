@@ -5,7 +5,7 @@
   "cookingtime": 200,
 
   "ingredient": {
-    "tag": "forge:ores/tin"
+    "tag": "forge:raw_materials/tin"
   },
 
   "result": "krystalcraft:tin_ingot"

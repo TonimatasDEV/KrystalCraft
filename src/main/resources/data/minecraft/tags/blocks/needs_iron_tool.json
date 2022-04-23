@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "krystalcraft:lead_ore",
+    "krystalcraft:deepslate_lead_ore",
+    "krystalcraft:silver_ore",
+    "krystalcraft:deepslate_silver_ore",
+    "krystalcraft:topaz_ore",
+    "krystalcraft:deepslate_topaz_ore",
+    "krystalcraft:jade_ore",
+    "krystalcraft:deepslate_jade_ore"
+  ]
+}

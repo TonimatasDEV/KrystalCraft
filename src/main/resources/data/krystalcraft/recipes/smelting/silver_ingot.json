@@ -5,7 +5,7 @@
   "cookingtime": 200,
 
   "ingredient": {
-    "tag": "forge:ores/silver"
+    "tag": "forge:raw_materials/silver"
   },
 
   "result": "krystalcraft:silver_ingot"

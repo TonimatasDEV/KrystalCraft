@@ -33,7 +33,7 @@ public class ModPlacedFeatures {
                          KrystalCraftModCommonConfigs.TIN_ORE_VEINS_PER_CHUNK.get(),
                          HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.TIN_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.TIN_ORE_MAXIMUN_HEIGHT.get()))));
         
-        public static final Holder<PlacedFeature> PLATINUM_ORE_PLACED = PlacementUtils.register("paltinum_ore_placed",
+        public static final Holder<PlacedFeature> PLATINUM_ORE_PLACED = PlacementUtils.register("platinum_ore_placed",
                 ModConfiguredFeatures.PLATINUM_ORE, ModOrePlacement.commonOrePlacement(
                         KrystalCraftModCommonConfigs.PLATINUM_ORE_VEINS_PER_CHUNK.get(),
                         HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.PLATINUM_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.PLATINUM_ORE_MAXIMUN_HEIGHT.get()))));

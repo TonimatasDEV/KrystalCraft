@@ -5,7 +5,7 @@
   "cookingtime": 100,
 
   "ingredient": {
-    "tag": "forge:ores/lead"
+    "tag": "forge:raw_materials/lead"
   },
   "result": "krystalcraft:lead_ingot"
 }

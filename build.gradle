@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'krystalcraft'
-version = '1.0.1.4'
+version = '0.0.1.5'
 
 java {
     archivesBaseName = 'krystalcraft'
@@ -81,8 +81,13 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
     maven {
-        name 'Progwml6 maven'
-        url 'https://dvs1.progwml6.com/files/maven'
+        name = "Progwml6 maven"
+        url = "https://dvs1.progwml6.com/files/maven/"
+    }
+
+    maven {
+        name = "ModMaven"
+        url = "https://modmaven.dev"
     }
 }
 

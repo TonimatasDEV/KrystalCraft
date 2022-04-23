@@ -13,6 +13,7 @@ public class ModOrePlacement {
         return orePlacement(CountPlacement.of(range), placementModifier);
     }
 
+    @SuppressWarnings("unused")
     public static List<PlacementModifier> rareOrePlacement(int range, PlacementModifier placementModifier) {
         return orePlacement(RarityFilter.onAverageOnceEvery(range), placementModifier);
     }

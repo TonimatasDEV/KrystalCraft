@@ -14,6 +14,7 @@
   "item.krystalcraft.silver_boots": "Botas de plata",
   "item.krystalcraft.silver_dust": "Polvo de plata",
   "item.krystalcraft.silver_nugget": "Pepita de plata",
+  "item.krystalcraft.raw_silver": "Plata en bruto",
 
   "item.krystalcraft.tin_ingot": "Lingote de estaño",
   "block.krystalcraft.tin_ore": "Mineral de estaño",
@@ -29,6 +30,7 @@
   "item.krystalcraft.tin_leggings": "Pantalones de estaño",
   "item.krystalcraft.tin_boots": "Botas de estaño",
   "item.krystalcraft.tin_nugget": "Pepita de estaño",
+  "item.krystalcraft.raw_tin": "Estaño en bruto",
 
   "item.krystalcraft.copper_sword": "Espada de cobre",
   "item.krystalcraft.copper_pickaxe": "Pico de cobre",
@@ -56,6 +58,7 @@
   "item.krystalcraft.lead_boots": "Botas de plomo",
   "item.krystalcraft.lead_dust": "Polvo de plomo",
   "item.krystalcraft.lead_nugget": "Pepita de plomo",
+  "item.krystalcraft.raw_lead": "Plomo en bruto",
 
   "item.krystalcraft.platinum_ingot": "Lingote de platino",
   "block.krystalcraft.platinum_ore": "Mineral de platino",
@@ -72,6 +75,7 @@
   "item.krystalcraft.platinum_boots": "Botas de platino",
   "item.krystalcraft.platinum_dust": "Polvo de platino",
   "item.krystalcraft.platinum_nugget": "Pepita de platino",
+  "item.krystalcraft.raw_platinum": "Platino en bruto",
 
   "item.krystalcraft.jade": "Jade",
   "item.krystalcraft.jade_sword": "Espada de jade",
@@ -79,7 +83,7 @@
   "item.krystalcraft.jade_axe": "Hacha de jade",
   "item.krystalcraft.jade_shovel": "Pala de jade",
   "item.krystalcraft.jade_hoe": "Azada de jade",
-  "item.krystalcraft.jade_horse_armor": "Armadura de jade para caballo",
+  "item.krystalcraft.jade_horse_armor": "Armadura de jade para caballos",
   "item.krystalcraft.jade_helmet": "Casco de jade",
   "item.krystalcraft.jade_chestplate": "Peto de jade",
   "item.krystalcraft.jade_leggings": "Pantalones de jade",
@@ -87,6 +91,7 @@
   "block.krystalcraft.jade_ore": "Mineral de jade",
   "block.krystalcraft.deepslate_jade_ore": "Mineral de pizarra de jade",
   "block.krystalcraft.jade_block": "Bloque de jade",
+  "item.krystalcraft.raw_jade": "Jade en bruto",
 
   "item.krystalcraft.topaz": "Topacio",
   "item.krystalcraft.topaz_sword": "Espada de topacio",
@@ -101,6 +106,17 @@
   "block.krystalcraft.topaz_ore": "Mineral de topacio",
   "block.krystalcraft.deepslate_topaz_ore": "Mineral de pizarra de topacio",
   "block.krystalcraft.topaz_block": "Bloque de topacio",
+  "item.krystalcraft.raw_topaz": "Topacio en bruto",
+
+  "item.krystalcraft.raw_diamond": "Raw Diamond",
+  "item.krystalcraft.raw_lapis": "Raw Lapis",
+  "item.krystalcraft.raw_redstone": "Raw Redstone",
+  "item.krystalcraft.raw_emerald": "Raw Emerald",
+
+  "item.krystalcraft.gem_cutter_tool": "Herramienta de Corte de Gemas",
+  "item.krystalcraft.set_water_bottles": "Conjunto de Botellas de Agua",
+
+  "block.krystalcraft.gem_cutting_station": "Estación de Corte de Gemas",
 
   "itemGroup.KrystalCraft": "KrystalCraft"
 }

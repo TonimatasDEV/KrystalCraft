@@ -1,98 +1,121 @@
 package net.tonimatasmc.krystalcraft.block;
 
-import java.util.function.Supplier;
-
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistry;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import net.tonimatasmc.krystalcraft.block.custom.GemCuttingStationBlock;
 import net.tonimatasmc.krystalcraft.item.KrystalCraftTab;
 import net.tonimatasmc.krystalcraft.item.ModItems;
 
+import javax.annotation.Nonnull;
+import java.util.function.Supplier;
 
+
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 public class ModBlocks {
-    public static final DeferredRegister<Block> BLOCKS = create(ForgeRegistries.BLOCKS);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
 
-    public static final RegistryObject<Block> SILVER_BLOCK = register("silver_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> SILVER_ORE = register("silver_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final RegistryObject<Block> JADE_BLOCK = register("jade_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> JADE_BLOCK = registerBlock("jade_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> JADE_ORE = register("jade_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> JADE_ORE = registerBlock("jade_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = register("deepslate_jade_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(5, 11).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_JADE_ORE = registerBlock("deepslate_jade_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final RegistryObject<Block> TOPAZ_BLOCK = register("topaz_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(3, 9).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> TOPAZ_BLOCK = registerBlock("topaz_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> TOPAZ_ORE = register("topaz_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3, 9).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> TOPAZ_ORE = registerBlock("topaz_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = register("deepslate_topaz_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4, 10).strength(3).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final RegistryObject<Block> LEAD_BLOCK = register("lead_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> LEAD_BLOCK = registerBlock("lead_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> LEAD_ORE = register("lead_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> LEAD_ORE = registerBlock("lead_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = register("deepslate_lead_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final RegistryObject<Block> TIN_BLOCK = register("tin_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> TIN_BLOCK = registerBlock("tin_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> TIN_ORE = register("tin_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> TIN_ORE = registerBlock("tin_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = register("deepslate_tin_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(4.0F, 5.0F).strength(1).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    public static final RegistryObject<Block> PLATINUM_BLOCK = register("platinum_block", () ->
-            new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5.0F, 6.0F).strength(3).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+    public static final RegistryObject<Block> PLATINUM_BLOCK = registerBlock("platinum_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(7f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> PLATINUM_ORE = register("platinum_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> PLATINUM_ORE = registerBlock("platinum_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(6f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
 
-    public static final RegistryObject<Block> DEEPSLATE_PLATINUM_ORE = register("deepslate_platinum_ore", () ->
-            new Block(BlockBehaviour.Properties.of(Material.STONE).strength(3.0F, 4.0F).strength(2).requiresCorrectToolForDrops().sound(SoundType.STONE)));
+    public static final RegistryObject<Block> DEEPSLATE_PLATINUM_ORE = registerBlock("deepslate_platinum_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(8f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
+//----------------------------------------------------------------------------------------------------------------------
+    public static final RegistryObject<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station",
+            () -> new GemCuttingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
-
-    public static void register(IEventBus iEventBus) {
-            BLOCKS.register(iEventBus);
-    }
-
-    private static <T extends Block> RegistryObject<T> registerNoItem(String name, Supplier<T> block) {
+    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);
     }
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
-        RegistryObject<T> ret = registerNoItem(name, block);
-        ModItems.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
-        return ret;
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
     }
 
-    private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> create(IForgeRegistry<T> registry) {
-        return DeferredRegister.create(registry, KrystalCraft.MOD_ID);
+    @Nonnull
+    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
+        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+    }
+    public static void register(IEventBus iEventBus) {
+            BLOCKS.register(iEventBus);
     }
 }
