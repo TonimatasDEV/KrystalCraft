@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_diamond"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:diamond_dust"
+  }
+}

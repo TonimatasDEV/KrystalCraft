@@ -18,5 +18,6 @@ public class ModOreGeneration {
         base.add(ModPlacedFeatures.LEAD_ORE_PLACED);
         base.add(ModPlacedFeatures.TIN_ORE_PLACED);
         base.add(ModPlacedFeatures.PLATINUM_ORE_PLACED);
+        base.add(ModPlacedFeatures.SAPPHIRE_ORE_PLACED);
     }
 }

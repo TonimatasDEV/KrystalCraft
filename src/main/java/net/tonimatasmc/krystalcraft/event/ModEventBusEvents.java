@@ -7,6 +7,7 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
 import net.tonimatasmc.krystalcraft.recipe.GemCuttingStationRecipe;
 
 import javax.annotation.Nonnull;
@@ -22,5 +23,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
         Registry.register(Registry.RECIPE_TYPE, GemCuttingStationRecipe.Type.ID, GemCuttingStationRecipe.Type.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, CoalCrusherRecipe.Type.ID, CoalCrusherRecipe.Type.INSTANCE);
     }
 }

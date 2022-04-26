@@ -26,4 +26,7 @@ public class ModItemTier {
 
     public static final ForgeTier PLATINUM = new ForgeTier(4, 2300, 8.0F, 0.0F,56, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(ModItems.PLATINUM_INGOT.get()));
+
+    public static final ForgeTier SAPPHIRE = new ForgeTier(3, 755, 6.2F, 2.0F, 15, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
+            Ingredient.of(ModItems.SAPPHIRE.get()));
 }

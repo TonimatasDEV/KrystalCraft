@@ -31,6 +31,7 @@
   "item.krystalcraft.tin_boots": "Tin Boots",
   "item.krystalcraft.tin_nugget": "Tin Nugget",
   "item.krystalcraft.raw_tin": "Raw Tin",
+  "item.krystalcraft.tin_dust": "Tin Dust",
 
   "item.krystalcraft.copper_sword": "Copper Sword",
   "item.krystalcraft.copper_pickaxe": "Copper Pickaxe",
@@ -42,6 +43,7 @@
   "item.krystalcraft.copper_leggings": "Copper Leggings",
   "item.krystalcraft.copper_boots": "Copper Boots",
   "item.krystalcraft.copper_nugget": "Copper Nugget",
+  "item.krystalcraft.copper_dust": "Copper Dust",
 
   "item.krystalcraft.lead_ingot": "Lead Ingot",
   "block.krystalcraft.lead_ore": "Lead Ore",
@@ -92,8 +94,10 @@
   "block.krystalcraft.deepslate_jade_ore": "Deepslate Jade Ore",
   "block.krystalcraft.jade_block": "Jade Block",
   "item.krystalcraft.raw_jade": "Raw Jade",
+  "item.krystalcraft.jade_dust": "Jade Dust",
 
   "item.krystalcraft.topaz": "Topaz",
+  "item.krystalcraft.topaz_dust": "Topaz Dust",
   "item.krystalcraft.topaz_sword": "Topaz Sword",
   "item.krystalcraft.topaz_pickaxe": "Topaz Pickaxe",
   "item.krystalcraft.topaz_axe": "Topaz Axe",
@@ -108,13 +112,35 @@
   "block.krystalcraft.topaz_block": "Topaz Block",
   "item.krystalcraft.raw_topaz": "Raw Topaz",
 
+  "block.krystalcraft.sapphire_ore": "Sapphire Ore",
+  "block.krystalcraft.sapphire_block":  "Block of Sapphire",
+  "item.krystalcraft.sapphire_helmet": "Sapphire Helmet",
+  "item.krystalcraft.sapphire_chestplate": "Sapphire Chestplate",
+  "block.krystalcraft.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
+  "item.krystalcraft.sapphire_leggings": "Sapphire Leggings",
+  "item.krystalcraft.sapphire_boots": "Sapphire Boots",
+  "item.krystalcraft.sapphire_sword": "Sapphire Sword",
+  "item.krystalcraft.sapphire_pickaxe": "Sapphire Pickaxe",
+  "item.krystalcraft.sapphire_shovel": "Sapphire Shovel",
+  "item.krystalcraft.sapphire_hoe": "Sapphire Hoe",
+  "item.krystalcraft.sapphire_axe": "Sapphire Axe",
+  "item.krystalcraft.sapphire": "Sapphire",
+  "item.krystalcraft.raw_sapphire": "Raw Sapphire",
+  "item.krystalcraft.sapphire_dust": "Sapphire Dust",
+
   "item.krystalcraft.gem_cutter_tool": "Gem Cutter Tool",
   "item.krystalcraft.set_water_bottles": "Set of Water Bottles",
-  "block.krystalcraft.gem_cutting_station": "Gem Cutting Station",
   "item.krystalcraft.raw_diamond": "Raw Diamond",
+  "item.krystalcraft.diamond_dust": "Diamond Dust",
   "item.krystalcraft.raw_lapis": "Raw Lapis",
+  "item.krystalcraft.lapis_dust": "Lapiz Lazuli Dust",
   "item.krystalcraft.raw_redstone": "Raw Redstone",
   "item.krystalcraft.raw_emerald": "Raw Emerald",
+  "item.krystalcraft.emerald_dust": "Emerald Dust",
+  "item.krystalcraft.iron_dust": "Iron Dust",
+
+  "block.krystalcraft.gem_cutting_station": "Gem Cutting Station",
+  "block.krystalcraft.coal_crusher": "Coal Crusher",
 
 
   "itemGroup.KrystalCraft": "KrystalCraft"

@@ -31,6 +31,7 @@
   "item.krystalcraft.tin_boots": "Botas de estaño",
   "item.krystalcraft.tin_nugget": "Pepita de estaño",
   "item.krystalcraft.raw_tin": "Estaño en bruto",
+  "item.krystalcraft.tin_dust": "Polvo de estaño",
 
   "item.krystalcraft.copper_sword": "Espada de cobre",
   "item.krystalcraft.copper_pickaxe": "Pico de cobre",
@@ -42,6 +43,7 @@
   "item.krystalcraft.copper_leggings": "Pantalones de cobre",
   "item.krystalcraft.copper_boots": "Botas de cobre",
   "item.krystalcraft.copper_nugget": "Pepita de cobre",
+  "item.krystalcraft.copper_dust": "Polvo de cobre",
 
   "item.krystalcraft.lead_ingot": "Lingote de plomo",
   "block.krystalcraft.lead_ore": "Mineral de plomo",
@@ -92,6 +94,7 @@
   "block.krystalcraft.deepslate_jade_ore": "Mineral de pizarra de jade",
   "block.krystalcraft.jade_block": "Bloque de jade",
   "item.krystalcraft.raw_jade": "Jade en bruto",
+  "item.krystalcraft.jade_dust": "Polvo de jade",
 
   "item.krystalcraft.topaz": "Topacio",
   "item.krystalcraft.topaz_sword": "Espada de topacio",
@@ -107,16 +110,42 @@
   "block.krystalcraft.deepslate_topaz_ore": "Mineral de pizarra de topacio",
   "block.krystalcraft.topaz_block": "Bloque de topacio",
   "item.krystalcraft.raw_topaz": "Topacio en bruto",
+  "item.krystalcraft.topaz_dust": "Polvo de topacio",
 
-  "item.krystalcraft.raw_diamond": "Raw Diamond",
-  "item.krystalcraft.raw_lapis": "Raw Lapis",
-  "item.krystalcraft.raw_redstone": "Raw Redstone",
-  "item.krystalcraft.raw_emerald": "Raw Emerald",
+  "block.krystalcraft.sapphire_ore": "Mineral de zafiro",
+  "block.krystalcraft.sapphire_block": "Bloque de zafiro",
+  "item.krystalcraft.sapphire_helmet": "Casco de zafiro",
+  "item.krystalcraft.sapphire_chestplate": "Peto de zafiro",
+  "block.krystalcraft.deepslate_sapphire_ore": "Mineral de zafiro de pizarra",
+  "item.krystalcraft.raw_sapphire": "Zafiro en bruto",
+  "item.krystalcraft.sapphire_leggings": "Pantalones de zafiro",
+  "item.krystalcraft.sapphire_boots": "Botas de zafiro",
+  "item.krystalcraft.sapphire_sword": "Espada de zafiro",
+  "item.krystalcraft.sapphire_pickaxe": "Pico de zafiro",
+  "item.krystalcraft.sapphire_shovel": "Pala de zafiro",
+  "item.krystalcraft.sapphire_hoe": "Azada de zafiro",
+  "item.krystalcraft.sapphire_axe": "Hacha de zafiro",
+  "item.krystalcraft.sapphire": "Zafiro",
+  "item.krystalcraft.sapphire_dust": "Polvo de zafiro",
+
+  "item.krystalcraft.raw_diamond": "Diamante en bruto",
+  "item.krystalcraft.diamond_dust": "Polvo de diamante",
+
+  "item.krystalcraft.raw_lapis": "Lapiz Lázuli en bruto",
+  "item.krystalcraft.lapis_dust": "Polvo de Lapiz Lázuli",
+
+  "item.krystalcraft.raw_redstone": "Redstone en bruto",
+
+  "item.krystalcraft.raw_emerald": "Esmeralda en bruto",
+  "item.krystalcraft.emerald_dust": "Polvo de esmeralda",
+
+  "item.krystalcraft.iron_dust": "Polvo de hierro",
 
   "item.krystalcraft.gem_cutter_tool": "Herramienta de Corte de Gemas",
   "item.krystalcraft.set_water_bottles": "Conjunto de Botellas de Agua",
 
   "block.krystalcraft.gem_cutting_station": "Estación de Corte de Gemas",
+  "block.krystalcraft.coal_crusher": "Trituradora de carbón",
 
   "itemGroup.KrystalCraft": "KrystalCraft"
 }

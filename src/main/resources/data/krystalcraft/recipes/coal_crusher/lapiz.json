@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "minecraft:lapiz_lazuli"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:lapis_dust"
+  }
+}

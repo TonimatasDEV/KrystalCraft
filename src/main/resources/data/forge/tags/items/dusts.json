@@ -1,5 +1,15 @@
 {
   "values": [
-    "#forge:dusts/silver"
+    "#forge:dusts/silver",
+    "#forge:dusts/lead",
+    "#forge:dusts/topaz",
+    "#forge:dusts/sapphire",
+    "#forge:dusts/emerald",
+    "#forge:dusts/diamond",
+    "#forge:dusts/platinum",
+    "#forge:dusts/lapis",
+    "#forge:dusts/jade",
+    "#forge:dusts/copper",
+    "#forge:dusts/tin"
   ]
 }

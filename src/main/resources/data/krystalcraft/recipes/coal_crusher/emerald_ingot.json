@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "minecraft:emerald"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:emerald_dust"
+  }
+}
