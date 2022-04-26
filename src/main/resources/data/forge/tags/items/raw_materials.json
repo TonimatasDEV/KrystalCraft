@@ -9,6 +9,7 @@
     "#forge:raw_materials/redstone",
     "#forge:raw_materials/lapis",
     "#forge:raw_materials/emerald",
-    "#forge:raw_materials/platinum"
+    "#forge:raw_materials/platinum",
+    "#forge:raw_materials/sapphire"
   ]
 }

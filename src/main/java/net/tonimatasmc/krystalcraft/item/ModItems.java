@@ -74,6 +74,9 @@ public class ModItems {
     public static final RegistryObject<Item> JADE = ITEMS.register("jade",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> JADE_DUST = ITEMS.register("jade_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> RAW_JADE = ITEMS.register("raw_jade",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
@@ -122,6 +125,9 @@ public class ModItems {
     public static final RegistryObject<Item> TOPAZ = ITEMS.register("topaz",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> TOPAZ_DUST = ITEMS.register("topaz_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> RAW_TOPAZ = ITEMS.register("raw_topaz",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
@@ -164,6 +170,9 @@ public class ModItems {
 //------------------------------------------------------------------------------------------------------------------Lead
 
     public static final RegistryObject<Item> LEAD_INGOT = ITEMS.register("lead_ingot",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> LEAD_DUST = ITEMS.register("lead_dust",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
     public static final RegistryObject<Item> RAW_LEAD = ITEMS.register("raw_lead",() ->
@@ -213,6 +222,9 @@ public class ModItems {
     public static final RegistryObject<Item> TIN_INGOT = ITEMS.register("tin_ingot",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> TIN_DUST = ITEMS.register("tin_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> RAW_TIN = ITEMS.register("raw_tin",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
@@ -260,6 +272,9 @@ public class ModItems {
     public static final RegistryObject<Item> COPPER_NUGGET = ITEMS.register("copper_nugget",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> COPPER_DUST = ITEMS.register("copper_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> COPPER_HELMET = ITEMS.register("copper_helmet",() ->
             new ArmorItem(ModArmorTier.COPPER, EquipmentSlot.HEAD,
                     new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
@@ -299,6 +314,9 @@ public class ModItems {
 //--------------------------------------------------------------------------------------------------------------Platinum
 
     public static final RegistryObject<Item> PLATINUM_INGOT = ITEMS.register("platinum_ingot",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> PLATINUM_DUST = ITEMS.register("platinum_dust",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
     public static final RegistryObject<Item> RAW_PLATINUM = ITEMS.register("raw_platinum",() ->
@@ -343,16 +361,75 @@ public class ModItems {
             new HoeItem(ModItemTier.PLATINUM, 0, 0.0F,
                     new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+//--------------------------------------------------------------------------------------------------------------Sapphire
+
+    public static final RegistryObject<Item> SAPPHIRE = ITEMS.register("sapphire",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_DUST = ITEMS.register("sapphire_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RAW_SAPPHIRE = ITEMS.register("raw_sapphire",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_HELMET = ITEMS.register("sapphire_helmet",() ->
+            new ArmorItem(ModArmorTier.SAPPHIRE, EquipmentSlot.HEAD,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_CHESTPLATE = ITEMS.register("sapphire_chestplate",() ->
+            new ArmorItem(ModArmorTier.SAPPHIRE, EquipmentSlot.CHEST,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_LEGGINGS = ITEMS.register("sapphire_leggings",() ->
+            new ArmorItem(ModArmorTier.SAPPHIRE, EquipmentSlot.LEGS,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_BOOTS = ITEMS.register("sapphire_boots",() ->
+            new ArmorItem(ModArmorTier.SAPPHIRE, EquipmentSlot.FEET,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_SWORD = ITEMS.register("sapphire_sword",() ->
+            new SwordItem(ModItemTier.SAPPHIRE, 3, -2.4f,
+                    new SwordItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_PICKAXE = ITEMS.register("sapphire_pickaxe",() ->
+            new PickaxeItem(ModItemTier.SAPPHIRE, 2, -2.8f,
+                    new PickaxeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_AXE = ITEMS.register("sapphire_axe",() ->
+            new AxeItem(ModItemTier.SAPPHIRE, 5, -3.1f,
+                    new AxeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_SHOVEL = ITEMS.register("sapphire_shovel",() ->
+            new ShovelItem(ModItemTier.SAPPHIRE, 0, -3.4f,
+                    new ShovelItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe",() ->
+            new HoeItem(ModItemTier.TOPAZ, -1, -1f,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
 
 //-----------------------------------------------------------------------------------------------------------------Items
 
     public static final RegistryObject<Item> RAW_DIAMOND = ITEMS.register("raw_diamond",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> DIAMOND_DUST = ITEMS.register("diamond_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> RAW_EMERALD = ITEMS.register("raw_emerald",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+    public static final RegistryObject<Item> EMERALD_DUST = ITEMS.register("emerald_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
     public static final RegistryObject<Item> RAW_LAPIS = ITEMS.register("raw_lapis",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> LAPIS_DUST = ITEMS.register("lapis_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> IRON_DUST = ITEMS.register("iron_dust",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
     public static final RegistryObject<Item> RAW_REDSTONE = ITEMS.register("raw_redstone",() ->
@@ -363,6 +440,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> SET_WATER_BOTTLES = ITEMS.register("set_water_bottles",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT).durability(64)));
+
+
 
 
     public static void register(IEventBus iEventBus) {

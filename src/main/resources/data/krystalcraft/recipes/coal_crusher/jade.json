@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "krystalcraft:jade"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:jade_dust"
+  }
+}

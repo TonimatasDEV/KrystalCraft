@@ -7,6 +7,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
+import net.tonimatasmc.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
 import net.tonimatasmc.krystalcraft.block.entity.custom.GemCuttingStationBlockEntity;
 
 @SuppressWarnings("ConstantConditions")
@@ -19,6 +20,11 @@ public class ModBlockEntities {
             BLOCK_ENTITIES.register("gem_cutting_station_block_entity", () ->
                     BlockEntityType.Builder.of(GemCuttingStationBlockEntity::new,
                             ModBlocks.GEM_CUTTING_STATION.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<CoalCrusherBlockEntity>> COAL_CRUSHER_BLOCK_ENTITY =
+            BLOCK_ENTITIES.register("coal_crusher_block_entity", () ->
+                    BlockEntityType.Builder.of(CoalCrusherBlockEntity::new,
+                            ModBlocks.COAL_CRUSHER.get()).build(null));
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

@@ -22,20 +22,23 @@ public enum ModArmorTier implements ArmorMaterial {
     TOPAZ("topaz", new int[] {3, 4, 7, 1}, new int[] {285, 375, 325, 250}, 8, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.2f, 0.0f, () ->
             Ingredient.of(ModItems.TOPAZ.get())),
 
-    SILVER("silver", new int[]{2, 5, 7, 2}, new int[] {235, 295, 280, 240}, 7, SoundEvents.ARMOR_EQUIP_IRON, 0.5F, 0.0F, () ->
+    SILVER("silver", new int[]{2, 5, 7, 2}, new int[] {235, 295, 280, 240}, 7, SoundEvents.ARMOR_EQUIP_IRON, 0.5f, 0.0F, () ->
             Ingredient.of(ModItems.SILVER_INGOT.get())),
 
-    LEAD("lead", new int[] {3, 6, 8, 3}, new int[] {390, 460, 420, 350}, 6, SoundEvents.ARMOR_EQUIP_IRON, 1.5F, 0, () ->
+    LEAD("lead", new int[] {3, 6, 8, 3}, new int[] {390, 460, 420, 350}, 6, SoundEvents.ARMOR_EQUIP_IRON, 1.5f, 0.0f, () ->
             Ingredient.of(ModItems.LEAD_INGOT.get())),
 
-    TIN("tin", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0,() ->
+    TIN("tin", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0f, 0.0f,() ->
             Ingredient.of(ModItems.TIN_INGOT.get())),
 
-    PLATINUM("platinum", new int[] {3, 5, 6, 2}, new int[] {480, 570, 510, 400}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0, () ->
+    PLATINUM("platinum", new int[] {3, 5, 6, 2}, new int[] {480, 570, 510, 400}, 8, SoundEvents.ARMOR_EQUIP_IRON, 2.0f, 1.0f, () ->
             Ingredient.of(ModItems.PLATINUM_INGOT.get())),
 
-    COPPER("copper", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0, () ->
-            Ingredient.of(Items.COPPER_INGOT));
+    COPPER("copper", new int[] {2, 4, 5, 1}, new int[] {190, 250, 220, 210}, 8, SoundEvents.ARMOR_EQUIP_IRON, 0.2f, 0.0f, () ->
+            Ingredient.of(Items.COPPER_INGOT)),
+
+    SAPPHIRE("sapphire", new int[] {3, 4, 7, 1}, new int[] {305, 395, 345, 270}, 28, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.3f, 0.0f, () ->
+            Ingredient.of(ModItems.SAPPHIRE.get()));
 
 
     private final int[] MAX_DAMAGE_ARRAY;

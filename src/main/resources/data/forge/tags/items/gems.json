@@ -1,6 +1,7 @@
 {
   "values": [
     "#forge:gems/jade",
-    "#forge:gems/topaz"
+    "#forge:gems/topaz",
+    "#forge:gems/sapphire"
   ]
 }

@@ -9,6 +9,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
 import net.tonimatasmc.krystalcraft.recipe.GemCuttingStationRecipe;
 
 import javax.annotation.Nonnull;
@@ -26,14 +27,17 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
-        registration.addRecipeCategories(new
-                GemCuttingStationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new GemCuttingStationRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new CoalCrusherRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager rm = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
-        List<GemCuttingStationRecipe> recipes = rm.getAllRecipesFor(GemCuttingStationRecipe.Type.INSTANCE);
-        registration.addRecipes(new RecipeType<>(GemCuttingStationRecipeCategory.UID, GemCuttingStationRecipe.class), recipes);
+        List<GemCuttingStationRecipe> recipesGemCuttingStation = rm.getAllRecipesFor(GemCuttingStationRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(GemCuttingStationRecipeCategory.UID, GemCuttingStationRecipe.class), recipesGemCuttingStation);
+
+        List<CoalCrusherRecipe> recipesCoalCrusher = rm.getAllRecipesFor(CoalCrusherRecipe.Type.INSTANCE);
+        registration.addRecipes(new RecipeType<>(CoalCrusherRecipeCategory.UID, CoalCrusherRecipe.class), recipesCoalCrusher);
     }
 }

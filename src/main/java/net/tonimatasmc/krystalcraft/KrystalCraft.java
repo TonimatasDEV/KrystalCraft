@@ -15,6 +15,7 @@ import net.tonimatasmc.krystalcraft.config.KrystalCraftModCommonConfigs;
 import net.tonimatasmc.krystalcraft.config.KrystalCraftModClientConfigs;
 import net.tonimatasmc.krystalcraft.item.ModItems;
 import net.tonimatasmc.krystalcraft.recipe.ModRecipes;
+import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
 
@@ -43,6 +44,7 @@ public class KrystalCraft {
 
     private void clientSetup(final FMLClientSetupEvent event) {
         MenuScreens.register(ModMenuTypes.GEM_CUTTING_STATION_MENU.get(), GemCuttingStationScreen::new);
+        MenuScreens.register(ModMenuTypes.COAL_CRUSHER_MENU.get(), CoalCrusherScreen::new);
     }
 
     @SuppressWarnings("unused")
