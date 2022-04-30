@@ -1,6 +1,9 @@
 {
   "replace": false,
   "values": [
+    "krystalcraft:coal_crusher",
+    "krystalcraft:gem_cutting_station",
+
     "krystalcraft:lead_block",
     "krystalcraft:lead_ore",
     "krystalcraft:deepslate_lead_ore",
