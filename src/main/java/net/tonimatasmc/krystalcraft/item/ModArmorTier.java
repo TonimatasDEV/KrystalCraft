@@ -38,8 +38,10 @@ public enum ModArmorTier implements ArmorMaterial {
             Ingredient.of(Items.COPPER_INGOT)),
 
     SAPPHIRE("sapphire", new int[] {3, 4, 7, 1}, new int[] {305, 395, 345, 270}, 28, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.3f, 0.0f, () ->
-            Ingredient.of(ModItems.SAPPHIRE.get()));
+            Ingredient.of(ModItems.SAPPHIRE.get())),
 
+    RUBY("sapphire", new int[] {2, 3, 6, 2}, new int[] {305, 395, 345, 270}, 28, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0f, 0.0f, () ->
+            Ingredient.of(ModItems.SAPPHIRE.get()));
 
     private final int[] MAX_DAMAGE_ARRAY;
     private final String name;

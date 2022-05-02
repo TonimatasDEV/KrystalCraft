@@ -405,9 +405,55 @@ public class ModItems {
                     new ShovelItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
     public static final RegistryObject<Item> SAPPHIRE_HOE = ITEMS.register("sapphire_hoe",() ->
-            new HoeItem(ModItemTier.TOPAZ, -1, -1f,
+            new HoeItem(ModItemTier.SAPPHIRE, -1, -1f,
                     new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+//--------------------------------------------------------------------------------------------------------------Sapphire
+
+    public static final RegistryObject<Item> RUBY = ITEMS.register("ruby",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_DUST = ITEMS.register("ruby_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RAW_RUBY = ITEMS.register("raw_ruby",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_HELMET = ITEMS.register("ruby_helmet",() ->
+            new ArmorItem(ModArmorTier.RUBY, EquipmentSlot.HEAD,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_CHESTPLATE = ITEMS.register("ruby_chestplate",() ->
+            new ArmorItem(ModArmorTier.RUBY, EquipmentSlot.CHEST,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_LEGGINGS = ITEMS.register("ruby_leggings",() ->
+            new ArmorItem(ModArmorTier.RUBY, EquipmentSlot.LEGS,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_BOOTS = ITEMS.register("ruby_boots",() ->
+            new ArmorItem(ModArmorTier.RUBY, EquipmentSlot.FEET,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_SWORD = ITEMS.register("ruby_sword",() ->
+            new SwordItem(ModItemTier.RUBY, 3, -2.6f,
+                    new SwordItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_PICKAXE = ITEMS.register("ruby_pickaxe",() ->
+            new PickaxeItem(ModItemTier.RUBY, 2, -3.0f,
+                    new PickaxeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_AXE = ITEMS.register("ruby_axe",() ->
+            new AxeItem(ModItemTier.RUBY, 5, -3.3f,
+                    new AxeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_SHOVEL = ITEMS.register("ruby_shovel",() ->
+            new ShovelItem(ModItemTier.RUBY, 0, -3.6f,
+                    new ShovelItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> RUBY_HOE = ITEMS.register("ruby_hoe",() ->
+            new HoeItem(ModItemTier.RUBY, -1, -1f,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
 //-----------------------------------------------------------------------------------------------------------------Items
 

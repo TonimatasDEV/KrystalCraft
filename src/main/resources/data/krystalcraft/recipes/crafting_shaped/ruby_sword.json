@@ -1,0 +1,20 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "0",
+    "0",
+    "1"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:gems/ruby"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:ruby_sword"
+  }
+}

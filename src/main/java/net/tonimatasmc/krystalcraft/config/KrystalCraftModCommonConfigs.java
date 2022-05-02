@@ -41,6 +41,11 @@ public class KrystalCraftModCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> SAPPHIRE_ORE_MINIMUN_HEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> SAPPHIRE_ORE_MAXIMUN_HEIGHT;
 
+    public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_VEINS_PER_CHUNK;
+    public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_VEIN_SIZE;
+    public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_MINIMUN_HEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_MAXIMUN_HEIGHT;
+
     static {
         BUILDER.push("Configs for KrystalCraft");
 
@@ -79,6 +84,11 @@ public class KrystalCraftModCommonConfigs {
         SAPPHIRE_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 3, 1, 10);
         SAPPHIRE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 5);
         SAPPHIRE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 100);
+
+        RUBY_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Veins spawn per chunk!").define("Veins of Platinum Ore Per Chunk", 4);
+        RUBY_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 5, 1, 10);
+        RUBY_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 10);
+        RUBY_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 90);
 
         BUILDER.pop();
         SPEC = BUILDER.build();
