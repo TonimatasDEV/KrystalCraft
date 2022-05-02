@@ -128,6 +128,22 @@
   "item.krystalcraft.sapphire": "Zafiro",
   "item.krystalcraft.sapphire_dust": "Polvo de zafiro",
 
+  "block.krystalcraft.ruby_ore": "Mineral de rubí",
+  "block.krystalcraft.ruby_block": "Bloque de rubí",
+  "item.krystalcraft.ruby_helmet": "Casco de rubí",
+  "item.krystalcraft.ruby_chestplate": "Peto de rubí",
+  "block.krystalcraft.deepslate_ruby_ore": "Mineral de rubí de pizarra",
+  "item.krystalcraft.ruby_leggings": "Pantalones de rubí",
+  "item.krystalcraft.ruby_boots": "Botas de rubí",
+  "item.krystalcraft.ruby_sword": "Espada de rubí",
+  "item.krystalcraft.ruby_pickaxe": "Pico de rubí",
+  "item.krystalcraft.ruby_shovel": "Pala de Rubí",
+  "item.krystalcraft.ruby_hoe": "Azada de rubí",
+  "item.krystalcraft.ruby_axe": "Hacha de rubí",
+  "item.krystalcraft.ruby": "Rubí",
+  "item.krystalcraft.raw_ruby": "Rubí en bruto",
+  "item.krystalcraft.ruby_dust": "Polvo de rubí",
+
   "item.krystalcraft.raw_diamond": "Diamante en bruto",
   "item.krystalcraft.diamond_dust": "Polvo de diamante",
 

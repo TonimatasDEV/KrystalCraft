@@ -1,0 +1,17 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "0 0",
+    "0 0"
+  ],
+  "key": {
+    "0": {
+      "tag": "forge:gems/ruby"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:ruby_leggings"
+  }
+}

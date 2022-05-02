@@ -2,6 +2,7 @@
   "values": [
     "#forge:gems/jade",
     "#forge:gems/topaz",
-    "#forge:gems/sapphire"
+    "#forge:gems/sapphire",
+    "#forge:gems/ruby"
   ]
 }

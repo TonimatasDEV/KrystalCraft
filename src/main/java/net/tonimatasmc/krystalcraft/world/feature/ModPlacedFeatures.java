@@ -38,9 +38,14 @@ public class ModPlacedFeatures {
                         KrystalCraftModCommonConfigs.PLATINUM_ORE_VEINS_PER_CHUNK.get(),
                         HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.PLATINUM_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.PLATINUM_ORE_MAXIMUN_HEIGHT.get()))));
 
-        public static final Holder<PlacedFeature> SAPPHIRE_ORE_PLACED = PlacementUtils.register("platinum_ore_placed",
+        public static final Holder<PlacedFeature> SAPPHIRE_ORE_PLACED = PlacementUtils.register("sapphire_ore_placed",
                 ModConfiguredFeatures.SAPPHIRE_ORE, ModOrePlacement.commonOrePlacement(
                         KrystalCraftModCommonConfigs.SAPPHIRE_ORE_VEINS_PER_CHUNK.get(),
                         HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.SAPPHIRE_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.SAPPHIRE_ORE_MAXIMUN_HEIGHT.get()))));
+
+        public static final Holder<PlacedFeature> RUBY_ORE_PLACED = PlacementUtils.register("ruby_ore_placed",
+                ModConfiguredFeatures.RUBY_ORE, ModOrePlacement.commonOrePlacement(
+                        KrystalCraftModCommonConfigs.RUBY_ORE_VEINS_PER_CHUNK.get(),
+                        HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.RUBY_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.RUBY_ORE_MAXIMUN_HEIGHT.get()))));
 
 }

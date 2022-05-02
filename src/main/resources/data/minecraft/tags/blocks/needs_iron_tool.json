@@ -22,6 +22,10 @@
 
     "krystalcraft:sapphire_block",
     "krystalcraft:sapphire_ore",
-    "krystalcraft:deepslate_sapphire_ore"
+    "krystalcraft:deepslate_sapphire_ore",
+
+    "krystalcraft:ruby_block",
+    "krystalcraft:ruby_ore",
+    "krystalcraft:deepslate_ruby_ore"
   ]
 }
