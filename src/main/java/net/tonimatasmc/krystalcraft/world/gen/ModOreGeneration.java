@@ -1,12 +1,12 @@
 package net.tonimatasmc.krystalcraft.world.gen;
 
-import java.util.List;
-
 import net.minecraft.core.Holder;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.tonimatasmc.krystalcraft.world.feature.ModPlacedFeatures;
+
+import java.util.List;
 
 public class ModOreGeneration {
     public static void generateOres(final BiomeLoadingEvent event) {

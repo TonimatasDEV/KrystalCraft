@@ -11,8 +11,9 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
 import net.tonimatasmc.krystalcraft.block.entity.ModBlockEntities;
-import net.tonimatasmc.krystalcraft.config.KrystalCraftModCommonConfigs;
 import net.tonimatasmc.krystalcraft.config.KrystalCraftModClientConfigs;
+import net.tonimatasmc.krystalcraft.config.KrystalCraftModCommonConfigs;
+import net.tonimatasmc.krystalcraft.enchantment.ModEnchantments;
 import net.tonimatasmc.krystalcraft.item.ModItems;
 import net.tonimatasmc.krystalcraft.recipe.ModRecipes;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
@@ -26,13 +27,28 @@ public class KrystalCraft {
     public KrystalCraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModBlocks.register(eventBus);
         ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
+
+        //ModPaintings.register(eventBus);
+        //ModSounds.register(eventBus);
+
+        //ModEffects.register(eventBus);
+        //ModPotions.register(eventBus);
 
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
 
         ModRecipes.register(eventBus);
+        //ModParticles.register(eventBus);
+
+        //ModFluids.register(eventBus);
+        ModEnchantments.register(eventBus);
+
+        //ModEntityTypes.register(eventBus);
+        //ModVillagers.register(eventBus);
+
+        //ModStructures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         
