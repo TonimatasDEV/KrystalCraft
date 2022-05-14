@@ -2,7 +2,7 @@
   "type": "krystalcraft:coal_crusher",
   "ingredients": [
     {
-      "item": "minecraft:lapiz_lazuli"
+      "item": "minecraft:lapis_lazuli"
     }
   ],
   "output": {

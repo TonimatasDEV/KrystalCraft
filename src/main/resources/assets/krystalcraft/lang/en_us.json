@@ -174,7 +174,5 @@
   "enchantment.krystalcraft.xp_leech.desc": "Give you experience by attacking entities.",
   "enchantment.krystalcraft.xp_leech.guide": "Experience Leech 1 = Give 10 points of experience / Experience Leech 2 = Give 20 points of experience / Experience Leech 3 = Give 30 points of experience / Experience Leech 4 = Give 40 points of experience / Experience Leech 5 = Give 50 points of experience",
 
-
-  "itemGroup.KrystalCraft_Enchantments": "KrystalCraft: Enchantments",
   "itemGroup.KrystalCraft": "KrystalCraft"
 }

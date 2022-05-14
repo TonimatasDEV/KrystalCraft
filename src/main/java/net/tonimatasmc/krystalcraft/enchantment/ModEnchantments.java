@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 
+@SuppressWarnings("unused")
 public class ModEnchantments {
     public static final DeferredRegister<Enchantment> ENCHANTMENTS = DeferredRegister.create(ForgeRegistries.ENCHANTMENTS, KrystalCraft.MOD_ID);
 
@@ -26,7 +27,11 @@ public class ModEnchantments {
 
     public static RegistryObject<Enchantment> XP_LEECH =
             ENCHANTMENTS.register("xp_leech", () -> new XpLeechEnchantment(
-                    Enchantment.Rarity.RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
+                    Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
+
+    //public static RegistryObject<Enchantment> PLAYER_HEADS =
+    //        ENCHANTMENTS.register("player_heads", () -> new PlayerHeadsEnchantment(
+    //                Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
     
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);
