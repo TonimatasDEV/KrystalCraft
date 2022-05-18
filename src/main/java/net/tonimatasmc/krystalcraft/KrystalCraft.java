@@ -20,6 +20,7 @@ import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
 
+@SuppressWarnings("CommentedOutCode")
 @Mod(KrystalCraft.MOD_ID)
 public class KrystalCraft {
     public static final String MOD_ID = "krystalcraft";
