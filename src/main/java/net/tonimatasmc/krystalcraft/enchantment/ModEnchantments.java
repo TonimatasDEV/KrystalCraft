@@ -29,9 +29,13 @@ public class ModEnchantments {
             ENCHANTMENTS.register("xp_leech", () -> new XpLeechEnchantment(
                     Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
 
-    //public static RegistryObject<Enchantment> PLAYER_HEADS =
-    //        ENCHANTMENTS.register("player_heads", () -> new PlayerHeadsEnchantment(
-    //                Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
+    public static RegistryObject<Enchantment> PLAYER_HEADS =
+            ENCHANTMENTS.register("player_heads", () -> new PlayerHeadsEnchantment(
+                    Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
+
+    public static RegistryObject<Enchantment> FREEZING =
+            ENCHANTMENTS.register("freezing", () -> new FreezingEnchantment(
+                    Enchantment.Rarity.COMMON, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
     
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);

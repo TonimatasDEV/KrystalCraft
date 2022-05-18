@@ -174,5 +174,12 @@
   "enchantment.krystalcraft.xp_leech.desc": "Give you experience by attacking entities.",
   "enchantment.krystalcraft.xp_leech.guide": "Experience Leech 1 = Give 10 points of experience / Experience Leech 2 = Give 20 points of experience / Experience Leech 3 = Give 30 points of experience / Experience Leech 4 = Give 40 points of experience / Experience Leech 5 = Give 50 points of experience",
 
+  "enchantment.krystalcraft.player_heads": "Player Heads",
+  "enchantment.krystalcraft.player_heads.desc": "On kill player this drops the head.",
+
+  "enchantment.krystalcraft.freezing": "Freezing",
+  "enchantment.krystalcraft.freezing.desc": "Slows mobs after hit for three seconds.",
+  "enchantment.krystalcraft.freezing.guide": "Freezing 1 = -20% reduced speed / Freezing 2 = -30% reduced speed / Freezing 3 = -40% reduced speed",
+
   "itemGroup.KrystalCraft": "KrystalCraft"
 }
