@@ -179,5 +179,12 @@
   "enchantment.krystalcraft.xp_leech.desc": "Give you experience by attacking entities.",
   "enchantment.krystalcraft.xp_leech.guide": "Robo de experiencia 1 = Da 10 puntos de experiencia / Robo de experiencia 2 = Da 20 puntos de experiencia / Robo de experiencia 3 = Da 30 puntos de experiencia / Robo de experiencia 4 = Da 40 puntos de experiencia / Robo de experiencia 5 = Da 50 puntos de experiencia",
 
+  "enchantment.krystalcraft.player_heads": "Player Heads",
+  "enchantment.krystalcraft.player_heads.desc": "On kill player this drops the head.",
+
+  "enchantment.krystalcraft.freezing": "Freezing",
+  "enchantment.krystalcraft.freezing.desc": "Slows mobs after hit for three seconds.",
+  "enchantment.krystalcraft.freezing.guide": "Freezing 1 = -20% reduced speed / Freezing 2 = -30% reduced speed / Freezing 3 = -40% reduced speed",
+
   "itemGroup.KrystalCraft": "KrystalCraft"
 }
