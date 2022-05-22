@@ -16,7 +16,6 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
 
-@SuppressWarnings("ClassCanBeRecord")
 public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;

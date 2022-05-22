@@ -12,6 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import net.tonimatasmc.krystalcraft.block.custom.CoalCombinerBlock;
 import net.tonimatasmc.krystalcraft.block.custom.CoalCrusherBlock;
 import net.tonimatasmc.krystalcraft.block.custom.GemCuttingStationBlock;
 import net.tonimatasmc.krystalcraft.item.KrystalCraftTab;
@@ -121,6 +122,14 @@ public class ModBlocks {
             new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
+    public static final RegistryObject<Block> EXPERIENCE_ORE = registerBlock("experience_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> DEEPSLATE_EXPERIENCE_ORE = registerBlock("deepslate_experience_ore", () ->
+            new Block(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
 
     //----------------------------------------------------------------------------------------------------------------------
     public static final RegistryObject<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station",
@@ -128,6 +137,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> COAL_CRUSHER = registerBlock("coal_crusher",
             () -> new CoalCrusherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+
+    public static final RegistryObject<Block> COAL_COMBINER = registerBlock("coal_combiner",
+            () -> new CoalCombinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
         return BLOCKS.register(name, block);

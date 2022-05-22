@@ -20,5 +20,6 @@ public class ModOreGeneration {
         base.add(ModPlacedFeatures.PLATINUM_ORE_PLACED);
         base.add(ModPlacedFeatures.SAPPHIRE_ORE_PLACED);
         base.add(ModPlacedFeatures.RUBY_ORE_PLACED);
+        base.add(ModPlacedFeatures.EXPERIENCE_ORE_PLACED);
     }
 }

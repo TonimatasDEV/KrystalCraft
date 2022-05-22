@@ -12,10 +12,10 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class GemCuttingStationScreen extends AbstractContainerScreen<GemCuttingStationMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
+public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
 
-    public GemCuttingStationScreen(GemCuttingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CoalCombinerScreen(CoalCombinerMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -31,7 +31,10 @@ public class GemCuttingStationScreen extends AbstractContainerScreen<GemCuttingS
         this.blit(Objects.requireNonNull(pPoseStack), x, y, 0, 0, imageWidth, imageHeight);
 
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 102, y + 41, 176, 0, 8, menu.getScaledProgress());
+            blit(pPoseStack, x + 51, y + 38, 218, 0, 14, menu.getScaledProgress());
+            blit(pPoseStack, x + 111, y + 38, 232, 0, 14, menu.getScaledProgress());
+
+            blit(pPoseStack, x + 67, y + 17, 176, 0, 40, menu.getScaledProgress());
         }
     }
 

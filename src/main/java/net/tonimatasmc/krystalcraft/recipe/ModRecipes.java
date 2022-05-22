@@ -6,6 +6,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import net.tonimatasmc.krystalcraft.integration.CoalCombinerRecipeCategory;
 
 public class ModRecipes {
     public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS =
@@ -16,6 +17,9 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<CoalCrusherRecipe>> COAL_CRUSHER_SERIALIZER =
             SERIALIZERS.register("coal_crusher", () -> CoalCrusherRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<CoalCombinerRecipe>> COAL_COMBINER_SERIALIZER =
+            SERIALIZERS.register("coal_combiner", () -> CoalCombinerRecipe.Serializer.INSTANCE);
 
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);

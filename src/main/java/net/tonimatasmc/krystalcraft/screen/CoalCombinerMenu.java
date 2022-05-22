@@ -10,26 +10,28 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
-import net.tonimatasmc.krystalcraft.block.entity.custom.GemCuttingStationBlockEntity;
+import net.tonimatasmc.krystalcraft.block.entity.custom.CoalCombinerBlockEntity;
 import net.tonimatasmc.krystalcraft.screen.slot.ModResultSlot;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 
-public class GemCuttingStationMenu extends AbstractContainerMenu {
-    private final GemCuttingStationBlockEntity blockEntity;
+public class CoalCombinerMenu extends AbstractContainerMenu {
+    private final CoalCombinerBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public GemCuttingStationMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+    public CoalCombinerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
     }
 
-    public GemCuttingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
-        super(ModMenuTypes.GEM_CUTTING_STATION_MENU.get(), pContainerId);
-        checkContainerSize(inv, 4);
-        blockEntity = ((GemCuttingStationBlockEntity) entity);
+    public CoalCombinerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+        super(ModMenuTypes.COAL_COMBINER_MENU.get(), pContainerId);
+
+        checkContainerSize(inv, 5);
+        blockEntity = ((CoalCombinerBlockEntity) entity);
+
         this.level = inv.player.level;
         this.data = data;
 
@@ -37,21 +39,21 @@ public class GemCuttingStationMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 34, 40));
-            this.addSlot(new SlotItemHandler(handler, 1, 57, 18));
-            this.addSlot(new SlotItemHandler(handler, 2, 103, 18));
-            this.addSlot(new ModResultSlot(handler, 3, 80, 60));
+            this.addSlot(new SlotItemHandler(handler, 0, 50, 18));
+            this.addSlot(new SlotItemHandler(handler, 1, 110, 18));
+            this.addSlot(new SlotItemHandler(handler, 2, 50, 53));
+            this.addSlot(new SlotItemHandler(handler, 3, 110, 53));
+            this.addSlot(new ModResultSlot(handler, 4, 80, 60));
+
         });
 
         addDataSlots(data);
     }
 
-    @SuppressWarnings("unused")
     public boolean isCrafting() {
         return data.get(0) > 0;
     }
 
-    @SuppressWarnings("unused")
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
@@ -76,12 +78,11 @@ public class GemCuttingStationMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
 
     @SuppressWarnings("ConstantConditions")
     @Override
-    @Nonnull
-    public ItemStack quickMoveStack(@Nullable Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
         if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
@@ -116,7 +117,7 @@ public class GemCuttingStationMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(@Nullable Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                Objects.requireNonNull(pPlayer), ModBlocks.GEM_CUTTING_STATION.get());
+                Objects.requireNonNull(pPlayer), ModBlocks.COAL_COMBINER.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
