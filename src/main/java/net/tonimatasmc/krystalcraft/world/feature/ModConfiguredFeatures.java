@@ -44,6 +44,10 @@ public class ModConfiguredFeatures {
                 OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.RUBY_ORE.get().defaultBlockState()),
                 OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
 
+        public static final List<OreConfiguration.TargetBlockState> OVERWORLD_EXPERIENCE_ORES = List.of(
+                OreConfiguration.target(OreFeatures.STONE_ORE_REPLACEABLES, ModBlocks.EXPERIENCE_ORE.get().defaultBlockState()),
+                OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get().defaultBlockState()));
+
 //----------------------------------------------------------------------------------------------------------------------
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JADE_ORE = FeatureUtils.register("jade_ore",
@@ -69,4 +73,7 @@ public class ModConfiguredFeatures {
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> RUBY_ORE = FeatureUtils.register("ruby_ore",
                 Feature.ORE, new OreConfiguration(OVERWORLD_RUBY_ORES, KrystalCraftModCommonConfigs.RUBY_ORE_VEIN_SIZE.get()));
+
+        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> EXPERIENCE_ORE = FeatureUtils.register("experience_ore",
+                Feature.ORE, new OreConfiguration(OVERWORLD_EXPERIENCE_ORES, KrystalCraftModCommonConfigs.EXPERIENCE_ORE_VEIN_SIZE.get()));
 }

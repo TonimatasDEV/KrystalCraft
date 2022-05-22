@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "krystalcraft:block/deepslate_experience_ore"
+  }
+}

@@ -11,17 +11,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
 
-public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
+public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
     private final ItemStack output;
     private final NonNullList<Ingredient> recipeItems;
 
-    public GemCuttingStationRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public CoalCombinerRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
         this.id = id;
         this.output = output;
         this.recipeItems = recipeItems;
@@ -74,21 +75,22 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
     }
 
     @SuppressWarnings("unused")
-    public static class Type implements RecipeType<GemCuttingStationRecipe> {
+    public static class Type implements RecipeType<CoalCombinerRecipe> {
         private Type() {
+
         }
 
         public static final Type INSTANCE = new Type();
-        public static final String ID = "gem_cutting";
+        public static final String ID = "coal_combiner";
     }
 
-    public static class Serializer implements RecipeSerializer<GemCuttingStationRecipe> {
+    public static class Serializer implements RecipeSerializer<CoalCombinerRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "gem_cutting");
+        public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_combiner");
 
         @Override
         @Nonnull
-        public GemCuttingStationRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
+        public CoalCombinerRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(Objects.requireNonNull(json), "output"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
@@ -98,25 +100,27 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new GemCuttingStationRecipe(id, output, inputs);
+            return new CoalCombinerRecipe(id, output, inputs);
         }
 
         @Override
-        public GemCuttingStationRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
+        public CoalCombinerRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
 
             inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
 
             ItemStack output = buf.readItem();
-            return new GemCuttingStationRecipe(id, output, inputs);
+            return new CoalCombinerRecipe(id, output, inputs);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, GemCuttingStationRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, CoalCombinerRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
+
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
+
             buf.writeItemStack(recipe.getResultItem(), false);
         }
 

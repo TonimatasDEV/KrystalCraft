@@ -15,23 +15,22 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
-import net.tonimatasmc.krystalcraft.item.ModItems;
-import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
+import net.tonimatasmc.krystalcraft.recipe.CoalCombinerRecipe;
 
 import javax.annotation.Nonnull;
 
 @SuppressWarnings("removal")
-public class CoalCrusherRecipeCategory implements IRecipeCategory<CoalCrusherRecipe> {
-    public final static ResourceLocation UID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_crusher");
+public class CoalCombinerRecipeCategory implements IRecipeCategory<CoalCombinerRecipe> {
+    public final static ResourceLocation UID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_combiner");
     public final static ResourceLocation TEXTURE =
-            new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
+            new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
 
     private final IDrawable background;
     private final IDrawable icon;
 
-    public CoalCrusherRecipeCategory(IGuiHelper helper) {
+    public CoalCombinerRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 82);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(ModBlocks.COAL_CRUSHER.get()));
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(ModBlocks.COAL_COMBINER.get()));
     }
 
     @Override
@@ -42,14 +41,14 @@ public class CoalCrusherRecipeCategory implements IRecipeCategory<CoalCrusherRec
 
     @Override
     @Nonnull
-    public Class<? extends CoalCrusherRecipe> getRecipeClass() {
-        return CoalCrusherRecipe.class;
+    public Class<? extends CoalCombinerRecipe> getRecipeClass() {
+        return CoalCombinerRecipe.class;
     }
 
     @Override
     @Nonnull
     public Component getTitle() {
-        return new TextComponent("Coal Crusher");
+        return new TextComponent("Coal Combiner");
     }
 
     @Override
@@ -65,11 +64,13 @@ public class CoalCrusherRecipeCategory implements IRecipeCategory<CoalCrusherRec
     }
 
     @Override
-    public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull CoalCrusherRecipe recipe, @Nonnull IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 25, 21).addIngredients(Ingredient.of(ModItems.SET_WATER_BOTTLES.get()));
-        builder.addSlot(RecipeIngredientRole.INPUT, 79, 21).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 54, 51).addIngredients(Ingredient.of());
+    public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull CoalCombinerRecipe recipe, @Nonnull IFocusGroup focusGroup) {
+        builder.addSlot(RecipeIngredientRole.INPUT, 50, 18).addIngredients(recipe.getIngredients().get(0));
+        //builder.addSlot(RecipeIngredientRole.INPUT, 110, 18).addIngredients(recipe.getIngredients().get(1));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 21).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.INPUT, 50, 53).addIngredients(Ingredient.of(Items.COAL));
+        builder.addSlot(RecipeIngredientRole.INPUT, 110, 53).addIngredients(Ingredient.of(Items.COAL));
+
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.getResultItem());
     }
 }

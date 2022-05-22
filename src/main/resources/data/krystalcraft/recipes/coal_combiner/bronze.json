@@ -1,0 +1,12 @@
+{
+  "type": "krystalcraft:coal_combiner",
+  "ingredients": [
+    {
+      "item": "minecraft:copper_ingot",
+      "item1": "krystalcraft:tin_ingot"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:diamond_dust"
+  }
+}

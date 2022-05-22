@@ -11,6 +11,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
 import net.tonimatasmc.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
+import net.tonimatasmc.krystalcraft.screen.slot.ModFuelSlot;
 import net.tonimatasmc.krystalcraft.screen.slot.ModResultSlot;
 import org.jetbrains.annotations.Nullable;
 
@@ -23,7 +24,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -39,7 +40,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 25, 21));
             this.addSlot(new SlotItemHandler(handler, 1, 79, 21));
-            this.addSlot(new SlotItemHandler(handler, 2, 54, 51));
+            this.addSlot(new ModFuelSlot(handler, 2, 54, 51));
             this.addSlot(new ModResultSlot(handler, 3, 133, 21));
         });
 

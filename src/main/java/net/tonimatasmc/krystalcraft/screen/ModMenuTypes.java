@@ -15,8 +15,9 @@ public class ModMenuTypes {
     public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS, KrystalCraft.MOD_ID);
 
     public static final RegistryObject<MenuType<GemCuttingStationMenu>> GEM_CUTTING_STATION_MENU = registerMenuType(GemCuttingStationMenu::new, "gem_cutting_station_menu");
-
     public static final RegistryObject<MenuType<CoalCrusherMenu>> COAL_CRUSHER_MENU = registerMenuType(CoalCrusherMenu::new, "coal_crusher_menu");
+    public static final RegistryObject<MenuType<CoalCombinerMenu>> COAL_COMBINER_MENU = registerMenuType(CoalCombinerMenu::new, "coal_combiner_menu");
+
     @SuppressWarnings("SameParameterValue")
     private static <T extends AbstractContainerMenu>RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> containerFactory, @Nullable String name) {
         return MENUS.register(name, () -> IForgeMenuType.create(containerFactory));

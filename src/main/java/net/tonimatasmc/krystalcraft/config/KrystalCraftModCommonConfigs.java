@@ -46,6 +46,11 @@ public class KrystalCraftModCommonConfigs {
     public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_MINIMUN_HEIGHT;
     public static final ForgeConfigSpec.ConfigValue<Integer> RUBY_ORE_MAXIMUN_HEIGHT;
 
+    public static final ForgeConfigSpec.ConfigValue<Integer> EXPERIENCE_ORE_VEINS_PER_CHUNK;
+    public static final ForgeConfigSpec.ConfigValue<Integer> EXPERIENCE_ORE_VEIN_SIZE;
+    public static final ForgeConfigSpec.ConfigValue<Integer> EXPERIENCE_ORE_MINIMUN_HEIGHT;
+    public static final ForgeConfigSpec.ConfigValue<Integer> EXPERIENCE_ORE_MAXIMUN_HEIGHT;
+
     static {
         BUILDER.push("Configs for KrystalCraft");
 
@@ -80,15 +85,20 @@ public class KrystalCraftModCommonConfigs {
         PLATINUM_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 5);
         PLATINUM_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 90);
 
-        SAPPHIRE_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Veins spawn per chunk!").define("Veins of Platinum Ore Per Chunk", 5);
-        SAPPHIRE_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 3, 1, 10);
-        SAPPHIRE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 5);
-        SAPPHIRE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 100);
+        SAPPHIRE_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Sapphire Ore Veins spawn per chunk!").define("Veins of Sapphire Ore Per Chunk", 5);
+        SAPPHIRE_ORE_VEIN_SIZE = BUILDER.comment("How many Sapphire Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Sapphire Ore", 3, 1, 10);
+        SAPPHIRE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Sapphire Ore", 5);
+        SAPPHIRE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Sapphire Ore", 100);
 
-        RUBY_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Veins spawn per chunk!").define("Veins of Platinum Ore Per Chunk", 4);
-        RUBY_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 5, 1, 10);
-        RUBY_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 10);
-        RUBY_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 90);
+        RUBY_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Ruby Ore Veins spawn per chunk!").define("Veins of Ruby Ore Per Chunk", 4);
+        RUBY_ORE_VEIN_SIZE = BUILDER.comment("How many Ruby Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Ruby Ore", 5, 1, 10);
+        RUBY_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Ruby Ore", 10);
+        RUBY_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Ruby Ore", 90);
+
+        EXPERIENCE_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Experience spawn per chunk!").define("Veins of Experience Ore Per Chunk", 4);
+        EXPERIENCE_ORE_VEIN_SIZE = BUILDER.comment("How many Experience Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Experience Ore", 10, 1, 10);
+        EXPERIENCE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Experience Ore", 1);
+        EXPERIENCE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Experience Ore", 140);
 
         BUILDER.pop();
         SPEC = BUILDER.build();

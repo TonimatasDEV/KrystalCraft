@@ -34,6 +34,9 @@
 
     "krystalcraft:ruby_block",
     "krystalcraft:ruby_ore",
-    "krystalcraft:deepslate_ruby_ore"
+    "krystalcraft:deepslate_ruby_ore",
+
+    "krystalcraft:deepslate_experience_ore",
+    "krystalcraft:experience_ore"
   ]
 }
