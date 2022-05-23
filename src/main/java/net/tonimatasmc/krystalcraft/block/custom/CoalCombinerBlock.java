@@ -38,8 +38,7 @@ public class CoalCombinerBlock extends BaseEntityBlock {
     private static final VoxelShape SHAPE =  Block.box(0, 0, 0, 16, 18, 16);
 
     @Override
-    @Nonnull
-    public VoxelShape getShape(@Nullable BlockState pState, @Nullable BlockGetter pLevel, @Nullable BlockPos pPos, @Nullable CollisionContext pContext) {
+    public @Nonnull VoxelShape getShape(@Nullable BlockState pState, @Nullable BlockGetter pLevel, @Nullable BlockPos pPos, @Nullable CollisionContext pContext) {
         return SHAPE;
     }
 
@@ -49,14 +48,12 @@ public class CoalCombinerBlock extends BaseEntityBlock {
     }
 
     @Override
-    @Nonnull
-    public BlockState rotate(BlockState pState, Rotation pRotation) {
+    public @Nonnull BlockState rotate(BlockState pState, Rotation pRotation) {
         return pState.setValue(FACING, pRotation.rotate(pState.getValue(FACING)));
     }
 
     @Override
-    @Nonnull
-    public BlockState mirror(BlockState pState, Mirror pMirror) {
+    public @Nonnull BlockState mirror(BlockState pState, Mirror pMirror) {
         return pState.rotate(pMirror.getRotation(pState.getValue(FACING)));
     }
 
@@ -66,8 +63,7 @@ public class CoalCombinerBlock extends BaseEntityBlock {
     }
 
     @Override
-    @Nonnull
-    public RenderShape getRenderShape(@Nullable BlockState pState) {
+    public @Nonnull RenderShape getRenderShape(@Nullable BlockState pState) {
         return RenderShape.MODEL;
     }
 
@@ -75,18 +71,20 @@ public class CoalCombinerBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, @Nullable Level pLevel, @Nullable BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = Objects.requireNonNull(pLevel).getBlockEntity(Objects.requireNonNull(pPos));
+
             if (blockEntity instanceof CoalCombinerBlockEntity) {
                 ((CoalCombinerBlockEntity) blockEntity).drops();
             }
         }
+
         super.onRemove(pState, Objects.requireNonNull(pLevel), Objects.requireNonNull(pPos), pNewState, pIsMoving);
     }
 
     @Override
-    @Nonnull
-    public InteractionResult use(@Nullable BlockState pState, Level pLevel, @Nullable BlockPos pPos, @Nullable Player pPlayer, @Nullable InteractionHand pHand, @Nullable BlockHitResult pHit) {
+    public @Nonnull InteractionResult use(@Nullable BlockState pState, Level pLevel, @Nullable BlockPos pPos, @Nullable Player pPlayer, @Nullable InteractionHand pHand, @Nullable BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(Objects.requireNonNull(pPos));
+
             if(entity instanceof CoalCombinerBlockEntity) {
                 NetworkHooks.openGui(((ServerPlayer) Objects.requireNonNull(pPlayer)), (CoalCombinerBlockEntity) entity, pPos);
             } else {
@@ -97,15 +95,13 @@ public class CoalCombinerBlock extends BaseEntityBlock {
         return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
-    @Nullable
     @Override
-    public BlockEntity newBlockEntity(@Nullable BlockPos pPos, @Nullable BlockState pState) {
+    public @Nullable BlockEntity newBlockEntity(@Nullable BlockPos pPos, @Nullable BlockState pState) {
         return new CoalCombinerBlockEntity(pPos, pState);
     }
 
-    @Nullable
     @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nullable Level pLevel, @Nullable BlockState pState, @Nullable BlockEntityType<T> pBlockEntityType) {
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nullable Level pLevel, @Nullable BlockState pState, @Nullable BlockEntityType<T> pBlockEntityType) {
         return createTickerHelper(pBlockEntityType, ModBlockEntities.COAL_COMBINER_BLOCK_ENTITY.get(),
                 CoalCombinerBlockEntity::tick);
     }

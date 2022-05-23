@@ -26,22 +26,21 @@ public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu
         RenderSystem.setShaderTexture(0, TEXTURE);
 
         int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int y = (height - imageHeight) / 2 + 8;
 
-        this.blit(Objects.requireNonNull(pPoseStack), x, y, 0, 0, imageWidth, imageHeight);
+        this.blit(Objects.requireNonNull(pPoseStack), x, y, 0, -8, imageWidth, imageHeight + 16);
 
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 51, y + 38, 218, 0, 14, menu.getScaledProgress());
-            blit(pPoseStack, x + 111, y + 38, 232, 0, 14, menu.getScaledProgress());
-
-            blit(pPoseStack, x + 67, y + 17, 176, 0, 40, menu.getScaledProgress());
+            blit(pPoseStack, x + 81, y + 25, 176, 0, 14, menu.getScaledProgress());
         }
     }
 
     @Override
     public void render(@Nullable PoseStack pPoseStack, int mouseX, int mouseY, float delta) {
         renderBackground(Objects.requireNonNull(pPoseStack));
+
         super.render(pPoseStack, mouseX, mouseY, delta);
+
         renderTooltip(pPoseStack, mouseX, mouseY);
     }
 }

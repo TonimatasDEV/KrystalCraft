@@ -144,6 +144,9 @@
   "item.krystalcraft.raw_ruby": "Rubí en bruto",
   "item.krystalcraft.ruby_dust": "Polvo de rubí",
 
+  "block.krystalcraft.experience_ore": "Experience Ore",
+  "block.krystalcraft.deepslate_experience_ore": "Deepslate Experience Ore",
+
   "item.krystalcraft.raw_diamond": "Diamante en bruto",
   "item.krystalcraft.diamond_dust": "Polvo de diamante",
 
@@ -162,6 +165,7 @@
 
   "block.krystalcraft.gem_cutting_station": "Estación de Corte de Gemas",
   "block.krystalcraft.coal_crusher": "Trituradora de carbón",
+  "block.krystalcraft.coal_combiner": "Coal Combiner",
 
   "enchantment.krystalcraft.lightning_striker": "Lightning Striker",
   "enchantment.krystalcraft.lightning_striker.desc": "Attack entity with lightning bolt.",

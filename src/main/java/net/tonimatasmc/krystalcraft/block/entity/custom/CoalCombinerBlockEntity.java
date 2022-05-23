@@ -31,7 +31,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Random;
 
 public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {

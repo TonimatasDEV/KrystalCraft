@@ -1,0 +1,26 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "000",
+    "212",
+    "333"
+  ],
+  "key": {
+    "0": {
+      "item": "minecraft:stick"
+    },
+    "1": {
+      "tag": "forge:cobblestone"
+    },
+    "2": {
+      "item": "minecraft:blast_furnace"
+    },
+    "3": {
+      "tag": "forge:cobblestone"
+    }
+  },
+  "result": {
+    "item": "krystalcraft:coal_combiner"
+  }
+}
