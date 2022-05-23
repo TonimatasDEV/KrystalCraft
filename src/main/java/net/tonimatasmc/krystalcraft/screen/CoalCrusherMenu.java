@@ -30,6 +30,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.COAL_CRUSHER_MENU.get(), pContainerId);
         checkContainerSize(inv, 4);
+
         blockEntity = ((CoalCrusherBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;

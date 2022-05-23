@@ -12,7 +12,7 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'krystalcraft'
-version = '0.0.2.3'
+version = '0.0.2.4'
 
 java {
     archivesBaseName = 'krystalcraft'
@@ -92,7 +92,7 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
+    minecraft 'net.minecraftforge:forge:1.18.2-40.1.23'
 
     compileOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.0.+:api")
     runtimeOnly fg.deobf("mezz.jei:jei-1.18.2:9.7.0.+")
@@ -101,7 +101,7 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "krystalcraft",
+                "Specification-Title"     : "KrystalCraft",
                 "Specification-Vendor"    : "TonimatasMC",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,

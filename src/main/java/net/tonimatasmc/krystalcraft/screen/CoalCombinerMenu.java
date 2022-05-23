@@ -11,6 +11,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
 import net.tonimatasmc.krystalcraft.block.entity.custom.CoalCombinerBlockEntity;
+import net.tonimatasmc.krystalcraft.screen.slot.ModFuelSlot;
 import net.tonimatasmc.krystalcraft.screen.slot.ModResultSlot;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -23,13 +24,13 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public CoalCombinerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(5));
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public CoalCombinerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.COAL_COMBINER_MENU.get(), pContainerId);
 
-        checkContainerSize(inv, 5);
+        checkContainerSize(inv, 4);
         blockEntity = ((CoalCombinerBlockEntity) entity);
 
         this.level = inv.player.level;
@@ -39,12 +40,10 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 50, 18));
-            this.addSlot(new SlotItemHandler(handler, 1, 110, 18));
-            this.addSlot(new SlotItemHandler(handler, 2, 50, 53));
-            this.addSlot(new SlotItemHandler(handler, 3, 110, 53));
-            this.addSlot(new ModResultSlot(handler, 4, 80, 60));
-
+            this.addSlot(new SlotItemHandler(handler, 0, 70, 31));
+            this.addSlot(new SlotItemHandler(handler, 1, 88, 31));
+            this.addSlot(new ModFuelSlot(handler, 2, 80, 64));
+            this.addSlot(new ModResultSlot(handler, 3, 80, 86));
         });
 
         addDataSlots(data);
@@ -78,13 +77,13 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 5;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
 
-    @SuppressWarnings("ConstantConditions")
     @Override
     public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        if (!sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
@@ -123,14 +122,14 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
     private void addPlayerInventory(Inventory playerInventory) {
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 110 + i * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 168));
         }
     }
 }

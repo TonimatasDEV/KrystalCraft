@@ -16,7 +16,10 @@ import net.tonimatasmc.krystalcraft.config.KrystalCraftModCommonConfigs;
 import net.tonimatasmc.krystalcraft.enchantment.ModEnchantments;
 import net.tonimatasmc.krystalcraft.item.ModItems;
 import net.tonimatasmc.krystalcraft.recipe.ModRecipes;
-import net.tonimatasmc.krystalcraft.screen.*;
+import net.tonimatasmc.krystalcraft.screen.CoalCombinerScreen;
+import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
+import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
+import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
 
 @SuppressWarnings("CommentedOutCode")
 @Mod(KrystalCraft.MOD_ID)
@@ -67,6 +70,7 @@ public class KrystalCraft {
     @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class Client {
         private Client() {
+
         }
 
         private void doClientStuff(final FMLClientSetupEvent event) {
