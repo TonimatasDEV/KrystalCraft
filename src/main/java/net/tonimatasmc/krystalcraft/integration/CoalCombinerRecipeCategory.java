@@ -29,7 +29,7 @@ public class CoalCombinerRecipeCategory implements IRecipeCategory<CoalCombinerR
     private final IDrawable icon;
 
     public CoalCombinerRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 82);
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 91);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM, new ItemStack(ModBlocks.COAL_COMBINER.get()));
     }
 
@@ -65,12 +65,11 @@ public class CoalCombinerRecipeCategory implements IRecipeCategory<CoalCombinerR
 
     @Override
     public void setRecipe(@Nonnull IRecipeLayoutBuilder builder, @Nonnull CoalCombinerRecipe recipe, @Nonnull IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 50, 18).addIngredients(recipe.getIngredients().get(0));
-        //builder.addSlot(RecipeIngredientRole.INPUT, 110, 18).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 70, 15).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 88, 15).addIngredients(recipe.getIngredients().get(1));
 
-        builder.addSlot(RecipeIngredientRole.INPUT, 50, 53).addIngredients(Ingredient.of(Items.COAL));
-        builder.addSlot(RecipeIngredientRole.INPUT, 110, 53).addIngredients(Ingredient.of(Items.COAL));
+        builder.addSlot(RecipeIngredientRole.INPUT, 80, 48).addIngredients(Ingredient.of(Items.COAL));
 
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 70).addItemStack(recipe.getResultItem());
     }
 }

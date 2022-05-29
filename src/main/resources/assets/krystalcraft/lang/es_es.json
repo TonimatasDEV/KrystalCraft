@@ -144,6 +144,20 @@
   "item.krystalcraft.raw_ruby": "Rubí en bruto",
   "item.krystalcraft.ruby_dust": "Polvo de rubí",
 
+  "block.krystalcraft.bronze_block": "Bloque de bronce",
+  "item.krystalcraft.bronze_ingot": "Lingote de bronce",
+  "item.krystalcraft.bronze_sword": "Espada de bronce",
+  "item.krystalcraft.bronze_pickaxe": "Pico de bronce",
+  "item.krystalcraft.bronze_axe": "Hacha de bronce",
+  "item.krystalcraft.bronze_shovel": "Pala de bronce",
+  "item.krystalcraft.bronze_hoe": "Azada de bronce",
+  "item.krystalcraft.bronze_helmet": "Casco de bronce",
+  "item.krystalcraft.bronze_chestplate": "Peto de bronce",
+  "item.krystalcraft.bronze_leggings": "Pantalones de bronce",
+  "item.krystalcraft.bronze_boots": "Botas de bronce",
+  "item.krystalcraft.bronze_dust": "Polvo de bronce",
+  "item.krystalcraft.bronze_nugget": "Pepita de bronce",
+
   "block.krystalcraft.experience_ore": "Experience Ore",
   "block.krystalcraft.deepslate_experience_ore": "Deepslate Experience Ore",
 

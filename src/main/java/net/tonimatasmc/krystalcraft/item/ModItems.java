@@ -444,6 +444,53 @@ public class ModItems {
             new HoeItem(ModItemTier.RUBY, -1, -1f,
                     new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
 
+//----------------------------------------------------------------------------------------------------------------Bronze
+
+    public static final RegistryObject<Item> BRONZE_INGOT = ITEMS.register("bronze_ingot",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_DUST = ITEMS.register("bronze_dust",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_NUGGET = ITEMS.register("bronze_nugget",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_SWORD = ITEMS.register("bronze_sword", () ->
+            new SwordItem(ModItemTier.BRONZE, 4, -2.4F, (
+                    new Item.Properties()).tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_PICKAXE = ITEMS.register("bronze_pickaxe", () ->
+            new PickaxeItem(ModItemTier.BRONZE, 3, -2.8F, (
+                    new Item.Properties()).tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_AXE = ITEMS.register("bronze_axe", () ->
+            new AxeItem(ModItemTier.BRONZE, 8, -3.1F, (
+                    new Item.Properties()).tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_SHOVEL = ITEMS.register("bronze_shovel", () ->
+            new ShovelItem(ModItemTier.BRONZE, 4, -3.0F, (
+                    new Item.Properties()).tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_HOE = ITEMS.register("bronze_hoe", () ->
+            new HoeItem(ModItemTier.BRONZE, 0, -1.0F, (
+                    new Item.Properties()).tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_HELMET = ITEMS.register("bronze_helmet",() ->
+            new ArmorItem(ModArmorTier.BRONZE, EquipmentSlot.HEAD,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_CHESTPLATE = ITEMS.register("bronze_chestplate",() ->
+            new ArmorItem(ModArmorTier.BRONZE, EquipmentSlot.CHEST,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_LEGGINGS = ITEMS.register("bronze_leggings",() ->
+            new ArmorItem(ModArmorTier.BRONZE, EquipmentSlot.LEGS,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
+    public static final RegistryObject<Item> BRONZE_BOOTS = ITEMS.register("bronze_boots",() ->
+            new ArmorItem(ModArmorTier.BRONZE, EquipmentSlot.FEET,
+                    new HoeItem.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+
 //-----------------------------------------------------------------------------------------------------------------Items
 
     public static final RegistryObject<Item> RAW_DIAMOND = ITEMS.register("raw_diamond",() ->

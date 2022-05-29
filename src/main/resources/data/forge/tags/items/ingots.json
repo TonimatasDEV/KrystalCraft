@@ -3,6 +3,7 @@
     "#forge:ingots/silver",
     "#forge:ingots/lead",
     "#forge:ingots/tin",
-    "#forge:ingots/platinum"
+    "#forge:ingots/platinum",
+    "#forge:ingots/bronze"
   ]
 }

@@ -31,7 +31,7 @@ public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu
         this.blit(Objects.requireNonNull(pPoseStack), x, y, 0, -8, imageWidth, imageHeight + 16);
 
         if (menu.isCrafting()) {
-            blit(pPoseStack, x + 81, y + 25, 176, 0, 14, menu.getScaledProgress());
+            blit(pPoseStack, x + 81, y + 41, 176, 0, 14, menu.getScaledProgress());
         }
     }
 
