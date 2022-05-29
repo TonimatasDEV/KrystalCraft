@@ -26,6 +26,8 @@
 
     "krystalcraft:ruby_block",
     "krystalcraft:ruby_ore",
-    "krystalcraft:deepslate_ruby_ore"
+    "krystalcraft:deepslate_ruby_ore",
+
+    "krystalcraft:bronze_block"
   ]
 }

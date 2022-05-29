@@ -32,4 +32,7 @@ public class ModItemTier {
 
     public static final ForgeTier RUBY = new ForgeTier(3, 420, 4.2F, 2.0F, 70, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(ModItems.SAPPHIRE.get()));
+
+    public static final ForgeTier BRONZE = new ForgeTier(2, 380, 5.2F, 0.0F, 80, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
+            Ingredient.of(ModItems.BRONZE_INGOT.get()));
 }

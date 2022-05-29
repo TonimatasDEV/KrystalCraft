@@ -139,6 +139,10 @@ public class ModBlocks {
             new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE), UniformInt.of(20, 40)));
 
+    public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () ->
+            new Block(BlockBehaviour.Properties.of(Material.METAL)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
+
     //----------------------------------------------------------------------------------------------------------------------
 
     public static final RegistryObject<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station",

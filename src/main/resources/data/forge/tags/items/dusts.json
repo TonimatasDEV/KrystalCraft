@@ -11,6 +11,7 @@
     "#forge:dusts/jade",
     "#forge:dusts/copper",
     "#forge:dusts/tin",
-    "#forge:dusts/ruby"
+    "#forge:dusts/ruby",
+    "#forge:dusts/bronze"
   ]
 }

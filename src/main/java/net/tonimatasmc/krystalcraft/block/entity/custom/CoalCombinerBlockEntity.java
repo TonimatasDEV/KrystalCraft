@@ -156,16 +156,12 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasCoalSlot2(entity) && hasCoalSlot3(entity);
+        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasCoalSlot(entity);
 
     }
 
-    private static boolean hasCoalSlot2(CoalCombinerBlockEntity entity) {
+    private static boolean hasCoalSlot(CoalCombinerBlockEntity entity) {
         return entity.itemHandler.getStackInSlot(2).getItem() == Items.COAL;
-    }
-
-    private static boolean hasCoalSlot3(CoalCombinerBlockEntity entity){
-        return entity.itemHandler.getStackInSlot(3).getItem() == Items.COAL;
     }
 
     private static void craftItem(CoalCombinerBlockEntity entity) {
@@ -179,12 +175,11 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
         if(match.isPresent()) {
+            entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
             entity.itemHandler.extractItem(2,1, false);
-            entity.itemHandler.extractItem(3,1, false);
-            entity.itemHandler.extractItem(4,1, false);
 
-            entity.itemHandler.setStackInSlot(5, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
+            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
             entity.resetProgress();
         }
     }
