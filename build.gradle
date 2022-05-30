@@ -12,10 +12,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'krystalcraft'
-version = '0.0.2.6'
+version = '0.0.2.7'
 
 java {
-    archivesBaseName = 'krystalcraft'
+    archivesBaseName = 'KrystalCraft'
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
