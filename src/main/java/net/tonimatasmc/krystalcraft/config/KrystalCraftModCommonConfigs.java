@@ -80,8 +80,8 @@ public class KrystalCraftModCommonConfigs {
         TIN_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Tin Ore", 100);
         TIN_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Tin Ore", 200);
 
-        PLATINUM_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Veins spawn per chunk!").define("Veins of Platinum Ore Per Chunk", 4);
-        PLATINUM_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 2, 1, 10);
+        PLATINUM_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Veins spawn per chunk!").define("Veins of Platinum Ore Per Chunk", 5);
+        PLATINUM_ORE_VEIN_SIZE = BUILDER.comment("How many Platinum Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Platinum Ore", 3, 1, 10);
         PLATINUM_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Platinum Ore", 5);
         PLATINUM_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Platinum Ore", 90);
 
@@ -95,7 +95,7 @@ public class KrystalCraftModCommonConfigs {
         RUBY_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Ruby Ore", 10);
         RUBY_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Ruby Ore", 90);
 
-        EXPERIENCE_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Platinum Ore Experience spawn per chunk!").define("Veins of Experience Ore Per Chunk", 4);
+        EXPERIENCE_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Ore Experience spawn per chunk!").define("Veins of Experience Ore Per Chunk", 4);
         EXPERIENCE_ORE_VEIN_SIZE = BUILDER.comment("How many Experience Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Experience Ore", 10, 1, 10);
         EXPERIENCE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Experience Ore", 1);
         EXPERIENCE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Experience Ore", 140);
