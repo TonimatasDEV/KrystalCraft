@@ -1,5 +1,6 @@
 package net.tonimatasmc.krystalcraft.integration;
 
+/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -72,3 +73,4 @@ public class CoalCrusherRecipeCategory implements IRecipeCategory<CoalCrusherRec
         builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 21).addItemStack(recipe.getResultItem());
     }
 }
+ */
