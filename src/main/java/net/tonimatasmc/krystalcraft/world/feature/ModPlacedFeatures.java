@@ -48,9 +48,8 @@ public class ModPlacedFeatures {
                         KrystalCraftModCommonConfigs.RUBY_ORE_VEINS_PER_CHUNK.get(),
                         HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.RUBY_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.RUBY_ORE_MAXIMUN_HEIGHT.get()))));
 
-        public static final Holder<PlacedFeature> EXPERIENCE_ORE_PLACED = PlacementUtils.register("experience_ore_placed",
-                ModConfiguredFeatures.EXPERIENCE_ORE, ModOrePlacement.commonOrePlacement(
-                        KrystalCraftModCommonConfigs.EXPERIENCE_ORE_VEINS_PER_CHUNK.get(),
-                        HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.EXPERIENCE_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.EXPERIENCE_ORE_MAXIMUN_HEIGHT.get()))));
-
+       //public static final Holder<PlacedFeature> EXPERIENCE_ORE_PLACED = PlacementUtils.register("experience_ore_placed",
+       //        ModConfiguredFeatures.EXPERIENCE_ORE, ModOrePlacement.commonOrePlacement(
+       //                KrystalCraftModCommonConfigs.EXPERIENCE_ORE_VEINS_PER_CHUNK.get(),
+       //                HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.EXPERIENCE_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.EXPERIENCE_ORE_MAXIMUN_HEIGHT.get()))));
 }

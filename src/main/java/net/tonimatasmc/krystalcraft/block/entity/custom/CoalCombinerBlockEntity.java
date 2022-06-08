@@ -4,7 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -75,7 +74,7 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     @Override
     @Nonnull
     public Component getDisplayName() {
-        return new TextComponent("Coal Combiner");
+        return Component.translatable("Coal Combiner");
     }
 
     @Nullable

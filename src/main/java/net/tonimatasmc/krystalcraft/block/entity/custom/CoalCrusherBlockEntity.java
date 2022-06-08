@@ -4,7 +4,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -17,6 +17,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -77,7 +78,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     @Override
     @Nonnull
     public Component getDisplayName() {
-        return new TextComponent("Coal Crusher");
+        return Component.translatable("Coal Crusher");
     }
 
     @Nullable
@@ -179,7 +180,59 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
         if(match.isPresent()) {
 
-            entity.itemHandler.getStackInSlot(0).hurt(1, new Random(), null);
+            entity.itemHandler.getStackInSlot(0).hurt(1, new RandomSource() {
+                @SuppressWarnings("ConstantConditions")
+                @Override
+                public @NotNull RandomSource fork() {
+                    return null;
+                }
+
+                @SuppressWarnings("ConstantConditions")
+                @Override
+                public @NotNull PositionalRandomFactory forkPositional() {
+                    return null;
+                }
+
+                @Override
+                public void setSeed(long p_216342_) {
+
+                }
+
+                @Override
+                public int nextInt() {
+                    return 0;
+                }
+
+                @Override
+                public int nextInt(int p_216331_) {
+                    return 0;
+                }
+
+                @Override
+                public long nextLong() {
+                    return 0;
+                }
+
+                @Override
+                public boolean nextBoolean() {
+                    return false;
+                }
+
+                @Override
+                public float nextFloat() {
+                    return 0;
+                }
+
+                @Override
+                public double nextDouble() {
+                    return 0;
+                }
+
+                @Override
+                public double nextGaussian() {
+                    return 0;
+                }
+            }, null);
 
             if ((entity.itemHandler.getStackInSlot(0).getMaxDamage() - entity.itemHandler.getStackInSlot(0).getDamageValue()) <= 0) {
                 entity.itemHandler.extractItem(0,1, false);

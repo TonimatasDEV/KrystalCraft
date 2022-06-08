@@ -1,30 +1,21 @@
 package net.tonimatasmc.krystalcraft.event;
 
-import net.minecraft.core.Registry;
-import net.minecraft.world.item.crafting.RecipeSerializer;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
-import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
-import net.tonimatasmc.krystalcraft.recipe.CoalCombinerRecipe;
-import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
-import net.tonimatasmc.krystalcraft.recipe.GemCuttingStationRecipe;
-
-import javax.annotation.Nonnull;
 
 @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {
 
-    @SubscribeEvent
-    public static void registerModifierSerializers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
-        event.getRegistry().registerAll();
-    }
-
-    @SubscribeEvent
-    public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
-        Registry.register(Registry.RECIPE_TYPE, GemCuttingStationRecipe.Type.ID, GemCuttingStationRecipe.Type.INSTANCE);
-        Registry.register(Registry.RECIPE_TYPE, CoalCrusherRecipe.Type.ID, CoalCrusherRecipe.Type.INSTANCE);
-        Registry.register(Registry.RECIPE_TYPE, CoalCombinerRecipe.Type.ID, CoalCombinerRecipe.Type.INSTANCE);
-    }
+    //@SubscribeEvent
+    //public static void registerModifierSerializers(@Nonnull final RegistryEvent.Register<GlobalLootModifierSerializer<?>> event) {
+    //    event.getRegistry().registerAll();
+    //}
+//
+    //@SuppressWarnings("deprecation")
+    //@SubscribeEvent
+    //public static void registerRecipeTypes(final RegistryEvent.Register<RecipeSerializer<?>> event) {
+    //    Registry.register(Registry.RECIPE_TYPE, GemCuttingStationRecipe.Type.ID, GemCuttingStationRecipe.Type.INSTANCE);
+    //    Registry.register(Registry.RECIPE_TYPE, CoalCrusherRecipe.Type.ID, CoalCrusherRecipe.Type.INSTANCE);
+    //    Registry.register(Registry.RECIPE_TYPE, CoalCombinerRecipe.Type.ID, CoalCombinerRecipe.Type.INSTANCE);
+    //}
 }

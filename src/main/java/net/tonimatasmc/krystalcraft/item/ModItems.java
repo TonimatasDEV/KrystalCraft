@@ -8,7 +8,7 @@ import net.tonimatasmc.krystalcraft.KrystalCraft;
 
 @SuppressWarnings("unused")
 public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = create(ForgeRegistries.ITEMS);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, KrystalCraft.MOD_ID);
     
     public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
@@ -528,10 +528,5 @@ public class ModItems {
 
     public static void register(IEventBus iEventBus) {
             ITEMS.register(iEventBus);
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> create(IForgeRegistry<T> registry) {
-        return DeferredRegister.create(registry, KrystalCraft.MOD_ID);
     }
 }
