@@ -1,6 +1,7 @@
 package net.tonimatasmc.krystalcraft.block;
 
 import net.minecraft.network.chat.Component;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -8,6 +9,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -128,14 +130,14 @@ public class ModBlocks {
             new Block(BlockBehaviour.Properties.of(Material.STONE)
                     .strength(6f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
-    //public static final RegistryObject<Block> EXPERIENCE_ORE = registerBlock("experience_ore", () ->
-    //        new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
-    //                .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE), UniformInt.of(15, 30)));
-//
-    //public static final RegistryObject<Block> DEEPSLATE_EXPERIENCE_ORE = registerBlock("deepslate_experience_ore", () ->
-    //        new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
-    //                .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE), UniformInt.of(20, 40)));
-//
+    public static final RegistryObject<Block> EXPERIENCE_ORE = registerBlock("experience_ore", () ->
+            new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE), UniformInt.of(15, 30)));
+
+    public static final RegistryObject<Block> DEEPSLATE_EXPERIENCE_ORE = registerBlock("deepslate_experience_ore", () ->
+            new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE)
+                    .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE), UniformInt.of(20, 40)));
+
     public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () ->
             new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
