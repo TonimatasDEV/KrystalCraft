@@ -8,7 +8,8 @@ import net.tonimatasmc.krystalcraft.KrystalCraft;
 
 @SuppressWarnings("unused")
 public class ModItems {
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, KrystalCraft.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS =
+            DeferredRegister.create(ForgeRegistries.ITEMS, KrystalCraft.MOD_ID);
     
     public static final RegistryObject<Item> SILVER_INGOT = ITEMS.register("silver_ingot",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));

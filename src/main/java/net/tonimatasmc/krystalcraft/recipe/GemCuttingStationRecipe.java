@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +29,11 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, @Nullable Level pLevel) {
+    public boolean matches(@NotNull SimpleContainer pContainer, @Nullable Level pLevel) {
+        if (pLevel != null && pLevel.isClientSide()) {
+            return false;
+        }
+
         return recipeItems.get(0).test(pContainer.getItem(1));
     }
 

@@ -20,8 +20,9 @@ import net.tonimatasmc.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
+import net.tonimatasmc.krystalcraft.world.biomemods.ModBiomeModifiers;
+import net.tonimatasmc.krystalcraft.world.feature.ModPlacedFeatures;
 
-@SuppressWarnings("CommentedOutCode")
 @Mod(KrystalCraft.MOD_ID)
 public class KrystalCraft {
     public static final String MOD_ID = "krystalcraft";
@@ -32,25 +33,15 @@ public class KrystalCraft {
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
-        //ModPaintings.register(eventBus);
-        //ModSounds.register(eventBus);
-
-        //ModEffects.register(eventBus);
-        //ModPotions.register(eventBus);
-
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
 
         ModRecipes.register(eventBus);
-        //ModParticles.register(eventBus);
 
-        //ModFluids.register(eventBus);
         ModEnchantments.register(eventBus);
 
-        //ModEntityTypes.register(eventBus);
-        //ModVillagers.register(eventBus);
-
-        //ModStructures.register(eventBus);
+        ModBiomeModifiers.register(eventBus);
+        ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         
