@@ -16,7 +16,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -179,58 +178,7 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
         if(match.isPresent()) {
 
-            entity.itemHandler.getStackInSlot(0).hurt(1, new RandomSource() {
-                @SuppressWarnings("ConstantConditions")
-                @Override
-                public @NotNull RandomSource fork() {
-                    return null;
-                }
-
-                @Override
-                public @NotNull PositionalRandomFactory forkPositional() {
-                    return null;
-                }
-
-                @Override
-                public void setSeed(long p_216342_) {
-
-                }
-
-                @Override
-                public int nextInt() {
-                    return 0;
-                }
-
-                @Override
-                public int nextInt(int p_216331_) {
-                    return 0;
-                }
-
-                @Override
-                public long nextLong() {
-                    return 0;
-                }
-
-                @Override
-                public boolean nextBoolean() {
-                    return false;
-                }
-
-                @Override
-                public float nextFloat() {
-                    return 0;
-                }
-
-                @Override
-                public double nextDouble() {
-                    return 0;
-                }
-
-                @Override
-                public double nextGaussian() {
-                    return 0;
-                }
-            }, null);
+            entity.itemHandler.getStackInSlot(0).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(0).getMaxDamage() - entity.itemHandler.getStackInSlot(0).getDamageValue()) <= 0) {
                 entity.itemHandler.extractItem(0,1, false);
@@ -238,59 +186,7 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
             entity.itemHandler.extractItem(1,1, false);
 
-            entity.itemHandler.getStackInSlot(2).hurt(1, new RandomSource() {
-                @SuppressWarnings("ConstantConditions")
-                @Override
-                public @NotNull RandomSource fork() {
-                    return null;
-                }
-
-                @SuppressWarnings("ConstantConditions")
-                @Override
-                public @NotNull PositionalRandomFactory forkPositional() {
-                    return null;
-                }
-
-                @Override
-                public void setSeed(long p_216342_) {
-
-                }
-
-                @Override
-                public int nextInt() {
-                    return 0;
-                }
-
-                @Override
-                public int nextInt(int p_216331_) {
-                    return 0;
-                }
-
-                @Override
-                public long nextLong() {
-                    return 0;
-                }
-
-                @Override
-                public boolean nextBoolean() {
-                    return false;
-                }
-
-                @Override
-                public float nextFloat() {
-                    return 0;
-                }
-
-                @Override
-                public double nextDouble() {
-                    return 0;
-                }
-
-                @Override
-                public double nextGaussian() {
-                    return 0;
-                }
-            }, null);
+            entity.itemHandler.getStackInSlot(2).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(2).getMaxDamage() - entity.itemHandler.getStackInSlot(2).getDamageValue()) <= 0) {
                 entity.itemHandler.extractItem(2,1, false);

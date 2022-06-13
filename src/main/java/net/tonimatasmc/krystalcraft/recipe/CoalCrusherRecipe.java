@@ -29,6 +29,10 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public boolean matches(SimpleContainer pContainer, @Nullable Level pLevel) {
+        if (pLevel != null && pLevel.isClientSide()) {
+            return false;
+        }
+
         return recipeItems.get(0).test(pContainer.getItem(1));
     }
 

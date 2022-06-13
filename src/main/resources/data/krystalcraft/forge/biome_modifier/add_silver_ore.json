@@ -1,0 +1,5 @@
+{
+  "type": "krystalcraft:ores",
+  "biomes": "#minecraft:is_overworld",
+  "feature": "krystalcraft:silver_ore_placed"
+}
