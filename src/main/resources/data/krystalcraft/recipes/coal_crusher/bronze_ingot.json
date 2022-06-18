@@ -2,7 +2,7 @@
   "type": "krystalcraft:coal_crusher",
   "ingredients": [
     {
-      "item": "minecraft:bronze_ingot"
+      "item": "krystalcraft:bronze_ingot"
     }
   ],
   "output": {
