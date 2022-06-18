@@ -91,12 +91,12 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "KrystalCraft",
-                "Specification-Vendor"    : "TonimatasMC",
+                "Specification-Title"     : "krystalcraft",
+                "Specification-Vendor"    : "krystalcraftsareus",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "TonimatasMC",
+                "Implementation-Vendor"   : "krystalcraftsareus",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
