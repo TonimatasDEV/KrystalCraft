@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "krystalcraft:item/tin_pickaxe"
+  }
+}
