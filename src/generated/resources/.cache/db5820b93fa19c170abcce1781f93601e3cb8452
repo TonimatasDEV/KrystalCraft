@@ -1,4 +1,4 @@
-// 1.19	2022-06-18T22:04:36.1174284	Item Models: krystalcraft
+// 1.19	2022-06-20T15:10:48.0418866	Item Models: krystalcraft
 091b9ddae0619227aa68258a4edb7d3748856b63 assets/krystalcraft/models/item/bronze_axe.json
 cb12bf4a306d41d49bdf4ef03c1bc892449430cf assets/krystalcraft/models/item/bronze_boots.json
 73a5e77b689aac24bb6f729d37eb625a0cd48c5e assets/krystalcraft/models/item/bronze_chestplate.json
@@ -38,6 +38,7 @@ c38cdfd4e487e057621f68710237689fb722186a assets/krystalcraft/models/item/jade_le
 fee9fb374d52114f39c80b63cc1866e94a37cc23 assets/krystalcraft/models/item/jade_pickaxe.json
 71eb654f1ecfa14a75728af4c28c89aa8812cedb assets/krystalcraft/models/item/jade_shovel.json
 45f31d50619ea591e51aa042a3a8c067e2aa2681 assets/krystalcraft/models/item/jade_sword.json
+6514fcdc6890b72892e8180ff99a7d0429cbf1fb assets/krystalcraft/models/item/lapis_dust.json
 96c2f5b47b7d1d2bf486b923325875931d9f30fc assets/krystalcraft/models/item/lead_axe.json
 c6dc081c00fdac6d8f003362abca6592998582c9 assets/krystalcraft/models/item/lead_boots.json
 4e0fcc3b0ca9ed1188f06aa6677979180d22e1b5 assets/krystalcraft/models/item/lead_chestplate.json
