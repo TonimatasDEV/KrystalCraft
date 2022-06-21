@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "krystalcraft:block/coal_combiner", "y": 180  },
+    "facing=east": { "model": "krystalcraft:block/coal_combiner", "y": 270 },
+    "facing=south": { "model": "krystalcraft:block/coal_combiner"},
+    "facing=west": { "model": "krystalcraft:block/coal_combiner", "y": 90 }
+  }
+}
