@@ -22,20 +22,18 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     private final CoalCrusherBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-    private final ContainerData fuelData;
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4), new SimpleContainerData(8));
+        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
-    public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data, ContainerData fuelData) {
+    public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.COAL_CRUSHER_MENU.get(), pContainerId);
         checkContainerSize(inv, 4);
 
         blockEntity = ((CoalCrusherBlockEntity) entity);
         this.level = inv.player.level;
         this.data = data;
-        this.fuelData = fuelData;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
@@ -48,11 +46,10 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         });
 
         addDataSlots(data);
-        addDataSlots(fuelData);
     }
 
     public boolean isCrafting() {
-        return data.get(0) > 0 && fuelData.get(0) > 0;
+        return data.get(0) > 0 && data.get(2) < 0;
     }
 
     public int getScaledProgress() {
@@ -64,9 +61,9 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     }
 
     public int getFuelScaledProgress() {
-        int progress = this.fuelData.get(0);
-        int maxProgress = this.fuelData.get(1);
-        int progressArrowSize = 26;
+        int progress = this.data.get(2);
+        int maxProgress = this.data.get(3);
+        int progressArrowSize = 26*8;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }

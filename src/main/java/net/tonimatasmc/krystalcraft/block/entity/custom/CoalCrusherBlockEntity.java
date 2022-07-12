@@ -49,6 +49,9 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     private int progress = 0;
     private int maxProgress = 72;
 
+    private int fuelProgress = 0;
+    private int fuelMaxProgress = maxProgress*8;
+
     public CoalCrusherBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.COAL_CRUSHER_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
         this.data = new ContainerData() {
@@ -58,6 +61,8 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 switch (index) {
                     case 0: return CoalCrusherBlockEntity.this.progress;
                     case 1: return CoalCrusherBlockEntity.this.maxProgress;
+                    case 2: return CoalCrusherBlockEntity.this.fuelProgress;
+                    case 3: return CoalCrusherBlockEntity.this.fuelMaxProgress;
                     default: return 0;
                 }
             }
@@ -66,6 +71,8 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 switch (index) {
                     case 0 -> CoalCrusherBlockEntity.this.progress = value;
                     case 1 -> CoalCrusherBlockEntity.this.maxProgress = value;
+                    case 2 -> CoalCrusherBlockEntity.this.fuelProgress = value;
+                    case 3 -> CoalCrusherBlockEntity.this.fuelMaxProgress = value;
                 }
             }
 
@@ -80,7 +87,9 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             public int get(int index) {
                 switch (index) {
                     case 0: return CoalCrusherBlockEntity.this.progress;
-                    case 8: return CoalCrusherBlockEntity.this.maxProgress;
+                    case 1: return CoalCrusherBlockEntity.this.maxProgress;
+                    case 2: return CoalCrusherBlockEntity.this.fuelProgress;
+                    case 3: return CoalCrusherBlockEntity.this.fuelMaxProgress;
                     default: return 0;
                 }
             }
@@ -88,7 +97,9 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> CoalCrusherBlockEntity.this.progress = value;
-                    case 8 -> CoalCrusherBlockEntity.this.maxProgress = value;
+                    case 1 -> CoalCrusherBlockEntity.this.maxProgress = value;
+                    case 2 -> CoalCrusherBlockEntity.this.fuelProgress = value;
+                    case 3 -> CoalCrusherBlockEntity.this.fuelMaxProgress = value;
                 }
             }
 
@@ -107,7 +118,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data, this.fuelData);
+        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
     }
 
     @Nonnull
@@ -137,6 +148,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("coal_crusher.progress", progress);
+        tag.putInt("coal_crusher.fuelProgress", fuelProgress);
         super.saveAdditional(tag);
     }
 
@@ -145,6 +157,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
         super.load(Objects.requireNonNull(nbt));
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("coal_crusher.progress");
+        fuelProgress = nbt.getInt("coal_crusher.fuelProgress");
     }
 
     public void drops() {
@@ -160,7 +173,8 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
         if(hasRecipe(pBlockEntity)) {
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+
+            if (pBlockEntity.progress > pBlockEntity.maxProgress && pBlockEntity.fuelProgress < pBlockEntity.fuelMaxProgress) {
                 craftItem(pBlockEntity);
             }
         } else {
@@ -173,6 +187,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
         Level level = entity.level;
 
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
         }
@@ -222,6 +237,10 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
     private void resetProgress() {
         this.progress = 0;
+
+        if (this.fuelProgress > this.fuelMaxProgress) {
+            this.fuelProgress = 0;
+        }
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
