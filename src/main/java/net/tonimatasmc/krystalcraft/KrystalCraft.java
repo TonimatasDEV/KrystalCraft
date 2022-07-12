@@ -40,8 +40,8 @@ public class KrystalCraft {
 
         ModEnchantments.register(eventBus);
 
-        ModBiomeModifiers.register(eventBus);
-        ModPlacedFeatures.register(eventBus);
+        //ModBiomeModifiers.register(eventBus);
+        // ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         

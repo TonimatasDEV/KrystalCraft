@@ -45,6 +45,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
+    protected final ContainerData fuelData;
     private int progress = 0;
     private int maxProgress = 72;
 
@@ -72,6 +73,29 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 return 2;
             }
         };
+
+        this.fuelData = new ContainerData() {
+
+            @SuppressWarnings("EnhancedSwitchMigration")
+            public int get(int index) {
+                switch (index) {
+                    case 0: return CoalCrusherBlockEntity.this.progress;
+                    case 8: return CoalCrusherBlockEntity.this.maxProgress;
+                    default: return 0;
+                }
+            }
+
+            public void set(int index, int value) {
+                switch (index) {
+                    case 0 -> CoalCrusherBlockEntity.this.progress = value;
+                    case 8 -> CoalCrusherBlockEntity.this.maxProgress = value;
+                }
+            }
+
+            public int getCount() {
+                return 2;
+            }
+        };
     }
 
     @Override
@@ -83,7 +107,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
+        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data, this.fuelData);
     }
 
     @Nonnull
@@ -95,6 +119,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
         return super.getCapability(cap, side);
     }
+
 
     @Override
     public void onLoad() {
