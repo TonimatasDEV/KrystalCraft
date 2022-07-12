@@ -139,7 +139,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             fuelProgress++;
             setChanged(pLevel, pPos, pState);
 
-            if (pBlockEntity.progress > pBlockEntity.maxProgress && fuelProgress < fuelMaxProgress) {
+            if (pBlockEntity.progress > pBlockEntity.maxProgress && fuelProgress <= fuelMaxProgress) {
                 craftItem(pBlockEntity);
             }
         } else {
@@ -192,7 +192,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
             entity.itemHandler.extractItem(1,1, false);
 
-            if (fuelProgress > fuelMaxProgress) {
+            if (fuelProgress >= fuelMaxProgress) {
                 entity.itemHandler.extractItem(2, 1, false);
             }
 
@@ -203,11 +203,11 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private void resetProgress() {
-        this.progress = 0;
-
-        if (fuelProgress > fuelMaxProgress) {
+        if (fuelProgress >= fuelMaxProgress) {
             fuelProgress = 0;
         }
+
+        this.progress = 0;
     }
 
     public static int getFuelProgress() {
