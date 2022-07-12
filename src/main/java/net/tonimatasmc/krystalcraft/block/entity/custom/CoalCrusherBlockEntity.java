@@ -169,7 +169,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private static boolean hasCoalSlot(CoalCrusherBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(2).getItem() == Items.COAL;
+        return entity.itemHandler.getStackInSlot(2).getItem() == Items.COAL || fuelProgress <= fuelMaxProgress;
     }
 
     private static void craftItem(CoalCrusherBlockEntity entity) {
@@ -192,21 +192,18 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
             entity.itemHandler.extractItem(1,1, false);
 
+            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
+
             if (fuelProgress >= fuelMaxProgress) {
                 entity.itemHandler.extractItem(2, 1, false);
+                fuelProgress = 0;
             }
-
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             entity.resetProgress();
         }
     }
 
     private void resetProgress() {
-        if (fuelProgress >= fuelMaxProgress) {
-            fuelProgress = 0;
-        }
-
         this.progress = 0;
     }
 
