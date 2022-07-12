@@ -61,8 +61,8 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     }
 
     public int getFuelScaledProgress() {
-        int progress = this.data.get(2);
-        int maxProgress = this.data.get(3);
+        int progress = CoalCrusherBlockEntity.getFuelProgress();
+        int maxProgress = CoalCrusherBlockEntity.getFuelMaxProgress();
         int progressArrowSize = 26*8;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
