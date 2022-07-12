@@ -32,7 +32,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Random;
 
 public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
@@ -45,12 +44,10 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
-    protected final ContainerData fuelData;
     private int progress = 0;
     private int maxProgress = 72;
-
-    private int fuelProgress = 0;
-    private int fuelMaxProgress = maxProgress*8;
+    private static int fuelProgress = 0;
+    private static final int fuelMaxProgress = 72*8;
 
     public CoalCrusherBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.COAL_CRUSHER_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
@@ -61,8 +58,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 switch (index) {
                     case 0: return CoalCrusherBlockEntity.this.progress;
                     case 1: return CoalCrusherBlockEntity.this.maxProgress;
-                    case 2: return CoalCrusherBlockEntity.this.fuelProgress;
-                    case 3: return CoalCrusherBlockEntity.this.fuelMaxProgress;
                     default: return 0;
                 }
             }
@@ -71,35 +66,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 switch (index) {
                     case 0 -> CoalCrusherBlockEntity.this.progress = value;
                     case 1 -> CoalCrusherBlockEntity.this.maxProgress = value;
-                    case 2 -> CoalCrusherBlockEntity.this.fuelProgress = value;
-                    case 3 -> CoalCrusherBlockEntity.this.fuelMaxProgress = value;
-                }
-            }
-
-            public int getCount() {
-                return 2;
-            }
-        };
-
-        this.fuelData = new ContainerData() {
-
-            @SuppressWarnings("EnhancedSwitchMigration")
-            public int get(int index) {
-                switch (index) {
-                    case 0: return CoalCrusherBlockEntity.this.progress;
-                    case 1: return CoalCrusherBlockEntity.this.maxProgress;
-                    case 2: return CoalCrusherBlockEntity.this.fuelProgress;
-                    case 3: return CoalCrusherBlockEntity.this.fuelMaxProgress;
-                    default: return 0;
-                }
-            }
-
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> CoalCrusherBlockEntity.this.progress = value;
-                    case 1 -> CoalCrusherBlockEntity.this.maxProgress = value;
-                    case 2 -> CoalCrusherBlockEntity.this.fuelProgress = value;
-                    case 3 -> CoalCrusherBlockEntity.this.fuelMaxProgress = value;
                 }
             }
 
@@ -148,7 +114,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("coal_crusher.progress", progress);
-        tag.putInt("coal_crusher.fuelProgress", fuelProgress);
         super.saveAdditional(tag);
     }
 
@@ -157,7 +122,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
         super.load(Objects.requireNonNull(nbt));
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("coal_crusher.progress");
-        fuelProgress = nbt.getInt("coal_crusher.fuelProgress");
     }
 
     public void drops() {
@@ -172,9 +136,10 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CoalCrusherBlockEntity pBlockEntity) {
         if(hasRecipe(pBlockEntity)) {
             pBlockEntity.progress++;
+            fuelProgress++;
             setChanged(pLevel, pPos, pState);
 
-            if (pBlockEntity.progress > pBlockEntity.maxProgress && pBlockEntity.fuelProgress < pBlockEntity.fuelMaxProgress) {
+            if (pBlockEntity.progress > pBlockEntity.maxProgress && fuelProgress < fuelMaxProgress) {
                 craftItem(pBlockEntity);
             }
         } else {
@@ -226,8 +191,10 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             }
 
             entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.extractItem(2,1, false);
 
+            if (fuelProgress > fuelMaxProgress) {
+                entity.itemHandler.extractItem(2, 1, false);
+            }
 
             entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
@@ -238,9 +205,17 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     private void resetProgress() {
         this.progress = 0;
 
-        if (this.fuelProgress > this.fuelMaxProgress) {
-            this.fuelProgress = 0;
+        if (fuelProgress > fuelMaxProgress) {
+            fuelProgress = 0;
         }
+    }
+
+    public static int getFuelProgress() {
+        return fuelProgress;
+    }
+
+    public static int getFuelMaxProgress() {
+        return fuelMaxProgress;
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
