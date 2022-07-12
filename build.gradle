@@ -1,11 +1,10 @@
 plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.+'
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
 
-group = 'krystalcraft'
-version = "${krystalcraft_version}"
+
+group = 'net.tonimatasmc'
+version = '1.0-SNAPSHOT'
 
 java {
     archivesBaseName = 'KrystalCraft'
@@ -13,14 +12,14 @@ java {
 }
 
 minecraft {
-    mappings channel: 'official', version: "${minecraft_version}"
+    mappings channel: 'official', version: '1.19'
 
     runs {
         client {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
 
             mods {
                 krystalcraft {
@@ -33,7 +32,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
 
             mods {
                 krystalcraft {
@@ -46,7 +45,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
 
             mods {
                 krystalcraft {
@@ -73,28 +72,17 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven {
-        name = "Progwml6 maven"
-        url = "https://dvs1.progwml6.com/files/maven/"
-    }
 
-    maven {
-        name = "ModMaven"
-        url = "https://modmaven.dev"
-    }
 }
 
 dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    //compileOnly fg.deobf("mezz.jei:${jei_version}:api")
-    //runtimeOnly fg.deobf("mezz.jei:${jei_version}")
+    minecraft 'net.minecraftforge:forge:1.19-41.0.91'
 }
 
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "KrystalCraft",
+                "Specification-Title"     : "krystalcraft",
                 "Specification-Vendor"    : "TonimatasMC",
                 "Specification-Version"   : "1",
                 "Implementation-Title"    : project.name,
@@ -106,3 +94,7 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

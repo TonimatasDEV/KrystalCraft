@@ -50,8 +50,8 @@ public class ModConfiguredFeatures {
 
 //----------------------------------------------------------------------------------------------------------------------
 
-        public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JADE_ORE = FeatureUtils.register("jade_ore",
-            Feature.ORE, new OreConfiguration(OVERWORLD_JADE_ORES, KrystalCraftModCommonConfigs.JADE_ORE_VEIN_SIZE.get()));
+        //public static final Holder<ConfiguredFeature<OreConfiguration, ?>> JADE_ORE = FeatureUtils.register("jade_ore",
+        //    Feature.ORE, new OreConfiguration(OVERWORLD_JADE_ORES, KrystalCraftModCommonConfigs.JADE_ORE_VEIN_SIZE.get()));
 
         public static final Holder<ConfiguredFeature<OreConfiguration, ?>> SILVER_ORE = FeatureUtils.register("silver_ore",
             Feature.ORE, new OreConfiguration(OVERWORLD_SILVER_ORES, KrystalCraftModCommonConfigs.SILVER_ORE_VEIN_SIZE.get()));

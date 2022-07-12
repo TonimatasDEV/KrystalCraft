@@ -12,16 +12,16 @@ import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 import net.tonimatasmc.krystalcraft.config.KrystalCraftModCommonConfigs;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
+@SuppressWarnings({"unchecked"})
 public class ModPlacedFeatures {
         public static final DeferredRegister<PlacedFeature> PLACED_FEATURES =
                 DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, KrystalCraft.MOD_ID);
 
-        public static final RegistryObject<PlacedFeature> JADE_ORE_PLACED = PLACED_FEATURES.register("jade_ore_placed",
-                () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
-                        ModConfiguredFeatures.JADE_ORE, ModOrePlacement.commonOrePlacement(
-                        KrystalCraftModCommonConfigs.JADE_ORE_VEINS_PER_CHUNK.get(), // VeinsPerChunk
-                        HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.JADE_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.JADE_ORE_MAXIMUN_HEIGHT.get())))));
+        //public static final RegistryObject<PlacedFeature> JADE_ORE_PLACED = PLACED_FEATURES.register("jade_ore_placed",
+        //        () -> new PlacedFeature((Holder<ConfiguredFeature<?,?>>)(Holder<? extends ConfiguredFeature<?,?>>)
+        //                ModConfiguredFeatures.JADE_ORE, ModOrePlacement.commonOrePlacement(
+        //                KrystalCraftModCommonConfigs.JADE_ORE_VEINS_PER_CHUNK.get(), // VeinsPerChunk
+        //                HeightRangePlacement.triangle(VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.JADE_ORE_MINIMUN_HEIGHT.get()), VerticalAnchor.aboveBottom(KrystalCraftModCommonConfigs.JADE_ORE_MAXIMUN_HEIGHT.get())))));
 
 
         public static final RegistryObject<PlacedFeature> SILVER_ORE_PLACED = PLACED_FEATURES.register("silver_ore_placed",
