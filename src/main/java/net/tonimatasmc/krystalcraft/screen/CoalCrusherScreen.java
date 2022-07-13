@@ -33,7 +33,6 @@ public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> 
         if (menu.isCrafting()) {
             blit(pPoseStack, x + 102, y + 21, 190, 0, 23, menu.getScaledProgress());
         }
-
         blit(pPoseStack, x + 55, y + 35, 176, 0, 14, menu.getFuelScaledProgress());
 
     }

@@ -11,8 +11,8 @@ public class Simplify {
         return itemStackHandler.getStackInSlot(0).getItem() == ModItems.SET_WATER_BOTTLES.get();
     }
 
-    public static boolean hasCoalSlot(ItemStackHandler itemStackHandler, int fuelProgress, int fuelMaxProgress) {
-        return itemStackHandler.getStackInSlot(2).getItem() == Items.COAL || fuelProgress <= fuelMaxProgress;
+    public static boolean hasCoalSlot(int fuel) {
+        return fuel != 0;
     }
 
     public static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {

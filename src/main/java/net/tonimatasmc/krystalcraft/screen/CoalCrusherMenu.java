@@ -49,23 +49,22 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     }
 
     public boolean isCrafting() {
-        return data.get(0) > 0 && data.get(2) < 0;
+        return data.get(0) > 0;
     }
 
     public int getScaledProgress() {
         int progress = this.data.get(0);
         int maxProgress = this.data.get(1);
-        int progressArrowSize = 26;
+        int progressArrowSize = 14;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     public int getFuelScaledProgress() {
-        int progress = CoalCrusherBlockEntity.getFuelProgress();
-        int maxProgress = CoalCrusherBlockEntity.getFuelMaxProgress();
-        int progressArrowSize = 26*8;
+        int progress = this.data.get(2);
+        int progressArrowSize = 14;
 
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+        return progress != 0 ? progress * progressArrowSize / 8 : 0;
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
