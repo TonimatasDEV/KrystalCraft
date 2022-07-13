@@ -25,6 +25,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.tonimatasmc.krystalcraft.block.entity.ModBlockEntities;
+import net.tonimatasmc.krystalcraft.block.entity.Utils.Simplify;
 import net.tonimatasmc.krystalcraft.recipe.CoalCombinerRecipe;
 import net.tonimatasmc.krystalcraft.screen.CoalCombinerMenu;
 import org.jetbrains.annotations.NotNull;
@@ -159,7 +160,7 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && canInsertAmountIntoOutputSlot(inventory) && canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasCoalSlot(entity);
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasCoalSlot(entity);
 
     }
 
@@ -189,13 +190,5 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
     private void resetProgress() {
         this.progress = 0;
-    }
-
-    private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack output) {
-        return inventory.getItem(3).getItem() == output.getItem() || inventory.getItem(3).isEmpty();
-    }
-
-    private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {
-        return inventory.getItem(3).getMaxStackSize() > inventory.getItem(3).getCount();
     }
 }
