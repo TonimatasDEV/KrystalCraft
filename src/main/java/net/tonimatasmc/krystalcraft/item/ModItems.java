@@ -3,10 +3,11 @@ package net.tonimatasmc.krystalcraft.item;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.registries.*;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 
-@SuppressWarnings("unused")
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
             DeferredRegister.create(ForgeRegistries.ITEMS, KrystalCraft.MOD_ID);
@@ -523,9 +524,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> SET_WATER_BOTTLES = ITEMS.register("set_water_bottles",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT).durability(64)));
-
-
-
 
     public static void register(IEventBus iEventBus) {
             ITEMS.register(iEventBus);

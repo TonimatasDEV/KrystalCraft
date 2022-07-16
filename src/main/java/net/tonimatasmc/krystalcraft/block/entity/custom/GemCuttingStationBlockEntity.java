@@ -32,10 +32,10 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Random;
 
 public class GemCuttingStationBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
+
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -43,13 +43,13 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
 
     public GemCuttingStationBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.GEM_CUTTING_STATION_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
+
         this.data = new ContainerData() {
 
             @SuppressWarnings("EnhancedSwitchMigration")
@@ -124,6 +124,7 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+
         for (int i = 0; i < itemHandler.getSlots(); i++) {
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
@@ -132,10 +133,11 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, GemCuttingStationBlockEntity pBlockEntity) {
-        if(hasRecipe(pBlockEntity)) {
+        if (hasRecipe(pBlockEntity)) {
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
+
+            if (pBlockEntity.progress > pBlockEntity.maxProgress) {
                 craftItem(pBlockEntity);
             }
         } else {
@@ -145,31 +147,8 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
     }
 
     private static boolean hasRecipe(GemCuttingStationBlockEntity entity) {
-        Level level = entity.level;
-
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<GemCuttingStationRecipe> match = Objects.requireNonNull(level).getRecipeManager()
-                .getRecipeFor(GemCuttingStationRecipe.Type.INSTANCE, inventory, level);
-
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
-                hasWaterInWaterSlot(entity) && hasToolsInToolSlot(entity);
-    }
-
-    private static boolean hasWaterInWaterSlot(GemCuttingStationBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(0).getItem() == ModItems.SET_WATER_BOTTLES.get();
-    }
-
-    private static boolean hasToolsInToolSlot(GemCuttingStationBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(2).getItem() == ModItems.GEM_CUTTER_TOOL.get();
-    }
-
-    private static void craftItem(GemCuttingStationBlockEntity entity) {
         Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
 
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
@@ -177,8 +156,21 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
         Optional<GemCuttingStationRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(GemCuttingStationRecipe.Type.INSTANCE, inventory, level);
 
-        if(match.isPresent()) {
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
+                Simplify.hasWaterInWaterSlot(entity.itemHandler) && Simplify.hasToolsInToolSlot(entity.itemHandler);
+    }
 
+    private static void craftItem(GemCuttingStationBlockEntity entity) {
+        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        Level level = entity.level;
+
+        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
+        }
+
+        Optional<GemCuttingStationRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(GemCuttingStationRecipe.Type.INSTANCE, inventory, level);
+
+        if (match.isPresent()) {
             entity.itemHandler.getStackInSlot(0).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(0).getMaxDamage() - entity.itemHandler.getStackInSlot(0).getDamageValue()) <= 0) {
@@ -186,7 +178,6 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
             }
 
             entity.itemHandler.extractItem(1,1, false);
-
             entity.itemHandler.getStackInSlot(2).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(2).getMaxDamage() - entity.itemHandler.getStackInSlot(2).getDamageValue()) <= 0) {
@@ -194,7 +185,6 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
             }
 
             entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
-
             entity.resetProgress();
         }
     }

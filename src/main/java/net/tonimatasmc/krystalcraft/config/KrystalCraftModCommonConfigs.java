@@ -58,7 +58,6 @@ public class KrystalCraftModCommonConfigs {
         JADE_ORE_VEIN_SIZE = BUILDER.comment("How many Jade Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Jade Ore", 3, 1, 10);
         JADE_ORE_MINIMUN_HEIGHT = BUILDER.define("Minimum spawning height of Jade Ore", -80);
         JADE_ORE_MAXIMUN_HEIGHT = BUILDER.define("Maximun spawning height of Jade Ore", 80);
-        
 
         SILVER_ORE_VEINS_PER_CHUNK = BUILDER.comment("How many Silver Ore Veins spawn per chunk!").define("Veins of Silver Ore Per Chunk", 8);
         SILVER_ORE_VEIN_SIZE = BUILDER.comment("How many Silver Ore Blocks spawn in one Vein!").defineInRange("Vein Size of Silver Ore", 8, 1, 10);

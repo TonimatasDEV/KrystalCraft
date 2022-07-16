@@ -13,8 +13,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> {
-    private static final ResourceLocation TEXTURE =
-            new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
 
     public CoalCrusherScreen(CoalCrusherMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -25,6 +24,7 @@ public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> 
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
+
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
@@ -33,6 +33,7 @@ public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> 
         if (menu.isCrafting()) {
             blit(pPoseStack, x + 102, y + 21, 190, 0, 23, menu.getScaledProgress());
         }
+
         blit(pPoseStack, x + 55, y + 35, 176, 0, 14, menu.getFuelScaledProgress());
 
     }
