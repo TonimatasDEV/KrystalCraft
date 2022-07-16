@@ -89,7 +89,7 @@ public class CoalCrusherBlock extends BaseEntityBlock {
             BlockEntity entity = pLevel.getBlockEntity(Objects.requireNonNull(pPos));
 
             if(entity instanceof CoalCrusherBlockEntity) {
-                NetworkHooks.openGui(((ServerPlayer) Objects.requireNonNull(pPlayer)), (CoalCrusherBlockEntity)entity, pPos);
+                NetworkHooks.openScreen(((ServerPlayer) Objects.requireNonNull(pPlayer)), (CoalCrusherBlockEntity)entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }
