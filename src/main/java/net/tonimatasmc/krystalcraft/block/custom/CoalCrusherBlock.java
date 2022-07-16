@@ -35,12 +35,10 @@ public class CoalCrusherBlock extends BaseEntityBlock {
         super(properties);
     }
 
-    private static final VoxelShape SHAPE =  Block.box(0, 0, 0, 16, 18, 16);
-
     @Override
     @Nonnull
     public VoxelShape getShape(@Nullable BlockState pState, @Nullable BlockGetter pLevel, @Nullable BlockPos pPos, @Nullable CollisionContext pContext) {
-        return SHAPE;
+        return Block.box(0, 0, 0, 16, 18, 16);
     }
 
     @Override
@@ -75,10 +73,12 @@ public class CoalCrusherBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, @Nullable Level pLevel, @Nullable BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = Objects.requireNonNull(pLevel).getBlockEntity(Objects.requireNonNull(pPos));
+
             if (blockEntity instanceof CoalCrusherBlockEntity) {
                 ((CoalCrusherBlockEntity) blockEntity).drops();
             }
         }
+
         super.onRemove(pState, Objects.requireNonNull(pLevel), Objects.requireNonNull(pPos), pNewState, pIsMoving);
     }
 
@@ -87,6 +87,7 @@ public class CoalCrusherBlock extends BaseEntityBlock {
     public InteractionResult use(@Nullable BlockState pState, Level pLevel, @Nullable BlockPos pPos, @Nullable Player pPlayer, @Nullable InteractionHand pHand, @Nullable BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(Objects.requireNonNull(pPos));
+
             if(entity instanceof CoalCrusherBlockEntity) {
                 NetworkHooks.openGui(((ServerPlayer) Objects.requireNonNull(pPlayer)), (CoalCrusherBlockEntity)entity, pPos);
             } else {
@@ -106,7 +107,6 @@ public class CoalCrusherBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nullable Level pLevel, @Nullable BlockState pState, @Nullable BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.COAL_CRUSHER_BLOCK_ENTITY.get(),
-                CoalCrusherBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, ModBlockEntities.COAL_CRUSHER_BLOCK_ENTITY.get(), CoalCrusherBlockEntity::tick);
     }
 }

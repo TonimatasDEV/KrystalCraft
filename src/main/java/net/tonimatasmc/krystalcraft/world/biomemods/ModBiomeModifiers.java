@@ -16,7 +16,6 @@ public class ModBiomeModifiers {
     public static final DeferredRegister<Codec<? extends BiomeModifier>> BIOME_MODIFIERS =
             DeferredRegister.create(ForgeRegistries.Keys.BIOME_MODIFIER_SERIALIZERS, KrystalCraft.MOD_ID);
 
-
     public static RegistryObject<Codec<ModVegetalBiomeModifier>> VEGETAL_MODIFIER = BIOME_MODIFIERS.register("vegetal", () ->
             RecordCodecBuilder.create(builder -> builder.group(
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(ModVegetalBiomeModifier::biomes),
@@ -34,7 +33,6 @@ public class ModBiomeModifiers {
                     Biome.LIST_CODEC.fieldOf("biomes").forGetter(ModEntityBiomeModifier::biomes),
                     MobSpawnSettings.SpawnerData.CODEC.fieldOf("entity").forGetter(ModEntityBiomeModifier::spawnerData)
             ).apply(builder, ModEntityBiomeModifier::new)));
-
 
     public static void register(IEventBus eventBus) {
         BIOME_MODIFIERS.register(eventBus);

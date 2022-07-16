@@ -1,4 +1,4 @@
-package net.tonimatasmc.krystalcraft.enchantment;
+package net.tonimatasmc.krystalcraft.enchantment.enchants;
 
 
 import net.minecraft.core.BlockPos;
@@ -18,16 +18,13 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class PlayerHeadsEnchantment extends Enchantment {
-    protected PlayerHeadsEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
+    public PlayerHeadsEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
         super(pRarity, pCategory, pApplicableSlots);
     }
 
-    @SuppressWarnings("unused")
     @Override
     public void doPostAttack(LivingEntity pAttacker, @Nullable Entity pTarget, int pLevel) {
         if (!pAttacker.level.isClientSide()) {
-            ServerLevel world = (ServerLevel) pAttacker.level;
-            ServerPlayer player = ((ServerPlayer) pAttacker);
             BlockPos position = Objects.requireNonNull(pTarget).blockPosition();
 
             if (pLevel == 1) {
