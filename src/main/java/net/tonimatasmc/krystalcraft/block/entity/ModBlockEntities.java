@@ -15,8 +15,6 @@ import net.tonimatasmc.krystalcraft.block.entity.custom.GemCuttingStationBlockEn
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, KrystalCraft.MOD_ID);
 
-
-
     public static final RegistryObject<BlockEntityType<GemCuttingStationBlockEntity>> GEM_CUTTING_STATION_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("gem_cutting_station_block_entity", () ->
                     BlockEntityType.Builder.of(GemCuttingStationBlockEntity::new,

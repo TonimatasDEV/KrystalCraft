@@ -14,7 +14,6 @@ public class ModEventBusEvents {
     @SubscribeEvent
     public static void registerModifierSerializers(@Nonnull final RegisterEvent event) {
         event.register(ForgeRegistries.Keys.LOOT_MODIFIER_SERIALIZERS, helper -> {
-
         });
     }
 }

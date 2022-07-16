@@ -14,15 +14,6 @@ public class ModFuelSlot extends SlotItemHandler {
 
     @Override
     public boolean mayPlace(@NotNull ItemStack stack) {
-        return AbstractFurnaceBlockEntity.isFuel(stack) || ModFuelSlot.isBucket(stack);
-    }
-
-    @Override
-    public int getMaxStackSize(@NotNull ItemStack pStack) {
-        return ModFuelSlot.isBucket(pStack) ? 1 : super.getMaxStackSize(pStack);
-    }
-
-    public static boolean isBucket(ItemStack stack) {
-        return stack.is(Items.BUCKET);
+        return stack.getItem() == Items.COAL || stack.getItem() == Items.CHARCOAL;
     }
 }

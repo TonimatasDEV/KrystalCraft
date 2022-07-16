@@ -30,27 +30,23 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.TOPAZ_DUST).add(ModItems.TOPAZ_DUST.get());
         tag(ModTags.Items.COPPER_DUST).add(ModItems.COPPER_DUST.get());
         tag(ModTags.Items.DUSTS).add(ModItems.SILVER_DUST.get(), ModItems.BRONZE_DUST.get(), ModItems.DIAMOND_DUST.get(), ModItems.EMERALD_DUST.get(), ModItems.JADE_DUST.get(), ModItems.LAPIS_DUST.get(), ModItems.LEAD_DUST.get(), ModItems.PLATINUM_DUST.get(), ModItems.RUBY_DUST.get(), ModItems.SAPPHIRE_DUST.get(), ModItems.TIN_DUST.get(), ModItems.TOPAZ_DUST.get(), ModItems.COPPER_DUST.get());
-
         tag(ModTags.Items.JADE_GEM).add(ModItems.JADE.get());
         tag(ModTags.Items.RUBY_GEM).add(ModItems.RUBY.get());
         tag(ModTags.Items.SAPPHIRE_GEM).add(ModItems.SAPPHIRE.get());
         tag(ModTags.Items.TOPAZ_GEM).add(ModItems.TOPAZ.get());
         tag(ModTags.Items.GEMS).add(ModItems.JADE.get(), ModItems.RUBY.get(), ModItems.SAPPHIRE.get(), ModItems.TOPAZ.get());
-
         tag(ModTags.Items.SILVER_INGOT).add(ModItems.SILVER_INGOT.get());
         tag(ModTags.Items.PLATINUM_INGOT).add(ModItems.PLATINUM_INGOT.get());
         tag(ModTags.Items.LEAD_INGOT).add(ModItems.LEAD_INGOT.get());
         tag(ModTags.Items.TIN_INGOT).add(ModItems.TIN_INGOT.get());
         tag(ModTags.Items.BRONZE_INGOT).add(ModItems.BRONZE_INGOT.get());
         tag(ModTags.Items.INGOTS).add(ModItems.SILVER_INGOT.get(), ModItems.PLATINUM_INGOT.get(), ModItems.LEAD_INGOT.get(), ModItems.TIN_INGOT.get(), ModItems.BRONZE_INGOT.get());
-
         tag(ModTags.Items.BRONZE_NUGGETS).add(ModItems.BRONZE_NUGGET.get());
         tag(ModTags.Items.LEAD_NUGGETS).add(ModItems.LEAD_NUGGET.get());
         tag(ModTags.Items.PLATINUM_NUGGETS).add(ModItems.PLATINUM_NUGGET.get());
         tag(ModTags.Items.SILVER_NUGGETS).add(ModItems.SILVER_INGOT.get());
         tag(ModTags.Items.TIN_NUGGETS).add(ModItems.TIN_INGOT.get());
         tag(ModTags.Items.NUGGETS).add(ModItems.BRONZE_NUGGET.get(), ModItems.LEAD_NUGGET.get(), ModItems.PLATINUM_NUGGET.get(), ModItems.COPPER_NUGGET.get(), ModItems.TIN_NUGGET.get());
-
         tag(ModTags.Items.JADE_RAW_MATERIAL).add(ModItems.RAW_JADE.get());
         tag(ModTags.Items.LEAD_RAW_MATERIAL).add(ModItems.RAW_LEAD.get());
         tag(ModTags.Items.PLATINUM_RAW_MATERIAL).add(ModItems.RAW_PLATINUM.get());
@@ -64,7 +60,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.LAPIS_RAW_MATERIAL).add(ModItems.RAW_LAPIS.get());
         tag(ModTags.Items.REDSTONE_RAW_MATERIAL).add(ModItems.RAW_REDSTONE.get());
         tag(ModTags.Items.RAW_MATERIALS).add(ModItems.RAW_REDSTONE.get(), ModItems.RAW_LAPIS.get(), ModItems.RAW_EMERALD.get(), ModItems.RAW_DIAMOND.get(), ModItems.RAW_TOPAZ.get(), ModItems.RAW_TIN.get(), ModItems.RAW_SILVER.get(), ModItems.RAW_SAPPHIRE.get(), ModItems.RAW_RUBY.get(), ModItems.RAW_PLATINUM.get(), ModItems.RAW_LEAD.get(), ModItems.RAW_JADE.get());
-
         copy(ModTags.Blocks.EXPERIENCE_ORE, ModTags.Items.EXPERIENCE_ORE);
         copy(ModTags.Blocks.JADE_ORE, ModTags.Items.JADE_ORE);
         copy(ModTags.Blocks.LEAD_ORE, ModTags.Items.LEAD_ORE);
@@ -75,7 +70,6 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         copy(ModTags.Blocks.TIN_ORE, ModTags.Items.TIN_ORE);
         copy(ModTags.Blocks.TOPAZ_ORE, ModTags.Items.TOPAZ_ORE);
         copy(ModTags.Blocks.ORES, ModTags.Items.ORES);
-
         copy(ModTags.Blocks.BRONZE_BLOCK, ModTags.Items.BRONZE_BLOCK);
         copy(ModTags.Blocks.JADE_BLOCK, ModTags.Items.JADE_BLOCK);
         copy(ModTags.Blocks.LEAD_BLOCK, ModTags.Items.LEAD_BLOCK);

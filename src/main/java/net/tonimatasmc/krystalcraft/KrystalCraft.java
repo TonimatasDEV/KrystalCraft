@@ -20,8 +20,6 @@ import net.tonimatasmc.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
-import net.tonimatasmc.krystalcraft.world.biomemods.ModBiomeModifiers;
-import net.tonimatasmc.krystalcraft.world.feature.ModPlacedFeatures;
 
 @Mod(KrystalCraft.MOD_ID)
 public class KrystalCraft {
@@ -41,7 +39,7 @@ public class KrystalCraft {
         ModEnchantments.register(eventBus);
 
         //ModBiomeModifiers.register(eventBus);
-        // ModPlacedFeatures.register(eventBus);
+        //ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         
@@ -55,18 +53,5 @@ public class KrystalCraft {
         MenuScreens.register(ModMenuTypes.GEM_CUTTING_STATION_MENU.get(), GemCuttingStationScreen::new);
         MenuScreens.register(ModMenuTypes.COAL_CRUSHER_MENU.get(), CoalCrusherScreen::new);
         MenuScreens.register(ModMenuTypes.COAL_COMBINER_MENU.get(), CoalCombinerScreen::new);
-    }
-
-    @SuppressWarnings("unused")
-    @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, value = Dist.CLIENT, bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class Client {
-        private Client() {
-
-        }
-
-        private void doClientStuff(final FMLClientSetupEvent event) {
-            event.enqueueWork(() -> {
-            });
-        }
     }
 }

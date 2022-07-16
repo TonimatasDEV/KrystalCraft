@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.Block;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
 
 public class ModTags {
+    @SuppressWarnings("unused")
     public static class Blocks {
         public static final TagKey<Block> ORES = forgeTag("ores");
         public static final TagKey<Block> STORAGE_BLOCKS = forgeTag("storage_blocks");
@@ -22,7 +23,6 @@ public class ModTags {
         public static final TagKey<Block> SILVER_ORE = forgeTag("ores/silver");
         public static final TagKey<Block> TIN_ORE = forgeTag("ores/tin");
         public static final TagKey<Block> TOPAZ_ORE = forgeTag("ores/topaz");
-
         public static final TagKey<Block> BRONZE_BLOCK = forgeTag("storage_blocks/bronze");
         public static final TagKey<Block> JADE_BLOCK = forgeTag("storage_blocks/jade");
         public static final TagKey<Block> LEAD_BLOCK = forgeTag("storage_blocks/lead");
@@ -42,6 +42,7 @@ public class ModTags {
         }
     }
 
+    @SuppressWarnings("unused")
     public static class Items {
         public static final TagKey<Item> DUSTS = forgeTag("dusts");
         public static final TagKey<Item> GEMS = forgeTag("gems");
@@ -50,7 +51,6 @@ public class ModTags {
         public static final TagKey<Item> RAW_MATERIALS = forgeTag("raw_materials");
         public static final TagKey<Item> ORES = forgeTag("ores");
         public static final TagKey<Item> STORAGE_BLOCKS = forgeTag("storage_blocks");
-
         public static final TagKey<Item> BRONZE_DUST = forgeTag("dusts/bronze");
         public static final TagKey<Item> COPPER_DUST = forgeTag("dusts/copper");
         public static final TagKey<Item> JADE_DUST = forgeTag("dusts/jade");
@@ -64,24 +64,20 @@ public class ModTags {
         public static final TagKey<Item> DIAMOND_DUST = forgeTag("dusts/diamond");
         public static final TagKey<Item> EMERALD_DUST = forgeTag("dusts/emerald");
         public static final TagKey<Item> LAPIS_DUST = forgeTag("dusts/lapis");
-
         public static final TagKey<Item> JADE_GEM = forgeTag("gems/jade");
         public static final TagKey<Item> RUBY_GEM = forgeTag("gems/ruby");
         public static final TagKey<Item> SAPPHIRE_GEM = forgeTag("gems/sapphire");
         public static final TagKey<Item> TOPAZ_GEM = forgeTag("gems/topaz");
-
         public static final TagKey<Item> BRONZE_INGOT = forgeTag("ingots/bronze");
         public static final TagKey<Item> LEAD_INGOT = forgeTag("ingots/lead");
         public static final TagKey<Item> PLATINUM_INGOT = forgeTag("ingots/platinum");
         public static final TagKey<Item> SILVER_INGOT = forgeTag("ingots/silver");
         public static final TagKey<Item> TIN_INGOT = forgeTag("ingots/tin");
-
         public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
         public static final TagKey<Item> LEAD_NUGGETS = forgeTag("nuggets/lead");
         public static final TagKey<Item> PLATINUM_NUGGETS = forgeTag("nuggets/platinum");
         public static final TagKey<Item> SILVER_NUGGETS = forgeTag("nuggets/silver");
         public static final TagKey<Item> TIN_NUGGETS = forgeTag("nuggets/tin");
-
         public static final TagKey<Item> EXPERIENCE_ORE = forgeTag("ores/experience");
         public static final TagKey<Item> JADE_ORE = forgeTag("ores/jade");
         public static final TagKey<Item> LEAD_ORE = forgeTag("ores/lead");
@@ -91,7 +87,6 @@ public class ModTags {
         public static final TagKey<Item> SILVER_ORE = forgeTag("ores/silver");
         public static final TagKey<Item> TIN_ORE = forgeTag("ores/tin");
         public static final TagKey<Item> TOPAZ_ORE = forgeTag("ores/topaz");
-
         public static final TagKey<Item> BRONZE_BLOCK = forgeTag("storage_blocks/bronze");
         public static final TagKey<Item> JADE_BLOCK = forgeTag("storage_blocks/jade");
         public static final TagKey<Item> LEAD_BLOCK = forgeTag("storage_blocks/lead");
@@ -101,7 +96,6 @@ public class ModTags {
         public static final TagKey<Item> SILVER_BLOCK = forgeTag("storage_blocks/silver");
         public static final TagKey<Item> TIN_BLOCK = forgeTag("storage_blocks/tin");
         public static final TagKey<Item> TOPAZ_BLOCK = forgeTag("storage_blocks/topaz");
-
         public static final TagKey<Item> JADE_RAW_MATERIAL = forgeTag("raw_materials/jade");
         public static final TagKey<Item> LEAD_RAW_MATERIAL = forgeTag("raw_materials/lead");
         public static final TagKey<Item> PLATINUM_RAW_MATERIAL = forgeTag("raw_materials/platinum");

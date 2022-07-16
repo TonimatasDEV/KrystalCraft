@@ -24,7 +24,6 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
         tag(ModTags.Blocks.TIN_ORE).add(ModBlocks.TIN_ORE.get(), ModBlocks.DEEPSLATE_TIN_ORE.get());
         tag(ModTags.Blocks.TOPAZ_ORE).add(ModBlocks.TOPAZ_ORE.get(), ModBlocks.DEEPSLATE_TOPAZ_ORE.get());
         tag(ModTags.Blocks.ORES).add(ModBlocks.EXPERIENCE_ORE.get(), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get(), ModBlocks.JADE_ORE.get(), ModBlocks.DEEPSLATE_JADE_ORE.get(), ModBlocks.LEAD_ORE.get(), ModBlocks.DEEPSLATE_LEAD_ORE.get(), ModBlocks.PLATINUM_ORE.get(), ModBlocks.DEEPSLATE_PLATINUM_ORE.get(), ModBlocks.RUBY_ORE.get(), ModBlocks.DEEPSLATE_RUBY_ORE.get(), ModBlocks.SAPPHIRE_ORE.get(), ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get(), ModBlocks.SILVER_ORE.get(), ModBlocks.DEEPSLATE_SILVER_ORE.get(), ModBlocks.TIN_ORE.get(), ModBlocks.DEEPSLATE_TIN_ORE.get(), ModBlocks.TOPAZ_ORE.get(), ModBlocks.DEEPSLATE_TOPAZ_ORE.get());
-
         tag(ModTags.Blocks.BRONZE_BLOCK).add(ModBlocks.BRONZE_BLOCK.get());
         tag(ModTags.Blocks.JADE_BLOCK).add(ModBlocks.JADE_BLOCK.get());
         tag(ModTags.Blocks.LEAD_BLOCK).add(ModBlocks.LEAD_BLOCK.get());

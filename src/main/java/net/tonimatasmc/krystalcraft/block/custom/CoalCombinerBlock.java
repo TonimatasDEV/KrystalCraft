@@ -35,11 +35,9 @@ public class CoalCombinerBlock extends BaseEntityBlock {
         super(properties);
     }
 
-    private static final VoxelShape SHAPE =  Block.box(0, 0, 0, 16, 18, 16);
-
     @Override
     public @Nonnull VoxelShape getShape(@Nullable BlockState pState, @Nullable BlockGetter pLevel, @Nullable BlockPos pPos, @Nullable CollisionContext pContext) {
-        return SHAPE;
+        return Block.box(0, 0, 0, 16, 18, 16);
     }
 
     @Override

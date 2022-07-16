@@ -21,10 +21,7 @@ import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ModLootTableProvider extends LootTableProvider {
-    private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>>
-            loot_tables = ImmutableList.of(
-                    Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK),
-            Pair.of(ModChestLootTables::new, LootContextParamSets.CHEST));
+    private final List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> loot_tables = ImmutableList.of(Pair.of(ModBlockLootTables::new, LootContextParamSets.BLOCK), Pair.of(ModChestLootTables::new, LootContextParamSets.CHEST));
 
     public ModLootTableProvider(DataGenerator pGenerator) {
         super(pGenerator);

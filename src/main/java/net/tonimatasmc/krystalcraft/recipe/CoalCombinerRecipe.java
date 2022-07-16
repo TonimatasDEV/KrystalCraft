@@ -81,13 +81,13 @@ public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
     @SuppressWarnings("unused")
     public static class Type implements RecipeType<CoalCombinerRecipe> {
         private Type() {
-
         }
 
         public static final Type INSTANCE = new Type();
         public static final String ID = "coal_combiner";
     }
 
+    @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<CoalCombinerRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_combiner");
@@ -96,7 +96,6 @@ public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
         @Nonnull
         public CoalCombinerRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(Objects.requireNonNull(json), "output"));
-
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(2, Ingredient.EMPTY);
 
@@ -110,9 +109,7 @@ public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
         @Override
         public CoalCombinerRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
-
             inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-
             ItemStack output = buf.readItem();
             return new CoalCombinerRecipe(id, output, inputs);
         }

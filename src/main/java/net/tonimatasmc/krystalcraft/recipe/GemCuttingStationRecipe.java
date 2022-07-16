@@ -87,6 +87,7 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
         public static final String ID = "gem_cutting";
     }
 
+    @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<GemCuttingStationRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "gem_cutting");
@@ -95,7 +96,6 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
         @Nonnull
         public GemCuttingStationRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(Objects.requireNonNull(json), "output"));
-
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
@@ -109,9 +109,7 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
         @Override
         public GemCuttingStationRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
-
             inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-
             ItemStack output = buf.readItem();
             return new GemCuttingStationRecipe(id, output, inputs);
         }
@@ -119,9 +117,11 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
         @Override
         public void toNetwork(FriendlyByteBuf buf, GemCuttingStationRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
+
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
+
             buf.writeItemStack(recipe.getResultItem(), false);
         }
 
