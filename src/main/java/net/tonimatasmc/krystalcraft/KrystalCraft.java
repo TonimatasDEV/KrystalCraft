@@ -20,6 +20,8 @@ import net.tonimatasmc.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
+import net.tonimatasmc.krystalcraft.world.biomemods.ModBiomeModifiers;
+import net.tonimatasmc.krystalcraft.world.feature.ModPlacedFeatures;
 
 @Mod(KrystalCraft.MOD_ID)
 public class KrystalCraft {
@@ -38,8 +40,8 @@ public class KrystalCraft {
 
         ModEnchantments.register(eventBus);
 
-        //ModBiomeModifiers.register(eventBus);
-        //ModPlacedFeatures.register(eventBus);
+        ModBiomeModifiers.register(eventBus);
+        ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
         
