@@ -19,6 +19,7 @@ public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu
         super(pMenu, pPlayerInventory, pTitle);
     }
 
+    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     protected void renderBg(@Nullable PoseStack pPoseStack, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
