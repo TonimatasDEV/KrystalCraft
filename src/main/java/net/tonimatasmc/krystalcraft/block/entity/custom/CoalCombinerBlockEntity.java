@@ -4,9 +4,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.ComponentContents;
-import net.minecraft.network.chat.Style;
-import net.minecraft.util.FormattedCharSequence;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -32,7 +29,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -45,10 +41,10 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     };
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
+    private int fuel;
 
     public CoalCombinerBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.COAL_COMBINER_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
@@ -59,6 +55,7 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
                 switch (index) {
                     case 0: return CoalCombinerBlockEntity.this.progress;
                     case 1: return CoalCombinerBlockEntity.this.maxProgress;
+                    case 2: return CoalCombinerBlockEntity.this.fuel;
                     default: return 0;
                 }
             }
@@ -67,11 +64,12 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
                 switch (index) {
                     case 0 -> CoalCombinerBlockEntity.this.progress = value;
                     case 1 -> CoalCombinerBlockEntity.this.maxProgress = value;
+                    case 2 -> CoalCombinerBlockEntity.this.fuel = value;
                 }
             }
 
             public int getCount() {
-                return 2;
+                return 3;
             }
         };
     }
@@ -93,20 +91,20 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return lazyItemHandler.cast();
-        }return super.getCapability(cap, side);
+        }
+
+        return super.getCapability(cap, side);
     }
 
     @Override
     public void onLoad() {
         super.onLoad();
-
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
     }
 
     @Override
     public void invalidateCaps()  {
         super.invalidateCaps();
-
         lazyItemHandler.invalidate();
     }
 
@@ -114,16 +112,16 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     protected void saveAdditional(@NotNull CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("coal_combiner.progress", progress);
-
+        tag.putInt("coal_combiner.fuel", fuel);
         super.saveAdditional(tag);
     }
 
     @Override
     public void load(@Nullable CompoundTag nbt) {
         super.load(Objects.requireNonNull(nbt));
-
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("coal_combiner.progress");
+        progress = nbt.getInt("coal_combiner.fuel");
     }
 
     public void drops() {
@@ -137,12 +135,19 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CoalCombinerBlockEntity pBlockEntity) {
-        if(hasRecipe(pBlockEntity)) {
+        if (hasRecipe(pBlockEntity)) {
             pBlockEntity.progress++;
             setChanged(pLevel, pPos, pState);
 
-            if(pBlockEntity.progress > pBlockEntity.maxProgress) {
-                craftItem(pBlockEntity);
+            if (pBlockEntity.progress > pBlockEntity.maxProgress) {
+                if (pBlockEntity.fuel > 0) {
+                    craftItem(pBlockEntity);
+                } else {
+                    if (pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.COAL || pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.CHARCOAL) {
+                        pBlockEntity.itemHandler.extractItem(2, 1, false);
+                        pBlockEntity.fuel = 8;
+                    }
+                }
             }
         } else {
             pBlockEntity.resetProgress();
@@ -151,8 +156,8 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
     }
 
     private static boolean hasRecipe(CoalCombinerBlockEntity entity) {
-        Level level = entity.level;
         SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
+        Level level = entity.level;
 
         for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
             inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
@@ -160,12 +165,8 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) && hasCoalSlot(entity);
-
-    }
-
-    private static boolean hasCoalSlot(CoalCombinerBlockEntity entity) {
-        return entity.itemHandler.getStackInSlot(2).getItem() == Items.COAL;
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
+                Simplify.hasWaterInWaterSlot(entity.itemHandler);
     }
 
     private static void craftItem(CoalCombinerBlockEntity entity) {
@@ -181,9 +182,10 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
         if(match.isPresent()) {
             entity.itemHandler.extractItem(0,1, false);
             entity.itemHandler.extractItem(1,1, false);
-            entity.itemHandler.extractItem(2,1, false);
 
             entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
+
+            entity.fuel = entity.fuel - 1;
             entity.resetProgress();
         }
     }

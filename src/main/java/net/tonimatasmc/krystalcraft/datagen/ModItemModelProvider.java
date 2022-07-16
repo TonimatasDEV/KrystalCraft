@@ -155,15 +155,11 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void simpleItem(RegistryObject<Item> item) {
-        withExistingParent(Objects.requireNonNull(item.getId()).getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(KrystalCraft.MOD_ID, "item/" + item.getId().getPath()));
+        withExistingParent(Objects.requireNonNull(item.getId()).getPath(), new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(KrystalCraft.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     private void handheldItem(RegistryObject<Item> item) {
-        withExistingParent(Objects.requireNonNull(item.getId()).getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(KrystalCraft.MOD_ID, "item/" + item.getId().getPath()));
+        withExistingParent(Objects.requireNonNull(item.getId()).getPath(), new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(KrystalCraft.MOD_ID, "item/" + item.getId().getPath()));
     }
 }
 

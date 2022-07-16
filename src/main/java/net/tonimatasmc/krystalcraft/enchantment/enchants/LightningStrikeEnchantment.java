@@ -1,4 +1,4 @@
-package net.tonimatasmc.krystalcraft.enchantment;
+package net.tonimatasmc.krystalcraft.enchantment.enchants;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
@@ -11,7 +11,7 @@ import javax.annotation.Nullable;
 import java.util.Objects;
 
 public class LightningStrikeEnchantment extends Enchantment {
-    protected LightningStrikeEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
+    public LightningStrikeEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
         super(pRarity, pCategory, pApplicableSlots);
     }
 

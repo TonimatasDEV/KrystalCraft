@@ -7,6 +7,7 @@ import javax.annotation.Nonnull;
 
 public class KrystalCraftTab {
     public static final CreativeModeTab KRYSTALCRAFT = new CreativeModeTab("KrystalCraft") {
+
         @Override
         @Nonnull
         public ItemStack makeIcon() {

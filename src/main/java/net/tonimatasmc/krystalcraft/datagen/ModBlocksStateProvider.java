@@ -55,15 +55,12 @@ public class ModBlocksStateProvider extends BlockStateProvider {
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
-
         getVariantBuilder(block).forAllStates(function);
     }
 
     private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(block.getAgeProperty()),
-                new ResourceLocation(KrystalCraft.MOD_ID, "block/" + textureName + state.getValue(block.getAgeProperty()))));
-
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(block.getAgeProperty()), new ResourceLocation(KrystalCraft.MOD_ID, "block/" + textureName + state.getValue(block.getAgeProperty()))));
         return models;
     }
 }

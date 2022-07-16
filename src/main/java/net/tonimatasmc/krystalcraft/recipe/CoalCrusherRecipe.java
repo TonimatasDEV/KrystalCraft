@@ -11,6 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasmc.krystalcraft.KrystalCraft;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,7 +29,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    public boolean matches(SimpleContainer pContainer, @Nullable Level pLevel) {
+    public boolean matches(@NotNull SimpleContainer pContainer, @Nullable Level pLevel) {
         if (pLevel != null && pLevel.isClientSide()) {
             return false;
         }
@@ -86,6 +87,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
         public static final String ID = "coal_crusher";
     }
 
+    @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<CoalCrusherRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_crusher");
@@ -94,7 +96,6 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
         @Nonnull
         public CoalCrusherRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(Objects.requireNonNull(json), "output"));
-
             JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
             NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
 
@@ -108,9 +109,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
         @Override
         public CoalCrusherRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
-
             inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-
             ItemStack output = buf.readItem();
             return new CoalCrusherRecipe(id, output, inputs);
         }
@@ -118,9 +117,11 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
         @Override
         public void toNetwork(FriendlyByteBuf buf, CoalCrusherRecipe recipe) {
             buf.writeInt(recipe.getIngredients().size());
+
             for (Ingredient ing : recipe.getIngredients()) {
                 ing.toNetwork(buf);
             }
+
             buf.writeItemStack(recipe.getResultItem(), false);
         }
 
