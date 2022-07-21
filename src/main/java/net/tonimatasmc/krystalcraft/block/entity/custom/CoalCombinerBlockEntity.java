@@ -165,8 +165,8 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
-                Simplify.hasWaterInWaterSlot(entity.itemHandler);
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 3) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(), 3) &&
+                Simplify.hasWaterInWaterSlot(entity.itemHandler, 0);
     }
 
     private static void craftItem(CoalCombinerBlockEntity entity) {

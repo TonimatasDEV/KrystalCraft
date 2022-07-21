@@ -23,7 +23,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.tonimatasmc.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasmc.krystalcraft.block.entity.Utils.Simplify;
-import net.tonimatasmc.krystalcraft.item.ModItems;
 import net.tonimatasmc.krystalcraft.recipe.GemCuttingStationRecipe;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationMenu;
 import org.jetbrains.annotations.NotNull;
@@ -156,8 +155,8 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
         Optional<GemCuttingStationRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(GemCuttingStationRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
-                Simplify.hasWaterInWaterSlot(entity.itemHandler) && Simplify.hasToolsInToolSlot(entity.itemHandler);
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 3) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(), 3) &&
+                Simplify.hasWaterInWaterSlot(entity.itemHandler, 0) && Simplify.hasToolsInToolSlot(entity.itemHandler, 2);
     }
 
     private static void craftItem(GemCuttingStationBlockEntity entity) {

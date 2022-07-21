@@ -12,7 +12,9 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasmc.krystalcraft.block.ModBlocks;
 import net.tonimatasmc.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
 import net.tonimatasmc.krystalcraft.screen.slot.ModFuelSlot;
+import net.tonimatasmc.krystalcraft.screen.slot.ModGearSlot;
 import net.tonimatasmc.krystalcraft.screen.slot.ModResultSlot;
+import net.tonimatasmc.krystalcraft.screen.slot.ModWaterSlot;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
@@ -29,7 +31,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.COAL_CRUSHER_MENU.get(), pContainerId);
-        checkContainerSize(inv, 4);
+        checkContainerSize(inv, 5);
 
         blockEntity = ((CoalCrusherBlockEntity) entity);
         this.level = inv.player.level;
@@ -39,10 +41,11 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 25, 21));
-            this.addSlot(new SlotItemHandler(handler, 1, 79, 21));
-            this.addSlot(new ModFuelSlot(handler, 2, 54, 51));
-            this.addSlot(new ModResultSlot(handler, 3, 133, 21));
+            this.addSlot(new ModWaterSlot(handler, 0, 25, 34));
+            this.addSlot(new SlotItemHandler(handler, 1, 79, 5));
+            this.addSlot(new ModGearSlot(handler, 2, 79, 34));
+            this.addSlot(new ModFuelSlot(handler, 3, 54, 64));
+            this.addSlot(new ModResultSlot(handler, 4, 133, 34));
         });
 
         addDataSlots(data);
@@ -67,14 +70,9 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         return progress != 0 ? progress * progressArrowSize / 8 : 0;
     }
 
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-    private static final int TE_INVENTORY_SLOT_COUNT = 4; // Number of slots in the screen
+    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + 26;
+    private static final int TE_INVENTORY_SLOT_COUNT = 5; // Number of slots in the screen
 
     @SuppressWarnings("ConstantConditions")
     @Override
@@ -85,12 +83,12 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
-        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+        if (index < VANILLA_FIRST_SLOT_INDEX + 26) {
             if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;  // EMPTY_ITEM
             }
         } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + 26, false)) {
                 return ItemStack.EMPTY;
             }
         } else {

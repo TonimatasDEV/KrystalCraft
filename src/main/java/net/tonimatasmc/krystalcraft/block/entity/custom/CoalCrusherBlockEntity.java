@@ -27,14 +27,12 @@ import net.tonimatasmc.krystalcraft.block.entity.Utils.Simplify;
 import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherMenu;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import javax.annotation.Nonnull;
 import java.util.Objects;
 import java.util.Optional;
 
 public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -76,20 +74,17 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
-    @Nonnull
-    public Component getDisplayName() {
+    public @NotNull Component getDisplayName() {
         return Component.translatable("Coal Crusher");
     }
 
-    @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
+    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory, @NotNull Player pPlayer) {
         return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
     }
 
-    @Nonnull
     @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
+    public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
         if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return lazyItemHandler.cast();
         }
@@ -110,7 +105,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
-    protected void saveAdditional(@NotNull CompoundTag tag) {
+    protected void saveAdditional(CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("coal_crusher.progress", progress);
         tag.putInt("coal_crusher.fuel", fuel);
@@ -118,7 +113,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
-    public void load(@Nullable CompoundTag nbt) {
+    public void load(@NotNull CompoundTag nbt) {
         super.load(Objects.requireNonNull(nbt));
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
         progress = nbt.getInt("coal_crusher.progress");
@@ -144,8 +139,8 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 if (pBlockEntity.fuel > 0) {
                     craftItem(pBlockEntity);
                 } else {
-                    if (pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.COAL || pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.CHARCOAL) {
-                        pBlockEntity.itemHandler.extractItem(2, 1, false);
+                    if (pBlockEntity.itemHandler.getStackInSlot(3).getItem() == Items.COAL || pBlockEntity.itemHandler.getStackInSlot(3).getItem() == Items.CHARCOAL) {
+                        pBlockEntity.itemHandler.extractItem(3, 1, false);
                         pBlockEntity.fuel = 8;
                     }
                 }
@@ -166,8 +161,8 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
         Optional<CoalCrusherRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCrusherRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem()) &&
-                Simplify.hasWaterInWaterSlot(entity.itemHandler);
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 4) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(), 4) &&
+                Simplify.hasWaterInWaterSlot(entity.itemHandler, 0) && Simplify.hasGrindingGearInGearSlot(entity.itemHandler, 2);
     }
 
     private static void craftItem(CoalCrusherBlockEntity entity) {
@@ -189,7 +184,13 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
             entity.itemHandler.extractItem(1,1, false);
 
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
+            entity.itemHandler.getStackInSlot(2).hurt(1, RandomSource.create(), null);
+
+            if ((entity.itemHandler.getStackInSlot(2).getMaxDamage() - entity.itemHandler.getStackInSlot(2).getDamageValue()) <= 0) {
+                entity.itemHandler.extractItem(2,1, false);
+            }
+
+            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(4).getCount() + 1));
 
             entity.fuel = entity.fuel - 1;
             entity.resetProgress();
