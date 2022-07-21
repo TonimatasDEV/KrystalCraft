@@ -525,6 +525,9 @@ public class ModItems {
     public static final RegistryObject<Item> SET_WATER_BOTTLES = ITEMS.register("set_water_bottles",() ->
             new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT).durability(64)));
 
+    public static final RegistryObject<Item> GRINDING_GEAR = ITEMS.register("grinding_gear",() ->
+            new Item(new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT).durability(512)));
+
     public static void register(IEventBus iEventBus) {
             ITEMS.register(iEventBus);
     }
