@@ -19,7 +19,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -32,7 +32,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -45,7 +45,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'KrystalCraft'
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -94,3 +94,4 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
