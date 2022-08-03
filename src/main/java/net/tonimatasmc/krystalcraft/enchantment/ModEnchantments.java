@@ -37,7 +37,7 @@ public class ModEnchantments {
     public static RegistryObject<Enchantment> FREEZING =
             ENCHANTMENTS.register("freezing", () -> new FreezingEnchantment(
                     Enchantment.Rarity.COMMON, EnchantmentCategory.WEAPON, EquipmentSlot.MAINHAND));
-    
+
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);
     }

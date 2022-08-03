@@ -1,7 +1,6 @@
 package net.tonimatasmc.krystalcraft;
 
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -44,10 +43,10 @@ public class KrystalCraft {
         ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
-        
+
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
-        
+
         MinecraftForge.EVENT_BUS.register(this);
     }
 

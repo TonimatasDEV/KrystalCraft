@@ -32,15 +32,14 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider {
+    protected final ContainerData data;
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
         }
     };
-
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-    protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
     private int fuel;
@@ -52,10 +51,14 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             @SuppressWarnings("EnhancedSwitchMigration")
             public int get(int index) {
                 switch (index) {
-                    case 0: return CoalCrusherBlockEntity.this.progress;
-                    case 1: return CoalCrusherBlockEntity.this.maxProgress;
-                    case 2: return CoalCrusherBlockEntity.this.fuel;
-                    default: return 0;
+                    case 0:
+                        return CoalCrusherBlockEntity.this.progress;
+                    case 1:
+                        return CoalCrusherBlockEntity.this.maxProgress;
+                    case 2:
+                        return CoalCrusherBlockEntity.this.fuel;
+                    default:
+                        return 0;
                 }
             }
 
@@ -71,63 +74,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 return 3;
             }
         };
-    }
-
-    @Override
-    public @NotNull Component getDisplayName() {
-        return Component.translatable("Coal Crusher");
-    }
-
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory, @NotNull Player pPlayer) {
-        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
-    }
-
-    @Override
-    public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return lazyItemHandler.cast();
-        }
-
-        return super.getCapability(cap, side);
-    }
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
-    public void invalidateCaps()  {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag tag) {
-        tag.put("inventory", itemHandler.serializeNBT());
-        tag.putInt("coal_crusher.progress", progress);
-        tag.putInt("coal_crusher.fuel", fuel);
-        super.saveAdditional(tag);
-    }
-
-    @Override
-    public void load(@NotNull CompoundTag nbt) {
-        super.load(Objects.requireNonNull(nbt));
-        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("coal_crusher.progress");
-        progress = nbt.getInt("coal_crusher.fuel");
-    }
-
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CoalCrusherBlockEntity pBlockEntity) {
@@ -175,19 +121,19 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
         Optional<CoalCrusherRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCrusherRecipe.Type.INSTANCE, inventory, level);
 
-        if(match.isPresent()) {
+        if (match.isPresent()) {
             entity.itemHandler.getStackInSlot(0).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(0).getMaxDamage() - entity.itemHandler.getStackInSlot(0).getDamageValue()) <= 0) {
-                entity.itemHandler.extractItem(0,1, false);
+                entity.itemHandler.extractItem(0, 1, false);
             }
 
-            entity.itemHandler.extractItem(1,1, false);
+            entity.itemHandler.extractItem(1, 1, false);
 
             entity.itemHandler.getStackInSlot(2).hurt(1, RandomSource.create(), null);
 
             if ((entity.itemHandler.getStackInSlot(2).getMaxDamage() - entity.itemHandler.getStackInSlot(2).getDamageValue()) <= 0) {
-                entity.itemHandler.extractItem(2,1, false);
+                entity.itemHandler.extractItem(2, 1, false);
             }
 
             entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(4).getCount() + 1));
@@ -195,6 +141,63 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
             entity.fuel = entity.fuel - 1;
             entity.resetProgress();
         }
+    }
+
+    @Override
+    public @NotNull Component getDisplayName() {
+        return Component.translatable("Coal Crusher");
+    }
+
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, @NotNull Inventory pInventory, @NotNull Player pPlayer) {
+        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
+    }
+
+    @Override
+    public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return lazyItemHandler.cast();
+        }
+
+        return super.getCapability(cap, side);
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        lazyItemHandler = LazyOptional.of(() -> itemHandler);
+    }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyItemHandler.invalidate();
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("coal_crusher.progress", progress);
+        tag.putInt("coal_crusher.fuel", fuel);
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(@NotNull CompoundTag nbt) {
+        super.load(Objects.requireNonNull(nbt));
+        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        progress = nbt.getInt("coal_crusher.progress");
+        progress = nbt.getInt("coal_crusher.fuel");
+    }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
     }
 
     private void resetProgress() {

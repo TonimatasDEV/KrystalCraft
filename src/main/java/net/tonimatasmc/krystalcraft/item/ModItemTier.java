@@ -18,13 +18,13 @@ public class ModItemTier {
     public static final ForgeTier SILVER = new ForgeTier(2, 400, 6.0F, 0.0F, 23, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(ModItems.SILVER_INGOT.get()));
 
-    public static final ForgeTier TIN = new ForgeTier(1, 200, 5.0F, 0.0F,8, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
+    public static final ForgeTier TIN = new ForgeTier(1, 200, 5.0F, 0.0F, 8, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(ModItems.TIN_INGOT.get()));
 
     public static final ForgeTier COPPER = new ForgeTier(1, 200, 5.0F, 0.0F, 8, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(Items.COPPER_INGOT));
 
-    public static final ForgeTier PLATINUM = new ForgeTier(4, 2300, 8.0F, 0.0F,56, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
+    public static final ForgeTier PLATINUM = new ForgeTier(4, 2300, 8.0F, 0.0F, 56, Tags.Blocks.NEEDS_GOLD_TOOL, () ->
             Ingredient.of(ModItems.PLATINUM_INGOT.get()));
 
     public static final ForgeTier SAPPHIRE = new ForgeTier(3, 755, 6.2F, 2.0F, 15, Tags.Blocks.NEEDS_GOLD_TOOL, () ->

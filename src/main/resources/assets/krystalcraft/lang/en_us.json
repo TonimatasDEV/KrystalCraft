@@ -15,7 +15,6 @@
   "item.krystalcraft.silver_dust": "Silver Dust",
   "item.krystalcraft.silver_nugget": "Silver Nugget",
   "item.krystalcraft.raw_silver": "Raw Silver",
-
   "item.krystalcraft.tin_ingot": "Tin Ingot",
   "block.krystalcraft.tin_ore": "Tin Ore",
   "block.krystalcraft.deepslate_tin_ore": "Deepslate Tin Ore",
@@ -32,7 +31,6 @@
   "item.krystalcraft.tin_nugget": "Tin Nugget",
   "item.krystalcraft.raw_tin": "Raw Tin",
   "item.krystalcraft.tin_dust": "Tin Dust",
-
   "item.krystalcraft.copper_sword": "Copper Sword",
   "item.krystalcraft.copper_pickaxe": "Copper Pickaxe",
   "item.krystalcraft.copper_axe": "Copper Axe",
@@ -44,7 +42,6 @@
   "item.krystalcraft.copper_boots": "Copper Boots",
   "item.krystalcraft.copper_nugget": "Copper Nugget",
   "item.krystalcraft.copper_dust": "Copper Dust",
-
   "item.krystalcraft.lead_ingot": "Lead Ingot",
   "block.krystalcraft.lead_ore": "Lead Ore",
   "block.krystalcraft.deepslate_lead_ore": "Deepslate Lead Ore",
@@ -61,7 +58,6 @@
   "item.krystalcraft.lead_dust": "Lead Dust",
   "item.krystalcraft.lead_nugget": "Lead Nugget",
   "item.krystalcraft.raw_lead": "Raw Lead",
-
   "item.krystalcraft.platinum_ingot": "Platinum Ingot",
   "block.krystalcraft.platinum_ore": "Platinum Ore",
   "block.krystalcraft.deepslate_platinum_ore": "Deepslate Platinum Ore",
@@ -78,7 +74,6 @@
   "item.krystalcraft.platinum_dust": "Platinum Dust",
   "item.krystalcraft.platinum_nugget": "Platinum Nugget",
   "item.krystalcraft.raw_platinum": "Raw Platinum",
-
   "item.krystalcraft.jade": "Jade",
   "item.krystalcraft.jade_sword": "Jade Sword",
   "item.krystalcraft.jade_pickaxe": "Jade Pickaxe",
@@ -95,7 +90,6 @@
   "block.krystalcraft.jade_block": "Jade Block",
   "item.krystalcraft.raw_jade": "Raw Jade",
   "item.krystalcraft.jade_dust": "Jade Dust",
-
   "item.krystalcraft.topaz": "Topaz",
   "item.krystalcraft.topaz_dust": "Topaz Dust",
   "item.krystalcraft.topaz_sword": "Topaz Sword",
@@ -111,9 +105,8 @@
   "block.krystalcraft.deepslate_topaz_ore": "Deepslate Topaz Ore",
   "block.krystalcraft.topaz_block": "Topaz Block",
   "item.krystalcraft.raw_topaz": "Raw Topaz",
-
   "block.krystalcraft.sapphire_ore": "Sapphire Ore",
-  "block.krystalcraft.sapphire_block":  "Block of Sapphire",
+  "block.krystalcraft.sapphire_block": "Block of Sapphire",
   "item.krystalcraft.sapphire_helmet": "Sapphire Helmet",
   "item.krystalcraft.sapphire_chestplate": "Sapphire Chestplate",
   "block.krystalcraft.deepslate_sapphire_ore": "Deepslate Sapphire Ore",
@@ -127,9 +120,8 @@
   "item.krystalcraft.sapphire": "Sapphire",
   "item.krystalcraft.raw_sapphire": "Raw Sapphire",
   "item.krystalcraft.sapphire_dust": "Sapphire Dust",
-
   "block.krystalcraft.ruby_ore": "Ruby Ore",
-  "block.krystalcraft.ruby_block":  "Block of Ruby",
+  "block.krystalcraft.ruby_block": "Block of Ruby",
   "item.krystalcraft.ruby_helmet": "Ruby Helmet",
   "item.krystalcraft.ruby_chestplate": "Ruby Chestplate",
   "block.krystalcraft.deepslate_ruby_ore": "Deepslate Ruby Ore",
@@ -143,7 +135,6 @@
   "item.krystalcraft.ruby": "Ruby",
   "item.krystalcraft.raw_ruby": "Raw Ruby",
   "item.krystalcraft.ruby_dust": "Ruby Dust",
-
   "item.krystalcraft.bronze_ingot": "Bronze Ingot",
   "block.krystalcraft.bronze_block": "Bronze Block",
   "item.krystalcraft.bronze_sword": "Bronze Sword",
@@ -157,53 +148,38 @@
   "item.krystalcraft.bronze_boots": "Bronze Boots",
   "item.krystalcraft.bronze_dust": "Bronze Dust",
   "item.krystalcraft.bronze_nugget": "Bronze Nugget",
-
   "item.krystalcraft.gem_cutter_tool": "Gem Cutter Tool",
   "item.krystalcraft.set_water_bottles": "Set of Water Bottles",
   "item.krystalcraft.grinding_gear": "Grinding Gear",
-
   "item.krystalcraft.raw_diamond": "Raw Diamond",
   "item.krystalcraft.diamond_dust": "Diamond Dust",
-
   "item.krystalcraft.raw_lapis": "Raw Lapis",
   "item.krystalcraft.lapis_dust": "Lapiz Lazuli Dust",
-
   "item.krystalcraft.raw_redstone": "Raw Redstone",
-
   "item.krystalcraft.raw_emerald": "Raw Emerald",
   "item.krystalcraft.emerald_dust": "Emerald Dust",
-
   "item.krystalcraft.iron_dust": "Iron Dust",
-
   "block.krystalcraft.experience_ore": "Experience Ore",
   "block.krystalcraft.deepslate_experience_ore": "Deepslate Experience Ore",
-
   "block.krystalcraft.gem_cutting_station": "Gem Cutting Station",
   "block.krystalcraft.coal_crusher": "Coal Crusher",
   "block.krystalcraft.coal_combiner": "Coal Combiner",
-
   "enchantment.krystalcraft.lightning_striker": "Lightning Striker",
   "enchantment.krystalcraft.lightning_striker.desc": "Attack entity with lightning bolt.",
   "enchantment.krystalcraft.lightning_striker.guide": "Lightning Striker 1 = 10% / Lightning Striker 2 = 20%",
-
   "enchantment.krystalcraft.venom": "Venom",
   "enchantment.krystalcraft.venom.desc": "Attack entity with poison.",
   "enchantment.krystalcraft.venom.guide": "Poison 1 = 3 Seconds of Poison 1 / Poison 2 = 6 Seconds of Poison 2 / Poison 3 = 9 Seconds of Poison 3",
-
   "enchantment.krystalcraft.life_leech": "Life Leech",
   "enchantment.krystalcraft.life_leech.desc": "Regenerates your health by attacking entities.",
   "enchantment.krystalcraft.life_leech.guide": "Life Leech 1 = Regenerate 0.1 of health / Life Leech 2 = Regenerate 0.2 of health / Life Leech 3 = Regenerate 0.3 of health / Life Leech 4 = Regenerate 0.4 of health / Life Leech 5 = Regenerate 0.5 of health",
-
   "enchantment.krystalcraft.xp_leech": "Experience Leech",
   "enchantment.krystalcraft.xp_leech.desc": "Give you experience by attacking entities.",
   "enchantment.krystalcraft.xp_leech.guide": "Experience Leech 1 = Give 10 points of experience / Experience Leech 2 = Give 20 points of experience / Experience Leech 3 = Give 30 points of experience / Experience Leech 4 = Give 40 points of experience / Experience Leech 5 = Give 50 points of experience",
-
   "enchantment.krystalcraft.player_heads": "Player Heads",
   "enchantment.krystalcraft.player_heads.desc": "On kill player this drops the head.",
-
   "enchantment.krystalcraft.freezing": "Freezing",
   "enchantment.krystalcraft.freezing.desc": "Slows mobs after hit for three seconds.",
   "enchantment.krystalcraft.freezing.guide": "Freezing 1 = -20% reduced speed / Freezing 2 = -30% reduced speed / Freezing 3 = -40% reduced speed",
-
   "itemGroup.KrystalCraft": "KrystalCraft"
 }

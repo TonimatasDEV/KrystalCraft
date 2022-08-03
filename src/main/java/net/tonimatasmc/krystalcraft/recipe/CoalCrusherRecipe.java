@@ -80,17 +80,21 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
 
     @SuppressWarnings("unused")
     public static class Type implements RecipeType<CoalCrusherRecipe> {
-        private Type() {
-        }
-
         public static final Type INSTANCE = new Type();
         public static final String ID = "coal_crusher";
+        private Type() {
+        }
     }
 
     @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<CoalCrusherRecipe> {
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_crusher");
+
+        @SuppressWarnings({"unchecked", "SameParameterValue"})
+        private static <G> Class<G> castClass(Class<?> cls) {
+            return (Class<G>) cls;
+        }
 
         @Override
         @Nonnull
@@ -123,11 +127,6 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
             }
 
             buf.writeItemStack(recipe.getResultItem(), false);
-        }
-
-        @SuppressWarnings({"unchecked", "SameParameterValue"})
-        private static <G> Class<G> castClass(Class<?> cls) {
-            return (Class<G>) cls;
         }
     }
 }

@@ -12,6 +12,7 @@ public class ModBlockTagsProvider extends BlockTagsProvider {
     public ModBlockTagsProvider(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, KrystalCraft.MOD_ID, existingFileHelper);
     }
+
     @Override
     protected void addTags() {
         tag(ModTags.Blocks.EXPERIENCE_ORE).add(ModBlocks.EXPERIENCE_ORE.get(), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get());

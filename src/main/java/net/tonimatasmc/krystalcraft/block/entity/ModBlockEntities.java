@@ -15,7 +15,9 @@ import net.tonimatasmc.krystalcraft.block.entity.custom.GemCuttingStationBlockEn
 public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, KrystalCraft.MOD_ID);
 
-    public static final RegistryObject<BlockEntityType<GemCuttingStationBlockEntity>> GEM_CUTTING_STATION_BLOCK_ENTITY =
+    public static void register(IEventBus eventBus) {
+        BLOCK_ENTITIES.register(eventBus);
+    }    public static final RegistryObject<BlockEntityType<GemCuttingStationBlockEntity>> GEM_CUTTING_STATION_BLOCK_ENTITY =
             BLOCK_ENTITIES.register("gem_cutting_station_block_entity", () ->
                     BlockEntityType.Builder.of(GemCuttingStationBlockEntity::new,
                             ModBlocks.GEM_CUTTING_STATION.get()).build(null));
@@ -30,7 +32,5 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(CoalCombinerBlockEntity::new,
                             ModBlocks.COAL_COMBINER.get()).build(null));
 
-    public static void register(IEventBus eventBus) {
-        BLOCK_ENTITIES.register(eventBus);
-    }
+
 }
