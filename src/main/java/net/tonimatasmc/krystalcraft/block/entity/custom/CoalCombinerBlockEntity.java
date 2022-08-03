@@ -33,15 +33,14 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider {
+    protected final ContainerData data;
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
         }
     };
-
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-    protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 72;
     private int fuel;
@@ -53,10 +52,14 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
             @SuppressWarnings("EnhancedSwitchMigration")
             public int get(int index) {
                 switch (index) {
-                    case 0: return CoalCombinerBlockEntity.this.progress;
-                    case 1: return CoalCombinerBlockEntity.this.maxProgress;
-                    case 2: return CoalCombinerBlockEntity.this.fuel;
-                    default: return 0;
+                    case 0:
+                        return CoalCombinerBlockEntity.this.progress;
+                    case 1:
+                        return CoalCombinerBlockEntity.this.maxProgress;
+                    case 2:
+                        return CoalCombinerBlockEntity.this.fuel;
+                    default:
+                        return 0;
                 }
             }
 
@@ -72,66 +75,6 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
                 return 3;
             }
         };
-    }
-
-    @Override
-    @Nonnull
-    public Component getDisplayName() {
-        return Component.translatable("Coal Combiner");
-    }
-
-    @Nullable
-    @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new CoalCombinerMenu(pContainerId, pInventory, this, this.data);
-    }
-
-    @Nonnull
-    @Override
-    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
-            return lazyItemHandler.cast();
-        }
-
-        return super.getCapability(cap, side);
-    }
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
-    public void invalidateCaps()  {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
-    }
-
-    @Override
-    protected void saveAdditional(@NotNull CompoundTag tag) {
-        tag.put("inventory", itemHandler.serializeNBT());
-        tag.putInt("coal_combiner.progress", progress);
-        tag.putInt("coal_combiner.fuel", fuel);
-        super.saveAdditional(tag);
-    }
-
-    @Override
-    public void load(@Nullable CompoundTag nbt) {
-        super.load(Objects.requireNonNull(nbt));
-        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
-        progress = nbt.getInt("coal_combiner.progress");
-        progress = nbt.getInt("coal_combiner.fuel");
-    }
-
-    public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
     }
 
     public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CoalCombinerBlockEntity pBlockEntity) {
@@ -179,15 +122,75 @@ public class CoalCombinerBlockEntity extends BlockEntity implements MenuProvider
 
         Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
 
-        if(match.isPresent()) {
-            entity.itemHandler.extractItem(0,1, false);
-            entity.itemHandler.extractItem(1,1, false);
+        if (match.isPresent()) {
+            entity.itemHandler.extractItem(0, 1, false);
+            entity.itemHandler.extractItem(1, 1, false);
 
             entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             entity.fuel = entity.fuel - 1;
             entity.resetProgress();
         }
+    }
+
+    @Override
+    @Nonnull
+    public Component getDisplayName() {
+        return Component.translatable("Coal Combiner");
+    }
+
+    @Nullable
+    @Override
+    public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
+        return new CoalCombinerMenu(pContainerId, pInventory, this, this.data);
+    }
+
+    @Nonnull
+    @Override
+    public <T> LazyOptional<T> getCapability(@Nonnull Capability<T> cap, @javax.annotation.Nullable Direction side) {
+        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return lazyItemHandler.cast();
+        }
+
+        return super.getCapability(cap, side);
+    }
+
+    @Override
+    public void onLoad() {
+        super.onLoad();
+        lazyItemHandler = LazyOptional.of(() -> itemHandler);
+    }
+
+    @Override
+    public void invalidateCaps() {
+        super.invalidateCaps();
+        lazyItemHandler.invalidate();
+    }
+
+    @Override
+    protected void saveAdditional(@NotNull CompoundTag tag) {
+        tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("coal_combiner.progress", progress);
+        tag.putInt("coal_combiner.fuel", fuel);
+        super.saveAdditional(tag);
+    }
+
+    @Override
+    public void load(@Nullable CompoundTag nbt) {
+        super.load(Objects.requireNonNull(nbt));
+        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        progress = nbt.getInt("coal_combiner.progress");
+        progress = nbt.getInt("coal_combiner.fuel");
+    }
+
+    public void drops() {
+        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
+
+        for (int i = 0; i < itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
     }
 
     private void resetProgress() {

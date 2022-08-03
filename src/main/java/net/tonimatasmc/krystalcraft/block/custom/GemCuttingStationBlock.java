@@ -88,8 +88,8 @@ public class GemCuttingStationBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(Objects.requireNonNull(pPos));
 
-            if(entity instanceof GemCuttingStationBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer) Objects.requireNonNull(pPlayer)), (GemCuttingStationBlockEntity)entity, pPos);
+            if (entity instanceof GemCuttingStationBlockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer) Objects.requireNonNull(pPlayer)), (GemCuttingStationBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }

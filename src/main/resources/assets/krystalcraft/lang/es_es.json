@@ -15,7 +15,6 @@
   "item.krystalcraft.silver_dust": "Polvo de plata",
   "item.krystalcraft.silver_nugget": "Pepita de plata",
   "item.krystalcraft.raw_silver": "Plata en bruto",
-
   "item.krystalcraft.tin_ingot": "Lingote de estaño",
   "block.krystalcraft.tin_ore": "Mineral de estaño",
   "block.krystalcraft.deepslate_tin_ore": "Mineral de pizarra de estaño",
@@ -32,7 +31,6 @@
   "item.krystalcraft.tin_nugget": "Pepita de estaño",
   "item.krystalcraft.raw_tin": "Estaño en bruto",
   "item.krystalcraft.tin_dust": "Polvo de estaño",
-
   "item.krystalcraft.copper_sword": "Espada de cobre",
   "item.krystalcraft.copper_pickaxe": "Pico de cobre",
   "item.krystalcraft.copper_axe": "Hacha de cobre",
@@ -44,7 +42,6 @@
   "item.krystalcraft.copper_boots": "Botas de cobre",
   "item.krystalcraft.copper_nugget": "Pepita de cobre",
   "item.krystalcraft.copper_dust": "Polvo de cobre",
-
   "item.krystalcraft.lead_ingot": "Lingote de plomo",
   "block.krystalcraft.lead_ore": "Mineral de plomo",
   "block.krystalcraft.deepslate_lead_ore": "Mineral de pizarra de plomo",
@@ -61,7 +58,6 @@
   "item.krystalcraft.lead_dust": "Polvo de plomo",
   "item.krystalcraft.lead_nugget": "Pepita de plomo",
   "item.krystalcraft.raw_lead": "Plomo en bruto",
-
   "item.krystalcraft.platinum_ingot": "Lingote de platino",
   "block.krystalcraft.platinum_ore": "Mineral de platino",
   "block.krystalcraft.deepslate_platinum_ore": "Mineral de pizarra de platino",
@@ -78,7 +74,6 @@
   "item.krystalcraft.platinum_dust": "Polvo de platino",
   "item.krystalcraft.platinum_nugget": "Pepita de platino",
   "item.krystalcraft.raw_platinum": "Platino en bruto",
-
   "item.krystalcraft.jade": "Jade",
   "item.krystalcraft.jade_sword": "Espada de jade",
   "item.krystalcraft.jade_pickaxe": "Pico de jade",
@@ -95,7 +90,6 @@
   "block.krystalcraft.jade_block": "Bloque de jade",
   "item.krystalcraft.raw_jade": "Jade en bruto",
   "item.krystalcraft.jade_dust": "Polvo de jade",
-
   "item.krystalcraft.topaz": "Topacio",
   "item.krystalcraft.topaz_sword": "Espada de topacio",
   "item.krystalcraft.topaz_pickaxe": "Pico de topacio",
@@ -111,7 +105,6 @@
   "block.krystalcraft.topaz_block": "Bloque de topacio",
   "item.krystalcraft.raw_topaz": "Topacio en bruto",
   "item.krystalcraft.topaz_dust": "Polvo de topacio",
-
   "block.krystalcraft.sapphire_ore": "Mineral de zafiro",
   "block.krystalcraft.sapphire_block": "Bloque de zafiro",
   "item.krystalcraft.sapphire_helmet": "Casco de zafiro",
@@ -127,7 +120,6 @@
   "item.krystalcraft.sapphire_axe": "Hacha de zafiro",
   "item.krystalcraft.sapphire": "Zafiro",
   "item.krystalcraft.sapphire_dust": "Polvo de zafiro",
-
   "block.krystalcraft.ruby_ore": "Mineral de rubí",
   "block.krystalcraft.ruby_block": "Bloque de rubí",
   "item.krystalcraft.ruby_helmet": "Casco de rubí",
@@ -143,7 +135,6 @@
   "item.krystalcraft.ruby": "Rubí",
   "item.krystalcraft.raw_ruby": "Rubí en bruto",
   "item.krystalcraft.ruby_dust": "Polvo de rubí",
-
   "block.krystalcraft.bronze_block": "Bloque de bronce",
   "item.krystalcraft.bronze_ingot": "Lingote de bronce",
   "item.krystalcraft.bronze_sword": "Espada de bronce",
@@ -157,53 +148,38 @@
   "item.krystalcraft.bronze_boots": "Botas de bronce",
   "item.krystalcraft.bronze_dust": "Polvo de bronce",
   "item.krystalcraft.bronze_nugget": "Pepita de bronce",
-
   "block.krystalcraft.experience_ore": "Experience Ore",
   "block.krystalcraft.deepslate_experience_ore": "Deepslate Experience Ore",
-
   "item.krystalcraft.raw_diamond": "Diamante en bruto",
   "item.krystalcraft.diamond_dust": "Polvo de diamante",
-
   "item.krystalcraft.raw_lapis": "Lapiz Lázuli en bruto",
   "item.krystalcraft.lapis_dust": "Polvo de Lapiz Lázuli",
-
   "item.krystalcraft.raw_redstone": "Redstone en bruto",
-
   "item.krystalcraft.raw_emerald": "Esmeralda en bruto",
   "item.krystalcraft.emerald_dust": "Polvo de esmeralda",
-
   "item.krystalcraft.iron_dust": "Polvo de hierro",
-
   "item.krystalcraft.gem_cutter_tool": "Herramienta de Corte de Gemas",
   "item.krystalcraft.set_water_bottles": "Conjunto de Botellas de Agua",
   "item.krystalcraft.grinding_gear": "Engranaje de trituración",
-
   "block.krystalcraft.gem_cutting_station": "Estación de Corte de Gemas",
   "block.krystalcraft.coal_crusher": "Trituradora de carbón",
   "block.krystalcraft.coal_combiner": "Coal Combiner",
-
   "enchantment.krystalcraft.lightning_striker": "Lightning Striker",
   "enchantment.krystalcraft.lightning_striker.desc": "Attack entity with lightning bolt.",
   "enchantment.krystalcraft.lightning_striker.guide": "Lightning Striker 1 = 10% / Lightning Striker 2 = 20%",
-
   "enchantment.krystalcraft.venom": "Veneno",
   "enchantment.krystalcraft.venom.desc": "Ataca a la entidad con veneno.",
   "enchantment.krystalcraft.venom.guide": "Veneno 1 = 3 Segundos de Veneno 1 / Veneno 2 = 6 Segundos de Veneno 2 / Veneno 3 = 9 Segundos de Veneno 3",
-
   "enchantment.krystalcraft.life_leech": "Robo de vida",
   "enchantment.krystalcraft.life_leech.desc": "Regenera tu salud al atacar a las entidades.",
   "enchantment.krystalcraft.life_leech.guide": "Robo de vida 1 = Regenera 0.1 de salud / Robo de vida 2 = Regenera 0.2 de salud / Robo de vida 3 = Regenera 0.3 de salud / Robo de vida 4 = Regenera 0.4 de salud / Robo de vida 5 = Regenera 0.5 de salud",
-
   "enchantment.krystalcraft.xp_leech": "Robo de experiencia",
   "enchantment.krystalcraft.xp_leech.desc": "Give you experience by attacking entities.",
   "enchantment.krystalcraft.xp_leech.guide": "Robo de experiencia 1 = Da 10 puntos de experiencia / Robo de experiencia 2 = Da 20 puntos de experiencia / Robo de experiencia 3 = Da 30 puntos de experiencia / Robo de experiencia 4 = Da 40 puntos de experiencia / Robo de experiencia 5 = Da 50 puntos de experiencia",
-
   "enchantment.krystalcraft.player_heads": "Player Heads",
   "enchantment.krystalcraft.player_heads.desc": "On kill player this drops the head.",
-
   "enchantment.krystalcraft.freezing": "Freezing",
   "enchantment.krystalcraft.freezing.desc": "Slows mobs after hit for three seconds.",
   "enchantment.krystalcraft.freezing.guide": "Freezing 1 = -20% reduced speed / Freezing 2 = -30% reduced speed / Freezing 3 = -40% reduced speed",
-
   "itemGroup.KrystalCraft": "KrystalCraft"
 }

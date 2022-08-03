@@ -23,13 +23,13 @@ public class LightningStrikeEnchantment extends Enchantment {
             BlockPos position = Objects.requireNonNull(pTarget).blockPosition();
 
             if (pLevel == 1) {
-                if( Math.random() <= 0.10 ) {
+                if (Math.random() <= 0.10) {
                     EntityType.LIGHTNING_BOLT.spawn(world, null, player, position, MobSpawnType.TRIGGERED, true, true);
                 }
             }
 
             if (pLevel == 2) {
-                if( Math.random() <= 0.20 ) {
+                if (Math.random() <= 0.20) {
                     EntityType.LIGHTNING_BOLT.spawn(world, null, player, position, MobSpawnType.TRIGGERED, true, true);
                 }
             }

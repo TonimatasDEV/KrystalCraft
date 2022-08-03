@@ -186,6 +186,6 @@ public class ModBlocks {
     }
 
     public static void register(IEventBus iEventBus) {
-            BLOCKS.register(iEventBus);
+        BLOCKS.register(iEventBus);
     }
 }

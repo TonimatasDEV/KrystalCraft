@@ -83,7 +83,7 @@ public class CoalCombinerBlock extends BaseEntityBlock {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(Objects.requireNonNull(pPos));
 
-            if(entity instanceof CoalCombinerBlockEntity) {
+            if (entity instanceof CoalCombinerBlockEntity) {
                 NetworkHooks.openScreen(((ServerPlayer) Objects.requireNonNull(pPlayer)), (CoalCombinerBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");

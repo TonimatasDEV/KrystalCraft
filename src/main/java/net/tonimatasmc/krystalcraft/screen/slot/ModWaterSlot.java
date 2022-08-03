@@ -1,7 +1,6 @@
 package net.tonimatasmc.krystalcraft.screen.slot;
 
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasmc.krystalcraft.item.ModItems;

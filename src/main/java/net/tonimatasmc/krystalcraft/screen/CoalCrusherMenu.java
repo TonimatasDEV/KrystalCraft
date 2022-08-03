@@ -21,6 +21,9 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 
 public class CoalCrusherMenu extends AbstractContainerMenu {
+    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
+    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + 26;
+    private static final int TE_INVENTORY_SLOT_COUNT = 5; // Number of slots in the screen
     private final CoalCrusherBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
@@ -69,10 +72,6 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
 
         return progress != 0 ? progress * progressArrowSize / 8 : 0;
     }
-
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + 26;
-    private static final int TE_INVENTORY_SLOT_COUNT = 5; // Number of slots in the screen
 
     @SuppressWarnings("ConstantConditions")
     @Override
