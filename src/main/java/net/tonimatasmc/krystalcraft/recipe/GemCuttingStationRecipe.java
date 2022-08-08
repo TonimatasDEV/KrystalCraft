@@ -82,6 +82,7 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
     public static class Type implements RecipeType<GemCuttingStationRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "gem_cutting";
+
         private Type() {
         }
     }

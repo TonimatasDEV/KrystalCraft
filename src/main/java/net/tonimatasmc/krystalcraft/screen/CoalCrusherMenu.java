@@ -21,8 +21,6 @@ import javax.annotation.Nonnull;
 import java.util.Objects;
 
 public class CoalCrusherMenu extends AbstractContainerMenu {
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + 26;
     private static final int TE_INVENTORY_SLOT_COUNT = 5; // Number of slots in the screen
     private final CoalCrusherBlockEntity blockEntity;
     private final Level level;
@@ -82,12 +80,12 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
-        if (index < VANILLA_FIRST_SLOT_INDEX + 26) {
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+        if (index < 26) {
+            if (!moveItemStackTo(sourceStack, 26, 26 + TE_INVENTORY_SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;
             }
-        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + TE_INVENTORY_SLOT_COUNT) {
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + 26, false)) {
+        } else if (index < 26 + TE_INVENTORY_SLOT_COUNT) {
+            if (!moveItemStackTo(sourceStack, 0, 26, false)) {
                 return ItemStack.EMPTY;
             }
         } else {
