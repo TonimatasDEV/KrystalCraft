@@ -23,7 +23,7 @@ import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.tonimatasmc.krystalcraft.block.entity.ModBlockEntities;
-import net.tonimatasmc.krystalcraft.block.entity.Utils.Simplify;
+import net.tonimatasmc.krystalcraft.block.entity.utils.Simplify;
 import net.tonimatasmc.krystalcraft.recipe.CoalCrusherRecipe;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherMenu;
 import org.jetbrains.annotations.NotNull;

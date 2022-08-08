@@ -82,6 +82,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
     public static class Type implements RecipeType<CoalCrusherRecipe> {
         public static final Type INSTANCE = new Type();
         public static final String ID = "coal_crusher";
+
         private Type() {
         }
     }
