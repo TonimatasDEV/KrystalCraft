@@ -1,97 +1,38 @@
-plugins {
-    id 'net.minecraftforge.gradle' version "${forge_gradle}"
-}
-
-
 group = 'net.tonimatasmc.krystalcraft'
 version = "${krystalcraft_version}"
 
-java {
-    archivesBaseName = 'KrystalCraft'
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
-}
+subprojects {
+    apply plugin: 'net.minecraftforge.gradle'
 
-minecraft {
-    mappings channel: 'official', version: "${minecraft_version}"
+    sourceCompatibility = 17
+    targetCompatibility = 17
 
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+    sourceSets.main.resources {
+        srcDir 'src/generated/resources'
+    }
 
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
-        }
+    minecraft {
+        mappings channel: 'official', version: "${minecraft_version}"
+    }
 
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+    dependencies {
+        minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    }
 
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        gameTestServer {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
-
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'krystalcraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
+    jar {
+        manifest {
+            attributes([
+                    "Specification-Title"     : "krystalcraft",
+                    "Specification-Vendor"    : "TonimatasMC",
+                    "Specification-Version"   : "1",
+                    "Implementation-Title"    : project.name,
+                    "Implementation-Version"  : project.jar.archiveVersion,
+                    "Implementation-Vendor"   : "TonimatasMC",
+                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+            ])
         }
     }
+
+    jar.finalizedBy('reobfJar')
 }
-
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
-repositories {
-
-}
-
-dependencies {
-    minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-}
-
-jar {
-    manifest {
-        attributes([
-                "Specification-Title"     : "krystalcraft",
-                "Specification-Vendor"    : "TonimatasMC",
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "TonimatasMC",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
-}
-
-jar.finalizedBy('reobfJar')
 

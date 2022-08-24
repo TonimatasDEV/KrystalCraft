@@ -1,0 +1,18 @@
+minecraft {
+    mappings channel: 'official', version: "${minecraft_version}"
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.markers', 'REGISTRIES'
+            property 'forge.logging.console.level', 'debug'
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
+
+            mods {
+                krystalcraft { source project(':base').sourceSets.main }
+                krystalcraft_guide { source sourceSets.main }
+
+            }
+        }
+    }
+}
