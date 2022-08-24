@@ -1,0 +1,45 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "All rights reserved"
+issueTrackerURL = "https://github.com/TonimatasMCDEV/KrystalCraft/issues"
+
+[[mods]]
+modId = "krystalcraftguide"
+version = "0.0.0.0"
+displayName = "KrystalCraft Guide"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/krystalcraft"
+logoFile = "krystalcraft.png"
+credits = "Thanks to Vazkii for create Patchouli"
+authors = "TonimatasMC [Lead] - danizml [Artist]"
+description = '''
+Add guide for KrystalCraft
+'''
+
+[[dependencies.krystalcraftguide]]
+modId = "forge"
+mandatory = true
+versionRange = "[43.0.11,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.krystalcraftguide]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.krystalcraftguide]]
+modId = "patchouli"
+mandatory = true
+versionRange = "[1.19.2-76,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.krystalcraftguide]]
+modId = "krystalcraft"
+mandatory = true
+versionRange = "[0.0.3.1,)"
+ordering = "NONE"
+side = "BOTH"
