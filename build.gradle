@@ -3,6 +3,7 @@ version = "${krystalcraft_version}"
 
 subprojects {
     apply plugin: 'net.minecraftforge.gradle'
+    apply plugin: 'org.parchmentmc.librarian.forgegradle'
 
     sourceCompatibility = 17
     targetCompatibility = 17
@@ -11,35 +12,8 @@ subprojects {
         srcDir 'src/generated/resources'
     }
 
-    minecraft {
-        mappings channel: 'official', version: "${minecraft_version}"
-    }
-
-    repositories {
-        maven { url 'https://maven.blamejared.com' }
-    }
-
     dependencies {
         minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-        compileOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}:api")
-        runtimeOnly fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
     }
-
-    jar {
-        manifest {
-            attributes([
-                    "Specification-Title"     : "krystalcraft",
-                    "Specification-Vendor"    : "TonimatasMC",
-                    "Specification-Version"   : "1",
-                    "Implementation-Title"    : project.name,
-                    "Implementation-Version"  : project.jar.archiveVersion,
-                    "Implementation-Vendor"   : "TonimatasMC",
-                    "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-            ])
-        }
-    }
-
-    jar.finalizedBy('reobfJar')
 }
 
