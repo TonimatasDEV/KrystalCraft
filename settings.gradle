@@ -1,8 +1,16 @@
-pluginManagement {
+buildscript {
     repositories {
-        gradlePluginPortal()
+        mavenCentral()
+        mavenLocal()
         maven { url = 'https://maven.minecraftforge.net/' }
+    }
+
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "${forge_gradle}", changing: true
     }
 }
 
 rootProject.name = 'KrystalCraft'
+
+include 'base'
+include 'guide'
