@@ -1,5 +1,6 @@
 {
-  "type": "krystalcraft:ores",
+  "type": "forge:add_features",
   "biomes": "#minecraft:is_overworld",
-  "feature": "krystalcraft:lead_ore_placed"
+  "features": "krystalcraft:lead_ore_placed",
+  "step": "underground_ores"
 }
