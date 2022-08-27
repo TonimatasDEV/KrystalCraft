@@ -29,9 +29,6 @@ public class KrystalCraft {
     public KrystalCraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
-
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
@@ -44,6 +41,9 @@ public class KrystalCraft {
 
         ModConfiguredFeatures.register(eventBus);
         ModPlacedFeatures.register(eventBus);
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         eventBus.addListener(this::clientSetup);
 
