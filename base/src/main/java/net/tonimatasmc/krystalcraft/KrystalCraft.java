@@ -19,7 +19,7 @@ import net.tonimatasmc.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasmc.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasmc.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasmc.krystalcraft.screen.ModMenuTypes;
-import net.tonimatasmc.krystalcraft.world.biomemods.ModBiomeModifiers;
+import net.tonimatasmc.krystalcraft.world.feature.ModConfiguredFeatures;
 import net.tonimatasmc.krystalcraft.world.feature.ModPlacedFeatures;
 
 @Mod(KrystalCraft.MOD_ID)
@@ -28,6 +28,9 @@ public class KrystalCraft {
 
     public KrystalCraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
@@ -39,13 +42,10 @@ public class KrystalCraft {
 
         ModEnchantments.register(eventBus);
 
-        ModBiomeModifiers.register(eventBus);
+        ModConfiguredFeatures.register(eventBus);
         ModPlacedFeatures.register(eventBus);
 
         eventBus.addListener(this::clientSetup);
-
-        ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
-        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
     }
