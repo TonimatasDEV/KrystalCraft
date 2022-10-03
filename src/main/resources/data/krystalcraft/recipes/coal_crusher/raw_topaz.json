@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_topaz"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:topaz_dust"
+  }
+}

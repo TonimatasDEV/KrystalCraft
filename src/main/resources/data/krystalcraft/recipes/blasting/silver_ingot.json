@@ -1,0 +1,10 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:blasting",
+  "experience": 0.5,
+  "cookingtime": 100,
+  "ingredient": {
+    "tag": "forge:raw_materials/silver"
+  },
+  "result": "krystalcraft:silver_ingot"
+}

@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:coal_crusher",
+  "ingredients": [
+    {
+      "item": "krystalcraft:silver_ingot"
+    }
+  ],
+  "output": {
+    "item": "krystalcraft:silver_dust"
+  }
+}

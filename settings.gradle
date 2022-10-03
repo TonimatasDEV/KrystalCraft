@@ -1,16 +1,9 @@
-buildscript {
+pluginManagement {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
+        gradlePluginPortal()
+        maven { url = 'https://maven.minecraftforge.net/' }
         maven { url = 'https://maven.parchmentmc.org' }
-    }
-
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: "${forge_gradle}", changing: true
-        classpath "org.parchmentmc:librarian:${parchment_librarian_version}"
     }
 }
 
 rootProject.name = 'KrystalCraft'
-
-include 'base'
-include 'guide'
