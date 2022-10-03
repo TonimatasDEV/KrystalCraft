@@ -1,0 +1,10 @@
+{
+  "group": "krystalcraft",
+  "type": "minecraft:blasting",
+  "experience": 0.5,
+  "cookingtime": 100,
+  "ingredient": {
+    "tag": "forge:raw_materials/tin"
+  },
+  "result": "krystalcraft:tin_ingot"
+}

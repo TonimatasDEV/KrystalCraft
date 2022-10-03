@@ -1,0 +1,31 @@
+modLoader = "javafml"
+loaderVersion = "[43,)"
+license = "All rights reserved"
+issueTrackerURL = "https://github.com/TonimatasDEV/KrystalCraft/issues"
+
+[[mods]]
+modId = "krystalcraft"
+version = "0.0.3.4"
+displayName = "KrystalCraft"
+#updateJSONURL="https://change.me.example.invalid/updates.json"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/krystalcraft"
+logoFile = "krystalcraft.png"
+credits = "Credits to Forge and IntelliJ IDEA"
+authors = "TonimatasDEV [Lead] - danizml [Artist]"
+description = '''
+Adds lots of recipes, crystals, ingots and machines to work with them, making upgradeable armor, tools, items, blocks, or even weapons. This mod is mainly focused on mining but also have some different mechanics like special enchantments. All you need is to craft your tool/weapon/armor in a crafting table and upgrade it with the correspondent machine and minerals for making them better. Adds lots of recipes, crystals, ingots and machines to work with them, making upgradeable armor, tools, items, blocks, or even weapons. This mod is mainly focused on mining but also have some different mechanics like special enchantments. All you need is to craft your tool/weapon/armor in a crafting table and upgrade it with the correspondent machine and minerals for making them better.
+'''
+
+[[dependencies.krystalcraft]]
+modId = "forge"
+mandatory = true
+versionRange = "[43,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.krystalcraft]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.19.2]"
+ordering = "NONE"
+side = "BOTH"
