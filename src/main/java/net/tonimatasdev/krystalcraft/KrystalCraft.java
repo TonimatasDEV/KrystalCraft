@@ -11,14 +11,13 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.enchantment.ModEnchantments;
+import net.tonimatasdev.krystalcraft.item.KrystalCraftTab;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import net.tonimatasdev.krystalcraft.recipe.ModRecipes;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasdev.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasdev.krystalcraft.screen.GemCuttingStationScreen;
 import net.tonimatasdev.krystalcraft.screen.ModMenuTypes;
-import net.tonimatasdev.krystalcraft.world.feature.ModConfiguredFeatures;
-import net.tonimatasdev.krystalcraft.world.feature.ModPlacedFeatures;
 
 @Mod(KrystalCraft.MOD_ID)
 public class KrystalCraft {
@@ -30,14 +29,13 @@ public class KrystalCraft {
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
-        ModConfiguredFeatures.register(eventBus);
-        ModPlacedFeatures.register(eventBus);
-
         ModBlockEntities.register(eventBus);
         ModMenuTypes.register(eventBus);
 
         ModRecipes.register(eventBus);
         ModEnchantments.register(eventBus);
+
+        KrystalCraftTab.create();
 
         eventBus.addListener(this::commonSetup);
 
@@ -57,7 +55,7 @@ public class KrystalCraft {
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(ModMenuTypes.GEM_CUTTING_STATION_MENU.get(), GemCuttingStationScreen::new);
             MenuScreens.register(ModMenuTypes.COAL_CRUSHER_MENU.get(), CoalCrusherScreen::new);
-        MenuScreens.register(ModMenuTypes.COAL_COMBINER_MENU.get(), CoalCombinerScreen::new);
+            MenuScreens.register(ModMenuTypes.COAL_COMBINER_MENU.get(), CoalCombinerScreen::new);
         }
     }
 }

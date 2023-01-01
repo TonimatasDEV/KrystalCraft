@@ -1,15 +1,22 @@
 package net.tonimatasdev.krystalcraft.datagen.loot;
 
-import net.minecraft.data.loot.BlockLoot;
+import net.minecraft.data.loot.BlockLootSubProvider;
+import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
-public class ModBlockLootTables extends BlockLoot {
+import java.util.Set;
+
+public class ModBlockLootTables extends BlockLootSubProvider {
+    public ModBlockLootTables() {
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+    }
+
     @Override
-    protected void addTables() {
+    protected void generate() {
         this.dropSelf(ModBlocks.BRONZE_BLOCK.get());
         this.dropSelf(ModBlocks.COAL_COMBINER.get());
         this.dropSelf(ModBlocks.COAL_CRUSHER.get());

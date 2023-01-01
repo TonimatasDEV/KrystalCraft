@@ -1,25 +1,35 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
+import net.minecraft.Util;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.registries.VanillaRegistries;
+import net.minecraftforge.common.data.DatapackBuiltinEntriesProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.world.feature.ModFeatures;
+
+import java.util.Set;
+import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerators {
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
-        DataGenerator generators = event.getGenerator();
+        DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generators, existingFileHelper);
+        CompletableFuture<HolderLookup.Provider> completablefuture = CompletableFuture.supplyAsync(VanillaRegistries::createLookup, Util.backgroundExecutor());
+        ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, completablefuture, existingFileHelper);
 
-        //generators.addProvider(true, new ModRecipeProvider(generators));
-        generators.addProvider(true, new ModLootTableProvider(generators));
-        generators.addProvider(true, new ModItemModelProvider(generators, existingFileHelper));
-        generators.addProvider(true, new ModBlocksStateProvider(generators, existingFileHelper));
-        generators.addProvider(true, blockTagsProvider);
-        generators.addProvider(true, new ModItemTagsProvider(generators, blockTagsProvider, existingFileHelper));
+        generator.addProvider(true, new ModRecipeProvider(generator));
+        //generator.addProvider(true, ModLootTableProvider.create(generator));
+        generator.addProvider(true, new ModItemModelProvider(generator, existingFileHelper));
+        generator.addProvider(true, new ModBlocksStateProvider(generator, existingFileHelper));
+        generator.addProvider(true, blockTagsProvider);
+        generator.addProvider(true, new ModItemTagsProvider(generator, completablefuture, blockTagsProvider, existingFileHelper));
+        generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), completablefuture, ModFeatures.BUILDER, Set.of()));
     }
 }
