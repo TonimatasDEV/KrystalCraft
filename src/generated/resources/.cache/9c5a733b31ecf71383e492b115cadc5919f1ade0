@@ -1,4 +1,4 @@
-// 1.19	2022-06-18T22:02:05.2856898	Tags for minecraft:block
+// 1.19.3	2023-01-01T19:15:06.6068432	Tags for minecraft:block mod id krystalcraft
 6ef18862188e7557bd348f3167620b64c869a6bc data/forge/tags/blocks/ores.json
 9e6261f5b8204c448752cd4c7924577c59783715 data/forge/tags/blocks/ores/experience.json
 41e20bac08540addf2ecf025e9797929a6a127db data/forge/tags/blocks/ores/jade.json
