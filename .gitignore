@@ -116,3 +116,6 @@ run/
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
 !gradle-wrapper.jar
+
+# Ignore minecraft data
+src/generated/resources/data/minecraft/loot_tables/
