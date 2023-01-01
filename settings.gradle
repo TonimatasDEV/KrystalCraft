@@ -1,8 +1,13 @@
-pluginManagement {
+buildscript {
     repositories {
-        gradlePluginPortal()
-        maven { url = 'https://maven.minecraftforge.net/' }
-        maven { url = 'https://maven.parchmentmc.org' }
+        maven { url = 'https://maven.minecraftforge.net' }
+        //maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        //classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
 
