@@ -1,12 +1,8 @@
 package net.tonimatasdev.krystalcraft.block;
 
-import net.minecraft.network.chat.Component;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
@@ -18,19 +14,13 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.block.custom.CoalCombinerBlock;
 import net.tonimatasdev.krystalcraft.block.custom.CoalCrusherBlock;
 import net.tonimatasdev.krystalcraft.block.custom.GemCuttingStationBlock;
-import net.tonimatasdev.krystalcraft.block.custom.CoalCombinerBlock;
-import net.tonimatasdev.krystalcraft.item.KrystalCraftTab;
 import net.tonimatasdev.krystalcraft.item.ModItems;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nullable;
-import java.util.List;
 import java.util.function.Supplier;
 
-
-@SuppressWarnings({"UnusedReturnValue", "unused"})
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
 
@@ -142,8 +132,7 @@ public class ModBlocks {
             new Block(BlockBehaviour.Properties.of(Material.METAL)
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
-    //----------------------------------------------------------------------------------------------------------------------
-
+    // Block Entities
     public static final RegistryObject<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station",
             () -> new GemCuttingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
@@ -153,36 +142,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> COAL_COMBINER = registerBlock("coal_combiner",
             () -> new CoalCombinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
-
-    private static <T extends Block> RegistryObject<T> registerBlockWithoutBlockItem(String name, Supplier<T> block) {
-        return BLOCKS.register(name, block);
-    }
-
-    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, String tooltipKey) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn, tooltipKey);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, String tooltipKey) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)) {
-
-            @Override
-            public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltip, @NotNull TooltipFlag pFlag) {
-                pTooltip.add(Component.translatable(tooltipKey));
-            }
-        });
-    }
-
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties().tab(KrystalCraftTab.KRYSTALCRAFT)));
+    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+                new Item.Properties()));
     }
 
     public static void register(IEventBus iEventBus) {

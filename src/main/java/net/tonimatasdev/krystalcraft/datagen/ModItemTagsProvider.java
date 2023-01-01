@@ -1,21 +1,24 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import net.tonimatasdev.krystalcraft.util.ModTags;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
-    public ModItemTagsProvider(DataGenerator dataGenerator, BlockTagsProvider blockTagsProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagsProvider, KrystalCraft.MOD_ID, existingFileHelper);
-    }
 
+    public ModItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> providerCompletableFuture, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+        super(generator.getPackOutput(), providerCompletableFuture, blockTagsProvider, KrystalCraft.MOD_ID, existingFileHelper);
+    }
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(ModTags.Items.SILVER_DUST).add(ModItems.SILVER_DUST.get());
         tag(ModTags.Items.BRONZE_DUST).add(ModItems.BRONZE_DUST.get());
         tag(ModTags.Items.DIAMOND_DUST).add(ModItems.DIAMOND_DUST.get());

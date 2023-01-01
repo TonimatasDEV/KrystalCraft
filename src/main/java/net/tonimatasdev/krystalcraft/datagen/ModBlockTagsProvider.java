@@ -1,20 +1,23 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.util.ModTags;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagsProvider extends BlockTagsProvider {
-    public ModBlockTagsProvider(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
-        super(generator, KrystalCraft.MOD_ID, existingFileHelper);
+    public ModBlockTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> lookupProvider, ExistingFileHelper existingFileHelper) {
+        super(generator.getPackOutput(), lookupProvider, KrystalCraft.MOD_ID, existingFileHelper);
     }
 
     @Override
-    protected void addTags() {
+    protected void addTags(HolderLookup.@NotNull Provider provider) {
         tag(ModTags.Blocks.EXPERIENCE_ORE).add(ModBlocks.EXPERIENCE_ORE.get(), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get());
         tag(ModTags.Blocks.JADE_ORE).add(ModBlocks.JADE_ORE.get(), ModBlocks.DEEPSLATE_JADE_ORE.get());
         tag(ModTags.Blocks.LEAD_ORE).add(ModBlocks.LEAD_ORE.get(), ModBlocks.DEEPSLATE_LEAD_ORE.get());

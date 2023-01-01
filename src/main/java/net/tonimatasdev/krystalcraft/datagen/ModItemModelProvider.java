@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, KrystalCraft.MOD_ID, existingFileHelper);
+        super(generator.getPackOutput(), KrystalCraft.MOD_ID, existingFileHelper);
     }
 
     @Override
