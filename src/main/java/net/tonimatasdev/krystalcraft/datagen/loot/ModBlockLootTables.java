@@ -2,17 +2,19 @@ package net.tonimatasdev.krystalcraft.datagen.loot;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
     public ModBlockLootTables() {
-        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
+        super(Stream.of(ModBlocks.EXPERIENCE_ORE.get(), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get()).map(ItemLike::asItem).collect(Collectors.toSet()), FeatureFlags.REGISTRY.allFlags());
     }
 
     @Override
