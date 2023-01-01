@@ -1,3 +1,11 @@
-// 1.19.3	2023-01-01T19:15:06.6128438	Recipes
+// 1.19.3	2023-01-01T19:54:30.1377622	Recipes
 eb95f79140261a874d67eac9139db98d57c2a406 data/krystalcraft/advancements/recipes/building_blocks/bronze_block.json
+97d327f018c0ef67e0fa721679d8c9a1a64fcadb data/krystalcraft/advancements/recipes/misc/lead_dust.json
+e210099b2109b3e993614972b0f645aadefee783 data/krystalcraft/advancements/recipes/misc/platinum_dust.json
+0f9a3121c3231eae2e9114262c1a9fc87227a5a3 data/krystalcraft/advancements/recipes/misc/silver_ingot.json
+df20b0000c0ddd1cd8da2ab4cf06d13e27703e2c data/krystalcraft/advancements/recipes/misc/tin_ingot.json
 c7f48a9d0637d64f6fc69f96c8b1be4fb158ef6a data/krystalcraft/recipes/bronze_block.json
+6ea6c57e6804830df5ffb2dd66245696c8424d26 data/krystalcraft/recipes/lead_dust.json
+508ebc2ad46b1a8d9693237d23becf0d20652f95 data/krystalcraft/recipes/platinum_dust.json
+b436abb1d904cfb53e8b4e59ccc08fc166adb629 data/krystalcraft/recipes/silver_ingot.json
+1f7b9c8a2196040acbb2a0236ac45baa003c6dec data/krystalcraft/recipes/tin_ingot.json
