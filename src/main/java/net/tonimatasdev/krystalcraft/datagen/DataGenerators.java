@@ -12,7 +12,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.world.feature.ModFeatures;
 
-import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -30,6 +29,6 @@ public class DataGenerators {
         generator.addProvider(true, new ModBlocksStateProvider(generator, existingFileHelper));
         generator.addProvider(true, blockTagsProvider);
         generator.addProvider(true, new ModItemTagsProvider(generator, completablefuture, blockTagsProvider, existingFileHelper));
-        generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), completablefuture, ModFeatures.BUILDER, Set.of()));
+        generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), ModFeatures.BUILDER));
     }
 }
