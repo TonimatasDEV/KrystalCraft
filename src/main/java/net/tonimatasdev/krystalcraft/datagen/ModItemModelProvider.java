@@ -151,6 +151,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.TOPAZ_HOE);
         simpleItem(ModItems.GEM_CUTTER_TOOL);
         simpleItem(ModItems.SET_WATER_BOTTLES);
+        simpleItem(ModItems.GRINDING_GEAR);
         simpleItem(ModItems.LAPIS_DUST);
     }
 
