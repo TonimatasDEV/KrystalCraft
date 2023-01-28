@@ -4,7 +4,7 @@ apply plugin: 'net.minecraftforge.gradle'
 //apply plugin: 'org.spongepowered.mixin'
 
 group = 'krystalcraft'
-version = "${krystalcraft_version}"
+version = "${project_version}"
 archivesBaseName = 'krystalcraft'
 
 //mixin {
@@ -77,16 +77,16 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    //maven { url = "https://dvs1.progwml6.com/files/maven/" }
-    //maven { url = "https://modmaven.dev" }
+    maven { url = "https://dvs1.progwml6.com/files/maven/" }
+    maven { url = "https://modmaven.dev" }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    //compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    //compileOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}")
-    //runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
+    //compileOnly fg.deof("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    //compileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
+    implementation "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
 }
 
 jar {
