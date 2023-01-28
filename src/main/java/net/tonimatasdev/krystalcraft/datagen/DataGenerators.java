@@ -12,6 +12,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.world.feature.ModFeatures;
 
+import java.util.Set;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -21,14 +22,14 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> completablefuture = CompletableFuture.supplyAsync(VanillaRegistries::createLookup, Util.backgroundExecutor());
-        ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, completablefuture, existingFileHelper);
 
         generator.addProvider(true, new ModRecipeProvider(generator));
         //generator.addProvider(true, ModLootTableProvider.create(generator));
         generator.addProvider(true, new ModItemModelProvider(generator, existingFileHelper));
         generator.addProvider(true, new ModBlocksStateProvider(generator, existingFileHelper));
+        ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, completablefuture, existingFileHelper);
         generator.addProvider(true, blockTagsProvider);
         generator.addProvider(true, new ModItemTagsProvider(generator, completablefuture, blockTagsProvider, existingFileHelper));
-        generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), ModFeatures.BUILDER));
+        generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), completablefuture, ModFeatures.BUILDER, Set.of("krystalcraft")));
     }
 }

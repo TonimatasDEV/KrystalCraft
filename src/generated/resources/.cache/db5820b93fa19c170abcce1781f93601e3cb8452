@@ -1,4 +1,4 @@
-// 1.19.3	2023-01-01T19:15:06.6098431	Item Models: krystalcraft
+// 1.19.3	2023-01-27T23:50:47.5948901	Item Models: krystalcraft
 091b9ddae0619227aa68258a4edb7d3748856b63 assets/krystalcraft/models/item/bronze_axe.json
 cb12bf4a306d41d49bdf4ef03c1bc892449430cf assets/krystalcraft/models/item/bronze_boots.json
 73a5e77b689aac24bb6f729d37eb625a0cd48c5e assets/krystalcraft/models/item/bronze_chestplate.json
@@ -25,6 +25,7 @@ decc4eab523805dffdf27f9bf3c84cfc529b3824 assets/krystalcraft/models/item/copper_
 9c6cd4f9c63af13d331ebb887bd2b6c5cd0ea64c assets/krystalcraft/models/item/diamond_dust.json
 de107dc5a690f881a2b91984582603a9ee8d803b assets/krystalcraft/models/item/emerald_dust.json
 8ce833668ebac37b72dc8a08f0a86b30acd7c329 assets/krystalcraft/models/item/gem_cutter_tool.json
+cbde5b63ee84a773c6c7bf3e1af6bf17fa8feba6 assets/krystalcraft/models/item/grinding_gear.json
 7c84a2c6c29ddcdbde7155161a5ff626d716da74 assets/krystalcraft/models/item/iron_dust.json
 59a925b5ddbd23712dfc319f8b8ee96db32af39e assets/krystalcraft/models/item/jade.json
 6aaea547bbdb9a0e6edd4f08eef46c5461b366ed assets/krystalcraft/models/item/jade_axe.json
