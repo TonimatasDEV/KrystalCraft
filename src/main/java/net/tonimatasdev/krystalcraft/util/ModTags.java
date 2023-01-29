@@ -9,11 +9,9 @@ import net.minecraft.world.level.block.Block;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 
 public class ModTags {
-    @SuppressWarnings("unused")
     public static class Blocks {
         public static final TagKey<Block> ORES = forgeTag("ores");
         public static final TagKey<Block> STORAGE_BLOCKS = forgeTag("storage_blocks");
-
         public static final TagKey<Block> EXPERIENCE_ORE = forgeTag("ores/experience");
         public static final TagKey<Block> JADE_ORE = forgeTag("ores/jade");
         public static final TagKey<Block> LEAD_ORE = forgeTag("ores/lead");
@@ -33,6 +31,8 @@ public class ModTags {
         public static final TagKey<Block> TIN_BLOCK = forgeTag("storage_blocks/tin");
         public static final TagKey<Block> TOPAZ_BLOCK = forgeTag("storage_blocks/topaz");
 
+
+        @SuppressWarnings("unused")
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(KrystalCraft.MOD_ID, name));
         }
@@ -42,7 +42,6 @@ public class ModTags {
         }
     }
 
-    @SuppressWarnings("unused")
     public static class Items {
         public static final TagKey<Item> DUSTS = forgeTag("dusts");
         public static final TagKey<Item> GEMS = forgeTag("gems");
@@ -109,6 +108,7 @@ public class ModTags {
         public static final TagKey<Item> LAPIS_RAW_MATERIAL = forgeTag("raw_materials/lapis");
         public static final TagKey<Item> REDSTONE_RAW_MATERIAL = forgeTag("raw_materials/lapis");
 
+        @SuppressWarnings("unused")
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(KrystalCraft.MOD_ID, name));
         }
