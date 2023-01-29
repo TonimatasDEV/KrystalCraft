@@ -26,16 +26,12 @@ public class KrystalCraft {
     public KrystalCraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.register(eventBus);
-        ModBlocks.register(eventBus);
-
-        ModBlockEntities.register(eventBus);
-        ModMenuTypes.register(eventBus);
-
-        ModRecipes.register(eventBus);
-        ModEnchantments.register(eventBus);
-
-        KrystalCraftTab.create();
+        ModItems.ITEMS.register(eventBus);
+        ModBlocks.BLOCKS.register(eventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
+        ModMenuTypes.MENUS.register(eventBus);
+        ModRecipes.SERIALIZERS.register(eventBus);
+        ModEnchantments.ENCHANTMENTS.register(eventBus);
 
         eventBus.addListener(this::commonSetup);
 
@@ -43,6 +39,8 @@ public class KrystalCraft {
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        eventBus.addListener(KrystalCraftTab::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

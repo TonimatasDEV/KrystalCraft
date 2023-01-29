@@ -181,5 +181,5 @@
   "enchantment.krystalcraft.freezing": "Freezing",
   "enchantment.krystalcraft.freezing.desc": "Slows mobs after hit for three seconds.",
   "enchantment.krystalcraft.freezing.guide": "Freezing 1 = -20% reduced speed / Freezing 2 = -30% reduced speed / Freezing 3 = -40% reduced speed",
-  "itemGroup.KrystalCraft": "KrystalCraft"
+  "itemGroup.krystalcraft": "KrystalCraft"
 }
