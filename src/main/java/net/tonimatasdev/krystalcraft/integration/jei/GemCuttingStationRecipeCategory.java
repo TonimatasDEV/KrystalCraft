@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.integration.jei;
 
-/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -57,4 +56,4 @@ public class GemCuttingStationRecipeCategory implements IRecipeCategory<GemCutti
         builder.addSlot(RecipeIngredientRole.INPUT, 103, 18).addIngredients(Ingredient.of(ModItems.GEM_CUTTER_TOOL.get()));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.getResultItem());
     }
-}*/
+}

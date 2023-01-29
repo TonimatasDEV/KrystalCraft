@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.integration.jei;
 
-/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -59,4 +58,4 @@ public class CoalCombinerRecipeCategory implements IRecipeCategory<CoalCombinerR
         builder.addSlot(RecipeIngredientRole.INPUT, 80, 48).addIngredients(Ingredient.of(Items.COAL));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 70).addItemStack(recipe.getResultItem());
     }
-}*/
+}
