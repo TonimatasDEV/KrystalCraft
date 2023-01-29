@@ -66,7 +66,7 @@ minecraft {
             args '--mod', 'krystalcraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                cerium {
+                krystalcraft {
                     source sourceSets.main
                 }
             }
@@ -77,15 +77,12 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    maven { url = "https://dvs1.progwml6.com/files/maven/" }
     maven { url = "https://modmaven.dev" }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    //compileOnly fg.deof("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    //compileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
     implementation "mezz.jei:jei-${minecraft_version}-forge:${jei_version}"
 }
 

@@ -1,11 +1,11 @@
 modLoader = "javafml"
 loaderVersion = "[44,)"
-license = "All rights reserved"
+license = "Apache License Version 2.0"
 issueTrackerURL = "https://github.com/TonimatasDEV/KrystalCraft/issues"
 
 [[mods]]
 modId = "krystalcraft"
-version = "0.0.3.4"
+version = "0.0.3.5"
 displayName = "KrystalCraft"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/krystalcraft"
