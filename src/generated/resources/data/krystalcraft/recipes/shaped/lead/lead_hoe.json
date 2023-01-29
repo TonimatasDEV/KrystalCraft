@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:ingots/lead"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "00",
+    " 1",
+    " 1"
+  ],
+  "result": {
+    "item": "krystalcraft:lead_hoe"
+  }
+}
