@@ -1,16 +1,17 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "000",
-    "000",
-    "000"
-  ],
+  "category": "misc",
+  "group": "krystalcraft",
   "key": {
     "0": {
       "tag": "forge:nuggets/platinum"
     }
   },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
   "result": {
     "item": "krystalcraft:platinum_ingot"
   }

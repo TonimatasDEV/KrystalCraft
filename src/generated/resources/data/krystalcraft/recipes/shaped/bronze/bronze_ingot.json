@@ -1,16 +1,17 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "000",
-    "000",
-    "000"
-  ],
+  "category": "misc",
+  "group": "krystalcraft",
   "key": {
     "0": {
       "tag": "forge:nuggets/bronze"
     }
   },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
   "result": {
     "item": "krystalcraft:bronze_ingot"
   }

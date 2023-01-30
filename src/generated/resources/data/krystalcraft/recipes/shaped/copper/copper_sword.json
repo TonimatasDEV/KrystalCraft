@@ -1,11 +1,7 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "000",
-    " 1 ",
-    " 1 "
-  ],
+  "category": "misc",
+  "group": "krystalcraft",
   "key": {
     "0": {
       "tag": "forge:ingots/copper"
@@ -14,7 +10,12 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "0",
+    "0",
+    "1"
+  ],
   "result": {
-    "item": "krystalcraft:copper_pickaxe"
+    "item": "krystalcraft:copper_sword"
   }
 }

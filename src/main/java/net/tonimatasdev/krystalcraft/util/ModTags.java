@@ -73,6 +73,7 @@ public class ModTags {
         public static final TagKey<Item> SILVER_INGOT = forgeTag("ingots/silver");
         public static final TagKey<Item> TIN_INGOT = forgeTag("ingots/tin");
         public static final TagKey<Item> BRONZE_NUGGETS = forgeTag("nuggets/bronze");
+        public static final TagKey<Item> COPPER_NUGGETS = forgeTag("nuggets/copper");
         public static final TagKey<Item> LEAD_NUGGETS = forgeTag("nuggets/lead");
         public static final TagKey<Item> PLATINUM_NUGGETS = forgeTag("nuggets/platinum");
         public static final TagKey<Item> SILVER_NUGGETS = forgeTag("nuggets/silver");

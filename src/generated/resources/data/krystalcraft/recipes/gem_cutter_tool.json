@@ -1,11 +1,7 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    " 1 ",
-    "0 1",
-    "20 "
-  ],
+  "category": "misc",
+  "group": "krystalcraft",
   "key": {
     "0": {
       "item": "minecraft:stick"
@@ -14,9 +10,14 @@
       "tag": "forge:ingots/lead"
     },
     "2": {
-      "item": "minecraft:iron_ingot"
+      "tag": "forge:ingots/iron"
     }
   },
+  "pattern": [
+    " 1 ",
+    "0 1",
+    "20 "
+  ],
   "result": {
     "item": "krystalcraft:gem_cutter_tool"
   }

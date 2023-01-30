@@ -14,7 +14,7 @@ import net.tonimatasdev.krystalcraft.KrystalCraft;
 import java.util.function.Consumer;
 
 public class RecipeProviderUtils {
-    public static void createResourceKit(TagKey<Item> resource, String resourceName, Item sword, Item pickaxe, Item axe, Item shovel, Item hoe, Item helmet, Item chestplate, Item leggings, Item boots, Block block, InventoryChangeTrigger.TriggerInstance triggerInstance, Consumer<FinishedRecipe> finishedRecipeConsumer) {
+    public static void createResourceKit(TagKey<Item> resourceNugget, TagKey<Item> resource, String resourceName, Item ingot, Item sword, Item pickaxe, Item axe, Item shovel, Item hoe, Item helmet, Item chestplate, Item leggings, Item boots, Block block, InventoryChangeTrigger.TriggerInstance triggerInstance, Consumer<FinishedRecipe> finishedRecipeConsumer) {
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, sword)
                 .define('0', resource)
                 .define('1', Items.STICK)
@@ -99,16 +99,27 @@ public class RecipeProviderUtils {
                 .group(KrystalCraft.MOD_ID)
                 .save(finishedRecipeConsumer, getResourceName(resourceName, "boots"));
 
+        if (resourceNugget != null && ingot != null) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ingot)
+                    .define('0', resourceNugget)
+                    .pattern("000")
+                    .pattern("000")
+                    .pattern("000")
+                    .unlockedBy("has_" + resourceName + "_nugget", triggerInstance)
+                    .group(KrystalCraft.MOD_ID)
+                    .save(finishedRecipeConsumer, getResourceName(resourceName, "ingot"));
+        }
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block)
-                .define('0', resource)
-                .pattern("000")
-                .pattern("000")
-                .pattern("000")
-                .unlockedBy("has_" + resourceName + "_ingot", triggerInstance)
-                .group(KrystalCraft.MOD_ID)
-                .save(finishedRecipeConsumer, getResourceName(resourceName, "block"));
-
+        if (block != null) {
+            ShapedRecipeBuilder.shaped(RecipeCategory.MISC, block)
+                    .define('0', resource)
+                    .pattern("000")
+                    .pattern("000")
+                    .pattern("000")
+                    .unlockedBy("has_" + resourceName + "_ingot", triggerInstance)
+                    .group(KrystalCraft.MOD_ID)
+                    .save(finishedRecipeConsumer, getResourceName(resourceName, "block"));
+        }
     }
 
     private static ResourceLocation getResourceName(String resourceName, String itemType) {

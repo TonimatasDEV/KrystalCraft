@@ -1,11 +1,7 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "232",
-    "040",
-    "1 1"
-  ],
+  "category": "misc",
+  "group": "krystalcraft",
   "key": {
     "0": {
       "tag": "forge:ingots/lead"
@@ -23,6 +19,11 @@
       "tag": "forge:fences"
     }
   },
+  "pattern": [
+    "232",
+    "040",
+    "1 1"
+  ],
   "result": {
     "item": "krystalcraft:gem_cutting_station"
   }
