@@ -2,14 +2,13 @@ package net.tonimatasdev.krystalcraft.datagen;
 
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
@@ -36,7 +35,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         itemBlasting(ModTags.Items.SILVER_RAW_MATERIAL, ModItems.SILVER_INGOT.get(), "silver_ingot");
         itemBlasting(ModTags.Items.TIN_RAW_MATERIAL, ModItems.TIN_INGOT.get(), "tin_ingot");
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.BRONZE_INGOT, "bronze",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.BRONZE_NUGGETS, ModTags.Items.BRONZE_INGOT, "bronze",
+                ModItems.BRONZE_INGOT.get(),
                 ModItems.BRONZE_SWORD.get(),
                 ModItems.BRONZE_PICKAXE.get(),
                 ModItems.BRONZE_AXE.get(),
@@ -48,7 +48,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.BRONZE_BOOTS.get(),
                 ModBlocks.BRONZE_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.BRONZE_INGOT).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.JADE_GEM, "jade",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.COPPER_NUGGETS, Tags.Items.INGOTS_COPPER, "copper",
+                Items.COPPER_INGOT,
+                ModItems.COPPER_SWORD.get(),
+                ModItems.COPPER_PICKAXE.get(),
+                ModItems.COPPER_AXE.get(),
+                ModItems.COPPER_SHOVEL.get(),
+                ModItems.COPPER_HOE.get(),
+                ModItems.COPPER_HELMET.get(),
+                ModItems.COPPER_CHESTPLATE.get(),
+                ModItems.COPPER_LEGGINGS.get(),
+                ModItems.COPPER_BOOTS.get(),
+                null, inventoryTrigger(ItemPredicate.Builder.item().of(Tags.Items.INGOTS_COPPER).build()), pFinishedConsumer);
+
+        RecipeProviderUtils.createResourceKit(null, ModTags.Items.JADE_GEM, "jade",
+                null,
                 ModItems.JADE_SWORD.get(),
                 ModItems.JADE_PICKAXE.get(),
                 ModItems.JADE_AXE.get(),
@@ -60,7 +74,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.JADE_BOOTS.get(),
                 ModBlocks.BRONZE_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.JADE_GEM).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.LEAD_INGOT, "lead",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.LEAD_NUGGETS, ModTags.Items.LEAD_INGOT, "lead",
+                ModItems.LEAD_INGOT.get(),
                 ModItems.LEAD_SWORD.get(),
                 ModItems.LEAD_PICKAXE.get(),
                 ModItems.LEAD_AXE.get(),
@@ -72,7 +87,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.LEAD_BOOTS.get(),
                 ModBlocks.LEAD_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.LEAD_INGOT).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.PLATINUM_INGOT, "platinum",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.PLATINUM_NUGGETS, ModTags.Items.PLATINUM_INGOT, "platinum",
+                ModItems.PLATINUM_INGOT.get(),
                 ModItems.PLATINUM_SWORD.get(),
                 ModItems.PLATINUM_PICKAXE.get(),
                 ModItems.PLATINUM_AXE.get(),
@@ -84,7 +100,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.PLATINUM_BOOTS.get(),
                 ModBlocks.PLATINUM_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.PLATINUM_INGOT).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.RUBY_GEM, "ruby",
+        RecipeProviderUtils.createResourceKit(null, ModTags.Items.RUBY_GEM, "ruby",
+                null,
                 ModItems.RUBY_SWORD.get(),
                 ModItems.RUBY_PICKAXE.get(),
                 ModItems.RUBY_AXE.get(),
@@ -96,7 +113,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.RUBY_BOOTS.get(),
                 ModBlocks.RUBY_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.RUBY_GEM).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.SAPPHIRE_GEM, "sapphire",
+        RecipeProviderUtils.createResourceKit(null, ModTags.Items.SAPPHIRE_GEM, "sapphire",
+                null,
                 ModItems.SAPPHIRE_SWORD.get(),
                 ModItems.SAPPHIRE_PICKAXE.get(),
                 ModItems.SAPPHIRE_AXE.get(),
@@ -108,7 +126,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.SAPPHIRE_BOOTS.get(),
                 ModBlocks.SAPPHIRE_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.SAPPHIRE_GEM).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.SILVER_INGOT, "silver",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.SILVER_NUGGETS, ModTags.Items.SILVER_INGOT, "silver",
+                ModItems.SILVER_INGOT.get(),
                 ModItems.SILVER_SWORD.get(),
                 ModItems.SILVER_PICKAXE.get(),
                 ModItems.SILVER_AXE.get(),
@@ -120,7 +139,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.SILVER_BOOTS.get(),
                 ModBlocks.SILVER_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.SILVER_INGOT).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.TIN_INGOT, "tin",
+        RecipeProviderUtils.createResourceKit(ModTags.Items.TIN_NUGGETS, ModTags.Items.TIN_INGOT, "tin",
+                ModItems.TIN_INGOT.get(),
                 ModItems.TIN_SWORD.get(),
                 ModItems.TIN_PICKAXE.get(),
                 ModItems.TIN_AXE.get(),
@@ -132,7 +152,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.TIN_BOOTS.get(),
                 ModBlocks.TIN_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.TIN_INGOT).build()), pFinishedConsumer);
 
-        RecipeProviderUtils.createResourceKit(ModTags.Items.TOPAZ_GEM, "topaz",
+        RecipeProviderUtils.createResourceKit(null, ModTags.Items.TOPAZ_GEM, "topaz",
+                null,
                 ModItems.TOPAZ_SWORD.get(),
                 ModItems.TOPAZ_PICKAXE.get(),
                 ModItems.TOPAZ_AXE.get(),
@@ -143,6 +164,72 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.TOPAZ_LEGGINGS.get(),
                 ModItems.TOPAZ_BOOTS.get(),
                 ModBlocks.TOPAZ_BLOCK.get(), inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.TOPAZ_GEM).build()), pFinishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GRINDING_GEAR.get())
+                .define('0', Tags.Items.INGOTS_IRON)
+                .pattern(" 0 ")
+                .pattern("0 0")
+                .pattern(" 0 ")
+                .unlockedBy("has_iron_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(Tags.Items.INGOTS_IRON).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SET_WATER_BOTTLES.get())
+                .define('0', Tags.Items.GLASS)
+                .define('1', Items.WATER_BUCKET)
+                .pattern("010")
+                .pattern(" 0 ")
+                .unlockedBy("has_glass_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(Tags.Items.GLASS).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.GEM_CUTTER_TOOL.get())
+                .define('0', Items.STICK)
+                .define('1', ModTags.Items.LEAD_INGOT)
+                .define('2', Tags.Items.INGOTS_IRON)
+                .pattern(" 1 ")
+                .pattern("0 1")
+                .pattern("20 ")
+                .unlockedBy("has_lead_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.LEAD_INGOT).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COAL_COMBINER.get())
+                .define('0', Items.STICK)
+                .define('1', Tags.Items.COBBLESTONE)
+                .define('2', Items.BLAST_FURNACE)
+                .pattern("000")
+                .pattern("212")
+                .pattern("111")
+                .unlockedBy("has_blast_furnace_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(Items.BLAST_FURNACE).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COAL_CRUSHER.get())
+                .define('0', ModTags.Items.LEAD_INGOT)
+                .define('1', Tags.Items.COBBLESTONE)
+                .define('2', Tags.Items.DUSTS_REDSTONE)
+                .define('3', Tags.Items.STORAGE_BLOCKS_IRON)
+                .define('4', Tags.Items.FENCES)
+                .pattern(" 3 ")
+                .pattern("042")
+                .pattern("111")
+                .unlockedBy("has_lead_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.LEAD_INGOT).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.GEM_CUTTING_STATION.get())
+                .define('0', ModTags.Items.LEAD_INGOT)
+                .define('1', Tags.Items.INGOTS_IRON)
+                .define('2', Tags.Items.DUSTS_REDSTONE)
+                .define('3', ModTags.Items.DIAMOND_RAW_MATERIAL)
+                .define('4', Tags.Items.FENCES)
+                .pattern("232")
+                .pattern("040")
+                .pattern("1 1")
+                .unlockedBy("has_raw_diamond_ingot", inventoryTrigger(ItemPredicate.Builder.item().of(ModTags.Items.DIAMOND_RAW_MATERIAL).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer);
     }
 
     public static void itemBlasting(TagKey<Item> pTagKey, Item pItem, String pName) {
