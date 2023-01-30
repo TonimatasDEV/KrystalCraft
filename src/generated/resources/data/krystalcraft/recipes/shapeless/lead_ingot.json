@@ -1,13 +1,14 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "krystalcraft",
   "ingredients": [
     {
       "tag": "forge:storage_blocks/lead"
     }
   ],
   "result": {
-    "item": "krystalcraft:lead_ingot",
-    "count": 9
+    "count": 9,
+    "item": "krystalcraft:lead_ingot"
   }
 }

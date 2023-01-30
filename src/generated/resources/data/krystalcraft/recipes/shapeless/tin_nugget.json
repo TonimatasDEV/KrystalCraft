@@ -1,13 +1,14 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "krystalcraft",
   "ingredients": [
     {
       "tag": "forge:ingots/tin"
     }
   ],
   "result": {
-    "item": "krystalcraft:tin_nugget",
-    "count": 9
+    "count": 9,
+    "item": "krystalcraft:tin_nugget"
   }
 }
