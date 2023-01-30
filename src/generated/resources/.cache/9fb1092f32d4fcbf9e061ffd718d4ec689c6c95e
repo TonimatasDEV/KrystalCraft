@@ -1,4 +1,4 @@
-// 1.19.3	2023-01-30T23:33:08.3731425	Recipes
+// 1.19.3	2023-01-30T23:40:29.2144151	Recipes
 59706429f73132bb61aabda9cfb7678fda4aa3a1 data/krystalcraft/advancements/recipes/misc/blasting/lead_ingot.json
 b591670a7719e675c672828bcc9ecb13798dfa69 data/krystalcraft/advancements/recipes/misc/blasting/platinum_ingot.json
 684cbf814650881b4541e41dcb0d3b68f9542c1f data/krystalcraft/advancements/recipes/misc/blasting/silver_ingot.json
@@ -129,6 +129,12 @@ ba3bba4ef755d0c3d54882065d46f71ffe650688 data/krystalcraft/advancements/recipes/
 2939e293b278a46558c6075918586d9a5e6a6fd7 data/krystalcraft/advancements/recipes/misc/shapeless/tin_ingot.json
 f0b67699984c52616f34655cd237ffb8f8c15635 data/krystalcraft/advancements/recipes/misc/shapeless/tin_nugget.json
 9d8bba6a3eb8ad3717402f4b6a9583b43aa0f267 data/krystalcraft/advancements/recipes/misc/shapeless/topaz.json
+1e62fa1f7e248a1da2d87d0296e4306d9cb7bb5c data/krystalcraft/advancements/recipes/misc/smelting/bronze_ingot_with_dust.json
+79a8f47f4a4ebb2e7935950e90356b6f008ce517 data/krystalcraft/advancements/recipes/misc/smelting/copper_ingot_with_dust.json
+1600707ce82595d41596ce55bf33320656347838 data/krystalcraft/advancements/recipes/misc/smelting/lead_ingot_with_dust.json
+21a1fa60cb9c48767488a54f5da8ff4b3cbf0853 data/krystalcraft/advancements/recipes/misc/smelting/platinum_ingot_with_dust.json
+776f9a5fd2715624dc0e834110cf01e93e5ec4d5 data/krystalcraft/advancements/recipes/misc/smelting/silver_ingot_with_dust.json
+2680aeef0b2e8fa104f48a97b95afa7477b7c442 data/krystalcraft/advancements/recipes/misc/smelting/tin_ingot_with_dust.json
 540dc0f0b66d4ee1cd74c238071874746d527180 data/krystalcraft/recipes/blasting/lead_ingot.json
 5921e6a322b89fc94813e51ecfe3db6993c7defc data/krystalcraft/recipes/blasting/platinum_ingot.json
 aa403cefa6fb1d5c5e69de0f99db23f4985d737a data/krystalcraft/recipes/blasting/silver_ingot.json
@@ -259,3 +265,9 @@ a53645b3f1bdae75b373c1deb6c2e6c590ab6aa8 data/krystalcraft/recipes/shapeless/sap
 e560efa97944a35a031def56e61e8375fb88f1f2 data/krystalcraft/recipes/shapeless/tin_ingot.json
 145f706ef5b70c4c6683682a7f2a0b50ddbb5b44 data/krystalcraft/recipes/shapeless/tin_nugget.json
 885a8c1ed46445697a480ec61544cba7e3a7999d data/krystalcraft/recipes/shapeless/topaz.json
+3291311a1d27dc75de39e2378882e3485aa85af2 data/krystalcraft/recipes/smelting/bronze_ingot_with_dust.json
+cd669ef8402162e89603c8cacdc400438012438c data/krystalcraft/recipes/smelting/copper_ingot_with_dust.json
+ad68807ab57eabe70321229d0ee6e6fee9df1f3b data/krystalcraft/recipes/smelting/lead_ingot_with_dust.json
+ac058aa9c6ddaa3525087697585e829dbf4847ca data/krystalcraft/recipes/smelting/platinum_ingot_with_dust.json
+b68e4cd8cfda32f46bc03e953551a16318532010 data/krystalcraft/recipes/smelting/silver_ingot_with_dust.json
+cc552fa0bf735122d532af01dcb13a29e30b0fc2 data/krystalcraft/recipes/smelting/tin_ingot_with_dust.json

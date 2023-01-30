@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "krystalcraft:smelting/tin_ingot_with_dust"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_tin_ingot_with_dust": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "forge:dusts/tin"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_tin_ingot_with_dust",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "krystalcraft:smelting/tin_ingot_with_dust"
+    ]
+  }
+}

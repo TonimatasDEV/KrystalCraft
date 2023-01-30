@@ -1,10 +1,11 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:smelting",
-  "experience": 0.5,
+  "category": "misc",
   "cookingtime": 200,
+  "experience": 0.5,
+  "group": "krystalcraft",
   "ingredient": {
-    "tag": "forge:raw_materials/lead"
+    "tag": "forge:dusts/lead"
   },
   "result": "krystalcraft:lead_ingot"
 }
