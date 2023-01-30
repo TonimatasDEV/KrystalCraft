@@ -231,25 +231,39 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .group(KrystalCraft.MOD_ID)
                 .save(finishedConsumer);
 
-        itemShapeless(ModTags.Items.BRONZE_BLOCK, ModItems.BRONZE_INGOT.get(), 9, "bronze_ingot");
-        itemShapeless(ModTags.Items.BRONZE_INGOT, ModItems.BRONZE_NUGGET.get(), 9, "bronze_nugget");
-        itemShapeless(Tags.Items.INGOTS_COPPER, ModItems.COPPER_NUGGET.get(), 9, "copper_nugget");
-        itemShapeless(ModTags.Items.JADE_BLOCK, ModItems.JADE.get(), 9, "jade");
-        itemShapeless(ModTags.Items.LEAD_BLOCK, ModItems.LEAD_INGOT.get(), 9, "lead_ingot");
-        itemShapeless(ModTags.Items.LEAD_INGOT, ModItems.LEAD_NUGGET.get(), 9, "lead_nugget");
-        itemShapeless(ModTags.Items.PLATINUM_BLOCK, ModItems.PLATINUM_INGOT.get(), 9, "platinum_ingot");
-        itemShapeless(ModTags.Items.PLATINUM_INGOT, ModItems.PLATINUM_NUGGET.get(), 9, "platinum_nugget");
-        itemShapeless(ModTags.Items.RUBY_BLOCK, ModItems.RUBY.get(), 9, "ruby");
-        itemShapeless(ModTags.Items.SAPPHIRE_BLOCK, ModItems.SAPPHIRE.get(), 9, "sapphire");
-        itemShapeless(ModTags.Items.SILVER_BLOCK, ModItems.SILVER_INGOT.get(), 9, "silver_ingot");
-        itemShapeless(ModTags.Items.SILVER_INGOT, ModItems.SILVER_NUGGET.get(), 9, "silver_nugget");
-        itemShapeless(ModTags.Items.TIN_BLOCK, ModItems.TIN_INGOT.get(), 9, "tin_ingot");
-        itemShapeless(ModTags.Items.TIN_INGOT, ModItems.TIN_NUGGET.get(), 9, "tin_nugget");
-        itemShapeless(ModTags.Items.TOPAZ_BLOCK, ModItems.TOPAZ.get(), 9, "topaz");
+        itemShapeless(ModTags.Items.BRONZE_BLOCK, ModItems.BRONZE_INGOT.get(), "bronze_ingot");
+        itemShapeless(ModTags.Items.BRONZE_INGOT, ModItems.BRONZE_NUGGET.get(), "bronze_nugget");
+        itemShapeless(Tags.Items.INGOTS_COPPER, ModItems.COPPER_NUGGET.get(), "copper_nugget");
+        itemShapeless(ModTags.Items.JADE_BLOCK, ModItems.JADE.get(), "jade");
+        itemShapeless(ModTags.Items.LEAD_BLOCK, ModItems.LEAD_INGOT.get(), "lead_ingot");
+        itemShapeless(ModTags.Items.LEAD_INGOT, ModItems.LEAD_NUGGET.get(), "lead_nugget");
+        itemShapeless(ModTags.Items.PLATINUM_BLOCK, ModItems.PLATINUM_INGOT.get(), "platinum_ingot");
+        itemShapeless(ModTags.Items.PLATINUM_INGOT, ModItems.PLATINUM_NUGGET.get(), "platinum_nugget");
+        itemShapeless(ModTags.Items.RUBY_BLOCK, ModItems.RUBY.get(), "ruby");
+        itemShapeless(ModTags.Items.SAPPHIRE_BLOCK, ModItems.SAPPHIRE.get(), "sapphire");
+        itemShapeless(ModTags.Items.SILVER_BLOCK, ModItems.SILVER_INGOT.get(), "silver_ingot");
+        itemShapeless(ModTags.Items.SILVER_INGOT, ModItems.SILVER_NUGGET.get(), "silver_nugget");
+        itemShapeless(ModTags.Items.TIN_BLOCK, ModItems.TIN_INGOT.get(), "tin_ingot");
+        itemShapeless(ModTags.Items.TIN_INGOT, ModItems.TIN_NUGGET.get(), "tin_nugget");
+        itemShapeless(ModTags.Items.TOPAZ_BLOCK, ModItems.TOPAZ.get(), "topaz");
+
+        itemSmelting(ModTags.Items.BRONZE_DUST, ModItems.BRONZE_INGOT.get(), "bronze_ingot_with_dust");
+        itemSmelting(ModTags.Items.COPPER_DUST, Items.COPPER_INGOT, "copper_ingot_with_dust");
+        itemSmelting(ModTags.Items.LEAD_DUST, ModItems.LEAD_INGOT.get(), "lead_ingot_with_dust");
+        itemSmelting(ModTags.Items.PLATINUM_DUST, ModItems.PLATINUM_INGOT.get(), "platinum_ingot_with_dust");
+        itemSmelting(ModTags.Items.SILVER_DUST, ModItems.SILVER_INGOT.get(), "silver_ingot_with_dust");
+        itemSmelting(ModTags.Items.TIN_DUST, ModItems.TIN_INGOT.get(), "tin_ingot_with_dust");
     }
 
-    private static void itemShapeless(TagKey<Item> pTagKey, Item pItem, int count, String pName) {
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pItem, count)
+    private static void itemSmelting(TagKey<Item> pTagKey, Item pItem, String pName) {
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(pTagKey), RecipeCategory.MISC, pItem, 0.5F, 200)
+                .unlockedBy("has_" + pName, inventoryTrigger(ItemPredicate.Builder.item().of(pTagKey).build()))
+                .group(KrystalCraft.MOD_ID)
+                .save(finishedConsumer, new ResourceLocation(KrystalCraft.MOD_ID, "smelting/" + pName));
+    }
+
+    private static void itemShapeless(TagKey<Item> pTagKey, Item pItem, String pName) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, pItem, 9)
                 .requires(Ingredient.of(pTagKey))
                 .unlockedBy("has_" + pName, inventoryTrigger(ItemPredicate.Builder.item().of(pTagKey).build()))
                 .group(KrystalCraft.MOD_ID)
