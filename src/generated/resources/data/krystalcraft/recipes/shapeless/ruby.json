@@ -1,13 +1,14 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "krystalcraft",
   "ingredients": [
     {
       "tag": "forge:storage_blocks/ruby"
     }
   ],
   "result": {
-    "item": "krystalcraft:ruby",
-    "count": 9
+    "count": 9,
+    "item": "krystalcraft:ruby"
   }
 }

@@ -1,13 +1,14 @@
 {
-  "group": "krystalcraft",
   "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "krystalcraft",
   "ingredients": [
     {
       "tag": "forge:ingots/bronze"
     }
   ],
   "result": {
-    "item": "krystalcraft:bronze_nugget",
-    "count": 9
+    "count": 9,
+    "item": "krystalcraft:bronze_nugget"
   }
 }
