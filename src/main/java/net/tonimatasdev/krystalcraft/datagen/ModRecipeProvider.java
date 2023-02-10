@@ -208,7 +208,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.COAL_CRUSHER.get())
                 .define('0', ModTags.Items.LEAD_INGOT)
                 .define('1', Tags.Items.COBBLESTONE)
-                .define('2', Tags.Items.DUSTS_REDSTONE)
+                .define('2', ModTags.Items.REDSTONE_RAW_MATERIAL)
                 .define('3', Tags.Items.STORAGE_BLOCKS_IRON)
                 .define('4', Tags.Items.FENCES)
                 .pattern(" 3 ")
