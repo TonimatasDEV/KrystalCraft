@@ -3,17 +3,18 @@ package net.tonimatasdev.krystalcraft.item;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.LazyLoadedValue;
-import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-@SuppressWarnings({"NullableProblems", "deprecation"})
+@SuppressWarnings("deprecation")
 public enum ModArmorTier implements ArmorMaterial {
 
     JADE("jade", new int[]{3, 5, 6, 2}, new int[]{275, 365, 315, 240}, 16, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0f, 0.0f, () -> Ingredient.of(ModItems.JADE.get())),
@@ -47,28 +48,34 @@ public enum ModArmorTier implements ArmorMaterial {
         this.repairMaterial = new LazyLoadedValue<>(repairMaterial);
     }
 
-    public int getDurabilityForSlot(EquipmentSlot slot) {
-        return this.MAX_DAMAGE_ARRAY[slot.getIndex()];
+    @Override
+    public int getDurabilityForType(ArmorItem.Type type) {
+        return this.MAX_DAMAGE_ARRAY[type.getSlot().getIndex()];
     }
 
-    public int getDefenseForSlot(EquipmentSlot slot) {
-        return this.damageReductionAmountArray[slot.getIndex()];
+    @Override
+    public int getDefenseForType(ArmorItem.Type type) {
+        return this.damageReductionAmountArray[type.getSlot().getIndex()];
     }
 
+    @Override
     public int getEnchantmentValue() {
         return this.enchantability;
     }
 
-    public SoundEvent getEquipSound() {
+    @Override
+    public @NotNull SoundEvent getEquipSound() {
         return this.soundEvent;
     }
 
-    public Ingredient getRepairIngredient() {
+    @Override
+    public @NotNull Ingredient getRepairIngredient() {
         return this.repairMaterial.get();
     }
 
+    @Override
     @OnlyIn(Dist.CLIENT)
-    public String getName() {
+    public @NotNull String getName() {
         return KrystalCraft.MOD_ID + ":" + this.name;
     }
 

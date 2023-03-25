@@ -22,10 +22,10 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.tonimatasdev.krystalcraft.recipe.CoalCrusherRecipe;
-import net.tonimatasdev.krystalcraft.screen.CoalCrusherMenu;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.block.entity.utils.Simplify;
+import net.tonimatasdev.krystalcraft.recipe.CoalCrusherRecipe;
+import net.tonimatasdev.krystalcraft.screen.CoalCrusherMenu;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

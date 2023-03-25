@@ -1,15 +1,9 @@
 package net.tonimatasdev.krystalcraft.screen;
 
-import java.util.Objects;
-
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.SimpleContainerData;
-import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -18,6 +12,9 @@ import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.custom.GemCuttingStationBlockEntity;
 import net.tonimatasdev.krystalcraft.screen.slot.ModResultSlot;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.Objects;
 
 @SuppressWarnings("removal")
 public class GemCuttingStationMenu extends AbstractContainerMenu {
@@ -63,7 +60,7 @@ public class GemCuttingStationMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
         if (!sourceSlot.hasItem()) return ItemStack.EMPTY;
         ItemStack sourceStack = sourceSlot.getItem();
@@ -88,14 +85,12 @@ public class GemCuttingStationMenu extends AbstractContainerMenu {
             sourceSlot.setChanged();
         }
 
-        assert playerIn != null;
-
         sourceSlot.onTake(playerIn, sourceStack);
         return copyOfSourceStack;
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
                 Objects.requireNonNull(pPlayer), ModBlocks.GEM_CUTTING_STATION.get());
     }

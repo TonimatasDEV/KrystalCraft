@@ -20,8 +20,8 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
-import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
+import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
