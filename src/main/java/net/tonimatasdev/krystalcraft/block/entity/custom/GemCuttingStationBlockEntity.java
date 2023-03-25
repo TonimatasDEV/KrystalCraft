@@ -99,7 +99,7 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
 
         Optional<GemCuttingStationRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(GemCuttingStationRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 3) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(), 3) &&
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 3) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(Objects.requireNonNull(entity.getLevel()).registryAccess()), 3) &&
                 Simplify.hasWaterInWaterSlot(entity.itemHandler, 0) && Simplify.hasToolsInToolSlot(entity.itemHandler, 2);
     }
 
@@ -127,7 +127,7 @@ public class GemCuttingStationBlockEntity extends BlockEntity implements MenuPro
                 entity.itemHandler.extractItem(2, 1, false);
             }
 
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
+            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem(Objects.requireNonNull(entity.level).registryAccess()).getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
             entity.resetProgress();
         }
     }
