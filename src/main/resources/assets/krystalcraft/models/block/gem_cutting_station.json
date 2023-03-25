@@ -5,8 +5,8 @@
     64
   ],
   "textures": {
-    "3": "krystalcraft:machines/gem_cutting_station_texture",
-    "particle": "minecraft:block/iron_block"
+    "3": "krystalcraft:block/gem_cutting_station_texture",
+    "particle": "minecraft:block/anvil"
   },
   "elements": [
     {
