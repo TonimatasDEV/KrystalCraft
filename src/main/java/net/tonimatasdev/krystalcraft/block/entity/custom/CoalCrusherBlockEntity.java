@@ -107,7 +107,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
         Optional<CoalCrusherRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCrusherRecipe.Type.INSTANCE, inventory, level);
 
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 4) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(), 4) &&
+        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 4) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(Objects.requireNonNull(entity.level).registryAccess()), 4) &&
                 Simplify.hasWaterInWaterSlot(entity.itemHandler, 0) && Simplify.hasGrindingGearInGearSlot(entity.itemHandler, 2);
     }
 
@@ -136,7 +136,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
                 entity.itemHandler.extractItem(2, 1, false);
             }
 
-            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem().getItem(), entity.itemHandler.getStackInSlot(4).getCount() + 1));
+            entity.itemHandler.setStackInSlot(4, new ItemStack(match.get().getResultItem(Objects.requireNonNull(entity.getLevel()).registryAccess()).getItem(), entity.itemHandler.getStackInSlot(4).getCount() + 1));
 
             entity.fuel = entity.fuel - 1;
             entity.resetProgress();

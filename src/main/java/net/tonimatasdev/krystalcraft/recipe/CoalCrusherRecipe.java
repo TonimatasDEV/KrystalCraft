@@ -3,6 +3,7 @@ package net.tonimatasdev.krystalcraft.recipe;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -38,15 +39,14 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    @Nonnull
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
+    public @NotNull ItemStack assemble(@NotNull SimpleContainer simpleContainer, @NotNull RegistryAccess registryAccess) {
+        return output;
     }
 
     @Override
     @Nonnull
-    public ItemStack assemble(@Nullable SimpleContainer pContainer) {
-        return output;
+    public NonNullList<Ingredient> getIngredients() {
+        return recipeItems;
     }
 
     @Override
@@ -55,8 +55,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
     }
 
     @Override
-    @Nonnull
-    public ItemStack getResultItem() {
+    public @NotNull ItemStack getResultItem(@NotNull RegistryAccess registryAccess) {
         return output.copy();
     }
 
@@ -127,7 +126,7 @@ public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
 
-            buf.writeItemStack(recipe.getResultItem(), false);
+            buf.writeItemStack(recipe.output.copy(), false);
         }
     }
 }
