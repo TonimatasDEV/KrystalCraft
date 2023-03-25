@@ -1,5 +1,5 @@
 modLoader = "javafml"
-loaderVersion = "[44,)"
+loaderVersion = "[45,)"
 license = "Apache License Version 2.0"
 issueTrackerURL = "https://github.com/TonimatasDEV/KrystalCraft/issues"
 
@@ -19,13 +19,13 @@ Adds lots of recipes, crystals, ingots and machines to work with them, making up
 [[dependencies.krystalcraft]]
 modId = "forge"
 mandatory = true
-versionRange = "[44,)"
+versionRange = "[45,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.krystalcraft]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.3]"
+versionRange = "[1.19.4]"
 ordering = "NONE"
 side = "BOTH"

@@ -63,6 +63,7 @@ public class ModTags {
         public static final TagKey<Item> DIAMOND_DUST = forgeTag("dusts/diamond");
         public static final TagKey<Item> EMERALD_DUST = forgeTag("dusts/emerald");
         public static final TagKey<Item> LAPIS_DUST = forgeTag("dusts/lapis");
+        public static final TagKey<Item> IRON_DUST = forgeTag("dusts/iron");
         public static final TagKey<Item> JADE_GEM = forgeTag("gems/jade");
         public static final TagKey<Item> RUBY_GEM = forgeTag("gems/ruby");
         public static final TagKey<Item> SAPPHIRE_GEM = forgeTag("gems/sapphire");

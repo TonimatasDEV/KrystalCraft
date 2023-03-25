@@ -3,7 +3,8 @@ package net.tonimatasdev.krystalcraft.datagen;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.ItemTagsProvider;
-import net.minecraftforge.common.data.BlockTagsProvider;
+import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.item.ModItems;
@@ -14,7 +15,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> providerCompletableFuture, BlockTagsProvider blockTagsProvider, ExistingFileHelper existingFileHelper) {
+    public ModItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> providerCompletableFuture, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, ExistingFileHelper existingFileHelper) {
         super(generator.getPackOutput(), providerCompletableFuture, blockTagsProvider, KrystalCraft.MOD_ID, existingFileHelper);
     }
     @Override
@@ -25,6 +26,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.EMERALD_DUST).add(ModItems.EMERALD_DUST.get());
         tag(ModTags.Items.JADE_DUST).add(ModItems.JADE_DUST.get());
         tag(ModTags.Items.LAPIS_DUST).add(ModItems.LAPIS_DUST.get());
+        tag(ModTags.Items.IRON_DUST).add(ModItems.IRON_DUST.get());
         tag(ModTags.Items.LEAD_DUST).add(ModItems.LEAD_DUST.get());
         tag(ModTags.Items.PLATINUM_DUST).add(ModItems.PLATINUM_DUST.get());
         tag(ModTags.Items.RUBY_DUST).add(ModItems.RUBY_DUST.get());
@@ -32,7 +34,7 @@ public class ModItemTagsProvider extends ItemTagsProvider {
         tag(ModTags.Items.TIN_DUST).add(ModItems.TIN_DUST.get());
         tag(ModTags.Items.TOPAZ_DUST).add(ModItems.TOPAZ_DUST.get());
         tag(ModTags.Items.COPPER_DUST).add(ModItems.COPPER_DUST.get());
-        tag(ModTags.Items.DUSTS).add(ModItems.SILVER_DUST.get(), ModItems.BRONZE_DUST.get(), ModItems.DIAMOND_DUST.get(), ModItems.EMERALD_DUST.get(), ModItems.JADE_DUST.get(), ModItems.LAPIS_DUST.get(), ModItems.LEAD_DUST.get(), ModItems.PLATINUM_DUST.get(), ModItems.RUBY_DUST.get(), ModItems.SAPPHIRE_DUST.get(), ModItems.TIN_DUST.get(), ModItems.TOPAZ_DUST.get(), ModItems.COPPER_DUST.get());
+        tag(ModTags.Items.DUSTS).add(ModItems.SILVER_DUST.get(), ModItems.BRONZE_DUST.get(), ModItems.DIAMOND_DUST.get(), ModItems.EMERALD_DUST.get(), ModItems.JADE_DUST.get(), ModItems.LAPIS_DUST.get(), ModItems.IRON_DUST.get(), ModItems.LEAD_DUST.get(), ModItems.PLATINUM_DUST.get(), ModItems.RUBY_DUST.get(), ModItems.SAPPHIRE_DUST.get(), ModItems.TIN_DUST.get(), ModItems.TOPAZ_DUST.get(), ModItems.COPPER_DUST.get());
         tag(ModTags.Items.JADE_GEM).add(ModItems.JADE.get());
         tag(ModTags.Items.RUBY_GEM).add(ModItems.RUBY.get());
         tag(ModTags.Items.SAPPHIRE_GEM).add(ModItems.SAPPHIRE.get());

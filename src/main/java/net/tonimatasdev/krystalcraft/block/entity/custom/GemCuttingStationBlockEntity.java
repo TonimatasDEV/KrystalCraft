@@ -21,10 +21,10 @@ import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.tonimatasdev.krystalcraft.recipe.GemCuttingStationRecipe;
-import net.tonimatasdev.krystalcraft.screen.GemCuttingStationMenu;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.block.entity.utils.Simplify;
+import net.tonimatasdev.krystalcraft.recipe.GemCuttingStationRecipe;
+import net.tonimatasdev.krystalcraft.screen.GemCuttingStationMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 

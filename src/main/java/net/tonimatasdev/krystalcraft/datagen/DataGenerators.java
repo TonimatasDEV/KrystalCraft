@@ -29,7 +29,7 @@ public class DataGenerators {
         generator.addProvider(true, new ModBlocksStateProvider(generator, existingFileHelper));
         ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(generator, completablefuture, existingFileHelper);
         generator.addProvider(true, blockTagsProvider);
-        generator.addProvider(true, new ModItemTagsProvider(generator, completablefuture, blockTagsProvider, existingFileHelper));
+        generator.addProvider(true, new ModItemTagsProvider(generator, completablefuture, blockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(true, new DatapackBuiltinEntriesProvider(generator.getPackOutput(), completablefuture, ModFeatures.BUILDER, Set.of("krystalcraft")));
     }
 }

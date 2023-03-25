@@ -9,12 +9,13 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
-import net.tonimatasdev.krystalcraft.screen.slot.ModGearSlot;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
 import net.tonimatasdev.krystalcraft.screen.slot.ModFuelSlot;
+import net.tonimatasdev.krystalcraft.screen.slot.ModGearSlot;
 import net.tonimatasdev.krystalcraft.screen.slot.ModResultSlot;
 import net.tonimatasdev.krystalcraft.screen.slot.ModWaterSlot;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
@@ -71,9 +72,9 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;
+        if (!sourceSlot.hasItem()) return ItemStack.EMPTY;
         ItemStack sourceStack = sourceSlot.getItem();
         ItemStack copyOfSourceStack = sourceStack.copy();
 
@@ -101,7 +102,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), Objects.requireNonNull(pPlayer), ModBlocks.COAL_CRUSHER.get());
     }
 
