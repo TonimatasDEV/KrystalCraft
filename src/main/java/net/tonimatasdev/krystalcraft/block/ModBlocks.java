@@ -22,6 +22,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
+    public static final DeferredRegister<Block> ENTITY_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
 
     public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
     public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
@@ -52,20 +53,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // Block Entities
-    public static final RegistryObject<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station", () -> new GemCuttingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-
-    public static final RegistryObject<Block> COAL_CRUSHER = registerBlock("coal_crusher", () -> new CoalCrusherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-
-    public static final RegistryObject<Block> COAL_COMBINER = registerBlock("coal_combiner", () -> new CoalCombinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> GEM_CUTTING_STATION = registerEntityBlocks("gem_cutting_station", () -> new GemCuttingStationBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> COAL_CRUSHER = registerEntityBlocks("coal_crusher", () -> new CoalCrusherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistryObject<Block> COAL_COMBINER = registerEntityBlocks("coal_combiner", () -> new CoalCombinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
         return toReturn;
     }
 
-    private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
-                new Item.Properties()));
+    private static <T extends Block> RegistryObject<T> registerEntityBlocks(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = ENTITY_BLOCKS.register(name, block);
+        ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
+        return toReturn;
     }
 }

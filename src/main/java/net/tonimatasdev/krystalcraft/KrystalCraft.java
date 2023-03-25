@@ -27,7 +27,10 @@ public class KrystalCraft {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.ITEMS.register(eventBus);
+        ModItems.TOOL_ITEMS.register(eventBus);
+        ModItems.ARMOR_ITEMS.register(eventBus);
         ModBlocks.BLOCKS.register(eventBus);
+        ModBlocks.ENTITY_BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModMenuTypes.MENUS.register(eventBus);
         ModRecipes.SERIALIZERS.register(eventBus);
