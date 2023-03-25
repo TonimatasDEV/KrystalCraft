@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:jade_helmet"
-  }
+  },
+  "show_notification": true
 }

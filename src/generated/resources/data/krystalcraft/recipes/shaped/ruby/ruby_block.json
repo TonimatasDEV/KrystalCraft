@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:ruby_block"
-  }
+  },
+  "show_notification": true
 }

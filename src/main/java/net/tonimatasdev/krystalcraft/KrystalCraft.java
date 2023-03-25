@@ -6,7 +6,6 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
@@ -29,6 +28,7 @@ public class KrystalCraft {
         ModItems.ITEMS.register(eventBus);
         ModItems.TOOL_ITEMS.register(eventBus);
         ModItems.ARMOR_ITEMS.register(eventBus);
+        ModItems.BLOCK_ITEMS.register(eventBus);
         ModBlocks.BLOCKS.register(eventBus);
         ModBlocks.ENTITY_BLOCKS.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
@@ -36,18 +36,12 @@ public class KrystalCraft {
         ModRecipes.SERIALIZERS.register(eventBus);
         ModEnchantments.ENCHANTMENTS.register(eventBus);
 
-        eventBus.addListener(this::commonSetup);
-
         //ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
 
         eventBus.addListener(KrystalCraftTab::addCreative);
-    }
-
-    private void commonSetup(final FMLCommonSetupEvent event) {
-
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

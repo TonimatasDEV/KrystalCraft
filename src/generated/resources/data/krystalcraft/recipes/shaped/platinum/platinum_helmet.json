@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:platinum_helmet"
-  }
+  },
+  "show_notification": true
 }

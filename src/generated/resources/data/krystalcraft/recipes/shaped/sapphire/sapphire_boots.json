@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:sapphire_boots"
-  }
+  },
+  "show_notification": true
 }

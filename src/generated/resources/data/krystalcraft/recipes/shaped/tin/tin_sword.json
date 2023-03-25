@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:tin_sword"
-  }
+  },
+  "show_notification": true
 }

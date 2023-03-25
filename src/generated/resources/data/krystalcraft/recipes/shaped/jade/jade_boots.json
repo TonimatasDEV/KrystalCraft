@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:jade_boots"
-  }
+  },
+  "show_notification": true
 }

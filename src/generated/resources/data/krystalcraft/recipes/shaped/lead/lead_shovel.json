@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:lead_shovel"
-  }
+  },
+  "show_notification": true
 }

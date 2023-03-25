@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:topaz_sword"
-  }
+  },
+  "show_notification": true
 }

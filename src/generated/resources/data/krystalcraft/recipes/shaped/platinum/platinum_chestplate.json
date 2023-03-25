@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:platinum_chestplate"
-  }
+  },
+  "show_notification": true
 }

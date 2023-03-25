@@ -20,5 +20,6 @@
   ],
   "result": {
     "item": "krystalcraft:gem_cutter_tool"
-  }
+  },
+  "show_notification": true
 }

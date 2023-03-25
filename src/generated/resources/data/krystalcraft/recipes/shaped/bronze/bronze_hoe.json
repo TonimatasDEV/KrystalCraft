@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:bronze_hoe"
-  }
+  },
+  "show_notification": true
 }

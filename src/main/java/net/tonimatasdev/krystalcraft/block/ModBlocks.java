@@ -59,13 +59,13 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
+        ModItems.BLOCK_ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
         return toReturn;
     }
 
     private static <T extends Block> RegistryObject<T> registerEntityBlocks(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = ENTITY_BLOCKS.register(name, block);
-        ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
+        ModItems.BLOCK_ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
         return toReturn;
     }
 }

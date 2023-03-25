@@ -10,7 +10,7 @@
       "tag": "forge:cobblestone"
     },
     "2": {
-      "tag": "forge:dusts/redstone"
+      "tag": "forge:raw_materials/lapis"
     },
     "3": {
       "tag": "forge:storage_blocks/iron"
@@ -26,5 +26,6 @@
   ],
   "result": {
     "item": "krystalcraft:coal_crusher"
-  }
+  },
+  "show_notification": true
 }
