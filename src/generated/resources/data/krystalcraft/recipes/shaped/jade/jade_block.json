@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:bronze_block"
-  }
+  },
+  "show_notification": true
 }

@@ -16,5 +16,6 @@
   ],
   "result": {
     "item": "krystalcraft:set_water_bottles"
-  }
+  },
+  "show_notification": true
 }

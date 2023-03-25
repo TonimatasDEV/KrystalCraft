@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:silver_sword"
-  }
+  },
+  "show_notification": true
 }

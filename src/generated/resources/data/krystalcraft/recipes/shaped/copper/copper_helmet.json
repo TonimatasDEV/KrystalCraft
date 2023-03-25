@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:copper_helmet"
-  }
+  },
+  "show_notification": true
 }

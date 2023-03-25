@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:bronze_helmet"
-  }
+  },
+  "show_notification": true
 }

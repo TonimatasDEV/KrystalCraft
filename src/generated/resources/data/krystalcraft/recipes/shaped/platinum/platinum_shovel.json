@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:platinum_shovel"
-  }
+  },
+  "show_notification": true
 }

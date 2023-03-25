@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:platinum_block"
-  }
+  },
+  "show_notification": true
 }

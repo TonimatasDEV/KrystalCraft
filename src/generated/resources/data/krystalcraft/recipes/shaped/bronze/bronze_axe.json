@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:bronze_axe"
-  }
+  },
+  "show_notification": true
 }

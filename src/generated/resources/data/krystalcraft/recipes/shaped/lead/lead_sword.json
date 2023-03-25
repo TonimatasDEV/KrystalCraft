@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:lead_sword"
-  }
+  },
+  "show_notification": true
 }

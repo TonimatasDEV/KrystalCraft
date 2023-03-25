@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:lead_chestplate"
-  }
+  },
+  "show_notification": true
 }

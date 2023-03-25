@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:ruby_sword"
-  }
+  },
+  "show_notification": true
 }

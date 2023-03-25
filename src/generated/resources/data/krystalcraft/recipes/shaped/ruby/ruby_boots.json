@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:ruby_boots"
-  }
+  },
+  "show_notification": true
 }

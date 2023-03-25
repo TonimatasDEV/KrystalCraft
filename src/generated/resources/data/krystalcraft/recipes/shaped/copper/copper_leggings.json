@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:copper_leggings"
-  }
+  },
+  "show_notification": true
 }

@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:bronze_sword"
-  }
+  },
+  "show_notification": true
 }

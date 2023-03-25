@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:ruby_chestplate"
-  }
+  },
+  "show_notification": true
 }

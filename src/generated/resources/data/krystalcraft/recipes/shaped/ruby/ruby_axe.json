@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:ruby_axe"
-  }
+  },
+  "show_notification": true
 }

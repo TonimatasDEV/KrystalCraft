@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:silver_block"
-  }
+  },
+  "show_notification": true
 }

@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:jade_sword"
-  }
+  },
+  "show_notification": true
 }

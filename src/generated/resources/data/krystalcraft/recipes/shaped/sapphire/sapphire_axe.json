@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:sapphire_axe"
-  }
+  },
+  "show_notification": true
 }

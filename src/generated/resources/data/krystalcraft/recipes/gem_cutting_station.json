@@ -26,5 +26,6 @@
   ],
   "result": {
     "item": "krystalcraft:gem_cutting_station"
-  }
+  },
+  "show_notification": true
 }

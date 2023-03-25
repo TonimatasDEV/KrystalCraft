@@ -14,5 +14,6 @@
   ],
   "result": {
     "item": "krystalcraft:grinding_gear"
-  }
+  },
+  "show_notification": true
 }

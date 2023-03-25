@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:sapphire_helmet"
-  }
+  },
+  "show_notification": true
 }

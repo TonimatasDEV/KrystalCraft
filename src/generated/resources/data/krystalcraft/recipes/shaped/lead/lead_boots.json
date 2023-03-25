@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:lead_boots"
-  }
+  },
+  "show_notification": true
 }

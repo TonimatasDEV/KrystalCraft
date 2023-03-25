@@ -17,5 +17,6 @@
   ],
   "result": {
     "item": "krystalcraft:jade_pickaxe"
-  }
+  },
+  "show_notification": true
 }

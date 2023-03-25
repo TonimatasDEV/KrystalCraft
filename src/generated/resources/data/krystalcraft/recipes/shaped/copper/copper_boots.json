@@ -13,5 +13,6 @@
   ],
   "result": {
     "item": "krystalcraft:copper_boots"
-  }
+  },
+  "show_notification": true
 }
