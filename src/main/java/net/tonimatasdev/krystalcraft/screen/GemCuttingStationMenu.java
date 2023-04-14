@@ -16,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-@SuppressWarnings("removal")
 public class GemCuttingStationMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 4; // Number of slots in the screen
     private final GemCuttingStationBlockEntity blockEntity;

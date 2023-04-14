@@ -43,6 +43,10 @@ public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
         return output;
     }
 
+    public ItemStack getOutput() {
+        return output;
+    }
+
     @Override
     @Nonnull
     public NonNullList<Ingredient> getIngredients() {

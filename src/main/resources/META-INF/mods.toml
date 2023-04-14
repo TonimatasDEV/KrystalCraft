@@ -21,13 +21,13 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
 [[dependencies.krystalcraft]]
 modId = "forge"
 mandatory = true
-versionRange = "[45,)"
+versionRange = "[45.0.24,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.krystalcraft]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4]"
+versionRange = "[1.19.4,)"
 ordering = "NONE"
 side = "BOTH"
