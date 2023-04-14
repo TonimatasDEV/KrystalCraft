@@ -22,7 +22,7 @@ import java.util.function.Supplier;
 
 public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
-    public static final DeferredRegister<Block> ENTITY_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
+    public static final DeferredRegister<Block> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCKS, KrystalCraft.MOD_ID);
 
     public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
     public static final RegistryObject<Block> SILVER_ORE = registerBlock("silver_ore", () -> new Block(BlockBehaviour.Properties.of(Material.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
@@ -64,7 +64,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block> RegistryObject<T> registerEntityBlocks(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = ENTITY_BLOCKS.register(name, block);
+        RegistryObject<T> toReturn = BLOCK_ENTITIES.register(name, block);
         ModItems.BLOCK_ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
         return toReturn;
     }

@@ -30,7 +30,7 @@ public class KrystalCraft {
         ModItems.ARMOR_ITEMS.register(eventBus);
         ModItems.BLOCK_ITEMS.register(eventBus);
         ModBlocks.BLOCKS.register(eventBus);
-        ModBlocks.ENTITY_BLOCKS.register(eventBus);
+        ModBlocks.BLOCK_ENTITIES.register(eventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
         ModMenuTypes.MENUS.register(eventBus);
         ModRecipes.SERIALIZERS.register(eventBus);

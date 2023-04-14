@@ -41,7 +41,7 @@ public class KrystalCraftTab {
                 event.accept(block.get());
             }
 
-            for (RegistryObject<Block> block : ModBlocks.ENTITY_BLOCKS.getEntries()) {
+            for (RegistryObject<Block> block : ModBlocks.BLOCK_ENTITIES.getEntries()) {
                 event.accept(block.get());
             }
         }
