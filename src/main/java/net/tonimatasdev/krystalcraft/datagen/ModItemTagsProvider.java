@@ -1,7 +1,7 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
 import net.minecraft.core.HolderLookup;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.world.level.block.Block;
@@ -15,8 +15,8 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModItemTagsProvider extends ItemTagsProvider {
 
-    public ModItemTagsProvider(DataGenerator generator, CompletableFuture<HolderLookup.Provider> providerCompletableFuture, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, ExistingFileHelper existingFileHelper) {
-        super(generator.getPackOutput(), providerCompletableFuture, blockTagsProvider, KrystalCraft.MOD_ID, existingFileHelper);
+    public ModItemTagsProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> providerCompletableFuture, CompletableFuture<TagsProvider.TagLookup<Block>> blockTagsProvider, ExistingFileHelper existingFileHelper) {
+        super(packOutput, providerCompletableFuture, blockTagsProvider, KrystalCraft.MOD_ID, existingFileHelper);
     }
     @Override
     protected void addTags(HolderLookup.@NotNull Provider provider) {

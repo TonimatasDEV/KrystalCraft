@@ -1,6 +1,6 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -10,8 +10,8 @@ import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 
 public class ModBlocksStateProvider extends BlockStateProvider {
-    public ModBlocksStateProvider(DataGenerator generator, ExistingFileHelper exFileHelper) {
-        super(generator.getPackOutput(), KrystalCraft.MOD_ID, exFileHelper);
+    public ModBlocksStateProvider(PackOutput packOutput, ExistingFileHelper exFileHelper) {
+        super(packOutput, KrystalCraft.MOD_ID, exFileHelper);
     }
 
     @Override

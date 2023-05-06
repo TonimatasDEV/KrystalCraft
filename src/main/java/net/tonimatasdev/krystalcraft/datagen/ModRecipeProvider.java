@@ -1,7 +1,7 @@
 package net.tonimatasdev.krystalcraft.datagen;
 
 import net.minecraft.advancements.critereon.ItemPredicate;
-import net.minecraft.data.DataGenerator;
+import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
@@ -22,8 +22,8 @@ import java.util.function.Consumer;
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
     private static Consumer<FinishedRecipe> finishedConsumer;
 
-    public ModRecipeProvider(DataGenerator generator) {
-        super(generator.getPackOutput());
+    public ModRecipeProvider(PackOutput packOutput) {
+        super(packOutput);
     }
 
     @Override

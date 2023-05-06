@@ -2,19 +2,19 @@ package net.tonimatasdev.krystalcraft.datagen.loot;
 
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Set;
 
 public class ModBlockLootTables extends BlockLootSubProvider {
     public ModBlockLootTables() {
-        super(Stream.of(ModBlocks.EXPERIENCE_ORE.get(), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get()).map(ItemLike::asItem).collect(Collectors.toSet()), FeatureFlags.REGISTRY.allFlags());
+        super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
 
     @Override
@@ -72,6 +72,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected @NotNull Iterable<Block> getKnownBlocks() {
-        return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
+        Collection<RegistryObject<Block>> entries = new ArrayList<>();
+        entries.addAll(ModBlocks.BLOCKS.getEntries());
+        entries.addAll(ModBlocks.BLOCK_ENTITIES.getEntries());
+        return entries.stream().map(RegistryObject::get)::iterator;
     }
 }
