@@ -6,38 +6,19 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
 public class XpLeechEnchantment extends Enchantment {
-    public XpLeechEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
-        super(pRarity, pCategory, pApplicableSlots);
+    public XpLeechEnchantment() {
+        super(Enchantment.Rarity.VERY_RARE, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
-    public void doPostAttack(LivingEntity pAttacker, @Nullable Entity pTarget, int pLevel) {
-        if (!pAttacker.level.isClientSide()) {
-            ServerPlayer player = ((ServerPlayer) pAttacker);
-
-            if (pLevel == 1) {
-                player.giveExperiencePoints(1);
-            }
-
-            if (pLevel == 2) {
-                player.giveExperiencePoints(2);
-            }
-
-            if (pLevel == 3) {
-                player.giveExperiencePoints(3);
-            }
-
-            if (pLevel == 4) {
-                player.giveExperiencePoints(4);
-            }
-
-            if (pLevel == 5) {
-                player.giveExperiencePoints(5);
-            }
+    public void doPostAttack(@NotNull LivingEntity attacker, @Nullable Entity target, int level) {
+        if (attacker instanceof ServerPlayer player) {
+            player.giveExperiencePoints(level);
         }
     }
 

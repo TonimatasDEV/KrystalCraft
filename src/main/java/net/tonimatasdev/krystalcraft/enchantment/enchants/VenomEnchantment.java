@@ -7,31 +7,19 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentCategory;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
-import java.util.Objects;
 
 public class VenomEnchantment extends Enchantment {
-    public VenomEnchantment(Rarity pRarity, EnchantmentCategory pCategory, EquipmentSlot... pApplicableSlots) {
-        super(pRarity, pCategory, pApplicableSlots);
+    public VenomEnchantment() {
+        super(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.WEAPON, new EquipmentSlot[]{EquipmentSlot.MAINHAND});
     }
 
     @Override
-    public void doPostAttack(LivingEntity pAttacker, @Nullable Entity pTarget, int pLevel) {
-        if (!pAttacker.level.isClientSide()) {
-            LivingEntity entity = (LivingEntity) pTarget;
-
-            if (pLevel == 1) {
-                Objects.requireNonNull(entity).addEffect(new MobEffectInstance(MobEffects.POISON, 60, 1));
-            }
-
-            if (pLevel == 2) {
-                Objects.requireNonNull(entity).addEffect(new MobEffectInstance(MobEffects.POISON, 120, 2));
-            }
-
-            if (pLevel == 3) {
-                Objects.requireNonNull(entity).addEffect(new MobEffectInstance(MobEffects.POISON, 180, 3));
-            }
+    public void doPostAttack(@NotNull LivingEntity attacker, @Nullable Entity target, int level) {
+        if (target instanceof LivingEntity entity) {
+            entity.addEffect(new MobEffectInstance(MobEffects.POISON, 60 * level, level));
         }
     }
 
