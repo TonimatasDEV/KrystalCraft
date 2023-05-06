@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.world.feature;
 
-import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.data.worldgen.features.FeatureUtils;
@@ -19,8 +18,6 @@ import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import java.util.List;
 
 public class ModFeatures {
-    public static final RegistrySetBuilder BUILDER = new RegistrySetBuilder().add(Registries.CONFIGURED_FEATURE, ModFeatures::configuredBootstrap).add(Registries.PLACED_FEATURE, ModFeatures::placedBootstrap);
-
     private static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_EXPERIENCE_ORE = FeatureUtils.createKey(find("experience"));
     private static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_JADE_ORE = FeatureUtils.createKey(find("jade"));
     private static final ResourceKey<ConfiguredFeature<?, ?>> CONFIGURED_LEAD_ORE = FeatureUtils.createKey(find("lead"));
@@ -40,7 +37,7 @@ public class ModFeatures {
     private static final ResourceKey<PlacedFeature> PLACED_TIN_ORE = PlacementUtils.createKey(find("tin"));
     private static final ResourceKey<PlacedFeature> PLACED_TOPAZ_ORE = PlacementUtils.createKey(find("topaz"));
 
-    private static void configuredBootstrap(BootstapContext<ConfiguredFeature<?, ?>> bootstrap) {
+    public static void configuredBootstrap(BootstapContext<ConfiguredFeature<?, ?>> bootstrap) {
         List<OreConfiguration.TargetBlockState> experienceList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.EXPERIENCE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_EXPERIENCE_ORE, Feature.ORE, new OreConfiguration(experienceList, 10));
 
@@ -69,7 +66,7 @@ public class ModFeatures {
         FeatureUtils.register(bootstrap, CONFIGURED_TOPAZ_ORE, Feature.ORE, new OreConfiguration(topazList, 5));
     }
 
-    private static void placedBootstrap(BootstapContext<PlacedFeature> bootstrap) {
+    public static void placedBootstrap(BootstapContext<PlacedFeature> bootstrap) {
         PlacementUtils.register(bootstrap, PLACED_EXPERIENCE_ORE, bootstrap.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(CONFIGURED_EXPERIENCE_ORE), List.of(CountPlacement.of(4), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)), BiomeFilter.biome()));
         PlacementUtils.register(bootstrap, PLACED_JADE_ORE, bootstrap.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(CONFIGURED_JADE_ORE), List.of(CountPlacement.of(6), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)), BiomeFilter.biome()));
         PlacementUtils.register(bootstrap, PLACED_LEAD_ORE, bootstrap.lookup(Registries.CONFIGURED_FEATURE).getOrThrow(CONFIGURED_LEAD_ORE), List.of(CountPlacement.of(6), InSquarePlacement.spread(), HeightRangePlacement.triangle(VerticalAnchor.absolute(-80), VerticalAnchor.absolute(80)), BiomeFilter.biome()));
