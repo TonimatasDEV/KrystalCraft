@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.util.RecipeSerializerUtils;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -40,6 +41,10 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public @NotNull ItemStack assemble(@NotNull SimpleContainer simpleContainer, @NotNull RegistryAccess registryAccess) {
+        return output;
+    }
+
+    public ItemStack getOutput() {
         return output;
     }
 
@@ -119,14 +124,8 @@ public class GemCuttingStationRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, GemCuttingStationRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.toNetwork(buf);
-            }
-
-            buf.writeItemStack(recipe.output.copy(), false);
+        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull GemCuttingStationRecipe recipe) {
+            RecipeSerializerUtils.toNetwork(buf, recipe, recipe.output);
         }
     }
 }

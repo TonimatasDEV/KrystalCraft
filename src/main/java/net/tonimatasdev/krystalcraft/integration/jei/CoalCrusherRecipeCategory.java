@@ -57,7 +57,7 @@ public class CoalCrusherRecipeCategory implements IRecipeCategory<CoalCrusherRec
         builder.addSlot(RecipeIngredientRole.INPUT, 79, 5).addIngredients(recipe.getIngredients().get(0));
         builder.addSlot(RecipeIngredientRole.INPUT, 79, 34).addIngredients(Ingredient.of(ModItems.GRINDING_GEAR.get()));
         builder.addSlot(RecipeIngredientRole.INPUT, 54, 64).addIngredients(Ingredient.of(Items.COAL));
-        builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.getResultItem());
+        builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.getOutput());
     }
 }
 */
