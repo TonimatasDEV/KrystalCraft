@@ -12,6 +12,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.util.RecipeSerializerUtils;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -125,14 +126,8 @@ public class CoalCombinerRecipe implements Recipe<SimpleContainer> {
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, CoalCombinerRecipe recipe) {
-            buf.writeInt(recipe.getIngredients().size());
-
-            for (Ingredient ing : recipe.getIngredients()) {
-                ing.toNetwork(buf);
-            }
-
-            buf.writeItemStack(recipe.output.copy(), false);
+        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull CoalCombinerRecipe recipe) {
+            RecipeSerializerUtils.toNetwork(buf, recipe, recipe.output);
         }
     }
 }

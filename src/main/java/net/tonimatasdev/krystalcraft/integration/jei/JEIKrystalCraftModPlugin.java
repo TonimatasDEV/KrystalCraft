@@ -1,6 +1,6 @@
 package net.tonimatasdev.krystalcraft.integration.jei;
 
-/*
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
@@ -44,4 +44,3 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
         registration.addRecipes(COAL_COMBINER, manager.getAllRecipesFor(CoalCombinerRecipe.Type.INSTANCE));
     }
 }
-*/
