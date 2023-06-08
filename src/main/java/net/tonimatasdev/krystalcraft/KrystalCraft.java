@@ -10,7 +10,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.enchantment.ModEnchantments;
-import net.tonimatasdev.krystalcraft.item.KrystalCraftTab;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import net.tonimatasdev.krystalcraft.recipe.ModRecipes;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerScreen;
@@ -40,8 +39,6 @@ public class KrystalCraft {
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 
         MinecraftForge.EVENT_BUS.register(this);
-
-        eventBus.addListener(KrystalCraftTab::addCreative);
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)

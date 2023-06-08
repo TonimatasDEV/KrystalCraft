@@ -7,7 +7,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCombinerBlockEntity;
@@ -17,7 +17,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-@SuppressWarnings("removal")
 public class CoalCombinerMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 4; // Number of slots in the screen
     private final CoalCombinerBlockEntity blockEntity;
@@ -25,7 +24,7 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public CoalCombinerMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public CoalCombinerMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -34,13 +33,13 @@ public class CoalCombinerMenu extends AbstractContainerMenu {
         checkContainerSize(inv, 4);
         blockEntity = ((CoalCombinerBlockEntity) entity);
 
-        this.level = inv.player.level;
+        this.level = inv.player.level();
         this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 70, 31));
             this.addSlot(new SlotItemHandler(handler, 1, 88, 31));
             this.addSlot(new ModFuelSlot(handler, 2, 80, 64));
