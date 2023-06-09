@@ -18,8 +18,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
@@ -145,7 +145,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("Coal Crusher");
+        return Component.translatable("block.krystalcraft.coal_crusher");
     }
 
     @Override
@@ -155,7 +155,7 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        if (cap == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+        if (cap == ForgeCapabilities.ITEM_HANDLER) {
             return lazyItemHandler.cast();
         }
 
