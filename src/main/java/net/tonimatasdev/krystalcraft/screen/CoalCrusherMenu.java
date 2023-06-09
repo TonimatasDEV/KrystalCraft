@@ -7,7 +7,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
@@ -19,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-@SuppressWarnings("removal")
 public class CoalCrusherMenu extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 5; // Number of slots in the screen
     private final CoalCrusherBlockEntity blockEntity;
@@ -27,7 +26,7 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level.getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
+        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(4));
     }
 
     public CoalCrusherMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
@@ -35,13 +34,13 @@ public class CoalCrusherMenu extends AbstractContainerMenu {
         checkContainerSize(inv, 5);
 
         blockEntity = ((CoalCrusherBlockEntity) entity);
-        this.level = inv.player.level;
+        this.level = inv.player.level();
         this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
-        this.blockEntity.getCapability(CapabilityItemHandler.ITEM_HANDLER_CAPABILITY).ifPresent(handler -> {
+        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new ModWaterSlot(handler, 0, 25, 34));
             this.addSlot(new SlotItemHandler(handler, 1, 79, 5));
             this.addSlot(new ModGearSlot(handler, 2, 79, 34));
