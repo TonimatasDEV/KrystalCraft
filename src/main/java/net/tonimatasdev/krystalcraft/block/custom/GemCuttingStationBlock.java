@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 @SuppressWarnings("deprecation")
-public class GemCuttingStationBlock extends KrystalCraftBlockEntity {
+public class GemCuttingStationBlock extends KrystalCraftBlock {
     public GemCuttingStationBlock(Properties properties) {
         super(properties);
     }

@@ -1,12 +1,9 @@
 package net.tonimatasdev.krystalcraft.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Containers;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -15,12 +12,8 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.capabilities.Capability;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.block.entity.utils.Simplify;
@@ -31,35 +24,26 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 import java.util.Optional;
 
-public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider {
-    protected final ContainerData data;
+public class CoalCrusherBlockEntity extends KrystalCraftBlockEntity {
     private final ItemStackHandler itemHandler = new ItemStackHandler(5) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
         }
     };
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-    private int progress = 0;
-    private int maxProgress = 72;
+
     private int fuel;
 
     public CoalCrusherBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.COAL_CRUSHER_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
         this.data = new ContainerData() {
-
-            @SuppressWarnings("EnhancedSwitchMigration")
             public int get(int index) {
-                switch (index) {
-                    case 0:
-                        return CoalCrusherBlockEntity.this.progress;
-                    case 1:
-                        return CoalCrusherBlockEntity.this.maxProgress;
-                    case 2:
-                        return CoalCrusherBlockEntity.this.fuel;
-                    default:
-                        return 0;
-                }
+                return switch (index) {
+                    case 0 -> CoalCrusherBlockEntity.this.progress;
+                    case 1 -> CoalCrusherBlockEntity.this.maxProgress;
+                    case 2 -> CoalCrusherBlockEntity.this.fuel;
+                    default -> 0;
+                };
             }
 
             public void set(int index, int value) {
@@ -154,24 +138,9 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     @Override
-    public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, Direction side) {
-        if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
-        }
-
-        return super.getCapability(cap, side);
-    }
-
-    @Override
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
     }
 
     @Override
@@ -191,16 +160,6 @@ public class CoalCrusherBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     public void drops() {
-        SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
-
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
-        }
-
-        Containers.dropContents(Objects.requireNonNull(this.level), this.worldPosition, inventory);
-    }
-
-    private void resetProgress() {
-        this.progress = 0;
+        super.drop(itemHandler);
     }
 }
