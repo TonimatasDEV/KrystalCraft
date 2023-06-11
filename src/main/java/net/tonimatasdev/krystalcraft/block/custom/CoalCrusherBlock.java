@@ -24,7 +24,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 @SuppressWarnings("deprecation")
-public class CoalCrusherBlock extends KrystalCraftBlockEntity {
+public class CoalCrusherBlock extends KrystalCraftBlock {
     public CoalCrusherBlock(Properties properties) {
         super(properties);
     }

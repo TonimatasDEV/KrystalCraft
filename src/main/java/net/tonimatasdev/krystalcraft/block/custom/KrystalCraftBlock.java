@@ -11,10 +11,10 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public abstract class KrystalCraftBlockEntity extends BaseEntityBlock {
+public abstract class KrystalCraftBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-    protected KrystalCraftBlockEntity(BlockBehaviour.Properties properties) {
+    protected KrystalCraftBlock(BlockBehaviour.Properties properties) {
         super(properties);
     }
 
