@@ -10,6 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
 
@@ -27,12 +29,17 @@ public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> 
         int y = (height - imageHeight) / 2;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
-
-        if (menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE, x + 102, y + 34, 190, 0, 23, menu.getScaledProgress());
-        }
-
         guiGraphics.blit(TEXTURE, x + 55, y + 48, 176, 0, 14, menu.getFuelScaledProgress());
 
+        if (menu.isCrafting()) {
+            //Future crafting animation with menu.getScaledProgress()
+        }
+    }
+
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+        renderBackground(Objects.requireNonNull(guiGraphics));
+        super.render(guiGraphics, mouseX, mouseY, delta);
+        renderTooltip(guiGraphics, mouseX, mouseY);
     }
 }

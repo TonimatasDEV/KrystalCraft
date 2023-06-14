@@ -10,6 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
 
@@ -17,7 +19,6 @@ public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu
         super(pMenu, pPlayerInventory, pTitle);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     protected void renderBg(@NotNull GuiGraphics guiGraphics, float pPartialTick, int pMouseX, int pMouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
@@ -28,12 +29,17 @@ public class CoalCombinerScreen extends AbstractContainerScreen<CoalCombinerMenu
         int y = (height - imageHeight) / 2 + 8;
 
         guiGraphics.blit(TEXTURE, x, y, 0, -8, imageWidth, imageHeight + 16);
+        guiGraphics.blit(TEXTURE, x + 81, y + 41, 176, 0, 14, menu.getFuelScaledProgress());
 
         if (menu.isCrafting()) {
             //Future crafting animation with menu.getScaledProgress()
         }
-
-        guiGraphics.blit(TEXTURE, x + 81, y + 41, 176, 0, 14, menu.getFuelScaledProgress());
     }
 
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+        renderBackground(Objects.requireNonNull(guiGraphics));
+        super.render(guiGraphics, mouseX, mouseY, delta);
+        renderTooltip(guiGraphics, mouseX, mouseY);
+    }
 }

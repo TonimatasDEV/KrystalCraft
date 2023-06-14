@@ -33,8 +33,6 @@ public class KrystalCraft {
         ModEnchantments.register(eventBus);
         KrystalCraftTab.register(eventBus);
 
-        eventBus.addListener(KrystalCraftTab::registerTabs);
-
         //ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
 

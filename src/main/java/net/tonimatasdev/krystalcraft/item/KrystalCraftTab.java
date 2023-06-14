@@ -8,11 +8,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 
+@Mod.EventBusSubscriber(modid = KrystalCraft.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class KrystalCraftTab {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KrystalCraft.MOD_ID);
     public static final RegistryObject<CreativeModeTab> KRYSTALCRAFT_TAB = CREATIVE_MODE_TABS.register("krystalcraft", () -> CreativeModeTab.builder()
@@ -20,6 +23,7 @@ public class KrystalCraftTab {
             .icon(() -> new ItemStack(ModItems.JADE_PICKAXE.get()))
             .build());
 
+    @SubscribeEvent
     public static void registerTabs(BuildCreativeModeTabContentsEvent event) {
         if (event.getTab() == KrystalCraftTab.KRYSTALCRAFT_TAB.get()) {
             for (RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
