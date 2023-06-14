@@ -10,6 +10,8 @@ import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Objects;
+
 public class GemCuttingStationScreen extends AbstractContainerScreen<GemCuttingStationMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
 
@@ -29,7 +31,14 @@ public class GemCuttingStationScreen extends AbstractContainerScreen<GemCuttingS
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
 
         if (menu.isCrafting()) {
-            guiGraphics.blit(TEXTURE, x + 102, y + 41, 176, 0, 8, menu.getScaledProgress());
+            //Future crafting animation with menu.getScaledProgress()
         }
+    }
+
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+        renderBackground(Objects.requireNonNull(guiGraphics));
+        super.render(guiGraphics, mouseX, mouseY, delta);
+        renderTooltip(guiGraphics, mouseX, mouseY);
     }
 }
