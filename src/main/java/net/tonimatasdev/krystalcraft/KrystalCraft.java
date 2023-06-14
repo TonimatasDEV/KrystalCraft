@@ -10,6 +10,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.enchantment.ModEnchantments;
+import net.tonimatasdev.krystalcraft.item.KrystalCraftTab;
 import net.tonimatasdev.krystalcraft.item.ModItems;
 import net.tonimatasdev.krystalcraft.recipe.ModRecipes;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerScreen;
@@ -24,16 +25,15 @@ public class KrystalCraft {
     public KrystalCraft() {
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModItems.ITEMS.register(eventBus);
-        ModItems.TOOL_ITEMS.register(eventBus);
-        ModItems.ARMOR_ITEMS.register(eventBus);
-        ModItems.BLOCK_ITEMS.register(eventBus);
-        ModBlocks.BLOCKS.register(eventBus);
-        ModBlocks.BLOCK_ENTITIES.register(eventBus);
-        ModBlockEntities.BLOCK_ENTITIES.register(eventBus);
-        ModMenuTypes.MENUS.register(eventBus);
-        ModRecipes.SERIALIZERS.register(eventBus);
-        ModEnchantments.ENCHANTMENTS.register(eventBus);
+        ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
+        ModBlockEntities.register(eventBus);
+        ModMenuTypes.register(eventBus);
+        ModRecipes.register(eventBus);
+        ModEnchantments.register(eventBus);
+        KrystalCraftTab.register(eventBus);
+
+        eventBus.addListener(KrystalCraftTab::registerTabs);
 
         //ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, KrystalCraftModClientConfigs.SPEC, "krystalcraft-client.toml");
         //ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, KrystalCraftModCommonConfigs.SPEC, "krystalcraft-common.toml");
