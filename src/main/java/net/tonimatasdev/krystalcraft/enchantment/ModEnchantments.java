@@ -1,6 +1,7 @@
 package net.tonimatasdev.krystalcraft.enchantment;
 
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -16,4 +17,8 @@ public class ModEnchantments {
     public static RegistryObject<Enchantment> LIFE_LEECH = ENCHANTMENTS.register("life_leech", LifeLeechEnchantment::new);
     public static RegistryObject<Enchantment> XP_LEECH = ENCHANTMENTS.register("xp_leech", XpLeechEnchantment::new);
     public static RegistryObject<Enchantment> FREEZING = ENCHANTMENTS.register("freezing", FreezingEnchantment::new);
+
+    public static void register(IEventBus eventBus) {
+        ENCHANTMENTS.register(eventBus);
+    }
 }

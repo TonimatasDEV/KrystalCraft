@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -66,5 +67,10 @@ public class ModBlocks {
         RegistryObject<T> toReturn = BLOCK_ENTITIES.register(name, block);
         ModItems.BLOCK_ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
         return toReturn;
+    }
+
+    public static void register(IEventBus eventBus) {
+        BLOCKS.register(eventBus);
+        BLOCK_ENTITIES.register(eventBus);
     }
 }

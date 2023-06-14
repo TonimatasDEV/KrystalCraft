@@ -1,6 +1,7 @@
 package net.tonimatasdev.krystalcraft.item;
 
 import net.minecraft.world.item.*;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -169,4 +170,11 @@ public class ModItems {
     public static final RegistryObject<Item> GEM_CUTTER_TOOL = ITEMS.register("gem_cutter_tool", () -> new Item(new Item.Properties().durability(128)));
     public static final RegistryObject<Item> SET_WATER_BOTTLES = ITEMS.register("set_water_bottles", () -> new Item(new Item.Properties().durability(64)));
     public static final RegistryObject<Item> GRINDING_GEAR = ITEMS.register("grinding_gear", () -> new Item(new Item.Properties().durability(512)));
+
+    public static void register(IEventBus eventBus) {
+        ITEMS.register(eventBus);
+        TOOL_ITEMS.register(eventBus);
+        ARMOR_ITEMS.register(eventBus);
+        BLOCK_ITEMS.register(eventBus);
+    }
 }

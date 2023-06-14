@@ -1,60 +1,50 @@
 package net.tonimatasdev.krystalcraft.item;
-/*
-import net.minecraft.core.Registry;
+
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
+import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.ModBlocks;
 
 public class KrystalCraftTab {
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TAB = DeferredRegister.cr(Registries.CREATIVE_MODE_TAB, CreativeModeTabs::bootstrap);
+    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, KrystalCraft.MOD_ID);
+    public static final RegistryObject<CreativeModeTab> KRYSTALCRAFT_TAB = CREATIVE_MODE_TABS.register("krystalcraft", () -> CreativeModeTab.builder()
+            .title(Component.translatable("itemGroup.krystalcraft"))
+            .icon(() -> new ItemStack(ModItems.JADE_PICKAXE.get()))
+            .build());
 
-    public static final ResourceKey<CreativeModeTab> ITEMS_TAB = createKey("krystalcraft_items_tab");
-    public static final ResourceKey<CreativeModeTab> BLOCKS_TAB = createKey("krystalcraft_block_tab");
-    public static final ResourceKey<CreativeModeTab> TOOLS_TAB = createKey("krystalcraft_tools_tab");
-    public static final ResourceKey<CreativeModeTab> ARMORS_TAB = createKey("krystalcraft_armors_tab");
-
-    public static CreativeModeTab bootstrap(Registry<CreativeModeTab> creativeModeTabRegistry) {
-        Registry.register(creativeModeTabRegistry, ITEMS_TAB, CreativeModeTab.builder().title(Component.translatable("itemGroup.items_tab")).icon(() -> new ItemStack(ModItems.GEM_CUTTER_TOOL.get())).displayItems((parameters, output) -> {
+    public static void registerTabs(BuildCreativeModeTabContentsEvent event) {
+        if (event.getTab() == KrystalCraftTab.KRYSTALCRAFT_TAB.get()) {
             for (RegistryObject<Item> item : ModItems.ITEMS.getEntries()) {
-                output.accept(item.get());
+                event.accept(item.get());
             }
-        }).build());
 
-        Registry.register(creativeModeTabRegistry, BLOCKS_TAB, CreativeModeTab.builder().title(Component.translatable("itemGroup.blocks_tab")).icon(() -> new ItemStack(ModBlocks.RUBY_BLOCK.get())).displayItems((parameters, output) -> {
+            for (RegistryObject<Item> item : ModItems.TOOL_ITEMS.getEntries()) {
+                event.accept(item.get());
+            }
+
+            for (RegistryObject<Item> item : ModItems.ARMOR_ITEMS.getEntries()) {
+                event.accept(item.get());
+            }
+
             for (RegistryObject<Block> block : ModBlocks.BLOCKS.getEntries()) {
-                output.accept(block.get());
+                event.accept(block.get());
             }
 
             for (RegistryObject<Block> block : ModBlocks.BLOCK_ENTITIES.getEntries()) {
-                output.accept(block.get());
+                event.accept(block.get());
             }
-        }).build());
-        CreativeModeTab.
-
-                Registry.register(creativeModeTabRegistry, TOOLS_TAB, CreativeModeTab.builder().title(Component.translatable("itemGroup.tools_tab")).icon(() -> new ItemStack(ModItems.JADE_PICKAXE.get())).displayItems((parameters, output) -> {
-                    for (RegistryObject<Item> item : ModItems.TOOL_ITEMS.getEntries()) {
-                        output.accept(item.get());
-                    }
-                }).build());
-
-        Registry.register(creativeModeTabRegistry, ARMORS_TAB, CreativeModeTab.builder().title(Component.translatable("itemGroup.armors_tab")).icon(() -> new ItemStack(ModItems.JADE_PICKAXE.get())).displayItems((parameters, output) -> {
-            for (RegistryObject<Item> item : ModItems.ARMOR_ITEMS.getEntries()) {
-                output.accept(item.get());
-            }
-        }).build());
+        }
     }
 
-    private static ResourceKey<CreativeModeTab> createKey(String resourceKeyName) {
-        return ResourceKey.create(CREATIVE_MODE_TAB.getRegistryKey(), new ResourceLocation(resourceKeyName));
+    public static void register(IEventBus eventBus) {
+        CREATIVE_MODE_TABS.register(eventBus);
     }
 }
-*/
