@@ -5,7 +5,7 @@ apply plugin: 'net.minecraftforge.gradle'
 //apply plugin: 'org.spongepowered.mixin'
 
 group = 'krystalcraft'
-version = "${project_version}"
+version = project_version
 archivesBaseName = 'krystalcraft'
 
 //mixin {
