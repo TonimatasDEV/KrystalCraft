@@ -1,6 +1,8 @@
 {
   "pack": {
-    "description": "KrystalCraft resources",
-    "pack_format": 12
+    "description": {
+      "text": "KrystalCraft resources"
+    },
+    "pack_format": 15
   }
 }

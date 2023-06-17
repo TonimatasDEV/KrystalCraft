@@ -1,11 +1,11 @@
 modLoader = "javafml"
-loaderVersion = "[45,)"
+loaderVersion = "[46,)"
 license = "Apache License Version 2.0"
 issueTrackerURL = "https://github.com/TonimatasDEV/KrystalCraft/issues"
 
 [[mods]]
 modId = "krystalcraft"
-version = "0.0.3.7"
+version = "0.0.3.8"
 displayName = "KrystalCraft"
 #updateJSONURL="https://change.me.example.invalid/updates.json"
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/krystalcraft"
@@ -21,13 +21,13 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
 [[dependencies.krystalcraft]]
 modId = "forge"
 mandatory = true
-versionRange = "[45.0.24,)"
+versionRange = "[46,)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.krystalcraft]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.4,)"
+versionRange = "[1.20]"
 ordering = "NONE"
 side = "BOTH"
