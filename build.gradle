@@ -1,3 +1,6 @@
+//file:noinspection DependencyNotationArgument
+//file:noinspection GroovyAssignabilityCheck
+
 apply plugin: 'net.minecraftforge.gradle'
 //apply plugin: 'org.spongepowered.mixin'
 
@@ -14,7 +17,9 @@ archivesBaseName = 'krystalcraft'
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 minecraft {
-    mappings channel: 'official', version: "${minecraft_version}"
+    mappings channel: 'official', version: minecraft_version
+
+    copyIdeResources = true
 
     runs {
         client {
@@ -100,3 +105,7 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
