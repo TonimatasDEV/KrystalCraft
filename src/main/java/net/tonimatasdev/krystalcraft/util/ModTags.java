@@ -108,7 +108,7 @@ public class ModTags {
         public static final TagKey<Item> DIAMOND_RAW_MATERIAL = forgeTag("raw_materials/diamond");
         public static final TagKey<Item> EMERALD_RAW_MATERIAL = forgeTag("raw_materials/emerald");
         public static final TagKey<Item> LAPIS_RAW_MATERIAL = forgeTag("raw_materials/lapis");
-        public static final TagKey<Item> REDSTONE_RAW_MATERIAL = forgeTag("raw_materials/lapis");
+        public static final TagKey<Item> REDSTONE_RAW_MATERIAL = forgeTag("raw_materials/redstone");
 
         @SuppressWarnings("unused")
         private static TagKey<Item> tag(String name) {
