@@ -113,6 +113,8 @@ processResources {
 }
 
 jar {
+    archiveFileName = "$rootDir/artifacts/KrystalCraft-${project.version}.jar"
+
     manifest {
         attributes([
                 "Specification-Title": "KrystalCraft",
