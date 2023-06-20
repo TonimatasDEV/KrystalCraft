@@ -23,8 +23,13 @@ jobs:
       - name: Generate jar with Gradle
         run: ./gradlew jar
 
+      - name: Get repository name
+        run: |
+          repo_name=$(echo "${{ env.GITHUB_REPOSITORY }}" | awk -F/ '{print $2}')
+          echo "::set-env name=REPO_NAME::$repo_name"
+
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
-          name: $(basename $GITHUB_REPOSITORY)
+          name: ${{ env.REPO_NAME }}
           path: artifacts/**.jar
