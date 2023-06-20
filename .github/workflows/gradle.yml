@@ -7,19 +7,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3.5.2
-    - name: Set up JDK 17
-      uses: actions/setup-java@v1.4.4
-      with:
-        java-version: 17
-    - name: Build with Gradle
-      run: chmod +x ./gradlew
+      - uses: actions/checkout@v3.5.2
 
-    - name: Generate jar with Gradle
-      run: ./gradlew jar
+      - name: Set up JDK 17
+        uses: actions/setup-java@v1.4.4
+        with:
+          java-version: 17
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.2
-      with:
-        name: KrystalCraft
-        path: build/libs/**.jar
+      - name: Give permissions to Gradle
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Generate jar with Gradle
+        run: ./gradlew jar
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: $(basename $GITHUB_REPOSITORY)
+          path: build/libs/**.jar

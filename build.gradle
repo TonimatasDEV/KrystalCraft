@@ -8,7 +8,7 @@ plugins {
 }
 
 base {
-    archivesName = mod_id
+    archivesName = 'krystalcraft'
 }
 
 group = 'net.tonimatasdev'
@@ -32,7 +32,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -45,7 +45,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -58,7 +58,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', mod_id
+            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
@@ -71,8 +71,7 @@ minecraft {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            args '--mod', 'krystalcraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
                 krystalcraft {
@@ -101,10 +100,9 @@ def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
 def replaceProperties = [
         minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
         forge_version: forge_version, forge_version_range: forge_version_range,
-        loader_version_range: forge_version_range,
-        mod_id: mod_id, mod_version: mod_version,
-        mod_description: mod_description
+        loader_version_range: forge_version_range, mod_version: mod_version
 ]
+
 processResources {
     inputs.properties replaceProperties
     replaceProperties.put 'project', project
@@ -117,7 +115,7 @@ processResources {
 jar {
     manifest {
         attributes([
-                "Specification-Title": mod_id,
+                "Specification-Title": "KrystalCraft",
                 "Specification-Vendor": "TonimatasDEV",
                 "Specification-Version": "1",
                 "Implementation-Title": project.name,
