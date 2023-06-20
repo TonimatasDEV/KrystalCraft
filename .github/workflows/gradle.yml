@@ -24,12 +24,11 @@ jobs:
         run: ./gradlew jar
 
       - name: Get repository name
-        run: |
-          repo_name=$(echo "${{ env.GITHUB_REPOSITORY }}" | awk -F/ '{print $2}')
-          echo "::set-env name=REPO_NAME::$repo_name"
+        id: repo_name
+        run: echo "::set-output name=name::$(basename -s .git ${{ github.repository }})"
 
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.2
         with:
-          name: ${{ env.REPO_NAME }}
+          name: ${{ steps.repo_name.outputs.name }}
           path: artifacts/**.jar
