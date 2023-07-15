@@ -1,26 +1,19 @@
-//file:noinspection DependencyNotationArgument
-//file:noinspection GroovyAssignabilityCheck
-
 plugins {
-    id 'eclipse'
-    id 'idea'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
-}
-
-base {
-    archivesName = 'krystalcraft'
+    id 'idea'
+    id 'eclipse'
 }
 
 group = 'net.tonimatasdev'
 version = mod_version
 
-//mixin {
-//    config "krystalcraft.mixins.json"
-//    add sourceSets.main, "krystalcraft.refmap.json"
-//    debug.export = true
-//}
+base {
+    archivesName = 'krystalcraft'
+}
 
-java.toolchain.languageVersion = JavaLanguageVersion.of(17)
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(17)
+}
 
 minecraft {
     mappings channel: 'official', version: minecraft_version
@@ -28,56 +21,34 @@ minecraft {
     copyIdeResources = true
 
     runs {
-        client {
+        configureEach {
             workingDirectory project.file('run')
             property 'forge.logging.markers', 'REGISTRIES'
             property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
 
             mods {
                 krystalcraft {
                     source sourceSets.main
                 }
             }
+        }
+
+        client {
+            property 'forge.enabledGameTestNamespaces', "krystalcraft"
         }
 
         server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
-
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', "krystalcraft"
+            args '--nogui'
         }
 
         gameTestServer {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            property 'forge.enabledGameTestNamespaces', 'krystalcraft'
-
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
+            property 'forge.enabledGameTestNamespaces', "krystalcraft"
         }
 
         data {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-            args '--mod', 'krystalcraft', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                krystalcraft {
-                    source sourceSets.main
-                }
-            }
+            workingDirectory project.file('run-data')
+            args '--mod', "krystalcraft", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
         }
     }
 }
@@ -96,39 +67,32 @@ dependencies {
     runtimeOnly fg.deobf("mezz.jei:jei-${minecraft_version}-forge:${jei_version}")
 }
 
-def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
-def replaceProperties = [
-        minecraft_version: minecraft_version, minecraft_version_range: minecraft_version_range,
-        forge_version: forge_version, forge_version_range: forge_version_range,
-        loader_version_range: forge_version_range, mod_version: mod_version
-]
+tasks.named('processResources', ProcessResources).configure {
+    var replaceProperties = [
+            minecraft_version_range: minecraft_version_range, forge_version_range: forge_version_range, mod_version: mod_version, loader_version_range: forge_version_range]
 
-processResources {
     inputs.properties replaceProperties
-    replaceProperties.put 'project', project
 
-    filesMatching(resourceTargets) {
-        expand replaceProperties
+    filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
+        expand replaceProperties + [project: project]
     }
 }
 
-jar {
-    archiveFileName = "$rootDir/artifacts/KrystalCraft-${project.version}.jar"
-
+tasks.named('jar', Jar).configure {
     manifest {
         attributes([
                 "Specification-Title": "KrystalCraft",
                 "Specification-Vendor": "TonimatasDEV",
                 "Specification-Version": "1",
-                "Implementation-Title": project.name,
+                "Implementation-Title": "KrystalCraft",
                 "Implementation-Version": project.jar.archiveVersion,
                 "Implementation-Vendor": "TonimatasDEV",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
-}
 
-jar.finalizedBy('reobfJar')
+    finalizedBy 'reobfJar'
+}
 
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
