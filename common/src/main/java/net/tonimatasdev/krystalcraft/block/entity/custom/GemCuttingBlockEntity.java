@@ -14,28 +14,26 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CoalCrusherRecipe;
+import net.tonimatasdev.krystalcraft.recipe.GemCuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
-import net.tonimatasdev.krystalcraft.screen.CoalCombinerMenu;
-import net.tonimatasdev.krystalcraft.screen.CoalCrusherMenu;
+import net.tonimatasdev.krystalcraft.screen.GemCuttingMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CoalCrusherBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<CoalCrusherBlockEntity> {
-    public CoalCrusherBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityRegistry.COAL_CRUSHER_BLOCK_ENTITY.get(), blockPos, blockState, 5);
+public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<GemCuttingBlockEntity> {
+    public GemCuttingBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityRegistry.GEM_CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
     }
 
     @Override
-    public void tick(Level world, BlockPos pos, BlockState state, CoalCrusherBlockEntity blockEntity) {
+    public void tick(Level world, BlockPos pos, BlockState state, GemCuttingBlockEntity blockEntity) {
         if (world.isClientSide) return;
         boolean dirty = false;
         final var recipeType = world.getRecipeManager()
-                .getRecipeFor(RecipeTypeRegistry.COAL_CRUSHER_TYPE.get(), blockEntity, world)
+                .getRecipeFor(RecipeTypeRegistry.GEM_CUTTING_TYPE.get(), blockEntity, world)
                 .orElse(null);
         RegistryAccess access = level.registryAccess();
         if (canCraft(recipeType, access)) {
@@ -54,7 +52,7 @@ public class CoalCrusherBlockEntity extends KrystalCraftFuelBlockEntity implemen
 
     }
 
-    private boolean canCraft(CoalCrusherRecipe recipe, RegistryAccess access) {
+    private boolean canCraft(GemCuttingRecipe recipe, RegistryAccess access) {
         if (recipe == null || recipe.getResultItem(access).isEmpty()) {
             return false;
         } else if (areInputsEmpty()) {
@@ -73,7 +71,7 @@ public class CoalCrusherBlockEntity extends KrystalCraftFuelBlockEntity implemen
         return emptyStacks == 2;
     }
 
-    private void craft(CoalCrusherRecipe recipe, RegistryAccess access) {
+    private void craft(GemCuttingRecipe recipe, RegistryAccess access) {
         if (!canCraft(recipe, access)) {
             return;
         }
@@ -101,15 +99,15 @@ public class CoalCrusherBlockEntity extends KrystalCraftFuelBlockEntity implemen
 
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new CoalCrusherMenu(pContainerId, pInventory, this, this.data);
+        return new GemCuttingMenu(pContainerId, pInventory, this, this.data);
     }
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.inventory);
-        tag.putInt("coal_crusher.progress", progress);
-        tag.putInt("coal_crusher.fuel", fuel);
+        tag.putInt("gem_cutting.progress", progress);
+        tag.putInt("gem_cutting.fuel", fuel);
     }
 
     @Override
@@ -117,7 +115,7 @@ public class CoalCrusherBlockEntity extends KrystalCraftFuelBlockEntity implemen
         super.load(Objects.requireNonNull(nbt));
         this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(nbt, this.inventory);
-        progress = nbt.getInt("coal_crusher.progress");
-        progress = nbt.getInt("coal_crusher.fuel");
+        progress = nbt.getInt("gem_cutting.progress");
+        progress = nbt.getInt("gem_cutting.fuel");
     }
 }

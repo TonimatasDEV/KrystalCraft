@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.custom.CoalCombinerBlock;
 import net.tonimatasdev.krystalcraft.block.custom.CoalCrusherBlock;
-import net.tonimatasdev.krystalcraft.block.custom.GemCuttingStationBlock;
+import net.tonimatasdev.krystalcraft.block.custom.GemCuttingBlock;
 
 import java.util.function.Supplier;
 
@@ -50,9 +50,9 @@ public class BlockRegistry {
     public static final RegistrySupplier<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // Custom Blocks
-    public static final RegistrySupplier<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting_station", GemCuttingStationBlock::new);
-    public static final RegistrySupplier<Block> COAL_CRUSHER = registerBlock("coal_crusher", () -> new CoalCrusherBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistrySupplier<Block> COAL_COMBINER = registerBlock("coal_combiner", () -> new CoalCombinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final RegistrySupplier<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting", GemCuttingBlock::new);
+    public static final RegistrySupplier<Block> COAL_CRUSHER = registerBlock("coal_crusher", CoalCrusherBlock::new);
+    public static final RegistrySupplier<Block> COAL_COMBINER = registerBlock("coal_combiner", CoalCombinerBlock::new);
 
     private static <T extends Block> RegistrySupplier<T> registerBlock(String name, Supplier<T> block) {
         RegistrySupplier<T> toReturn = BLOCKS.register(name, block);

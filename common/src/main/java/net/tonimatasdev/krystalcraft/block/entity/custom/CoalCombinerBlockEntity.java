@@ -1,120 +1,96 @@
 package net.tonimatasdev.krystalcraft.block.entity.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.util.LazyOptional;
-import net.minecraftforge.items.ItemStackHandler;
-import net.tonimatasdev.krystalcraft.block.entity.ModBlockEntities;
-import net.tonimatasdev.krystalcraft.block.entity.utils.Simplify;
 import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
+import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
+import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
-import java.util.Optional;
 
-public class CoalCombinerBlockEntity extends KrystalCraftBlockEntity {
-    private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-    };
-
-    private int fuel;
-
-    public CoalCombinerBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.COAL_COMBINER_BLOCK_ENTITY.get(), pWorldPosition, pBlockState);
-        this.data = new ContainerData() {
-            public int get(int index) {
-                return switch (index) {
-                    case 0 -> CoalCombinerBlockEntity.this.progress;
-                    case 1 -> CoalCombinerBlockEntity.this.maxProgress;
-                    case 2 -> CoalCombinerBlockEntity.this.fuel;
-                    default -> 0;
-                };
-            }
-
-            public void set(int index, int value) {
-                switch (index) {
-                    case 0 -> CoalCombinerBlockEntity.this.progress = value;
-                    case 1 -> CoalCombinerBlockEntity.this.maxProgress = value;
-                    case 2 -> CoalCombinerBlockEntity.this.fuel = value;
-                }
-            }
-
-            public int getCount() {
-                return 3;
-            }
-        };
+public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<CoalCombinerBlockEntity> {
+    public CoalCombinerBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityRegistry.COAL_COMBINER_BLOCK_ENTITY.get(), blockPos, blockState, 4);
     }
 
-    public static void tick(Level pLevel, BlockPos pPos, BlockState pState, CoalCombinerBlockEntity pBlockEntity) {
-        if (hasRecipe(pBlockEntity)) {
-            pBlockEntity.progress++;
-            setChanged(pLevel, pPos, pState);
-
-            if (pBlockEntity.progress > pBlockEntity.maxProgress) {
-                if (pBlockEntity.fuel > 0) {
-                    craftItem(pBlockEntity);
-                } else {
-                    if (pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.COAL || pBlockEntity.itemHandler.getStackInSlot(2).getItem() == Items.CHARCOAL) {
-                        pBlockEntity.itemHandler.extractItem(2, 1, false);
-                        pBlockEntity.fuel = 8;
-                    }
-                }
+    @Override
+    public void tick(Level world, BlockPos pos, BlockState state, CoalCombinerBlockEntity blockEntity) {
+        if (world.isClientSide) return;
+        boolean dirty = false;
+        final var recipeType = world.getRecipeManager()
+                .getRecipeFor(RecipeTypeRegistry.COAL_COMBINER_TYPE.get(), blockEntity, world)
+                .orElse(null);
+        RegistryAccess access = level.registryAccess();
+        if (canCraft(recipeType, access)) {
+            this.progress++;
+            if (this.progress >= this.maxProgress) {
+                progress = 0;
+                craft(recipeType, access);
+                dirty = true;
             }
         } else {
-            pBlockEntity.resetProgress();
-            setChanged(pLevel, pPos, pState);
+            this.progress = 0;
+        }
+        if (dirty) {
+            setChanged();
+        }
+
+    }
+
+    private boolean canCraft(CoalCombinerRecipe recipe, RegistryAccess access) {
+        if (recipe == null || recipe.getResultItem(access).isEmpty()) {
+            return false;
+        } else if (areInputsEmpty()) {
+            return false;
+        }
+        ItemStack itemStack = this.getItem(3);
+        return itemStack.isEmpty() || itemStack == recipe.getResultItem(access);
+    }
+
+
+    private boolean areInputsEmpty() {
+        int emptyStacks = 0;
+        for (int i = 1; i <= 2; i++) {
+            if (this.getItem(i).isEmpty()) emptyStacks++;
+        }
+        return emptyStacks == 2;
+    }
+
+    private void craft(CoalCombinerRecipe recipe, RegistryAccess access) {
+        if (!canCraft(recipe, access)) {
+            return;
+        }
+        final ItemStack recipeOutput = recipe.getResultItem(access);
+        final ItemStack outputSlotStack = this.getItem(3);
+        if (outputSlotStack.isEmpty()) {
+            ItemStack output = recipeOutput.copy();
+            setItem(3, output);
+        }
+        for (Ingredient entry : recipe.getIngredients()) {
+            if (entry.test(this.getItem(1))) {
+                removeItem(1, 1);
+            }
+            if (entry.test(this.getItem(2))) {
+                removeItem(2, 1);
+            }
         }
     }
 
-    private static boolean hasRecipe(CoalCombinerBlockEntity entity) {
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-        Level level = entity.level;
-
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
-
-        return match.isPresent() && Simplify.canInsertAmountIntoOutputSlot(inventory, 3) && Simplify.canInsertItemIntoOutputSlot(inventory, match.get().getResultItem(Objects.requireNonNull(entity.level).registryAccess()), 3) &&
-                Simplify.hasWaterInWaterSlot(entity.itemHandler, 0);
-    }
-
-    private static void craftItem(CoalCombinerBlockEntity entity) {
-        Level level = entity.level;
-        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-
-        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-        }
-
-        Optional<CoalCombinerRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(CoalCombinerRecipe.Type.INSTANCE, inventory, level);
-
-        if (match.isPresent()) {
-            entity.itemHandler.extractItem(0, 1, false);
-            entity.itemHandler.extractItem(1, 1, false);
-
-            entity.itemHandler.setStackInSlot(3, new ItemStack(match.get().getResultItem(Objects.requireNonNull(entity.level).registryAccess()).getItem(), entity.itemHandler.getStackInSlot(3).getCount() + 1));
-
-            entity.fuel = entity.fuel - 1;
-            entity.resetProgress();
-        }
-    }
 
     @Override
     public @NotNull Component getDisplayName() {
@@ -127,28 +103,19 @@ public class CoalCombinerBlockEntity extends KrystalCraftBlockEntity {
     }
 
     @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
-        tag.put("inventory", itemHandler.serializeNBT());
+        super.saveAdditional(tag);
+        ContainerHelper.saveAllItems(tag, this.inventory);
         tag.putInt("coal_combiner.progress", progress);
         tag.putInt("coal_combiner.fuel", fuel);
-        super.saveAdditional(tag);
     }
 
     @Override
     public void load(@Nullable CompoundTag nbt) {
         super.load(Objects.requireNonNull(nbt));
-        itemHandler.deserializeNBT(nbt.getCompound("inventory"));
+        this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        ContainerHelper.loadAllItems(nbt, this.inventory);
         progress = nbt.getInt("coal_combiner.progress");
         progress = nbt.getInt("coal_combiner.fuel");
-    }
-
-    public void drops() {
-        super.drop(itemHandler);
     }
 }
