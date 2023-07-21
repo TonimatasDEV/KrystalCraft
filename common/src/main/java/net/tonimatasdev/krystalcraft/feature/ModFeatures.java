@@ -13,6 +13,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.OreConfiguratio
 import net.minecraft.world.level.levelgen.placement.*;
 import net.minecraft.world.level.levelgen.structure.templatesystem.TagMatchTest;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.registry.BlockRegistry;
 
 import java.util.List;
 
@@ -37,31 +38,31 @@ public class ModFeatures {
     private static final ResourceKey<PlacedFeature> PLACED_TOPAZ_ORE = PlacementUtils.createKey(find("topaz"));
 
     public static void configuredBootstrap(BootstapContext<ConfiguredFeature<?, ?>> bootstrap) {
-        List<OreConfiguration.TargetBlockState> experienceList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.EXPERIENCE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_EXPERIENCE_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> experienceList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.EXPERIENCE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_EXPERIENCE_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_EXPERIENCE_ORE, Feature.ORE, new OreConfiguration(experienceList, 10));
 
-        List<OreConfiguration.TargetBlockState> jadeList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.JADE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> jadeList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.JADE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_JADE_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_JADE_ORE, Feature.ORE, new OreConfiguration(jadeList, 3));
 
-        List<OreConfiguration.TargetBlockState> leadList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.LEAD_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_LEAD_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> leadList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.LEAD_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_LEAD_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_LEAD_ORE, Feature.ORE, new OreConfiguration(leadList, 4));
 
-        List<OreConfiguration.TargetBlockState> platinumList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.PLATINUM_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_PLATINUM_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> platinumList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.PLATINUM_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_PLATINUM_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_PLATINUM_ORE, Feature.ORE, new OreConfiguration(platinumList, 3));
 
-        List<OreConfiguration.TargetBlockState> rubyList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.RUBY_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> rubyList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.RUBY_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_RUBY_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_RUBY_ORE, Feature.ORE, new OreConfiguration(rubyList, 5));
 
-        List<OreConfiguration.TargetBlockState> sapphireList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.SAPPHIRE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> sapphireList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.SAPPHIRE_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_SAPPHIRE_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_SAPPHIRE_ORE, Feature.ORE, new OreConfiguration(sapphireList, 3));
 
-        List<OreConfiguration.TargetBlockState> silverList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.SILVER_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_SILVER_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> silverList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.SILVER_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_SILVER_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_SILVER_ORE, Feature.ORE, new OreConfiguration(silverList, 8));
 
-        List<OreConfiguration.TargetBlockState> tinList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.TIN_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_TIN_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> tinList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.TIN_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_TIN_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_TIN_ORE, Feature.ORE, new OreConfiguration(tinList, 9));
 
-        List<OreConfiguration.TargetBlockState> topazList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), ModBlocks.TOPAZ_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), ModBlocks.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState()));
+        List<OreConfiguration.TargetBlockState> topazList = List.of(OreConfiguration.target(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), BlockRegistry.TOPAZ_ORE.get().defaultBlockState()), OreConfiguration.target(new TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES), BlockRegistry.DEEPSLATE_TOPAZ_ORE.get().defaultBlockState()));
         FeatureUtils.register(bootstrap, CONFIGURED_TOPAZ_ORE, Feature.ORE, new OreConfiguration(topazList, 5));
     }
 

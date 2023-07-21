@@ -8,13 +8,13 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
 import net.tonimatasdev.krystalcraft.recipe.CoalCrusherRecipe;
-import net.tonimatasdev.krystalcraft.recipe.GemCuttingStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.GemCuttingRecipe;
 
 import java.util.function.Supplier;
 
 public class RecipeSerializerRegistry {
     private static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(KrystalCraft.MOD_ID, Registries.RECIPE_SERIALIZER);
-    public static final RegistrySupplier<RecipeSerializer<GemCuttingStationRecipe>> GEM_CUTTING_SERIALIZER = create("gem_cutting", GemCuttingStationRecipe.Serializer::new);
+    public static final RegistrySupplier<RecipeSerializer<GemCuttingRecipe>> GEM_CUTTING_SERIALIZER = create("gem_cutting", GemCuttingRecipe.Serializer::new);
     public static final RegistrySupplier<RecipeSerializer<CoalCrusherRecipe>> COAL_CRUSHER_SERIALIZER = create("coal_crusher", CoalCrusherRecipe.Serializer::new);
     public static final RegistrySupplier<RecipeSerializer<CoalCombinerRecipe>> COAL_COMBINER_SERIALIZER = create("coal_combiner", CoalCombinerRecipe.Serializer::new);
 

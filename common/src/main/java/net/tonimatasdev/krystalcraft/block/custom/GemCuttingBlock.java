@@ -39,25 +39,7 @@ public class GemCuttingBlock extends KrystalCraftBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand hand, BlockHitResult hit) {
-        if (!level.isClientSide) {
-            MenuProvider screenHandlerFactory = blockState.getMenuProvider(level, blockPos);
-
-            if (screenHandlerFactory != null) {
-                player.openMenu(screenHandlerFactory);
-            }
-        }
-
-        return InteractionResult.SUCCESS;
-    }
-
-    @Override
     public BlockEntity newBlockEntity(@Nullable BlockPos pPos, @Nullable BlockState pState) {
         return new GemCuttingBlockEntity(pPos, pState);
-    }
-
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nullable Level pLevel, @Nullable BlockState pState, @Nullable BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, BlockEntityRegistry.GEM_CUTTING_STATION_BLOCK_ENTITY.get(), GemCuttingBlockEntity::tick);
     }
 }

@@ -12,10 +12,10 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class GemCuttingStationScreen extends AbstractContainerScreen<GemCuttingStationMenu> {
+public class GemCuttingScreen extends AbstractContainerScreen<GemCuttingMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
 
-    public GemCuttingStationScreen(GemCuttingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public GemCuttingScreen(GemCuttingMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
