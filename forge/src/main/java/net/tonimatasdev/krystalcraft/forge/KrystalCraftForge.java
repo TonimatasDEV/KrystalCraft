@@ -1,6 +1,7 @@
 package net.tonimatasdev.krystalcraft.forge;
 
 import dev.architectury.platform.forge.EventBuses;
+import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.tonimatasdev.krystalcraft.KrystalCraft;

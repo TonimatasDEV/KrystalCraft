@@ -7,8 +7,6 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.registry.ItemRegistry;
 import org.jetbrains.annotations.NotNull;
@@ -75,15 +73,16 @@ public enum ModArmorTier implements ArmorMaterial {
     }
 
     @Override
-    @OnlyIn(Dist.CLIENT)
     public @NotNull String getName() {
         return KrystalCraft.MOD_ID + ":" + this.name;
     }
 
+    @Override
     public float getToughness() {
         return this.toughness;
     }
 
+    @Override
     public float getKnockbackResistance() {
         return this.knockbackResistance;
     }

@@ -3,6 +3,7 @@ package net.tonimatasdev.krystalcraft;
 import net.tonimatasdev.krystalcraft.enchantment.ModEnchantments;
 import net.tonimatasdev.krystalcraft.recipe.ModRecipes;
 import net.tonimatasdev.krystalcraft.registry.BlockRegistry;
+import net.tonimatasdev.krystalcraft.registry.ItemRegistry;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasdev.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasdev.krystalcraft.screen.GemCuttingStationScreen;
@@ -11,11 +12,10 @@ import net.tonimatasdev.krystalcraft.screen.ModMenuTypes;
 public class KrystalCraft {
 	public static final String MOD_ID = "krystalcraft";
 
-	public KrystalCraft() {
+	public static void init() {
 		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-		ModItems.register(eventBus);
-
+		ItemRegistry.init();
 		BlockRegistry.init();
 
 		ModBlockEntities.register(eventBus);
