@@ -1,131 +1,103 @@
 package net.tonimatasdev.krystalcraft.recipe;
 
-import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
-import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.util.RecipeSerializerUtils;
+import net.tonimatasdev.krystalcraft.registry.RecipeSerializerRegistry;
+import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
+import net.tonimatasdev.krystalcraft.util.GeneralUtil;
 import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Objects;
+public class CoalCrusherRecipe implements Recipe<Container> {
 
-public class CoalCrusherRecipe implements Recipe<SimpleContainer> {
-    private final ResourceLocation id;
+    final ResourceLocation id;
+    private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
-    private final NonNullList<Ingredient> recipeItems;
 
-    public CoalCrusherRecipe(ResourceLocation id, ItemStack output, NonNullList<Ingredient> recipeItems) {
+    public CoalCrusherRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
         this.id = id;
+        this.inputs = inputs;
         this.output = output;
-        this.recipeItems = recipeItems;
     }
 
     @Override
-    public boolean matches(@NotNull SimpleContainer pContainer, @Nullable Level pLevel) {
-        if (pLevel != null && pLevel.isClientSide()) {
-            return false;
-        }
-
-        return recipeItems.get(0).test(pContainer.getItem(1));
+    public boolean matches(Container inventory, Level world) {
+        return GeneralUtil.matchesRecipe(inventory, inputs, 1, 2);
     }
 
     @Override
-    public @NotNull ItemStack assemble(@NotNull SimpleContainer simpleContainer, @NotNull RegistryAccess registryAccess) {
-        return output;
-    }
-
-    public ItemStack getOutput() {
-        return output;
+    public @NotNull ItemStack assemble(Container container, RegistryAccess registryAccess) {
+        return ItemStack.EMPTY;
     }
 
     @Override
-    @Nonnull
-    public NonNullList<Ingredient> getIngredients() {
-        return recipeItems;
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+    public boolean canCraftInDimensions(int width, int height) {
         return true;
     }
 
-    @Override
-    public @NotNull ItemStack getResultItem(@NotNull RegistryAccess registryAccess) {
-        return output.copy();
+    public @NotNull ItemStack getResultItem(RegistryAccess registryAccess) {
+        return this.output.copy();
     }
 
     @Override
-    @Nonnull
-    public ResourceLocation getId() {
+    public @NotNull ResourceLocation getId() {
         return id;
     }
 
     @Override
-    @Nonnull
-    public RecipeSerializer<?> getSerializer() {
-        return Serializer.INSTANCE;
+    public @NotNull RecipeSerializer<?> getSerializer() {
+        return RecipeSerializerRegistry.COAL_CRUSHER_SERIALIZER.get();
     }
 
     @Override
-    @Nonnull
-    public RecipeType<?> getType() {
-        return Type.INSTANCE;
+    public @NotNull RecipeType<?> getType() {
+        return RecipeTypeRegistry.COAL_CRUSHER_TYPE.get();
     }
 
-    @SuppressWarnings("unused")
-    public static class Type implements RecipeType<CoalCrusherRecipe> {
-        public static final Type INSTANCE = new Type();
-        public static final String ID = "coal_crusher";
+    @Override
+    public @NotNull NonNullList<Ingredient> getIngredients() {
+        return this.inputs;
+    }
 
-        private Type() {
-        }
+    @Override
+    public boolean isSpecial() {
+        return true;
     }
 
     @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<CoalCrusherRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "coal_crusher");
-
-        @SuppressWarnings({"unchecked", "SameParameterValue"})
-        private static <G> Class<G> castClass(Class<?> cls) {
-            return (Class<G>) cls;
-        }
-
         @Override
-        @Nonnull
-        public CoalCrusherRecipe fromJson(@Nullable ResourceLocation id, @Nullable JsonObject json) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(Objects.requireNonNull(json), "output"));
-            JsonArray ingredients = GsonHelper.getAsJsonArray(json, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(1, Ingredient.EMPTY);
-
-            for (int i = 0; i < inputs.size(); i++) {
-                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+        public @NotNull CoalCrusherRecipe fromJson(ResourceLocation id, JsonObject json) {
+            final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            if (ingredients.isEmpty()) {
+                throw new JsonParseException("No ingredients for Coal Crusher");
+            } else if (ingredients.size() > 1) {
+                throw new JsonParseException("Too many ingredients for Coal Crusher");
+            } else {
+                return new CoalCrusherRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
             }
-
-            return new CoalCrusherRecipe(id, output, inputs);
         }
 
         @Override
-        public CoalCrusherRecipe fromNetwork(@Nullable ResourceLocation id, FriendlyByteBuf buf) {
-            NonNullList<Ingredient> inputs = NonNullList.withSize(buf.readInt(), Ingredient.EMPTY);
-            inputs.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-            ItemStack output = buf.readItem();
-            return new CoalCrusherRecipe(id, output, inputs);
+        public @NotNull CoalCrusherRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+            final var ingredients = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
+            ingredients.replaceAll(ignored -> Ingredient.fromNetwork(buf));
+            return new CoalCrusherRecipe(id, ingredients, buf.readItem());
         }
 
         @Override
-        public void toNetwork(@NotNull FriendlyByteBuf buf, @NotNull CoalCrusherRecipe recipe) {
-            RecipeSerializerUtils.toNetwork(buf, recipe, recipe.output);
+        public void toNetwork(FriendlyByteBuf buf, CoalCrusherRecipe recipe) {
+            buf.writeVarInt(recipe.inputs.size());
+            recipe.inputs.forEach(entry -> entry.toNetwork(buf));
+            buf.writeItem(recipe.output);
         }
     }
 }
