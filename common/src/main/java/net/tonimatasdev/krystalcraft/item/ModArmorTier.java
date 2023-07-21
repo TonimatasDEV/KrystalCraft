@@ -2,7 +2,6 @@ package net.tonimatasdev.krystalcraft.item;
 
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Items;
@@ -13,7 +12,6 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
-@SuppressWarnings("deprecation")
 public enum ModArmorTier implements ArmorMaterial {
 
     JADE("jade", new int[]{3, 5, 6, 2}, new int[]{275, 365, 315, 240}, 16, SoundEvents.ARMOR_EQUIP_DIAMOND, 1.0f, 0.0f, () -> Ingredient.of(ItemRegistry.JADE.get())),
@@ -34,7 +32,7 @@ public enum ModArmorTier implements ArmorMaterial {
     private final SoundEvent soundEvent;
     private final float toughness;
     private final float knockbackResistance;
-    private final LazyLoadedValue<Ingredient> repairMaterial;
+    private final Supplier<Ingredient> repairMaterial;
 
     ModArmorTier(String name, int[] damageReductionAmountArray, int[] MAX_DAMAGE_ARRAY, int enchantability, SoundEvent soundEvent, float toughness, float knockbackResistance, Supplier<Ingredient> repairMaterial) {
         this.MAX_DAMAGE_ARRAY = MAX_DAMAGE_ARRAY;
@@ -44,7 +42,7 @@ public enum ModArmorTier implements ArmorMaterial {
         this.soundEvent = soundEvent;
         this.toughness = toughness;
         this.knockbackResistance = knockbackResistance;
-        this.repairMaterial = new LazyLoadedValue<>(repairMaterial);
+        this.repairMaterial = repairMaterial;
     }
 
     @Override
