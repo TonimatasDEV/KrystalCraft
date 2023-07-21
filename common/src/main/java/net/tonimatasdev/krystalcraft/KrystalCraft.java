@@ -1,14 +1,7 @@
 package net.tonimatasdev.krystalcraft;
 
-import dev.architectury.registry.CreativeTabRegistry;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
-import net.tonimatasdev.krystalcraft.registry.EnchantmentRegistry;
-import net.tonimatasdev.krystalcraft.recipe.ModRecipes;
-import net.tonimatasdev.krystalcraft.registry.BlockRegistry;
-import net.tonimatasdev.krystalcraft.registry.ItemRegistry;
-import net.tonimatasdev.krystalcraft.registry.TabRegistry;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.tonimatasdev.krystalcraft.registry.*;
 import net.tonimatasdev.krystalcraft.screen.CoalCombinerScreen;
 import net.tonimatasdev.krystalcraft.screen.CoalCrusherScreen;
 import net.tonimatasdev.krystalcraft.screen.GemCuttingStationScreen;
@@ -18,14 +11,13 @@ public class KrystalCraft {
 	public static final String MOD_ID = "krystalcraft";
 
 	public static void init() {
-		IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
 		ItemRegistry.init();
 		BlockRegistry.init();
+		BlockEntityRegistry.init();
 
-		//ModBlockEntities.register(eventBus);
 		//ModMenuTypes.register(eventBus);
-		//ModRecipes.register(eventBus);
+		RecipeSerializerRegistry.init();
+		RecipeTypeRegistry.init();
 
 		EnchantmentRegistry.init();
 		TabRegistry.init();
