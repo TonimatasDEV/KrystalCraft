@@ -14,15 +14,14 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCombinerBlockEntity;
 import net.tonimatasdev.krystalcraft.block.entity.custom.GemCuttingBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class CoalCombinerBlock extends KrystalCraftBlock {
-    public CoalCombinerBlock() {
+public class GemCuttingBlock extends KrystalCraftBlock {
+    public GemCuttingBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion());
     }
 
@@ -31,8 +30,8 @@ public class CoalCombinerBlock extends KrystalCraftBlock {
         if (state.getBlock() != blockState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
 
-            if (blockEntity instanceof CoalCombinerBlockEntity) {
-                Containers.dropContents(level, blockPos, (CoalCombinerBlockEntity) blockEntity);
+            if (blockEntity instanceof GemCuttingBlockEntity) {
+                Containers.dropContents(level, blockPos, (GemCuttingBlockEntity) blockEntity);
                 level.updateNeighbourForOutputSignal(blockPos, this);
             }
             super.onRemove(state, level, blockPos, blockState, moved);
@@ -59,6 +58,6 @@ public class CoalCombinerBlock extends KrystalCraftBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(@Nullable Level pLevel, @Nullable BlockState pState, @Nullable BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, BlockEntityRegistry.COAL_COMBINER_BLOCK_ENTITY.get(), CoalCombinerBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, BlockEntityRegistry.GEM_CUTTING_STATION_BLOCK_ENTITY.get(), GemCuttingBlockEntity::tick);
     }
 }
