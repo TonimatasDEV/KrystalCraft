@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.client;
+package net.tonimatasdev.krystalcraft.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
@@ -8,15 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.client.handler.CrushingStationMenuHandler;
+import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class CrushingStationMenu extends AbstractContainerScreen<CrushingStationMenuHandler> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
+public class CuttingStationScreen extends AbstractContainerScreen<CuttingStationMenu> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
 
-    public CrushingStationMenu(CrushingStationMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CuttingStationScreen(CuttingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -30,11 +30,6 @@ public class CrushingStationMenu extends AbstractContainerScreen<CrushingStation
         int y = (height - imageHeight) / 2;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
-        guiGraphics.blit(TEXTURE, x + 55, y + 48, 176, 0, 14, menu.getFuelScaledProgress());
-
-        if (menu.isCrafting()) {
-            //Future crafting animation with menu.getScaledProgress()
-        }
     }
 
     @Override

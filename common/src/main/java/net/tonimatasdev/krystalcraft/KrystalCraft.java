@@ -6,13 +6,13 @@ public class KrystalCraft {
 	public static final String MOD_ID = "krystalcraft";
 
 	public static void init() {
-		BlockRegistry.init();
-		ItemRegistry.init();
-		BlockEntityRegistry.init();
-		ScreenHandlerRegistry.init();
-		RecipeSerializerRegistry.init();
-		RecipeTypeRegistry.init();
-		EnchantmentRegistry.init();
-		TabRegistry.init();
+		ModBlocks.BLOCKS.init();
+		ModItems.ITEMS.init();
+		ModBlockEntities.BLOCK_ENTITIES.init();
+		ModMenus.MENUS.init();
+		ModRecipeSerializers.RECIPE_SERIALIZERS.init();
+		ModRecipes.RECIPE_TYPES.init();
+		ModEnchants.ENCHANTMENTS.init();
+		ModTabs.TABS.init();
 	}
 }

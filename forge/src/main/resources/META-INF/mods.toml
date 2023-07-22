@@ -33,10 +33,3 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
    versionRange="${forge_minecraft_version_range}"
    ordering="NONE"
    side="BOTH"
-
-[[dependencies.krystalcraft]]
-   modId = "architectury"
-   mandatory = true
-   versionRange = "${forge_architectury_version_range}"
-   ordering = "NONE"
-   side = "BOTH"

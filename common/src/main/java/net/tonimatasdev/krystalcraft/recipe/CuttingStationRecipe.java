@@ -11,8 +11,8 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.tonimatasdev.krystalcraft.registry.RecipeSerializerRegistry;
-import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
+import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
+import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import net.tonimatasdev.krystalcraft.util.GeneralUtil;
 import org.jetbrains.annotations.NotNull;
 
@@ -54,12 +54,12 @@ public class CuttingStationRecipe implements Recipe<Container> {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return RecipeSerializerRegistry.CUTTING_STATION_SERIALIZER.get();
+        return ModRecipeSerializers.CUTTING_STATION_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return RecipeTypeRegistry.CUTTING_STATION.get();
+        return ModRecipes.CUTTING_STATION.get();
     }
 
     @Override
