@@ -4,9 +4,16 @@ dependencies {
 }
 
 base {
-    archivesName = archives_base_name + "Common-" + mod_version
+    archivesName = "KrystalCraftCommon-" + mod_version
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources', 'src/generated']
+        }
+    }
+}
 
 architectury {
     common("fabric", "forge")

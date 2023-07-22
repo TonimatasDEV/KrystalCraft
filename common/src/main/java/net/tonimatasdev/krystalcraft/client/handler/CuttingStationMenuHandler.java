@@ -9,31 +9,30 @@ import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.tonimatasdev.krystalcraft.client.handler.slot.ModFuelSlot;
 import net.tonimatasdev.krystalcraft.client.handler.slot.ModResultSlot;
 import net.tonimatasdev.krystalcraft.registry.ScreenHandlerRegistry;
 import org.jetbrains.annotations.NotNull;
 
-public class CoalCombinerMenuHandler extends AbstractContainerMenu {
+public class CuttingStationMenuHandler extends AbstractContainerMenu {
     private static final int TE_INVENTORY_SLOT_COUNT = 4; // Number of slots in the screen
     private final ContainerData data;
     private final Container container;
 
-    public CoalCombinerMenuHandler(int syncId, Inventory playerInventory) {
+    public CuttingStationMenuHandler(int syncId, Inventory playerInventory) {
         this(syncId, playerInventory, new SimpleContainer(4), new SimpleContainerData(3));
     }
 
-    public CoalCombinerMenuHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData data) {
-        super(ScreenHandlerRegistry.COAL_COMBINER_MENU.get(), syncId);
+    public CuttingStationMenuHandler(int syncId, Inventory playerInventory, Container inventory, ContainerData data) {
+        super(ScreenHandlerRegistry.GEM_CUTTING_MENU.get(), syncId);
 
         this.container = inventory;
         checkContainerSize(inventory, 4);
         this.data = data;
 
-        this.addSlot(new Slot(inventory, 0, 70, 31));
-        this.addSlot(new Slot(inventory, 1, 88, 31));
-        this.addSlot(new ModFuelSlot(inventory, 2, 80, 64));
-        this.addSlot(new ModResultSlot(inventory, 3, 80, 86));
+        this.addSlot(new Slot(inventory, 0, 34, 40));
+        this.addSlot(new Slot(inventory, 1, 57, 18));
+        this.addSlot(new Slot(inventory, 2, 103, 18));
+        this.addSlot(new ModResultSlot(inventory, 3, 80, 60));
 
         buildPlayerContainer(playerInventory);
     }

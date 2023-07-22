@@ -8,15 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.client.handler.GemCuttingMenuHandler;
+import net.tonimatasdev.krystalcraft.client.handler.CuttingStationMenuHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class GemCuttingMenu extends AbstractContainerScreen<GemCuttingMenuHandler> {
+public class CuttingStationMenu extends AbstractContainerScreen<CuttingStationMenuHandler> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
 
-    public GemCuttingMenu(GemCuttingMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CuttingStationMenu(CuttingStationMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

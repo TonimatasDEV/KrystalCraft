@@ -2,26 +2,17 @@ package net.tonimatasdev.krystalcraft.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.tonimatasdev.krystalcraft.block.entity.custom.GemCuttingBlockEntity;
-import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
-import org.jetbrains.annotations.NotNull;
+import net.tonimatasdev.krystalcraft.block.entity.custom.CuttingStationBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class GemCuttingBlock extends KrystalCraftBlock {
-    public GemCuttingBlock() {
+public class CuttingStationBlock extends KrystalCraftBlock {
+    public CuttingStationBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion());
     }
 
@@ -30,8 +21,8 @@ public class GemCuttingBlock extends KrystalCraftBlock {
         if (state.getBlock() != blockState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
 
-            if (blockEntity instanceof GemCuttingBlockEntity) {
-                Containers.dropContents(level, blockPos, (GemCuttingBlockEntity) blockEntity);
+            if (blockEntity instanceof CuttingStationBlockEntity) {
+                Containers.dropContents(level, blockPos, (CuttingStationBlockEntity) blockEntity);
                 level.updateNeighbourForOutputSignal(blockPos, this);
             }
             super.onRemove(state, level, blockPos, blockState, moved);
@@ -40,6 +31,6 @@ public class GemCuttingBlock extends KrystalCraftBlock {
 
     @Override
     public BlockEntity newBlockEntity(@Nullable BlockPos pPos, @Nullable BlockState pState) {
-        return new GemCuttingBlockEntity(pPos, pState);
+        return new CuttingStationBlockEntity(pPos, pState);
     }
 }

@@ -2,25 +2,17 @@ package net.tonimatasdev.krystalcraft.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.BlockHitResult;
-import net.tonimatasdev.krystalcraft.block.entity.custom.CoalCrusherBlockEntity;
-import org.jetbrains.annotations.NotNull;
+import net.tonimatasdev.krystalcraft.block.entity.custom.CombiningStationBlockEntity;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public class CoalCrusherBlock extends KrystalCraftBlock {
-    public CoalCrusherBlock() {
+public class CombiningStationBlock extends KrystalCraftBlock {
+    public CombiningStationBlock() {
         super(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).noOcclusion());
     }
 
@@ -29,8 +21,8 @@ public class CoalCrusherBlock extends KrystalCraftBlock {
         if (state.getBlock() != blockState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(blockPos);
 
-            if (blockEntity instanceof CoalCrusherBlockEntity) {
-                Containers.dropContents(level, blockPos, (CoalCrusherBlockEntity) blockEntity);
+            if (blockEntity instanceof CombiningStationBlockEntity) {
+                Containers.dropContents(level, blockPos, (CombiningStationBlockEntity) blockEntity);
                 level.updateNeighbourForOutputSignal(blockPos, this);
             }
             super.onRemove(state, level, blockPos, blockState, moved);
@@ -39,6 +31,6 @@ public class CoalCrusherBlock extends KrystalCraftBlock {
 
     @Override
     public BlockEntity newBlockEntity(@Nullable BlockPos pPos, @Nullable BlockState pState) {
-        return new CoalCrusherBlockEntity(pPos, pState);
+        return new CombiningStationBlockEntity(pPos, pState);
     }
 }

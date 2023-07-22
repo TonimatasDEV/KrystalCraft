@@ -6,18 +6,18 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CoalCrusherRecipe;
-import net.tonimatasdev.krystalcraft.recipe.GemCuttingRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CombiningStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CrushingStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CuttingStationRecipe;
 
 import java.util.function.Supplier;
 
 public class RecipeTypeRegistry {
     private static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(KrystalCraft.MOD_ID, Registries.RECIPE_TYPE);
 
-    public static final RegistrySupplier<RecipeType<CoalCombinerRecipe>> COAL_COMBINER_TYPE = create("coal_combiner");
-    public static final RegistrySupplier<RecipeType<CoalCrusherRecipe>> COAL_CRUSHER_TYPE = create("coal_crusher");
-    public static final RegistrySupplier<RecipeType<GemCuttingRecipe>> GEM_CUTTING_TYPE = create("gem_cutting_station");
+    public static final RegistrySupplier<RecipeType<CombiningStationRecipe>> COMBINING_STATION = create("combining_station");
+    public static final RegistrySupplier<RecipeType<CrushingStationRecipe>> CRUSHING_STATION = create("crushing_station");
+    public static final RegistrySupplier<RecipeType<CuttingStationRecipe>> CUTTING_STATION = create("cutting_station");
 
 
     private static <T extends Recipe<?>> RegistrySupplier<RecipeType<T>> create(String name) {

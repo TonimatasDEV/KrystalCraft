@@ -12,9 +12,9 @@ import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.block.custom.CoalCombinerBlock;
-import net.tonimatasdev.krystalcraft.block.custom.CoalCrusherBlock;
-import net.tonimatasdev.krystalcraft.block.custom.GemCuttingBlock;
+import net.tonimatasdev.krystalcraft.block.custom.CombiningStationBlock;
+import net.tonimatasdev.krystalcraft.block.custom.CrushingStationBlock;
+import net.tonimatasdev.krystalcraft.block.custom.CuttingStationBlock;
 
 import java.util.function.Supplier;
 
@@ -50,9 +50,9 @@ public class BlockRegistry {
     public static final RegistrySupplier<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // Custom Blocks
-    public static final RegistrySupplier<Block> CUTTING_STATION = registerBlock("gem_cutting", GemCuttingBlock::new);
-    public static final RegistrySupplier<Block> COAL_CRUSHER = registerBlock("coal_crusher", CoalCrusherBlock::new);
-    public static final RegistrySupplier<Block> COAL_COMBINER = registerBlock("coal_combiner", CoalCombinerBlock::new);
+    public static final RegistrySupplier<Block> CUTTING_STATION = registerBlock("cutting_station", CuttingStationBlock::new);
+    public static final RegistrySupplier<Block> CRUSHING_STATION = registerBlock("crushing_station", CrushingStationBlock::new);
+    public static final RegistrySupplier<Block> COMBINING_STATION = registerBlock("combining_station", CombiningStationBlock::new);
 
     private static <T extends Block> RegistrySupplier<T> registerBlock(String name, Supplier<T> block) {
         RegistrySupplier<T> toReturn = BLOCKS.register(name, block);
