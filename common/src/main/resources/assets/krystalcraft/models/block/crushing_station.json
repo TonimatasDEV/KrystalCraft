@@ -1,11 +1,12 @@
 {
-	"parent": "block/cube_all",
+	"parent": "block/cube",
 	"textures": {
-		"down": "krystalcraft:machine/station/shared/down",
-		"up": "krystalcraft:machine/station/cutting/up",
-		"north": "krystalcraft:machine/station/cutting/north",
-		"south": "krystalcraft:machine/station/shared/side",
-		"west": "krystalcraft:machine/station/shared/side",
-		"east": "krystalcraft:machine/station/shared/side"
+		"north": "krystalcraft:block/north_crushing_station",
+		"east": "krystalcraft:block/side_station",
+		"south": "krystalcraft:block/side_station",
+		"west": "krystalcraft:block/side_station",
+		"up": "krystalcraft:block/up_crushing_station",
+		"down": "krystalcraft:block/down_station",
+		"particle": "krystalcraft:block/side_station"
 	}
 }

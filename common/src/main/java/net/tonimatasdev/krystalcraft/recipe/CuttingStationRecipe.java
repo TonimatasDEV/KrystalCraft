@@ -78,9 +78,9 @@ public class CuttingStationRecipe implements Recipe<Container> {
         public @NotNull CuttingStationRecipe fromJson(ResourceLocation id, JsonObject json) {
             final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for Coal Crusher");
+                throw new JsonParseException("No ingredients for Cutting Station");
             } else if (ingredients.size() > 1) {
-                throw new JsonParseException("Too many ingredients for Coal Crusher");
+                throw new JsonParseException("Too many ingredients for Cutting Station");
             } else {
                 return new CuttingStationRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
             }
