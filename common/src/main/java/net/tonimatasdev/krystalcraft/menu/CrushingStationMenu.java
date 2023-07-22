@@ -16,8 +16,7 @@ public class CrushingStationMenu extends StationMenu<CrushingStationBlockEntity>
                 new Slot[]{
                         new Slot(blockEntity, 0, 70, 31),
                         new Slot(blockEntity, 1, 88, 31),
-                        new Slot(blockEntity, 2, 80, 64),
-                        new Slot(blockEntity, 3, 80, 86)
+                        new Slot(blockEntity, 2, 80, 64)
                 });
     }
 
