@@ -3,23 +3,16 @@ package net.tonimatasdev.krystalcraft.block.entity.custom;
 import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
 import earth.terrarium.botarium.common.fluid.base.FluidContainer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
-import org.jetbrains.annotations.NotNull;
 
 public class CuttingStationBlockEntity extends StationBlockEntity implements BotariumFluidBlock {
     public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState);
-    }
-
-    @Override
-    public @NotNull Component getDisplayName() {
-        return Component.empty();
     }
 
     @Override
@@ -28,8 +21,8 @@ public class CuttingStationBlockEntity extends StationBlockEntity implements Bot
     }
 
     @Override
-    public void tick() {
-
+    public int getInventorySize() {
+        return 5;
     }
 
     @Override
@@ -38,7 +31,7 @@ public class CuttingStationBlockEntity extends StationBlockEntity implements Bot
     }
 
     @Override
-    public int getContainerSize() {
-        return 0;
+    public void tick() {
+
     }
 }

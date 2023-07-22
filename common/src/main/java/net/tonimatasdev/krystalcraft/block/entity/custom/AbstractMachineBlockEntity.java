@@ -19,6 +19,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.block.custom.AbstractMachineBlock;
 import net.tonimatasdev.krystalcraft.util.ModInventory;
 
 @MethodsReturnNonnullByDefault
@@ -27,15 +28,32 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
 
     public AbstractMachineBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
-        inventory = NonNullList.withSize(getContainerSize(), ItemStack.EMPTY);
+        inventory = NonNullList.withSize(getInventorySize(), ItemStack.EMPTY);
     }
+
+    public abstract void tick();
 
     @Override
     public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return null;
     }
 
-    public abstract void tick();
+    public int getInventorySize() {
+        return 0;
+    }
+
+    public void setActive(boolean active) {
+        if (this.getBlockState().hasProperty(AbstractMachineBlock.LIT)) {
+            if (this.getLevel() != null) {
+                this.getLevel().setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(AbstractMachineBlock.LIT, active));
+            }
+        }
+    }
+
+    @Override
+    public Component getDisplayName() {
+        return getBlockState().getBlock().getName();
+    }
 
     @Override
     public void writeExtraData(ServerPlayer player, FriendlyByteBuf buffer) {
@@ -45,7 +63,7 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
     @Override
     public void load(CompoundTag compoundTag) {
         super.load(compoundTag);
-        if (getContainerSize() > 0) {
+        if (getInventorySize() > 0) {
             ContainerHelper.loadAllItems(compoundTag, this.inventory);
         }
     }
@@ -53,7 +71,7 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
     @Override
     protected void saveAdditional(CompoundTag compoundTag) {
         super.saveAdditional(compoundTag);
-        if (getContainerSize() > 0) {
+        if (getInventorySize() > 0) {
             ContainerHelper.saveAllItems(compoundTag, this.inventory);
         }
     }
@@ -66,8 +84,6 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
             serverWorld.getChunkSource().blockChanged(this.worldPosition);
         }
     }
-
-    public abstract int getContainerSize();
 
     @Override
     public int[] getSlotsForFace(Direction side) {
@@ -89,7 +105,6 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
         return true;
     }
 
-
     public NonNullList<ItemStack> getItems() {
         return inventory;
     }
@@ -97,10 +112,5 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
     @Override
     public CompoundTag getUpdateTag() {
         return this.saveWithoutMetadata();
-    }
-
-    @Override
-    public Component getDisplayName() {
-        return null;
     }
 }
