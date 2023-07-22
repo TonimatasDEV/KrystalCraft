@@ -14,26 +14,26 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
+import net.tonimatasdev.krystalcraft.client.handler.CuttingStationMenuHandler;
+import net.tonimatasdev.krystalcraft.recipe.CuttingStationRecipe;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
-import net.tonimatasdev.krystalcraft.client.handler.CoalCombinerMenuHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<CoalCombinerBlockEntity> {
-    public CoalCombinerBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityRegistry.COAL_COMBINER_BLOCK_ENTITY.get(), blockPos, blockState, 4);
+public class CuttingStationBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<CuttingStationBlockEntity> {
+    public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityRegistry.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
     }
 
     @Override
-    public void tick(Level world, BlockPos pos, BlockState state, CoalCombinerBlockEntity blockEntity) {
+    public void tick(Level world, BlockPos pos, BlockState state, CuttingStationBlockEntity blockEntity) {
         if (world.isClientSide) return;
         boolean dirty = false;
         final var recipeType = world.getRecipeManager()
-                .getRecipeFor(RecipeTypeRegistry.COAL_COMBINER_TYPE.get(), blockEntity, world)
+                .getRecipeFor(RecipeTypeRegistry.CUTTING_STATION.get(), blockEntity, world)
                 .orElse(null);
         RegistryAccess access = level.registryAccess();
         if (canCraft(recipeType, access)) {
@@ -52,7 +52,7 @@ public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity impleme
 
     }
 
-    private boolean canCraft(CoalCombinerRecipe recipe, RegistryAccess access) {
+    private boolean canCraft(CuttingStationRecipe recipe, RegistryAccess access) {
         if (recipe == null || recipe.getResultItem(access).isEmpty()) {
             return false;
         } else if (areInputsEmpty()) {
@@ -71,7 +71,7 @@ public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity impleme
         return emptyStacks == 2;
     }
 
-    private void craft(CoalCombinerRecipe recipe, RegistryAccess access) {
+    private void craft(CuttingStationRecipe recipe, RegistryAccess access) {
         if (!canCraft(recipe, access)) {
             return;
         }
@@ -94,21 +94,20 @@ public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity impleme
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("block.krystalcraft.coal_combiner");
+        return Component.empty();
     }
 
-    @Nullable
     @Override
     public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
-        return new CoalCombinerMenuHandler(syncId, inventory, this, data);
+        return new CuttingStationMenuHandler(syncId, inventory, this, data);
     }
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.inventory);
-        tag.putInt("coal_combiner.progress", progress);
-        tag.putInt("coal_combiner.fuel", fuel);
+        tag.putInt("cutting_station.progress", progress);
+        tag.putInt("cutting_station.fuel", fuel);
     }
 
     @Override
@@ -116,7 +115,7 @@ public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity impleme
         super.load(Objects.requireNonNull(nbt));
         this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(nbt, this.inventory);
-        progress = nbt.getInt("coal_combiner.progress");
-        progress = nbt.getInt("coal_combiner.fuel");
+        progress = nbt.getInt("cutting_station.progress");
+        progress = nbt.getInt("cutting_station.fuel");
     }
 }

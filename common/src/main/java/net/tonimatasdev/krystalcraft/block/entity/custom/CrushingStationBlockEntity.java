@@ -14,8 +14,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.client.handler.GemCuttingMenuHandler;
-import net.tonimatasdev.krystalcraft.recipe.GemCuttingRecipe;
+import net.tonimatasdev.krystalcraft.client.handler.CrushingStationMenuHandler;
+import net.tonimatasdev.krystalcraft.recipe.CrushingStationRecipe;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
 import org.jetbrains.annotations.NotNull;
@@ -23,17 +23,17 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
-public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<GemCuttingBlockEntity> {
-    public GemCuttingBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityRegistry.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
+public class CrushingStationBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<CrushingStationBlockEntity> {
+    public CrushingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
+        super(BlockEntityRegistry.CRUSHING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
     }
 
     @Override
-    public void tick(Level world, BlockPos pos, BlockState state, GemCuttingBlockEntity blockEntity) {
+    public void tick(Level world, BlockPos pos, BlockState state, CrushingStationBlockEntity blockEntity) {
         if (world.isClientSide) return;
         boolean dirty = false;
         final var recipeType = world.getRecipeManager()
-                .getRecipeFor(RecipeTypeRegistry.GEM_CUTTING_TYPE.get(), blockEntity, world)
+                .getRecipeFor(RecipeTypeRegistry.CRUSHING_STATION.get(), blockEntity, world)
                 .orElse(null);
         RegistryAccess access = level.registryAccess();
         if (canCraft(recipeType, access)) {
@@ -52,7 +52,7 @@ public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implement
 
     }
 
-    private boolean canCraft(GemCuttingRecipe recipe, RegistryAccess access) {
+    private boolean canCraft(CrushingStationRecipe recipe, RegistryAccess access) {
         if (recipe == null || recipe.getResultItem(access).isEmpty()) {
             return false;
         } else if (areInputsEmpty()) {
@@ -71,7 +71,7 @@ public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implement
         return emptyStacks == 2;
     }
 
-    private void craft(GemCuttingRecipe recipe, RegistryAccess access) {
+    private void craft(CrushingStationRecipe recipe, RegistryAccess access) {
         if (!canCraft(recipe, access)) {
             return;
         }
@@ -94,20 +94,20 @@ public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implement
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.empty();
+        return Component.translatable("block.krystalcraft.crushing_station");
     }
 
     @Override
     public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
-        return new GemCuttingMenuHandler(syncId, inventory, this, data);
+        return new CrushingStationMenuHandler(syncId, inventory, this, data);
     }
 
     @Override
     protected void saveAdditional(@NotNull CompoundTag tag) {
         super.saveAdditional(tag);
         ContainerHelper.saveAllItems(tag, this.inventory);
-        tag.putInt("gem_cutting.progress", progress);
-        tag.putInt("gem_cutting.fuel", fuel);
+        tag.putInt("crushing_station.progress", progress);
+        tag.putInt("crushing_station.fuel", fuel);
     }
 
     @Override
@@ -115,7 +115,7 @@ public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implement
         super.load(Objects.requireNonNull(nbt));
         this.inventory = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
         ContainerHelper.loadAllItems(nbt, this.inventory);
-        progress = nbt.getInt("gem_cutting.progress");
-        progress = nbt.getInt("gem_cutting.fuel");
+        progress = nbt.getInt("crushing_station.progress");
+        progress = nbt.getInt("crushing_station.fuel");
     }
 }

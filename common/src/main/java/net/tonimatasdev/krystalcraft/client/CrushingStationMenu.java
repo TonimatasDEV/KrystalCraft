@@ -8,15 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.client.handler.CoalCrusherMenuHandler;
+import net.tonimatasdev.krystalcraft.client.handler.CrushingStationMenuHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class CoalCrusherMenu extends AbstractContainerScreen<CoalCrusherMenuHandler> {
+public class CrushingStationMenu extends AbstractContainerScreen<CrushingStationMenuHandler> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
 
-    public CoalCrusherMenu(CoalCrusherMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CrushingStationMenu(CrushingStationMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

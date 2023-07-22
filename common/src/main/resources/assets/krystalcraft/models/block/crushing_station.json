@@ -1,0 +1,11 @@
+{
+	"parent": "block/cube_all",
+	"textures": {
+		"down": "krystalcraft:machine/station/shared/down",
+		"up": "krystalcraft:machine/station/cutting/up",
+		"north": "krystalcraft:machine/station/cutting/north",
+		"south": "krystalcraft:machine/station/shared/side",
+		"west": "krystalcraft:machine/station/shared/side",
+		"east": "krystalcraft:machine/station/shared/side"
+	}
+}

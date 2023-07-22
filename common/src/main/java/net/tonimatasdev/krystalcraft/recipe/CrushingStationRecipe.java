@@ -16,13 +16,13 @@ import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
 import net.tonimatasdev.krystalcraft.util.GeneralUtil;
 import org.jetbrains.annotations.NotNull;
 
-public class CoalCrusherRecipe implements Recipe<Container> {
+public class CrushingStationRecipe implements Recipe<Container> {
 
     final ResourceLocation id;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
 
-    public CoalCrusherRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
+    public CrushingStationRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
         this.id = id;
         this.inputs = inputs;
         this.output = output;
@@ -54,12 +54,12 @@ public class CoalCrusherRecipe implements Recipe<Container> {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return RecipeSerializerRegistry.COAL_CRUSHER_SERIALIZER.get();
+        return RecipeSerializerRegistry.CRUSHING_STATION_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return RecipeTypeRegistry.COAL_CRUSHER_TYPE.get();
+        return RecipeTypeRegistry.CRUSHING_STATION.get();
     }
 
     @Override
@@ -73,28 +73,28 @@ public class CoalCrusherRecipe implements Recipe<Container> {
     }
 
     @SuppressWarnings("unused")
-    public static class Serializer implements RecipeSerializer<CoalCrusherRecipe> {
+    public static class Serializer implements RecipeSerializer<CrushingStationRecipe> {
         @Override
-        public @NotNull CoalCrusherRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public @NotNull CrushingStationRecipe fromJson(ResourceLocation id, JsonObject json) {
             final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for Coal Crusher");
             } else if (ingredients.size() > 1) {
                 throw new JsonParseException("Too many ingredients for Coal Crusher");
             } else {
-                return new CoalCrusherRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
+                return new CrushingStationRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
             }
         }
 
         @Override
-        public @NotNull CoalCrusherRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public @NotNull CrushingStationRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             final var ingredients = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
             ingredients.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-            return new CoalCrusherRecipe(id, ingredients, buf.readItem());
+            return new CrushingStationRecipe(id, ingredients, buf.readItem());
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, CoalCrusherRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, CrushingStationRecipe recipe) {
             buf.writeVarInt(recipe.inputs.size());
             recipe.inputs.forEach(entry -> entry.toNetwork(buf));
             buf.writeItem(recipe.output);

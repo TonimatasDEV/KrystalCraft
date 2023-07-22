@@ -14,7 +14,10 @@
   "icon": "icon.png",
 
   "environment": "*",
-  "entrypoints": {},
+  "entrypoints": {
+    "main": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftFabric"],
+    "client": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftClientFabric"]
+  },
   "mixins": [
     "krystalcraft.mixins.json",
     "krystalcraft-common.mixins.json"

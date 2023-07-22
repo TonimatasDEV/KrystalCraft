@@ -8,15 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.client.handler.CoalCombinerMenuHandler;
+import net.tonimatasdev.krystalcraft.client.handler.CombiningStationMenuHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class CoalCombinerMenu  extends AbstractContainerScreen<CoalCombinerMenuHandler> {
+public class CombiningStationMenu extends AbstractContainerScreen<CombiningStationMenuHandler> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
 
-    public CoalCombinerMenu(CoalCombinerMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CombiningStationMenu(CombiningStationMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

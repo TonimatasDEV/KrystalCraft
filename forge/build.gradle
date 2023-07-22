@@ -3,7 +3,7 @@ plugins {
 }
 
 base {
-    archivesName = archives_base_name + "Forge-" + mod_version
+    archivesName = "KrystalCraftForge-" + mod_version
 }
 
 architectury {
@@ -71,7 +71,7 @@ components.java {
 publishing {
     publications {
         mavenForge(MavenPublication) {
-            artifactId = rootProject.archives_base_name + "-" + project.name
+            artifactId = "krystalcraft-" + project.name
             from components.java
         }
     }

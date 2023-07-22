@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "krystalcraft:block/cutting_station"
+    },
+    "facing=east": {
+      "model": "krystalcraft:block/cutting_station",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "krystalcraft:block/cutting_station",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "krystalcraft:block/cutting_station",
+      "y": 270
+    }
+  }
+}

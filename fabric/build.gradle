@@ -3,7 +3,7 @@ plugins {
 }
 
 base {
-    archivesName = archives_base_name + "Fabric-" + mod_version
+    archivesName = "KrystalCraftFabric-" + mod_version
 }
 
 architectury {
@@ -23,7 +23,8 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
 
     // Dependencies (OPTIONAL)
-    modApi "dev.architectury:architectury-fabric:${architectury_version}" // Architectury
+    modApi "dev.architectury:architectury-fabric:${architectury_version}"
+    modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -71,7 +72,7 @@ components.java {
 publishing {
     publications {
         mavenFabric(MavenPublication) {
-            artifactId = archives_base_name + "-" + project.name
+            artifactId = "krystalcraft-" + project.name
             from components.java
         }
     }
