@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.screen;
+package net.tonimatasdev.krystalcraft.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
@@ -8,14 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.client.handler.CoalCrusherMenuHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class CoalCrusherScreen extends AbstractContainerScreen<CoalCrusherMenu> {
+public class CoalCrusherMenu extends AbstractContainerScreen<CoalCrusherMenuHandler> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
 
-    public CoalCrusherScreen(CoalCrusherMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CoalCrusherMenu(CoalCrusherMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 

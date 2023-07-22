@@ -50,7 +50,7 @@ public class BlockRegistry {
     public static final RegistrySupplier<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // Custom Blocks
-    public static final RegistrySupplier<Block> GEM_CUTTING_STATION = registerBlock("gem_cutting", GemCuttingBlock::new);
+    public static final RegistrySupplier<Block> CUTTING_STATION = registerBlock("gem_cutting", GemCuttingBlock::new);
     public static final RegistrySupplier<Block> COAL_CRUSHER = registerBlock("coal_crusher", CoalCrusherBlock::new);
     public static final RegistrySupplier<Block> COAL_COMBINER = registerBlock("coal_combiner", CoalCombinerBlock::new);
 

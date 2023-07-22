@@ -14,10 +14,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.client.handler.GemCuttingMenuHandler;
 import net.tonimatasdev.krystalcraft.recipe.GemCuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
-import net.tonimatasdev.krystalcraft.screen.GemCuttingMenu;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,7 +25,7 @@ import java.util.Objects;
 
 public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implements BlockEntityTicker<GemCuttingBlockEntity> {
     public GemCuttingBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(BlockEntityRegistry.GEM_CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
+        super(BlockEntityRegistry.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState, 5);
     }
 
     @Override
@@ -94,12 +94,12 @@ public class GemCuttingBlockEntity extends KrystalCraftFuelBlockEntity implement
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("block.krystalcraft.coal_crusher");
+        return Component.empty();
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new GemCuttingMenu(pContainerId, pInventory, this, this.data);
+    public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
+        return new GemCuttingMenuHandler(syncId, inventory, this, data);
     }
 
     @Override
