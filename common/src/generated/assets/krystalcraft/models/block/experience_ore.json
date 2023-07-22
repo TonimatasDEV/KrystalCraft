@@ -1,0 +1,5 @@
+{
+  "all": "krystalcraft:block/experience_ore",
+  "parent": "minecraft:block/cube_all",
+  "textures": {}
+}

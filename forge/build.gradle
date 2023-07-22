@@ -33,6 +33,14 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 }
 
+sourceSets {
+    main {
+        resources {
+            srcDirs = ['src/main/resources', 'src/generated']
+        }
+    }
+}
+
 processResources {
     var replaceProperties = [
             mod_version: mod_version, mod_name: mod_name, mod_license: mod_license,

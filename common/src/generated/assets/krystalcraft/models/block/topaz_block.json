@@ -1,0 +1,5 @@
+{
+  "all": "krystalcraft:block/topaz_block",
+  "parent": "minecraft:block/cube_all",
+  "textures": {}
+}
