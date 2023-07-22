@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 @SuppressWarnings("deprecation")
-public abstract class KrystalCraftBlock extends BaseEntityBlock implements EntityBlock {
+public abstract class KrystalCraftBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
     protected KrystalCraftBlock(Properties properties) {

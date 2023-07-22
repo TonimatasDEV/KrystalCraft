@@ -14,6 +14,10 @@ subprojects {
         silentMojangMappingsLicense()
     }
 
+    repositories {
+        maven { url = "https://maven.resourcefulbees.com/repository/maven-public/" }
+    }
+
     dependencies {
         minecraft "com.mojang:minecraft:${minecraft_version}"
         mappings loom.officialMojangMappings()
@@ -27,10 +31,6 @@ allprojects {
 
     version = mod_version
     group = "net.tonimatas.dev"
-
-    repositories {
-
-    }
 
     tasks.withType(JavaCompile) {
         options.encoding = "UTF-8"
