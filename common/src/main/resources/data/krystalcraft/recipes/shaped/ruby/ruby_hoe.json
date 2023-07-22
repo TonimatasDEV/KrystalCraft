@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:gems/ruby"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "00",
+    " 1",
+    " 1"
+  ],
+  "result": {
+    "item": "krystalcraft:ruby_hoe"
+  },
+  "show_notification": true
+}

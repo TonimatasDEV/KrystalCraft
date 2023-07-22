@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:gems/sapphire"
+    }
+  },
+  "pattern": [
+    "0 0",
+    "000",
+    "000"
+  ],
+  "result": {
+    "item": "krystalcraft:sapphire_chestplate"
+  },
+  "show_notification": true
+}

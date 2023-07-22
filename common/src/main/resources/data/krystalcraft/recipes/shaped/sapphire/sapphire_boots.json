@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:gems/sapphire"
+    }
+  },
+  "pattern": [
+    "0 0",
+    "0 0"
+  ],
+  "result": {
+    "item": "krystalcraft:sapphire_boots"
+  },
+  "show_notification": true
+}

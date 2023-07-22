@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:glass"
+    },
+    "1": {
+      "item": "minecraft:water_bucket"
+    }
+  },
+  "pattern": [
+    "010",
+    " 0 "
+  ],
+  "result": {
+    "item": "krystalcraft:set_water_bottles"
+  },
+  "show_notification": true
+}
