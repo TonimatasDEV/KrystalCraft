@@ -17,7 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.recipe.CoalCombinerRecipe;
 import net.tonimatasdev.krystalcraft.registry.BlockEntityRegistry;
 import net.tonimatasdev.krystalcraft.registry.RecipeTypeRegistry;
-import net.tonimatasdev.krystalcraft.screen.CoalCombinerMenu;
+import net.tonimatasdev.krystalcraft.client.handler.CoalCombinerMenuHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -97,9 +97,10 @@ public class CoalCombinerBlockEntity extends KrystalCraftFuelBlockEntity impleme
         return Component.translatable("block.krystalcraft.coal_combiner");
     }
 
+    @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int pContainerId, @Nullable Inventory pInventory, @Nullable Player pPlayer) {
-        return new CoalCombinerMenu(pContainerId, pInventory, this, this.data);
+    public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
+        return new CoalCombinerMenuHandler(syncId, inventory, this, data);
     }
 
     @Override

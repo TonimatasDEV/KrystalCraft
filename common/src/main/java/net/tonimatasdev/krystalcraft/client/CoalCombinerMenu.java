@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.screen;
+package net.tonimatasdev.krystalcraft.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
@@ -8,14 +8,15 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.client.handler.CoalCombinerMenuHandler;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
-public class GemCuttingScreen extends AbstractContainerScreen<GemCuttingMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
+public class CoalCombinerMenu  extends AbstractContainerScreen<CoalCombinerMenuHandler> {
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
 
-    public GemCuttingScreen(GemCuttingMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+    public CoalCombinerMenu(CoalCombinerMenuHandler pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
     }
 
@@ -26,9 +27,10 @@ public class GemCuttingScreen extends AbstractContainerScreen<GemCuttingMenu> {
         RenderSystem.setShaderTexture(0, TEXTURE);
 
         int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int y = (height - imageHeight) / 2 + 8;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, -8, imageWidth, imageHeight + 16);
+        guiGraphics.blit(TEXTURE, x + 81, y + 41, 176, 0, 14, menu.getFuelScaledProgress());
 
         if (menu.isCrafting()) {
             //Future crafting animation with menu.getScaledProgress()

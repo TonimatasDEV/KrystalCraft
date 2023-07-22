@@ -4,7 +4,7 @@ license="MIT"
 issueTrackerURL="https://github.com/TonimatasDEV/KrystalCraft/issues"
 
 [[mods]]
-modId="example"
+modId="krystalcraft"
 version="${mod_version}"
 displayName="${mod_name}"
 #updateJSONURL="http://myurl.me/"
@@ -20,21 +20,21 @@ This mod is mainly focused on mining but also have some different mechanics like
 All you need is to craft your tool/weapon/armor in a crafting table and upgrade it with the correspondent machine and minerals for making them better.
 '''
 
-[[dependencies.example]]
+[[dependencies.krystalcraft]]
    modId="forge"
    mandatory=true
    versionRange="${forge_loader_range}"
    ordering="NONE"
    side="BOTH"
 
-[[dependencies.example]]
+[[dependencies.krystalcraft]]
    modId="minecraft"
    mandatory=true
    versionRange="${forge_minecraft_version_range}"
    ordering="NONE"
    side="BOTH"
 
-[[dependencies.example]]
+[[dependencies.krystalcraft]]
    modId = "architectury"
    mandatory = true
    versionRange = "${forge_architectury_version_range}"

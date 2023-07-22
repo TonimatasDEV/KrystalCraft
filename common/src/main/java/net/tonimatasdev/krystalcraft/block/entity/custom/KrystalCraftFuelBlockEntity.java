@@ -18,7 +18,7 @@ public abstract class KrystalCraftFuelBlockEntity extends BlockEntity implements
     protected int progress = 0;
     protected int maxProgress = 100;
     protected int fuel;
-    private int capacity;
+    private final int capacity;
 
     protected ContainerData data = new ContainerData() {
         @Override
