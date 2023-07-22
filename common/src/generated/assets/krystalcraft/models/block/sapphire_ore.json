@@ -1,0 +1,5 @@
+{
+  "all": "krystalcraft:block/sapphire_ore",
+  "parent": "minecraft:block/cube_all",
+  "textures": {}
+}
