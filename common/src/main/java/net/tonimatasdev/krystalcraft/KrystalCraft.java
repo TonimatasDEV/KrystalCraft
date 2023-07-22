@@ -6,8 +6,8 @@ public class KrystalCraft {
 	public static final String MOD_ID = "krystalcraft";
 
 	public static void init() {
-		ItemRegistry.init();
 		BlockRegistry.init();
+		ItemRegistry.init();
 		BlockEntityRegistry.init();
 		ScreenHandlerRegistry.init();
 		RecipeSerializerRegistry.init();
