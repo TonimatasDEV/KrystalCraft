@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:ingots/copper"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "0",
+    "1",
+    "1"
+  ],
+  "result": {
+    "item": "krystalcraft:copper_shovel"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:gems/topaz"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "0",
+    "0",
+    "1"
+  ],
+  "result": {
+    "item": "krystalcraft:topaz_sword"
+  },
+  "show_notification": true
+}

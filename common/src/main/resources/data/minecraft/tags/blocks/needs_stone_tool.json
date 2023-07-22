@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "krystalcraft:tin_block",
+    "krystalcraft:tin_ore",
+    "krystalcraft:deepslate_tin_ore",
+    "krystalcraft:combining_station",
+    "krystalcraft:crushing_station",
+    "krystalcraft:cutting_station",
+    "krystalcraft:deepslate_experience_ore",
+    "krystalcraft:experience_ore"
+  ]
+}
