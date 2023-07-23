@@ -24,10 +24,10 @@ dependencies {
     modApi "earth.terrarium:botarium-forge-${minecraft_version}:${botarium_version}"
     modImplementation "com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourcefullib_version}"
 
-    //modCompileOnly "mezz.jei:jei-$minecraft_version-forge-api:$jei_version"
-    //modLocalRuntime("mezz.jei:jei-$minecraft_version-forge:$jei_version") { transitive = false }
+    modCompileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
+    modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }
 
-    //modImplementation "vazkii.patchouli:Patchouli:$minecraft_version-$patchouli_version-FORGE"
+    modImplementation "vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FORGE"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }

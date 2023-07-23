@@ -52,6 +52,10 @@ public class CrushingStationRecipe implements Recipe<Container> {
         return id;
     }
 
+    public ItemStack getOutput() {
+        return output;
+    }
+
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.CRUSHING_STATION_SERIALIZER.get();

@@ -48,7 +48,7 @@ public class BlockGenerator {
         Map<String, Object> dataGen = new HashMap<>();
         Map<String, String> textures = new HashMap<>();
         dataGen.put("parent", "minecraft:block/cube_all");
-        dataGen.put("all", "krystalcraft:block/" + value);
+        textures.put("all", "krystalcraft:block/" + value);
         dataGen.put("textures", textures);
 
         onlyItem(value);

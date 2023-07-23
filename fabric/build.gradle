@@ -22,16 +22,16 @@ configurations {
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
 
-    // Dependencies (OPTIONAL)
+    // Dependencies
     modApi "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     modApi "earth.terrarium:botarium-fabric-${minecraft_version}:${botarium_version}"
     modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-${minecraft_version}:${resourcefullib_version}"
 
-    //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:$rei_version"
-    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:$rei_version"
-    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:$rei_version"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
+    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
 
-    //modImplementation "vazkii.patchouli:Patchouli:$minecraft_version-$patchouli_version-FABRIC"
+    modImplementation "vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FABRIC"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }

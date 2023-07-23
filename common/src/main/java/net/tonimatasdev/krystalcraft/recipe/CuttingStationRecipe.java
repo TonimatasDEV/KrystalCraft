@@ -52,6 +52,10 @@ public class CuttingStationRecipe implements Recipe<Container> {
         return id;
     }
 
+    public ItemStack getOutput() {
+        return output;
+    }
+
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.CUTTING_STATION_SERIALIZER.get();
