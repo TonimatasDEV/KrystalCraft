@@ -52,6 +52,10 @@ public class CombiningStationRecipe implements Recipe<Container> {
         return id;
     }
 
+    public ItemStack getOutput() {
+        return output;
+    }
+
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.COMBINING_STATION_SERIALIZER.get();

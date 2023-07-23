@@ -17,6 +17,5 @@ public class ModTabs {
             .title(Component.translatable("itemGroup.krystalcraft"))
             .displayItems(((itemDisplayParameters, output) -> {
                 ModItems.ITEMS.getEntries().forEach((item) -> output.accept(item.get()));
-                ModBlocks.BLOCKS.getEntries().forEach((block) -> output.accept(block.get()));
             })).build());
 }

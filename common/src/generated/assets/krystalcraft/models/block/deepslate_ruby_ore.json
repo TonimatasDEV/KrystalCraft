@@ -1,5 +1,6 @@
 {
-  "all": "krystalcraft:block/deepslate_ruby_ore",
   "parent": "minecraft:block/cube_all",
-  "textures": {}
+  "textures": {
+    "all": "krystalcraft:block/deepslate_ruby_ore"
+  }
 }
