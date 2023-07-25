@@ -13,14 +13,6 @@ base {
     archivesName = "KrystalCraftCommon-" + mod_version
 }
 
-sourceSets {
-    main {
-        resources {
-            srcDirs = ['src/main/resources', 'src/generated']
-        }
-    }
-}
-
 architectury {
     common("fabric", "forge")
 }
