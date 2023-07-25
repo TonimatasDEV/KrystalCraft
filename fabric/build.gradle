@@ -27,11 +27,9 @@ dependencies {
     modApi "earth.terrarium:botarium-fabric-${minecraft_version}:${botarium_version}"
     modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-${minecraft_version}:${resourcefullib_version}"
 
-    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
-    modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
-
-    modImplementation "vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FABRIC"
+    //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
+    //modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
@@ -40,7 +38,7 @@ dependencies {
 processResources {
     var replaceProperties = [
             mod_version: mod_version, mod_name: mod_name, mod_license: mod_license,
-            fabric_loader_range: fabric_loader_range, fabric_minecraft_version_range: fabric_minecraft_version_range]
+            fabric_loader_range: fabric_loader_range, minecraft_version: minecraft_version]
     inputs.properties replaceProperties
 
     filesMatching("fabric.mod.json") {
@@ -72,17 +70,5 @@ sourcesJar {
 components.java {
     withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
         skip()
-    }
-}
-
-publishing {
-    publications {
-        mavenFabric(MavenPublication) {
-            artifactId = "krystalcraft-" + project.name
-            from components.java
-        }
-    }
-
-    repositories {
     }
 }
