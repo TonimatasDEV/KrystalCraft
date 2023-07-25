@@ -24,10 +24,8 @@ dependencies {
     modApi "earth.terrarium:botarium-forge-${minecraft_version}:${botarium_version}"
     modImplementation "com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourcefullib_version}"
 
-    modCompileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
-    modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }
-
-    modImplementation "vazkii.patchouli:Patchouli:${minecraft_version}-${patchouli_version}-FORGE"
+    //modCompileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
+    //modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
@@ -44,7 +42,7 @@ sourceSets {
 processResources {
     var replaceProperties = [
             mod_version: mod_version, mod_name: mod_name, mod_license: mod_license,
-            forge_loader_range: forge_loader_range, forge_minecraft_version_range: forge_minecraft_version_range]
+            forge_loader_range: forge_loader_range, minecraft_version: minecraft_version]
     inputs.properties replaceProperties
 
     filesMatching("META-INF/mods.toml") {
@@ -78,18 +76,5 @@ sourcesJar {
 components.java {
     withVariantsFromConfiguration(project.configurations.shadowRuntimeElements) {
         skip()
-    }
-}
-
-publishing {
-    publications {
-        mavenForge(MavenPublication) {
-            artifactId = "krystalcraft-" + project.name
-            from components.java
-        }
-    }
-
-    repositories {
-
     }
 }

@@ -30,6 +30,6 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
 [[dependencies.krystalcraft]]
    modId="minecraft"
    mandatory=true
-   versionRange="${forge_minecraft_version_range}"
+   versionRange="[${minecraft_version}]"
    ordering="NONE"
    side="BOTH"
