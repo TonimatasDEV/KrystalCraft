@@ -1,7 +1,7 @@
 package net.tonimatasdev.krystalcraft.block.entity.custom;
 
 import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
-import earth.terrarium.botarium.common.fluid.base.FluidContainer;
+import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,7 +10,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 
-public class CuttingStationBlockEntity extends StationBlockEntity implements BotariumFluidBlock {
+public class CuttingStationBlockEntity extends StationBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
     public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState);
     }
@@ -26,12 +26,12 @@ public class CuttingStationBlockEntity extends StationBlockEntity implements Bot
     }
 
     @Override
-    public FluidContainer getFluidContainer() {
-        return null;
+    public void tick() {
+
     }
 
     @Override
-    public void tick() {
-
+    public WrappedBlockFluidContainer getFluidContainer() {
+        return null;
     }
 }

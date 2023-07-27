@@ -16,13 +16,13 @@ import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import net.tonimatasdev.krystalcraft.util.GeneralUtil;
 import org.jetbrains.annotations.NotNull;
 
-public class CuttingStationRecipe implements Recipe<Container> {
+public class CombiningRecipe implements Recipe<Container> {
 
     final ResourceLocation id;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
 
-    public CuttingStationRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
+    public CombiningRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
         this.id = id;
         this.inputs = inputs;
         this.output = output;
@@ -58,12 +58,12 @@ public class CuttingStationRecipe implements Recipe<Container> {
 
     @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
-        return ModRecipeSerializers.CUTTING_STATION_SERIALIZER.get();
+        return ModRecipeSerializers.COMBINING_SERIALIZER.get();
     }
 
     @Override
     public @NotNull RecipeType<?> getType() {
-        return ModRecipes.CUTTING_STATION.get();
+        return ModRecipes.COMBINING.get();
     }
 
     @Override
@@ -77,28 +77,28 @@ public class CuttingStationRecipe implements Recipe<Container> {
     }
 
     @SuppressWarnings("unused")
-    public static class Serializer implements RecipeSerializer<CuttingStationRecipe> {
+    public static class Serializer implements RecipeSerializer<CombiningRecipe> {
         @Override
-        public @NotNull CuttingStationRecipe fromJson(ResourceLocation id, JsonObject json) {
+        public @NotNull CombiningRecipe fromJson(ResourceLocation id, JsonObject json) {
             final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for Cutting Station");
-            } else if (ingredients.size() > 1) {
-                throw new JsonParseException("Too many ingredients for Cutting Station");
+                throw new JsonParseException("No ingredients for Combining");
+            } else if (ingredients.size() > 2) {
+                throw new JsonParseException("Too many ingredients for Combining");
             } else {
-                return new CuttingStationRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
+                return new CombiningRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
             }
         }
 
         @Override
-        public @NotNull CuttingStationRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+        public @NotNull CombiningRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             final var ingredients = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
             ingredients.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-            return new CuttingStationRecipe(id, ingredients, buf.readItem());
+            return new CombiningRecipe(id, ingredients, buf.readItem());
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf buf, CuttingStationRecipe recipe) {
+        public void toNetwork(FriendlyByteBuf buf, CombiningRecipe recipe) {
             buf.writeVarInt(recipe.inputs.size());
             recipe.inputs.forEach(entry -> entry.toNetwork(buf));
             buf.writeItem(recipe.output);

@@ -26,15 +26,12 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tonimatasdev.krystalcraft.block.entity.custom.AbstractMachineBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 
 import java.util.Optional;
-import java.util.function.ToIntFunction;
 
 @SuppressWarnings("deprecation")
 @MethodsReturnNonnullByDefault
@@ -51,11 +48,9 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     private BlockEntityType<?> entity;
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
-    public static final BooleanProperty LIT = BlockStateProperties.LIT;
-    public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
 
     public AbstractMachineBlock(Properties properties) {
-        super(properties.lightLevel(getLuminance()));
+        super(properties);
         this.registerDefaultState(this.buildDefaultState());
     }
 
@@ -65,10 +60,6 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
             entity = BLOCK_TO_ENTITY.apply(state.getBlock());
         }
         return entity.create(pos, state);
-    }
-
-    private static ToIntFunction<BlockState> getLuminance() {
-        return (blockState) -> blockState.hasProperty(LIT) ? (blockState.getValue(LIT) ? ((AbstractMachineBlock) blockState.getBlock()).getBrightness() : 0) : 0;
     }
 
     @Override
@@ -83,23 +74,15 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     protected BlockState buildDefaultState() {
         BlockState state = this.stateDefinition.any();
 
-        state = state.setValue(POWERED, false);
         if (this.useFacing()) {
             state = state.setValue(FACING, Direction.NORTH);
-        }
-        if (this.useLit()) {
-            state = state.setValue(LIT, false);
         }
 
         return state;
     }
 
     protected boolean useFacing() {
-        return false;
-    }
-
-    protected boolean useLit() {
-        return false;
+        return true;
     }
 
     @Override
@@ -125,10 +108,6 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
         } else {
             return state;
         }
-    }
-
-    public int getBrightness() {
-        return 12;
     }
 
     @Override
@@ -163,38 +142,17 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
         if (this.useFacing()) {
             builder.add(FACING);
         }
-
-        builder.add(POWERED);
-
-        if (this.useLit()) {
-            builder.add(LIT);
-        }
     }
 
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext ctx) {
-        BlockState state = this.defaultBlockState().setValue(POWERED, false);
+        BlockState state = this.defaultBlockState();
         return this.useFacing() ? state.setValue(FACING, ctx.getHorizontalDirection().getOpposite()) : state;
-    }
-
-    @Override
-    public boolean hasAnalogOutputSignal(BlockState state) {
-        return true;
-    }
-
-    public boolean doRedstoneCheck() {
-        return true;
     }
 
     @Override
     public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
         super.neighborChanged(state, level, pos, block, fromPos, notify);
-
-        if (this.doRedstoneCheck()) {
-            if (!level.isClientSide) {
-                level.setBlockAndUpdate(pos, state.setValue(POWERED, level.hasNeighborSignal(pos)));
-            }
-        }
     }
 
     @Override

@@ -7,18 +7,18 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.recipe.CombiningStationRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CrushingStationRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CuttingStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 
 import java.util.function.Supplier;
 
 public class ModRecipes {
     public static final ResourcefulRegistry<RecipeType<?>> RECIPE_TYPES = ResourcefulRegistries.create(BuiltInRegistries.RECIPE_TYPE, KrystalCraft.MOD_ID);
 
-    public static final RegistryEntry<RecipeType<CombiningStationRecipe>> COMBINING_STATION = create("combining_station");
-    public static final RegistryEntry<RecipeType<CrushingStationRecipe>> CRUSHING_STATION = create("crushing_station");
-    public static final RegistryEntry<RecipeType<CuttingStationRecipe>> CUTTING_STATION = create("cutting_station");
+    public static final RegistryEntry<RecipeType<CombiningRecipe>> COMBINING = create("combining");
+    public static final RegistryEntry<RecipeType<CrushingRecipe>> CRUSHING = create("crushing_");
+    public static final RegistryEntry<RecipeType<CuttingRecipe>> CUTTING = create("cutting");
 
 
     private static <T extends Recipe<?>> RegistryEntry<RecipeType<T>> create(String name) {

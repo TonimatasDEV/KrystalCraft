@@ -19,7 +19,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.block.custom.AbstractMachineBlock;
 import net.tonimatasdev.krystalcraft.util.ModInventory;
 
 @MethodsReturnNonnullByDefault
@@ -42,17 +41,9 @@ public abstract class AbstractMachineBlockEntity extends BlockEntity implements 
         return 0;
     }
 
-    public void setActive(boolean active) {
-        if (this.getBlockState().hasProperty(AbstractMachineBlock.LIT)) {
-            if (this.getLevel() != null) {
-                this.getLevel().setBlockAndUpdate(this.getBlockPos(), this.getBlockState().setValue(AbstractMachineBlock.LIT, active));
-            }
-        }
-    }
-
     @Override
     public Component getDisplayName() {
-        return getBlockState().getBlock().getName();
+        return Component.empty();
     }
 
     @Override
