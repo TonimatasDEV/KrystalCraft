@@ -13,9 +13,7 @@ import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.block.custom.CombiningStationBlock;
-import net.tonimatasdev.krystalcraft.block.custom.CrushingStationBlock;
-import net.tonimatasdev.krystalcraft.block.custom.CuttingStationBlock;
+import net.tonimatasdev.krystalcraft.block.custom.MachineBlock;
 
 import java.util.function.Supplier;
 
@@ -51,9 +49,13 @@ public class ModBlocks {
     public static final RegistryEntry<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
 
     // Custom Blocks
-    public static final RegistryEntry<Block> CUTTING_STATION = registerBlock("cutting_station", CuttingStationBlock::new);
-    public static final RegistryEntry<Block> CRUSHING_STATION = registerBlock("crushing_station", CrushingStationBlock::new);
-    public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", CombiningStationBlock::new);
+    public static final RegistryEntry<Block> CUTTING_STATION = registerBlock("cutting_station", MachineBlock::new);
+    public static final RegistryEntry<Block> CUTTING_FACTORY = registerBlock("cutting_factory", MachineBlock::new);
+    public static final RegistryEntry<Block> CRUSHING_STATION = registerBlock("crushing_station", MachineBlock::new);
+    public static final RegistryEntry<Block> CRUSHING_FACTORY = registerBlock("crushing_factory", MachineBlock::new);
+    public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", MachineBlock::new);
+
+    public static final RegistryEntry<Block> COMBINING_FACTORY = registerBlock("combining_factory", MachineBlock::new);
 
     private static <T extends Block> RegistryEntry<T> registerBlock(String name, Supplier<T> block) {
         RegistryEntry<T> toReturn = BLOCKS.register(name, block);

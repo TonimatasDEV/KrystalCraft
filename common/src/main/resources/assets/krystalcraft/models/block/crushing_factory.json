@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"north": "krystalcraft:block/north_crushing_factory",
+		"east": "krystalcraft:block/side_factory",
+		"south": "krystalcraft:block/side_factory",
+		"west": "krystalcraft:block/side_factory",
+		"up": "krystalcraft:block/up_factory",
+		"down": "krystalcraft:block/side_factory",
+		"particle": "krystalcraft:block/side_factory"
+	}
+}

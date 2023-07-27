@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "krystalcraft:block/crushing_factory"
+    },
+    "facing=east": {
+      "model": "krystalcraft:block/crushing_factory",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "krystalcraft:block/crushing_factory",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "krystalcraft:block/crushing_factory",
+      "y": 270
+    }
+  }
+}
