@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
-import net.tonimatasdev.krystalcraft.util.GeneralUtil;
+import net.tonimatasdev.krystalcraft.util.RecipesUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class CrushingRecipe implements Recipe<Container> {
@@ -30,7 +30,8 @@ public class CrushingRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container inventory, Level world) {
-        return GeneralUtil.matchesRecipe(inventory, inputs, 1, 2);
+        // TODO: Finish this.
+        return true;
     }
 
     @Override
@@ -50,10 +51,6 @@ public class CrushingRecipe implements Recipe<Container> {
     @Override
     public @NotNull ResourceLocation getId() {
         return id;
-    }
-
-    public ItemStack getOutput() {
-        return output;
     }
 
     @Override
@@ -80,7 +77,7 @@ public class CrushingRecipe implements Recipe<Container> {
     public static class Serializer implements RecipeSerializer<CrushingRecipe> {
         @Override
         public @NotNull CrushingRecipe fromJson(ResourceLocation id, JsonObject json) {
-            final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            final var ingredients = RecipesUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for Crushing");
             } else if (ingredients.size() > 1) {
