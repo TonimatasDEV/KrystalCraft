@@ -10,7 +10,7 @@ dependencies {
 }
 
 base {
-    archivesName = "KrystalCraftCommon-" + mod_version
+    archivesName = "KrystalCraftCommon"
 }
 
 architectury {

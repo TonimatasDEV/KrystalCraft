@@ -3,7 +3,7 @@ plugins {
 }
 
 base {
-    archivesName = "KrystalCraftForge-" + mod_version
+    archivesName = "KrystalCraftForge"
 }
 
 architectury {
