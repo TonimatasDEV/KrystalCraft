@@ -1,5 +1,6 @@
 package net.tonimatasdev.krystalcraft;
 
+import net.tonimatasdev.krystalcraft.networking.NetworkHandler;
 import net.tonimatasdev.krystalcraft.registry.*;
 
 public class KrystalCraft {
@@ -14,5 +15,6 @@ public class KrystalCraft {
 		ModRecipes.RECIPE_TYPES.init();
 		ModEnchants.ENCHANTMENTS.init();
 		ModTabs.TABS.init();
+		NetworkHandler.init();
 	}
 }
