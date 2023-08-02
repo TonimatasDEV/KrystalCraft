@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
-import net.tonimatasdev.krystalcraft.util.GeneralUtil;
+import net.tonimatasdev.krystalcraft.util.RecipesUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class CombiningRecipe implements Recipe<Container> {
@@ -29,8 +29,10 @@ public class CombiningRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container inventory, Level world) {
-        return GeneralUtil.matchesRecipe(inventory, inputs, 1, 2);
+    public boolean matches(Container container, Level level) {
+        boolean firstIngredient = inputs.get(0).test(container.getItem(0)) || inputs.get(1).test(container.getItem(0));
+        boolean secondIngredient = inputs.get(0).test(container.getItem(1)) || inputs.get(1).test(container.getItem(1));
+        return firstIngredient && secondIngredient;
     }
 
     @Override
@@ -50,10 +52,6 @@ public class CombiningRecipe implements Recipe<Container> {
     @Override
     public @NotNull ResourceLocation getId() {
         return id;
-    }
-
-    public ItemStack getOutput() {
-        return output;
     }
 
     @Override
@@ -80,7 +78,7 @@ public class CombiningRecipe implements Recipe<Container> {
     public static class Serializer implements RecipeSerializer<CombiningRecipe> {
         @Override
         public @NotNull CombiningRecipe fromJson(ResourceLocation id, JsonObject json) {
-            final var ingredients = GeneralUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            final var ingredients = RecipesUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for Combining");
             } else if (ingredients.size() > 2) {
