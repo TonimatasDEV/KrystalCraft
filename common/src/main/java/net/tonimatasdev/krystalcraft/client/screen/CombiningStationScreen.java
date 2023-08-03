@@ -30,7 +30,6 @@ public class CombiningStationScreen extends AbstractContainerScreen<CombiningSta
         int y = (height - imageHeight) / 2 + 8;
 
         guiGraphics.blit(TEXTURE, x, y, 0, -8, imageWidth, imageHeight + 16);
-        guiGraphics.blit(TEXTURE, x + 81, y + 41, 176, 0, 14, menu.getFuelScaledProgress());
     }
 
     @Override

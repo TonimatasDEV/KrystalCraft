@@ -36,10 +36,6 @@ public abstract class StationBlockEntity extends AbstractMachineBlockEntity {
         return this.cookTime;
     }
 
-    public void setCookTime(int cookTime) {
-        this.cookTime = cookTime;
-    }
-
     public int getCookTimeTotal() {
         return this.cookTimeTotal;
     }
@@ -50,9 +46,5 @@ public abstract class StationBlockEntity extends AbstractMachineBlockEntity {
 
     public int getMaxProgress() {
         return maxProgress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
     }
 }

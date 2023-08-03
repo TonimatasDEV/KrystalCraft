@@ -7,39 +7,28 @@ import net.minecraft.world.inventory.Slot;
 import net.tonimatasdev.krystalcraft.block.entity.custom.FactoryBlockEntity;
 
 public abstract class FactoryMenu<T extends FactoryBlockEntity> extends AbstractMachineMenu<T> {
-    private final DataSlot progress;
-    private final DataSlot energyReaming;
-    private final DataSlot energyMaxCapacity;
+    protected DataSlot progress;
 
     public FactoryMenu(MenuType<?> type, int syncId, Inventory inventory, T entity, Slot[] slots) {
         super(type, syncId, inventory, entity, slots);
         this.progress = this.addDataSlot(DataSlot.standalone());
-        this.energyReaming = this.addDataSlot(DataSlot.standalone());
-        this.energyMaxCapacity = this.addDataSlot(DataSlot.standalone());
     }
 
     public int getProgress() {
-        return this.progress.get();
+        return progress.get();
     }
 
-    public int getEnergyReaming() {
-        return energyReaming.get();
+    @Override
+    public void syncClientScreen() {
+        this.progress.set(this.machine.getProgress());
     }
 
-    public int getEnergyMaxCapacity() {
-        return this.energyMaxCapacity.get();
+    public long getEnergyMaxCapacity() {
+        return this.machine.getEnergyStorage().getMaxCapacity();
     }
 
     public int getMaxProgress() {
         return this.machine.getMaxProgress();
-    }
-
-    public int getScaledProgress() {
-        int progress = this.getProgress();
-        int maxProgress = this.getMaxProgress();
-        int progressArrowSize = 14;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
 
     @Override
