@@ -10,7 +10,6 @@ import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.block.entity.custom.AbstractMachineBlockEntity;
 import org.jetbrains.annotations.NotNull;
@@ -24,10 +23,6 @@ public abstract class AbstractMachineMenu<T extends AbstractMachineBlockEntity> 
     protected final Player player;
     protected long energyAmount;
     protected List<FluidHolder> fluids;
-
-    public AbstractMachineMenu(MenuType<?> type, int syncId, Inventory inventory, T entity) {
-        this(type, syncId, inventory, entity, new Slot[]{});
-    }
 
     public AbstractMachineMenu(MenuType<?> type, int syncId, Inventory inventory, T entity, Slot[] slots) {
         super(type, syncId);
@@ -44,10 +39,6 @@ public abstract class AbstractMachineMenu<T extends AbstractMachineBlockEntity> 
         }
 
         this.setPlayerInventory(inventory);
-    }
-
-    public T getMachine() {
-        return this.machine;
     }
 
     @Override
@@ -123,9 +114,8 @@ public abstract class AbstractMachineMenu<T extends AbstractMachineBlockEntity> 
     @Override
     public void broadcastChanges() {
         super.broadcastChanges();
+        syncClientScreen();
     }
 
-    public void onRecipeTransfer(Recipe<?> recipe) {
-
-    }
+    public abstract void syncClientScreen();
 }

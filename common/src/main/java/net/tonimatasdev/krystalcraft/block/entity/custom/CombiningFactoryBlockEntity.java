@@ -3,13 +3,20 @@ package net.tonimatasdev.krystalcraft.block.entity.custom;
 import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
+import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
+import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Objects;
+import java.util.Optional;
 
 public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
     public CombiningFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
@@ -29,11 +36,43 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public WrappedBlockEnergyContainer getEnergyStorage() {
-        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(30000)) : this.energyContainer;
+        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000)) : this.energyContainer;
     }
 
     @Override
     public void tick() {
+        if (this.getEnergyStorage().getStoredEnergy() <= 0) return;
+        if (level == null) return;
+        if (level.isClientSide) return;
 
+        if (hasRecipe(level.registryAccess())) {
+            this.progress++;
+            this.getEnergyStorage().internalExtract(6, true);
+            this.getEnergyStorage().internalExtract(6, false);
+
+            if (progress >= getMaxProgress()) {
+                craft(level.registryAccess());
+                progress = 0;
+            }
+        } else {
+            progress = 0;
+        }
+
+        System.out.println(this.getEnergyStorage().getStoredEnergy());
+    }
+
+    private boolean hasRecipe(RegistryAccess access) {
+        Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+        ItemStack resultItem = this.getItem(2);
+        return match.isPresent() && (match.get().getResultItem(access).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
+    }
+
+    private void craft(RegistryAccess access) {
+        Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+        if (match.isPresent()) {
+            removeItem(0, 1);
+            removeItem(1, 1);
+            setItem(2, new ItemStack(match.get().getResultItem(access).getItem(), getItem(2).getCount() + 1));
+        }
     }
 }

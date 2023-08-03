@@ -1,0 +1,14 @@
+{
+  "type": "krystalcraft:combining",
+  "ingredients": [
+    {
+      "item": "krystalcraft:copper_dust"
+    },
+    {
+      "item": "krystalcraft:tin_dust"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:bronze_ingot"
+  }
+}

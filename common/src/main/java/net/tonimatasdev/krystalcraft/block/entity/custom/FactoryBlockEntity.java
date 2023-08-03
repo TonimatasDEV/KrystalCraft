@@ -9,7 +9,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class FactoryBlockEntity extends AbstractMachineBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
     protected int progress;
-    protected int maxProgress = 100;
     protected WrappedBlockEnergyContainer energyContainer;
 
 
@@ -21,12 +20,14 @@ public abstract class FactoryBlockEntity extends AbstractMachineBlockEntity impl
     public void load(CompoundTag compoundTag) {
         super.load(compoundTag);
         this.progress = compoundTag.getInt("Progress");
+        getEnergyStorage().setEnergy(compoundTag.getLong("Energy"));
     }
 
     @Override
     public void saveAdditional(CompoundTag compoundTag) {
         super.saveAdditional(compoundTag);
         compoundTag.putInt("Progress", this.progress);
+        compoundTag.putLong("Energy", this.getEnergyStorage().getStoredEnergy());
     }
 
     public int getProgress() {
@@ -34,14 +35,6 @@ public abstract class FactoryBlockEntity extends AbstractMachineBlockEntity impl
     }
 
     public int getMaxProgress() {
-        return maxProgress;
-    }
-
-    public void setProgress(int progress) {
-        this.progress = progress;
-    }
-
-    public long getMaxCapacity() {
-        return this.getEnergyStorage().getMaxCapacity();
+        return 20;
     }
 }

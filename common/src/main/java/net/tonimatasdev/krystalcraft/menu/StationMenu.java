@@ -18,6 +18,13 @@ public abstract class StationMenu<T extends StationBlockEntity> extends Abstract
         this.cookTimeTotal = this.addDataSlot(DataSlot.standalone());
     }
 
+    @Override
+    public void syncClientScreen() {
+        this.cookTime.set(this.machine.getCookTime());
+        this.cookTimeTotal.set(this.machine.getCookTimeTotal());
+        this.progress.set(this.machine.getProgress());
+    }
+
     public int getCookTime() {
         return this.cookTime.get();
     }
@@ -32,20 +39,5 @@ public abstract class StationMenu<T extends StationBlockEntity> extends Abstract
 
     public int getMaxProgress() {
         return this.machine.getMaxProgress();
-    }
-
-    public int getScaledProgress() {
-        int progress = this.getProgress();
-        int maxProgress = this.getMaxProgress();
-        int progressArrowSize = 14;
-
-        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
-    }
-
-    public int getFuelScaledProgress() {
-        int progress = this.getProgress();
-        int progressArrowSize = 14;
-
-        return progress != 0 ? progress * progressArrowSize / 8 : 0;
     }
 }

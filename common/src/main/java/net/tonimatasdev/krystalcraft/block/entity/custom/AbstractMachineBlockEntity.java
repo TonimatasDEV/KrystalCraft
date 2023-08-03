@@ -23,7 +23,7 @@ import net.tonimatasdev.krystalcraft.util.ModInventory;
 
 @MethodsReturnNonnullByDefault
 public abstract class AbstractMachineBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {
-    private final NonNullList<ItemStack> inventory;
+    public final NonNullList<ItemStack> inventory;
 
     public AbstractMachineBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);

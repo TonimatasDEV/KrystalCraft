@@ -30,7 +30,6 @@ public class CrushingStationScreen extends AbstractContainerScreen<CrushingStati
         int y = (height - imageHeight) / 2;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
-        guiGraphics.blit(TEXTURE, x + 55, y + 48, 176, 0, 14, menu.getFuelScaledProgress());
     }
 
     @Override
