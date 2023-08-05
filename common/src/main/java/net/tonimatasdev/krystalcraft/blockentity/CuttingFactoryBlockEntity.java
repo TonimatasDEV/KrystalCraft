@@ -24,7 +24,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public int getInventorySize() {
-        return 2;
+        return 7;
     }
 
     @Override
@@ -34,6 +34,11 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public void tick() {
+        if (level == null) return;
+        if (level.isClientSide) return;
 
+        insertEnergyFromBattery(3);
+
+        // TODO: Logic for upgrades (Slot 4, 5)
     }
 }

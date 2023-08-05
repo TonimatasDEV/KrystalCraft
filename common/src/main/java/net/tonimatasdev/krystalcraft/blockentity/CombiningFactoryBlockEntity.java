@@ -31,7 +31,7 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public int getInventorySize() {
-        return 3;
+        return 6;
     }
 
     @Override
@@ -43,6 +43,10 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
     public void tick() {
         if (level == null) return;
         if (level.isClientSide) return;
+
+        insertEnergyFromBattery(3);
+
+        // TODO: Logic for upgrades (Slot 4, 5)
 
         if (hasRecipe(level.registryAccess()) && getEnergyStorage().getStoredEnergy() > 0) {
             progress++;
