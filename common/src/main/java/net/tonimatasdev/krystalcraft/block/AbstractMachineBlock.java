@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.block.custom;
+package net.tonimatasdev.krystalcraft.block;
 
 import com.teamresourceful.resourcefullib.common.caches.CacheableFunction;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
@@ -28,7 +28,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.tonimatasdev.krystalcraft.block.entity.custom.AbstractMachineBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 
 import java.util.Optional;

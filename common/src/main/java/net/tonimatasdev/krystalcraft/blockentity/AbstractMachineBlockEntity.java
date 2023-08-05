@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.block.entity.custom;
+package net.tonimatasdev.krystalcraft.blockentity;
 
 import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
 import net.minecraft.MethodsReturnNonnullByDefault;
