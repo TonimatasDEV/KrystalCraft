@@ -19,6 +19,9 @@
     "krystalcraft:ruby_block",
     "krystalcraft:ruby_ore",
     "krystalcraft:deepslate_ruby_ore",
-    "krystalcraft:bronze_block"
+    "krystalcraft:bronze_block",
+    "krystalcraft:combining_factory",
+    "krystalcraft:crushing_factory",
+    "krystalcraft:cutting_factory"
   ]
 }
