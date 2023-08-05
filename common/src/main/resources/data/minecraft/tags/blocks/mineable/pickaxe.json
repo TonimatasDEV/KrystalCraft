@@ -3,6 +3,10 @@
   "values": [
     "krystalcraft:cutting_station",
     "krystalcraft:crushing_station",
+    "krystalcraft:combining_station",
+    "krystalcraft:combining_factory",
+    "krystalcraft:crushing_factory",
+    "krystalcraft:cutting_factory",
     "krystalcraft:platinum_block",
     "krystalcraft:platinum_ore",
     "krystalcraft:deepslate_platinum_ore",
@@ -28,7 +32,6 @@
     "krystalcraft:ruby_ore",
     "krystalcraft:deepslate_ruby_ore",
     "krystalcraft:bronze_block",
-    "krystalcraft:combining_station",
     "krystalcraft:deepslate_experience_ore",
     "krystalcraft:experience_ore"
   ]
