@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_lapis"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:lapis_dust"
+  }
+}

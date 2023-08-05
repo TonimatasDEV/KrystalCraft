@@ -30,6 +30,8 @@ public class CrushingFactoryScreen extends AbstractContainerScreen<CrushingFacto
         int y = (height - 180) / 2 - 10;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
+        GuiUtil.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 29, this.menu.getProgress(), this.menu.getMaxProgress());
     }
 
     @Override
@@ -37,5 +39,9 @@ public class CrushingFactoryScreen extends AbstractContainerScreen<CrushingFacto
         renderBackground(Objects.requireNonNull(guiGraphics));
         super.render(guiGraphics, mouseX, mouseY, delta);
         renderTooltip(guiGraphics, mouseX, mouseY);
+
+        if (GuiUtil.isHovering(GuiUtil.getEnergyBounds(this.leftPos + 152, this.topPos + 8), mouseX, mouseY)) {
+            GuiUtil.drawEnergyTooltip(guiGraphics, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity(), mouseX, mouseY);
+        }
     }
 }
