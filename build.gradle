@@ -31,9 +31,9 @@ allprojects {
     apply plugin: "architectury-plugin"
 
     version = mod_version
-    group = "net.tonimatas.dev"
+    group = "net.tonimatasdev.krystalcraft"
 
-    tasks.withType(JavaCompile) {
+    tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"
         options.release = 17
     }
