@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:cutting",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_topaz"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:topaz"
+  }
+}
