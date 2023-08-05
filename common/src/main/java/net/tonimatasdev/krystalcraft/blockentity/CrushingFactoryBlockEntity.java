@@ -20,6 +20,12 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
+    private final int INPUT_SLOT = 0;
+    private final int RESULT_SLOT = 1;
+    private final int BATTERY_SLOT = 2;
+    private final int UPGRADE1_SLOT = 3;
+    private final int UPGRADE2_SLOT = 4;
+
     public CrushingFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CRUSHING_FACTORY_BLOCK_ENTITY.get(), blockPos, blockState);
     }
@@ -45,9 +51,9 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        insertEnergyFromBattery(3);
+        insertEnergyFromBattery(BATTERY_SLOT);
 
-        // TODO: Logic for upgrades (Slot 4, 5)
+        // TODO: Logic for upgrades (Slot 3, 4)
 
         if (hasRecipe(level.registryAccess()) && getEnergyStorage().getStoredEnergy() > 0) {
             progress++;
@@ -65,7 +71,7 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
 
     private boolean hasRecipe(RegistryAccess access) {
         Optional<CrushingRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
-        ItemStack resultItem = getItem(1);
+        ItemStack resultItem = getItem(RESULT_SLOT);
         return match.isPresent() && (match.get().getResultItem(access).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
     }
 
@@ -73,8 +79,8 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
         Optional<CrushingRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
 
         if (match.isPresent()) {
-            removeItem(0, 1);
-            setItem(1, new ItemStack(match.get().getResultItem(access).getItem(), getItem(1).getCount() + 1));
+            removeItem(INPUT_SLOT, 1);
+            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(access).getItem(), getItem(RESULT_SLOT).getCount() + 1));
         }
     }
 }

@@ -19,6 +19,15 @@ import java.util.Objects;
 import java.util.Optional;
 
 public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
+    private final int INPUT1_SLOT = 0;
+    private final int INPUT2_SLOT = 1;
+    private final int RESULT_SLOT = 2;
+    private final int BATTERY_SLOT = 3;
+    private final int UPGRADE1_SLOT = 4;
+    private final int UPGRADE2_SLOT = 5;
+
+
+
     public CombiningFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.COMBINING_FACTORY_BLOCK_ENTITY.get(), blockPos, blockState);
     }
@@ -44,7 +53,7 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        insertEnergyFromBattery(3);
+        insertEnergyFromBattery(BATTERY_SLOT);
 
         // TODO: Logic for upgrades (Slot 4, 5)
 
@@ -64,7 +73,7 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
     private boolean hasRecipe(RegistryAccess access) {
         Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-        ItemStack resultItem = getItem(2);
+        ItemStack resultItem = getItem(RESULT_SLOT);
         return match.isPresent() && (match.get().getResultItem(access).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
     }
 
@@ -72,9 +81,9 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
 
         if (match.isPresent()) {
-            removeItem(0, 1);
-            removeItem(1, 1);
-            setItem(2, new ItemStack(match.get().getResultItem(access).getItem(), getItem(2).getCount() + 1));
+            removeItem(INPUT1_SLOT, 1);
+            removeItem(INPUT2_SLOT, 1);
+            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(access).getItem(), getItem(RESULT_SLOT).getCount() + 1));
         }
     }
 }
