@@ -3,11 +3,11 @@ package net.tonimatasdev.krystalcraft.blockentity;
 import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
 import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
@@ -15,7 +15,6 @@ import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
 import java.util.Optional;
 
 public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
@@ -45,7 +44,7 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public WrappedBlockEnergyContainer getEnergyStorage() {
-        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000)) : this.energyContainer;
+        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000)) : energyContainer;
     }
 
     @Override
@@ -57,13 +56,13 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
         // TODO: Logic for upgrades (Slot 4, 5)
 
-        if (hasRecipe(level.registryAccess()) && getEnergyStorage().getStoredEnergy() > 0) {
+        if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0) {
             progress++;
             getEnergyStorage().internalExtract(6, true);
             getEnergyStorage().internalExtract(6, false);
 
             if (progress >= getMaxProgress()) {
-                craft(level.registryAccess());
+                craft(level);
                 progress = 0;
             }
         } else {
@@ -71,19 +70,19 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         }
     }
 
-    private boolean hasRecipe(RegistryAccess access) {
-        Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+    private boolean hasRecipe(Level level) {
+        Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
         ItemStack resultItem = getItem(RESULT_SLOT);
-        return match.isPresent() && (match.get().getResultItem(access).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
+        return match.isPresent() && (match.get().getResultItem(level.registryAccess()).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
     }
 
-    private void craft(RegistryAccess access) {
-        Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+    private void craft(Level level) {
+        Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
 
         if (match.isPresent()) {
             removeItem(INPUT1_SLOT, 1);
             removeItem(INPUT2_SLOT, 1);
-            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(access).getItem(), getItem(RESULT_SLOT).getCount() + 1));
+            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(level.registryAccess()).getItem(), getItem(RESULT_SLOT).getCount() + 1));
         }
     }
 }
