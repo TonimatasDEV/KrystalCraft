@@ -29,9 +29,8 @@ public class CuttingRecipe implements Recipe<Container> {
     }
 
     @Override
-    public boolean matches(Container inventory, Level world) {
-        // TODO: Finish this
-        return true;
+    public boolean matches(Container container, Level level) {
+        return inputs.get(0).test(container.getItem(0));
     }
 
     @Override
