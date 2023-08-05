@@ -7,6 +7,7 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.item.*;
+import net.tonimatasdev.krystalcraft.item.custom.BatteryItem;
 
 public class ModItems {
     public static final ResourcefulRegistry<Item> ITEMS = ResourcefulRegistries.create(BuiltInRegistries.ITEM, KrystalCraft.MOD_ID);
@@ -165,4 +166,5 @@ public class ModItems {
     public static final RegistryEntry<Item> RAW_REDSTONE = ITEMS.register("raw_redstone", () -> new Item(new Item.Properties()));
     public static final RegistryEntry<Item> GEM_CUTTER_TOOL = ITEMS.register("gem_cutter_tool", () -> new Item(new Item.Properties().durability(128)));
     public static final RegistryEntry<Item> GRINDING_GEAR = ITEMS.register("grinding_gear", () -> new Item(new Item.Properties().durability(512)));
+    public static final RegistryEntry<Item> BATTERY = ITEMS.register("battery", () -> new BatteryItem(new Item.Properties()));
 }
