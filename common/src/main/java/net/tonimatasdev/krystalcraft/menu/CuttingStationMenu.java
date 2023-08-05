@@ -3,7 +3,7 @@ package net.tonimatasdev.krystalcraft.menu;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
-import net.tonimatasdev.krystalcraft.block.entity.custom.CuttingStationBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.CuttingStationBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class CuttingStationMenu extends StationMenu<CuttingStationBlockEntity> {

@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.block.entity.custom;
+package net.tonimatasdev.krystalcraft.blockentity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

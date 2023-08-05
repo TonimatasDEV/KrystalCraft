@@ -4,7 +4,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
-import net.tonimatasdev.krystalcraft.block.entity.custom.StationBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.StationBlockEntity;
 
 public abstract class StationMenu<T extends StationBlockEntity> extends AbstractMachineMenu<T> {
     private final DataSlot progress;

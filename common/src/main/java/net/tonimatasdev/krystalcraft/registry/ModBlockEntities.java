@@ -7,7 +7,7 @@ import earth.terrarium.botarium.common.registry.RegistryHelpers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.block.entity.custom.*;
+import net.tonimatasdev.krystalcraft.blockentity.*;
 
 public class ModBlockEntities {
     public static final ResourcefulRegistry<BlockEntityType<?>> BLOCK_ENTITIES = ResourcefulRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, KrystalCraft.MOD_ID);

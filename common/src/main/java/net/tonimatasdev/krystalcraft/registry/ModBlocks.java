@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.block.custom.MachineBlock;
+import net.tonimatasdev.krystalcraft.block.MachineBlock;
 
 import java.util.function.Supplier;
 

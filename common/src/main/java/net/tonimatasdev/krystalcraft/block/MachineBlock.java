@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.block.custom;
+package net.tonimatasdev.krystalcraft.block;
 
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
