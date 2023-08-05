@@ -18,12 +18,12 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
-    private final int INPUT1_SLOT = 0;
-    private final int INPUT2_SLOT = 1;
-    private final int RESULT_SLOT = 2;
-    private final int BATTERY_SLOT = 3;
-    private final int UPGRADE1_SLOT = 4;
-    private final int UPGRADE2_SLOT = 5;
+    protected final int INPUT1_SLOT = 0;
+    protected final int INPUT2_SLOT = 1;
+    protected final int RESULT_SLOT = 2;
+    protected final int BATTERY_SLOT = 3;
+    protected final int UPGRADE1_SLOT = 4;
+    protected final int UPGRADE2_SLOT = 5;
 
 
 

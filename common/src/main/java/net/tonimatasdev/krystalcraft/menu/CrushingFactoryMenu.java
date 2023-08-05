@@ -52,6 +52,6 @@ public class CrushingFactoryMenu extends FactoryMenu<CrushingFactoryBlockEntity>
     @Override
     public void syncClientScreen() {
         super.syncClientScreen();
-        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), this.player);
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), player);
     }
 }
