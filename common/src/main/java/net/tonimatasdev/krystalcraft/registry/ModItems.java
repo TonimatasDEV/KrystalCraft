@@ -33,7 +33,6 @@ public class ModItems {
     public static final RegistryEntry<Item> JADE_CHESTPLATE = ITEMS.register("jade_chestplate", () -> new ArmorItem(ModArmorTier.JADE, ArmorItem.Type.CHESTPLATE, new ArmorItem.Properties()));
     public static final RegistryEntry<Item> JADE_LEGGINGS = ITEMS.register("jade_leggings", () -> new ArmorItem(ModArmorTier.JADE, ArmorItem.Type.LEGGINGS, new ArmorItem.Properties()));
     public static final RegistryEntry<Item> JADE_BOOTS = ITEMS.register("jade_boots", () -> new ArmorItem(ModArmorTier.JADE, ArmorItem.Type.BOOTS, new ArmorItem.Properties()));
-    public static final RegistryEntry<Item> JADE_HORSE_ARMOR = ITEMS.register("jade_horse_armor", () -> new HorseArmorItem(9, "jade", new HorseArmorItem.Properties().stacksTo(1)));
     public static final RegistryEntry<Item> JADE_SWORD = ITEMS.register("jade_sword", () -> new SwordItem(ModItemTier.JADE, 4, -2.4f, new SwordItem.Properties()));
     public static final RegistryEntry<Item> JADE_PICKAXE = ITEMS.register("jade_pickaxe", () -> new ModPickaxeItem(ModItemTier.JADE, 3, -2.8f, new PickaxeItem.Properties()));
     public static final RegistryEntry<Item> JADE_AXE = ITEMS.register("jade_axe", () -> new ModAxeItem(ModItemTier.JADE, 6, -3.1f, new AxeItem.Properties()));
