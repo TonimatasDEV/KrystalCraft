@@ -30,6 +30,9 @@ public class CuttingFactoryScreen extends AbstractContainerScreen<CuttingFactory
         int y = (height - 180) / 2 - 10;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
+        GuiUtil.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 29, this.menu.getProgress(), this.menu.getMaxProgress());
+        GuiUtil.drawFluidTank(guiGraphics, this.leftPos + 29, this.topPos + 8, this.menu.getFluidContainer().getTankCapacity(0), this.menu.getFluids().get(0));
     }
 
     @Override
@@ -37,5 +40,13 @@ public class CuttingFactoryScreen extends AbstractContainerScreen<CuttingFactory
         renderBackground(Objects.requireNonNull(guiGraphics));
         super.render(guiGraphics, mouseX, mouseY, delta);
         renderTooltip(guiGraphics, mouseX, mouseY);
+
+        if (GuiUtil.isHovering(GuiUtil.getEnergyBounds(this.leftPos + 152, this.topPos + 8), mouseX, mouseY)) {
+            GuiUtil.drawEnergyTooltip(guiGraphics, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity(), mouseX, mouseY);
+        }
+
+        if (GuiUtil.isHovering(GuiUtil.getFluidTankBounds(this.leftPos + 29, this.topPos + 8), mouseX, mouseY)) {
+            GuiUtil.drawTankTooltip(guiGraphics, this.menu.getFluids().get(0), this.menu.getFluidContainer().getTankCapacity(0), mouseX, mouseY);
+        }
     }
 }
