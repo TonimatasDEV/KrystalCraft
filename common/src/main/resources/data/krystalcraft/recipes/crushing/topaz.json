@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:topaz"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:topaz_dust"
+  }
+}

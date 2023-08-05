@@ -45,6 +45,7 @@ public class CombiningRecipe implements Recipe<Container> {
         return true;
     }
 
+    @Override
     public @NotNull ItemStack getResultItem(RegistryAccess registryAccess) {
         return this.output.copy();
     }

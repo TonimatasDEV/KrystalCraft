@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_platinum"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:platinum_dust"
+  }
+}

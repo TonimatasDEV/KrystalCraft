@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:sapphire"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:sapphire_dust"
+  }
+}

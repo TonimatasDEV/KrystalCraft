@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:raw_redstone"
+    }
+  ],
+  "result": {
+    "item": "minecraft:redstone"
+  }
+}

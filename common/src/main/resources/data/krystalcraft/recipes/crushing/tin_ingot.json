@@ -1,0 +1,11 @@
+{
+  "type": "krystalcraft:crushing",
+  "ingredients": [
+    {
+      "item": "krystalcraft:tin_ingot"
+    }
+  ],
+  "result": {
+    "item": "krystalcraft:tin_dust"
+  }
+}

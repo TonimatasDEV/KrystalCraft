@@ -41,14 +41,13 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
     @Override
     public void tick() {
-        if (this.getEnergyStorage().getStoredEnergy() <= 0) return;
         if (level == null) return;
         if (level.isClientSide) return;
 
-        if (hasRecipe(level.registryAccess())) {
-            this.progress++;
-            this.getEnergyStorage().internalExtract(6, true);
-            this.getEnergyStorage().internalExtract(6, false);
+        if (hasRecipe(level.registryAccess()) && getEnergyStorage().getStoredEnergy() > 0) {
+            progress++;
+            getEnergyStorage().internalExtract(6, true);
+            getEnergyStorage().internalExtract(6, false);
 
             if (progress >= getMaxProgress()) {
                 craft(level.registryAccess());
@@ -57,18 +56,17 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         } else {
             progress = 0;
         }
-
-        System.out.println(this.getEnergyStorage().getStoredEnergy());
     }
 
     private boolean hasRecipe(RegistryAccess access) {
         Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-        ItemStack resultItem = this.getItem(2);
+        ItemStack resultItem = getItem(2);
         return match.isPresent() && (match.get().getResultItem(access).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
     }
 
     private void craft(RegistryAccess access) {
         Optional<CombiningRecipe> match = Objects.requireNonNull(level).getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+
         if (match.isPresent()) {
             removeItem(0, 1);
             removeItem(1, 1);
