@@ -16,6 +16,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
+import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingFactoryMenu;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
@@ -24,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int BATTERY_SLOT = 2;
@@ -65,7 +66,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
         if (level == null) return;
         if (level.isClientSide) return;
 
-        insertEnergyFromBattery(BATTERY_SLOT);
+        energyInsertOfBattery(BATTERY_SLOT, 10);
 
         if (getItem(TANK_INPUT_SLOT).is(Items.WATER_BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).is(Items.BUCKET)) && (getFluidContainer().getTankCapacity(0) - getFluidContainer().getFluids().get(0).getFluidAmount()) >= 1000) {
             removeItem(TANK_INPUT_SLOT, 1);
@@ -83,8 +84,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
 
         if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0 && getFluidContainer().getFluids().get(0).getFluidAmount() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(5, true);
-            getEnergyStorage().internalExtract(5, false);
+            energyInternalExtract(5);
             FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
             getFluidContainer().internalExtract(fluidHolder, true);
             getFluidContainer().internalExtract(fluidHolder, false);

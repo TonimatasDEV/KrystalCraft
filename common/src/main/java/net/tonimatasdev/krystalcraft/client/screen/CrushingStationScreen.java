@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class CrushingStationScreen extends AbstractContainerScreen<CrushingStationMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/crushing_station.png");
 
     public CrushingStationScreen(CrushingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

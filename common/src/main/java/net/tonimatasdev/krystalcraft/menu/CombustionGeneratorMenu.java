@@ -6,12 +6,9 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
-import net.tonimatasdev.krystalcraft.blockentity.CombiningFactoryBlockEntity;
 import net.tonimatasdev.krystalcraft.blockentity.CombustionGeneratorBlockEntity;
-import net.tonimatasdev.krystalcraft.item.custom.UpgradeItem;
 import net.tonimatasdev.krystalcraft.networking.NetworkHandler;
 import net.tonimatasdev.krystalcraft.networking.packet.messages.ClientboundMachineInfoPacket;
-import net.tonimatasdev.krystalcraft.registry.ModItems;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 import java.util.List;
