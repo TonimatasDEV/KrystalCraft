@@ -54,8 +54,8 @@ public class ModBlocks {
     public static final RegistryEntry<Block> CRUSHING_STATION = registerBlock("crushing_station", MachineBlock::new);
     public static final RegistryEntry<Block> CRUSHING_FACTORY = registerBlock("crushing_factory", MachineBlock::new);
     public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", MachineBlock::new);
-
     public static final RegistryEntry<Block> COMBINING_FACTORY = registerBlock("combining_factory", MachineBlock::new);
+    public static final RegistryEntry<Block> COMBUSTION_GENERATOR = registerBlock("combustion_generator", MachineBlock::new);
 
     private static <T extends Block> RegistryEntry<T> registerBlock(String name, Supplier<T> block) {
         RegistryEntry<T> toReturn = BLOCKS.register(name, block);

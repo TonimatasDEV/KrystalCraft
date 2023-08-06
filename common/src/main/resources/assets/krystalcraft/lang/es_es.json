@@ -165,6 +165,7 @@
   "block.krystalcraft.crushing_factory": "Fábrica de trituración",
   "block.krystalcraft.combining_station": "Estación de combinación",
   "block.krystalcraft.combining_factory": "Fábrica de combinación",
-  "item.krystalcraft.battery": "Battery",
+  "item.krystalcraft.battery": "Batería",
+  "block.krystalcraft.combustion_generator": "Generador de combustión",
   "itemGroup.krystalcraft": "KrystalCraft"
 }
