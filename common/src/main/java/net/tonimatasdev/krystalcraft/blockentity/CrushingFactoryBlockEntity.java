@@ -55,8 +55,8 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
 
         if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(6, true);
-            getEnergyStorage().internalExtract(6, false);
+            getEnergyStorage().internalExtract(5, true);
+            getEnergyStorage().internalExtract(5, false);
 
             if (progress >= getMaxProgress()) {
                 craft(level);

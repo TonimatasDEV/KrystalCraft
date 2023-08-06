@@ -68,6 +68,6 @@ public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
     @Override
     public void syncClientScreen() {
         super.syncClientScreen();
-        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), getFluidContainer().getFluids()), this.player);
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), getFluidContainer().getFluids()), player);
     }
 }
