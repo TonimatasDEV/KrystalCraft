@@ -1,0 +1,12 @@
+{
+	"parent": "block/cube",
+	"textures": {
+		"north": "krystalcraft:block/north_combustion_generator",
+		"east": "krystalcraft:block/side_machine",
+		"south": "krystalcraft:block/side_machine",
+		"west": "krystalcraft:block/side_machine",
+		"up": "krystalcraft:block/up_machine",
+		"down": "krystalcraft:block/side_machine",
+		"particle": "krystalcraft:block/side_machine"
+	}
+}

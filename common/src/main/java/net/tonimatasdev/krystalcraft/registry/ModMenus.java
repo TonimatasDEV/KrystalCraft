@@ -18,4 +18,5 @@ public class ModMenus {
     public static final RegistryEntry<MenuType<CrushingFactoryMenu>> CRUSHING_FACTORY_MENU = MENUS.register("crushing_factory_menu", () -> RegistryHelpers.createMenuType(CrushingFactoryMenu::new));
     public static final RegistryEntry<MenuType<CombiningStationMenu>> COMBINING_STATION_MENU = MENUS.register("combining_station_menu", () -> RegistryHelpers.createMenuType(CombiningStationMenu::new));
     public static final RegistryEntry<MenuType<CombiningFactoryMenu>> COMBINING_FACTORY_MENU = MENUS.register("combining_factory_menu", () -> RegistryHelpers.createMenuType(CombiningFactoryMenu::new));
+    public static final RegistryEntry<MenuType<CombustionGeneratorMenu>> COMBUSTION_GENERATOR_MENU = MENUS.register("combustion_generator_menu", () -> RegistryHelpers.createMenuType(CombustionGeneratorMenu::new));
 }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "krystalcraft:block/combustion_generator"
+    },
+    "facing=east": {
+      "model": "krystalcraft:block/combustion_generator",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "krystalcraft:block/combustion_generator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "krystalcraft:block/combustion_generator",
+      "y": 270
+    }
+  }
+}

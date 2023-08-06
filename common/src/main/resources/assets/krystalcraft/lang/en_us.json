@@ -166,5 +166,6 @@
   "block.krystalcraft.combining_station": "Combining Station",
   "block.krystalcraft.combining_factory": "Combining Factory",
   "item.krystalcraft.battery": "Battery",
+  "block.krystalcraft.combustion_generator": "Combustion Generator",
   "itemGroup.krystalcraft": "KrystalCraft"
 }

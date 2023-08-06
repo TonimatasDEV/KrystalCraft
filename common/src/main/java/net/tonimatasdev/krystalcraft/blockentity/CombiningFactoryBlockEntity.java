@@ -2,6 +2,7 @@ package net.tonimatasdev.krystalcraft.blockentity;
 
 import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
+import earth.terrarium.botarium.common.energy.util.EnergyHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -58,8 +59,8 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
 
         if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(6, true);
-            getEnergyStorage().internalExtract(6, false);
+            getEnergyStorage().internalExtract(5, true);
+            getEnergyStorage().internalExtract(5, false);
 
             if (progress >= getMaxProgress()) {
                 craft(level);
