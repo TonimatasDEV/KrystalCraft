@@ -6,7 +6,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
 public abstract class StationBlockEntity extends AbstractMachineBlockEntity {
-
     protected int cookTime;
     protected int cookTimeTotal;
     protected int progress;
