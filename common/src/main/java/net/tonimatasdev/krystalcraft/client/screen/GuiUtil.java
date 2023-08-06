@@ -91,7 +91,7 @@ public class GuiUtil {
     }
 
     public static void drawEnergyTooltip(GuiGraphics graphics, long energy, long energyCapacity, int mouseX, int mouseY) {
-        graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(energy + "/" + energyCapacity).setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
+        graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(energy + "/" + energyCapacity + " FE").setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
     }
 
     public static void drawTankTooltip(GuiGraphics graphics, FluidHolder tank, long capacity, int mouseX, int mouseY) {
