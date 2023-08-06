@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class CombiningStationScreen extends AbstractContainerScreen<CombiningStationMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_combiner_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
 
     public CombiningStationScreen(CombiningStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

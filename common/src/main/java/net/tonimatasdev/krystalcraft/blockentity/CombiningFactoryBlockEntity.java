@@ -2,7 +2,6 @@ package net.tonimatasdev.krystalcraft.blockentity;
 
 import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
-import earth.terrarium.botarium.common.energy.util.EnergyHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,6 +9,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
 import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
+public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
     protected final int INPUT1_SLOT = 0;
     protected final int INPUT2_SLOT = 1;
     protected final int RESULT_SLOT = 2;
@@ -53,14 +53,13 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        insertEnergyFromBattery(BATTERY_SLOT);
+        energyInsertOfBattery(BATTERY_SLOT, 10);
 
         // TODO: Logic for upgrades (Slot 4, 5)
 
-        if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0) {
+        if (hasRecipe(level) && energyAmount() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(5, true);
-            getEnergyStorage().internalExtract(5, false);
+            energyInternalExtract(5);
 
             if (progress >= getMaxProgress()) {
                 craft(level);

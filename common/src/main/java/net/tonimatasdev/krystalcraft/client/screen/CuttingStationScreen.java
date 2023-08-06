@@ -14,7 +14,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Objects;
 
 public class CuttingStationScreen extends AbstractContainerScreen<CuttingStationMenu> {
-    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/gem_cutting_station_gui.png");
+    private static final ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/cutting_station.png");
 
     public CuttingStationScreen(CuttingStationMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);

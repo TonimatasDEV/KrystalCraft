@@ -9,6 +9,7 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CrushingFactoryMenu;
 import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
@@ -17,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
+public class CrushingFactoryBlockEntity extends EnergyProcessingBlockEntity {
     private final int INPUT_SLOT = 0;
     private final int RESULT_SLOT = 1;
     private final int BATTERY_SLOT = 2;
@@ -49,14 +50,13 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        insertEnergyFromBattery(BATTERY_SLOT);
+        energyInsertOfBattery(BATTERY_SLOT, 10);
 
         // TODO: Logic for upgrades (Slot 3, 4)
 
-        if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0) {
+        if (hasRecipe(level) && energyAmount() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(5, true);
-            getEnergyStorage().internalExtract(5, false);
+            energyInternalExtract(5);
 
             if (progress >= getMaxProgress()) {
                 craft(level);

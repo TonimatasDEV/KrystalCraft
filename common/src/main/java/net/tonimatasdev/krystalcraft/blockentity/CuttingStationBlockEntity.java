@@ -7,10 +7,11 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 
-public class CuttingStationBlockEntity extends StationBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingStationBlockEntity extends BurnProcessingBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
     public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState);
     }
@@ -23,6 +24,11 @@ public class CuttingStationBlockEntity extends StationBlockEntity implements Bot
     @Override
     public int getInventorySize() {
         return 5;
+    }
+
+    @Override
+    public int getMaxProgress() {
+        return 100;
     }
 
     @Override

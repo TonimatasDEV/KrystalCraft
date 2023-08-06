@@ -7,14 +7,17 @@ import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
 import earth.terrarium.botarium.common.energy.util.EnergyHooks;
+import earth.terrarium.botarium.common.item.ItemStackHolder;
 import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.FurnaceFuelSlot;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.blockentity.util.EnergyBlockEntity;
 import net.tonimatasdev.krystalcraft.item.custom.BatteryItem;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
 import net.tonimatasdev.krystalcraft.menu.CombustionGeneratorMenu;
@@ -22,10 +25,9 @@ import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModItems;
 import org.jetbrains.annotations.Nullable;
 
-public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
+public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
     protected int burnTime;
     protected int totalBurnTime;
-    protected WrappedBlockEnergyContainer energyContainer;
     protected final int INPUT = 0;
     protected final int BATTERY = 1;
 
@@ -38,7 +40,6 @@ public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity i
         super.load(compoundTag);
         this.burnTime = compoundTag.getInt("BurnTime");
         this.totalBurnTime = compoundTag.getInt("TotalBurnTime");
-        this.energyContainer.setEnergy(compoundTag.getLong("Energy"));
     }
 
     @Override
@@ -46,7 +47,6 @@ public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity i
         super.saveAdditional(compoundTag);
         compoundTag.putInt("BurnTime", this.burnTime);
         compoundTag.putInt("TotalBurnTime", this.totalBurnTime);
-        compoundTag.putLong("Energy", this.energyContainer.getStoredEnergy());
     }
 
     @Nullable
@@ -62,7 +62,7 @@ public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity i
 
     @Override
     public WrappedBlockEnergyContainer getEnergyStorage() {
-        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new ExtractOnlyEnergyContainer(30000)) : energyContainer;
+        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new ExtractOnlyEnergyContainer(15000)) : energyContainer;
     }
 
     @Override
@@ -70,16 +70,9 @@ public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity i
         if (level == null) return;
         if (level.isClientSide) return;
 
-        if (getItem(BATTERY).getItem() instanceof BatteryItem item) {
-            WrappedItemEnergyContainer itemEnergyContainer = item.getEnergyStorage(getItem(BATTERY));
 
-            if (itemEnergyContainer.getStoredEnergy() < itemEnergyContainer.getMaxCapacity() && energyContainer.getStoredEnergy() > 0) {
-                itemEnergyContainer.internalInsert(10, false);
-                itemEnergyContainer.internalInsert(10, true);
-                getEnergyStorage().internalExtract(10, false);
-                getEnergyStorage().internalExtract(10, true);
-            }
-        }
+        energyInsertToBattery(BATTERY, 10);
+
 
         if (burnTime == 0) {
             int newBurnTime = CommonHooks.getBurnTime(getItem(INPUT));
@@ -90,13 +83,12 @@ public class CombustionGeneratorBlockEntity extends AbstractMachineBlockEntity i
                 burnTime = newBurnTime;
             }
 
-        } else if (energyContainer.getStoredEnergy() < getEnergyStorage().getMaxCapacity()) {
+        } else if (energyAmount() < energyCapacity()) {
             burnTime--;
-            getEnergyStorage().internalInsert(10, false);
-            getEnergyStorage().internalInsert(10, true);
+            energyInternalInsert(10);
         }
 
-        EnergyHooks.distributeEnergyNearby(this, 50);
+        energyDistributeNearby(50);
     }
 
     public int getBurnTime() {
