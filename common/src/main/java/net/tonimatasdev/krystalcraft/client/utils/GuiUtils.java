@@ -1,7 +1,6 @@
-package net.tonimatasdev.krystalcraft.client.screen;
+package net.tonimatasdev.krystalcraft.client.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.teamresourceful.resourcefullib.client.utils.RenderUtils;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.utils.ClientFluidHooks;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
@@ -12,13 +11,11 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 
 import java.awt.*;
 
-public class GuiUtil {
+public class GuiUtils {
     public static final int ENERGY_WIDTH = 13;
     public static final int ENERGY_HEIGHT = 46;
     public static final int FLUID_TANK_WIDTH = 14;
@@ -73,14 +70,11 @@ public class GuiUtil {
         int spriteHeight = sprite.contents().height();
 
         RenderSystem.setShaderColor((colour >> 16 & 255) / 255.0f, (float) (colour >> 8 & 255) / 255.0f, (float) (colour & 255) / 255.0f, 1.0f);
-        RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
 
-        int calcHeight = (int) ((FLUID_TANK_HEIGHT + 1) * ratio);
-        try (var ignored = RenderUtils.createScissorBox(Minecraft.getInstance(), graphics.pose(), x, y + FLUID_TANK_HEIGHT - calcHeight, FLUID_TANK_WIDTH, calcHeight)) {
-            for (int i = 1; i < 4; i++) {
-                graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
-            }
+        for (int i = 1; i < 4; i++) {
+            graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
         }
+
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
 

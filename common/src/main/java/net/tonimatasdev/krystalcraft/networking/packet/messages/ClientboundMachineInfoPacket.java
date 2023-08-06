@@ -1,56 +1,47 @@
 package net.tonimatasdev.krystalcraft.networking.packet.messages;
 
-import com.teamresourceful.resourcefullib.common.networking.base.Packet;
-import com.teamresourceful.resourcefullib.common.networking.base.PacketContext;
-import com.teamresourceful.resourcefullib.common.networking.base.PacketHandler;
+import dev.architectury.networking.NetworkManager;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.resources.ResourceLocation;
-import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.minecraft.world.entity.player.Player;
 import net.tonimatasdev.krystalcraft.menu.AbstractMachineMenu;
 
 import java.util.List;
+import java.util.function.Supplier;
 
-public record ClientboundMachineInfoPacket(long energy, List<FluidHolder> fluidHolders) implements Packet<ClientboundMachineInfoPacket> {
+public class ClientboundMachineInfoPacket {
+    private final long energyAmount;
+    private final List<FluidHolder> fluidHolders;
 
-    public static final ResourceLocation ID = new ResourceLocation(KrystalCraft.MOD_ID, "machine_info");
-    public static final Handler HANDLER = new Handler();
+    public ClientboundMachineInfoPacket(FriendlyByteBuf buf) {
+        this(buf.readLong(), buf.readList(buf2 -> FluidHooks.newFluidHolder(BuiltInRegistries.FLUID.get(buf2.readResourceLocation()), buf2.readLong(), null)));
 
-    @Override
-    public ResourceLocation getID() {
-        return ID;
     }
 
-    @Override
-    public PacketHandler<ClientboundMachineInfoPacket> getHandler() {
-        return HANDLER;
+    public ClientboundMachineInfoPacket(long energyAmount, List<FluidHolder> fluidHolders) {
+        this.energyAmount = energyAmount;
+        this.fluidHolders = fluidHolders;
+
     }
 
-    private static class Handler implements PacketHandler<ClientboundMachineInfoPacket> {
-        @Override
-        public void encode(ClientboundMachineInfoPacket packet, FriendlyByteBuf buf) {
-            buf.writeLong(packet.energy());
-            buf.writeCollection(packet.fluidHolders, (buf2, fluid) -> {
-                buf2.writeResourceLocation(BuiltInRegistries.FLUID.getKey(fluid.getFluid()));
-                buf2.writeLong(fluid.getFluidAmount());
-            });
-        }
+    public void encode(FriendlyByteBuf buf) {
+        buf.writeLong(energyAmount);
+        buf.writeCollection(fluidHolders, (buf2, fluid) -> {
+            buf2.writeResourceLocation(BuiltInRegistries.FLUID.getKey(fluid.getFluid()));
+            buf2.writeLong(fluid.getFluidAmount());
+        });
+    }
 
-        @Override
-        public ClientboundMachineInfoPacket decode(FriendlyByteBuf buf) {
-            return new ClientboundMachineInfoPacket(buf.readLong(), buf.readList(buf2 -> FluidHooks.newFluidHolder(BuiltInRegistries.FLUID.get(buf2.readResourceLocation()), buf2.readLong(), null)));
-        }
+    public void apply(Supplier<NetworkManager.PacketContext> packetContextSupplier) {
+        packetContextSupplier.get().queue(() -> {
+            Player player = packetContextSupplier.get().getPlayer();
 
-        @Override
-        public PacketContext handle(ClientboundMachineInfoPacket packet) {
-            return (player, level) -> {
-                if (player.containerMenu instanceof AbstractMachineMenu<?> handler) {
-                    handler.setEnergyAmount(packet.energy());
-                    handler.setFluids(packet.fluidHolders);
-                }
-            };
-        }
+            if (player.containerMenu instanceof AbstractMachineMenu<?> handler) {
+                handler.setEnergyAmount(energyAmount);
+                handler.setFluids(fluidHolders);
+            }
+        });
     }
 }

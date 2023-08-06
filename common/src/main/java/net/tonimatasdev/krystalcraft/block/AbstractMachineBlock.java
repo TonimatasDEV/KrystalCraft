@@ -1,11 +1,8 @@
 package net.tonimatasdev.krystalcraft.block;
 
-import com.teamresourceful.resourcefullib.common.caches.CacheableFunction;
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import earth.terrarium.botarium.common.energy.base.PlatformEnergyManager;
 import earth.terrarium.botarium.common.energy.util.EnergyHooks;
 import earth.terrarium.botarium.common.menu.MenuHooks;
-import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -29,37 +26,17 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
-import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
 @SuppressWarnings("deprecation")
-@MethodsReturnNonnullByDefault
 public abstract class AbstractMachineBlock extends BaseEntityBlock {
-    private static final CacheableFunction<Block, BlockEntityType<?>> BLOCK_TO_ENTITY = new CacheableFunction<>(block ->
-            ModBlockEntities.BLOCK_ENTITIES
-                    .getEntries()
-                    .stream()
-                    .map(RegistryEntry::get)
-                    .filter(type -> type.isValid(block.defaultBlockState()))
-                    .findFirst()
-                    .orElse(null)
-    );
-    private BlockEntityType<?> entity;
-
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public AbstractMachineBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(this.buildDefaultState());
-    }
-
-    @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        if (entity == null) {
-            entity = BLOCK_TO_ENTITY.apply(state.getBlock());
-        }
-        return entity.create(pos, state);
     }
 
     @Override
@@ -86,7 +63,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             if (level.getBlockEntity(pos) instanceof AbstractMachineBlockEntity machineBlock) {
                 MenuHooks.openMenu((ServerPlayer) player, machineBlock);
@@ -97,12 +74,12 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public RenderShape getRenderShape(BlockState state) {
+    public @NotNull RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
     }
 
     @Override
-    public BlockState rotate(BlockState state, Rotation rotation) {
+    public @NotNull BlockState rotate(BlockState state, Rotation rotation) {
         if (this.useFacing()) {
             return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
         } else {
@@ -132,7 +109,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public BlockState mirror(BlockState state, Mirror mirror) {
+    public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
         return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
@@ -163,7 +140,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
+    public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
         ItemStack stack = super.getCloneItemStack(level, pos, state);
         if (level.getBlockEntity(pos) instanceof AbstractMachineBlockEntity machineBlock) {
             CompoundTag tag = stack.getOrCreateTag();

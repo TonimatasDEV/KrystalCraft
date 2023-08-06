@@ -22,7 +22,8 @@ configurations {
 dependencies {
     forge "net.minecraftforge:forge:${forge_version}"
     modApi "earth.terrarium:botarium-forge-${minecraft_version}:${botarium_version}"
-    modImplementation "com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourcefullib_version}"
+    //modImplementation "com.teamresourceful.resourcefullib:resourcefullib-forge-${minecraft_version}:${resourcefullib_version}"
+    modApi "dev.architectury:architectury-forge:${architectury_version}"
 
     //modCompileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
     //modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }

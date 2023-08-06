@@ -1,14 +1,17 @@
 package net.tonimatasdev.krystalcraft.networking;
 
-import com.teamresourceful.resourcefullib.common.networking.NetworkChannel;
-import com.teamresourceful.resourcefullib.common.networking.base.NetworkDirection;
+import dev.architectury.networking.NetworkChannel;
+import net.minecraft.resources.ResourceLocation;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.networking.packet.messages.ClientboundMachineInfoPacket;
 
 public class NetworkHandler {
-    public static final NetworkChannel CHANNEL = new NetworkChannel(KrystalCraft.MOD_ID, 0, "main");
+    public static final NetworkChannel CHANNEL = NetworkChannel.create(new ResourceLocation(KrystalCraft.MOD_ID, "main"));
 
     public static void init() {
-        CHANNEL.registerPacket(NetworkDirection.SERVER_TO_CLIENT, ClientboundMachineInfoPacket.ID, ClientboundMachineInfoPacket.HANDLER, ClientboundMachineInfoPacket.class);
+        CHANNEL.register(ClientboundMachineInfoPacket.class,
+                ClientboundMachineInfoPacket::encode,
+                ClientboundMachineInfoPacket::new,
+                ClientboundMachineInfoPacket::apply);
     }
 }
