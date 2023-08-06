@@ -25,13 +25,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
-    private final int INPUT_SLOT = 0;
-    private final int RESULT_SLOT = 1;
-    private final int BATTERY_SLOT = 2;
-    private final int UPGRADE1_SLOT = 3;
-    private final int UPGRADE2_SLOT = 4;
-    private final int TANK_INPUT_SLOT = 5;
-    private final int TANK_OUTPUT_SLOT = 6;
+    protected final int INPUT_SLOT = 0;
+    protected final int RESULT_SLOT = 1;
+    protected final int BATTERY_SLOT = 2;
+    protected final int UPGRADE1_SLOT = 3;
+    protected final int UPGRADE2_SLOT = 4;
+    protected final int TANK_INPUT_SLOT = 5;
+    protected final int TANK_OUTPUT_SLOT = 6;
 
     protected WrappedBlockFluidContainer fluidContainer;
 
@@ -72,7 +72,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
             setItem(TANK_OUTPUT_SLOT, new ItemStack(Items.BUCKET, getItem(TANK_OUTPUT_SLOT).getCount() + 1));
             getFluidContainer().internalInsert(FluidHolder.of(Fluids.WATER), true);
             getFluidContainer().internalInsert(FluidHolder.of(Fluids.WATER), false);
-        } else if (getItem(TANK_INPUT_SLOT).is(Items.BUCKET) && getItem(TANK_OUTPUT_SLOT).isEmpty() && getItem(TANK_OUTPUT_SLOT).getMaxStackSize() < getItem(TANK_OUTPUT_SLOT).getCount()) {
+        } else if (getItem(TANK_INPUT_SLOT).is(Items.BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).getMaxStackSize() < getItem(TANK_OUTPUT_SLOT).getCount())) {
             removeItem(TANK_INPUT_SLOT, 1);
             setItem(TANK_OUTPUT_SLOT, new ItemStack(Items.WATER_BUCKET));
             getFluidContainer().internalExtract(FluidHolder.of(Fluids.WATER), true);
@@ -83,9 +83,9 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
 
         if (hasRecipe(level) && getEnergyStorage().getStoredEnergy() > 0 && getFluidContainer().getFluids().get(0).getFluidAmount() > 0) {
             progress++;
-            getEnergyStorage().internalExtract(6, true);
-            getEnergyStorage().internalExtract(6, false);
-            FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, -1, null);
+            getEnergyStorage().internalExtract(5, true);
+            getEnergyStorage().internalExtract(5, false);
+            FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
             getFluidContainer().internalExtract(fluidHolder, true);
             getFluidContainer().internalExtract(fluidHolder, false);
 
