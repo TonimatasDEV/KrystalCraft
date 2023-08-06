@@ -24,7 +24,8 @@ dependencies {
 
     // Dependencies
     modApi "earth.terrarium:botarium-fabric-${minecraft_version}:${botarium_version}"
-    modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-${minecraft_version}:${resourcefullib_version}"
+    //modImplementation "com.teamresourceful.resourcefullib:resourcefullib-fabric-${minecraft_version}:${resourcefullib_version}"
+    modApi "dev.architectury:architectury-fabric:${architectury_version}" // Architectury
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
