@@ -42,15 +42,15 @@ public abstract class FactoryBlockEntity extends AbstractMachineBlockEntity impl
     }
 
     public void insertEnergyFromBattery(int batterySlot) {
-        if (getItem(batterySlot).isEmpty()) {
+        if (!getItem(batterySlot).isEmpty()) {
             if (getItem(batterySlot).getItem() instanceof BatteryItem item) {
-                EnergyContainer itemEnergyContainer = item.getEnergyStorage(getItem(3));
+                EnergyContainer itemEnergyContainer = item.getEnergyStorage(getItem(batterySlot));
 
                 if (itemEnergyContainer.getStoredEnergy() > 0) {
-                    itemEnergyContainer.internalExtract(10, true);
                     itemEnergyContainer.internalExtract(10, false);
-                    getEnergyStorage().internalInsert(10, true);
+                    itemEnergyContainer.internalExtract(10, true);
                     getEnergyStorage().internalInsert(10, false);
+                    getEnergyStorage().internalInsert(10, true);
                 }
             }
         }
