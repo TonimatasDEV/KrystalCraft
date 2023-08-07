@@ -1,8 +1,9 @@
 package net.tonimatasdev.krystalcraft.registry;
 
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.registries.Registries;
+import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
@@ -13,13 +14,13 @@ import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import java.util.function.Supplier;
 
 public class ModRecipes {
-    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(KrystalCraft.MOD_ID, Registries.RECIPE_TYPE);
+    public static final ResourcefulRegistry<RecipeType<?>> RECIPE_TYPES = ResourcefulRegistries.create(BuiltInRegistries.RECIPE_TYPE, KrystalCraft.MOD_ID);
 
-    public static final RegistrySupplier<RecipeType<CombiningRecipe>> COMBINING = create("combining");
-    public static final RegistrySupplier<RecipeType<CrushingRecipe>> CRUSHING = create("crushing");
-    public static final RegistrySupplier<RecipeType<CuttingRecipe>> CUTTING = create("cutting");
+    public static final RegistryEntry<RecipeType<CombiningRecipe>> COMBINING = create("combining");
+    public static final RegistryEntry<RecipeType<CrushingRecipe>> CRUSHING = create("crushing");
+    public static final RegistryEntry<RecipeType<CuttingRecipe>> CUTTING = create("cutting");
 
-    private static <T extends Recipe<?>> RegistrySupplier<RecipeType<T>> create(String name) {
+    private static <T extends Recipe<?>> RegistryEntry<RecipeType<T>> create(String name) {
         Supplier<RecipeType<T>> type = () -> new RecipeType<>() {
             @Override
             public String toString() {

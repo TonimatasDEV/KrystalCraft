@@ -2,7 +2,6 @@ package net.tonimatasdev.krystalcraft.menu;
 
 import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
@@ -42,7 +41,7 @@ public class CombustionGeneratorMenu extends AbstractMachineMenu<CombustionGener
     public void syncClientScreen() {
         burnTime.set(machine.getBurnTime());
         totalBurnTime.set(machine.getTotalBurnTime());
-        NetworkHandler.CHANNEL.sendToPlayer((ServerPlayer) player, new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()));
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), player);
     }
 
     public int getBurnTime() {

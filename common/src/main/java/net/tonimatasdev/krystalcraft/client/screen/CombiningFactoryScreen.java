@@ -8,7 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.client.utils.GuiUtils;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
 import org.jetbrains.annotations.NotNull;
 
@@ -31,8 +30,8 @@ public class CombiningFactoryScreen extends AbstractContainerScreen<CombiningFac
         int y = (height - 180) / 2 - 10;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
-        GuiUtils.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity());
-        GuiUtils.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 33, this.menu.getProgress(), this.menu.getMaxProgress());
+        GuiUtil.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 33, this.menu.getProgress(), this.menu.getMaxProgress());
     }
 
     @Override
@@ -41,8 +40,8 @@ public class CombiningFactoryScreen extends AbstractContainerScreen<CombiningFac
         super.render(guiGraphics, mouseX, mouseY, delta);
         renderTooltip(guiGraphics, mouseX, mouseY);
 
-        if (GuiUtils.isHovering(GuiUtils.getEnergyBounds(this.leftPos + 152, this.topPos + 8), mouseX, mouseY)) {
-            GuiUtils.drawEnergyTooltip(guiGraphics, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity(), mouseX, mouseY);
+        if (GuiUtil.isHovering(GuiUtil.getEnergyBounds(this.leftPos + 152, this.topPos + 8), mouseX, mouseY)) {
+            GuiUtil.drawEnergyTooltip(guiGraphics, this.menu.getEnergyAmount(), this.menu.getEnergyMaxCapacity(), mouseX, mouseY);
         }
     }
 }
