@@ -3,7 +3,6 @@ package net.tonimatasdev.krystalcraft.fabric;
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.tonimatasdev.krystalcraft.client.screen.*;
-import net.tonimatasdev.krystalcraft.menu.CuttingFactoryMenu;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class KrystalCraftClientFabric implements ClientModInitializer {
