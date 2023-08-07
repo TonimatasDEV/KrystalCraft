@@ -1,17 +1,28 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
+import com.teamresourceful.resourcefullib.ResourcefulLib;
+import earth.terrarium.botarium.common.energy.base.BotariumEnergyBlock;
 import earth.terrarium.botarium.common.energy.impl.ExtractOnlyEnergyContainer;
+import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
+import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
+import earth.terrarium.botarium.common.energy.util.EnergyHooks;
+import earth.terrarium.botarium.common.item.ItemStackHolder;
 import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.FurnaceFuelSlot;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyBlockEntity;
+import net.tonimatasdev.krystalcraft.item.custom.BatteryItem;
+import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
 import net.tonimatasdev.krystalcraft.menu.CombustionGeneratorMenu;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
+import net.tonimatasdev.krystalcraft.registry.ModItems;
 import org.jetbrains.annotations.Nullable;
 
 public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {

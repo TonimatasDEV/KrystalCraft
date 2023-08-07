@@ -1,8 +1,9 @@
 package net.tonimatasdev.krystalcraft.registry;
 
-import dev.architectury.registry.registries.DeferredRegister;
-import dev.architectury.registry.registries.RegistrySupplier;
-import net.minecraft.core.registries.Registries;
+import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
+import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
@@ -13,13 +14,13 @@ import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import java.util.function.Supplier;
 
 public class ModRecipeSerializers {
-    public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(KrystalCraft.MOD_ID, Registries.RECIPE_SERIALIZER);
+    public static final ResourcefulRegistry<RecipeSerializer<?>> RECIPE_SERIALIZERS = ResourcefulRegistries.create(BuiltInRegistries.RECIPE_SERIALIZER, KrystalCraft.MOD_ID);
 
-    public static final RegistrySupplier<RecipeSerializer<CuttingRecipe>> CUTTING_SERIALIZER = create("cutting", CuttingRecipe.Serializer::new);
-    public static final RegistrySupplier<RecipeSerializer<CrushingRecipe>> CRUSHING_SERIALIZER = create("crushing", CrushingRecipe.Serializer::new);
-    public static final RegistrySupplier<RecipeSerializer<CombiningRecipe>> COMBINING_SERIALIZER = create("combining", CombiningRecipe.Serializer::new);
+    public static final RegistryEntry<RecipeSerializer<CuttingRecipe>> CUTTING_SERIALIZER = create("cutting", CuttingRecipe.Serializer::new);
+    public static final RegistryEntry<RecipeSerializer<CrushingRecipe>> CRUSHING_SERIALIZER = create("crushing", CrushingRecipe.Serializer::new);
+    public static final RegistryEntry<RecipeSerializer<CombiningRecipe>> COMBINING_SERIALIZER = create("combining", CombiningRecipe.Serializer::new);
 
-    private static <T extends Recipe<?>> RegistrySupplier<RecipeSerializer<T>> create(String name, Supplier<RecipeSerializer<T>> serializer) {
+    private static <T extends Recipe<?>> RegistryEntry<RecipeSerializer<T>> create(String name, Supplier<RecipeSerializer<T>> serializer) {
         return RECIPE_SERIALIZERS.register(name, serializer);
     }
 }

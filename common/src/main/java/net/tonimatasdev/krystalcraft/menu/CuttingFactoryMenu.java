@@ -2,7 +2,6 @@ package net.tonimatasdev.krystalcraft.menu;
 
 import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -69,6 +68,6 @@ public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
     @Override
     public void syncClientScreen() {
         super.syncClientScreen();
-        NetworkHandler.CHANNEL.sendToPlayer((ServerPlayer) player, new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), getFluidContainer().getFluids()));
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), getFluidContainer().getFluids()), player);
     }
 }

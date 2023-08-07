@@ -1,7 +1,6 @@
 package net.tonimatasdev.krystalcraft.menu;
 
 import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
@@ -54,6 +53,6 @@ public class CombiningFactoryMenu extends FactoryMenu<CombiningFactoryBlockEntit
     @Override
     public void syncClientScreen() {
         super.syncClientScreen();
-        NetworkHandler.CHANNEL.sendToPlayer((ServerPlayer) player, new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()));
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), player);
     }
 }
