@@ -88,15 +88,15 @@ public abstract class EnergyBlockEntity extends AbstractMachineBlockEntity imple
         EnergyApi.moveEnergy(from, null, toItemStackHolder, amount, false);
     }
 
-    public void energyInsertToBattery(int batterySlot, int amount) {
-        if (!getItem(batterySlot).isEmpty()) {
-            energyMoveBetweenContainers(getEnergyStorage(), EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(batterySlot))), amount);
+    public void energyInsertToEnergyOutputSlot(int energyOutputSlot, int amount) {
+        if (!getItem(energyOutputSlot).isEmpty()) {
+            energyMoveBetweenContainers(getEnergyStorage(), EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(energyOutputSlot))), amount);
         }
     }
 
-    public void energyInsertOfBattery(int batterySlot, int amount) {
-        if (!getItem(batterySlot).isEmpty()) {
-            energyMoveBetweenContainers(EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(batterySlot))), getEnergyStorage(), amount);
+    public void energyExtractFromEnergyOutputSlot(int energyOutputSlot, int amount) {
+        if (!getItem(energyOutputSlot).isEmpty()) {
+            energyMoveBetweenContainers(EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(energyOutputSlot))), getEnergyStorage(), amount);
         }
     }
 }

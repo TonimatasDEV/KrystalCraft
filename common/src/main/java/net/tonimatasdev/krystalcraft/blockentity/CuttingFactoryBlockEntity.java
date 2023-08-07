@@ -66,7 +66,7 @@ public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity imple
         if (level == null) return;
         if (level.isClientSide) return;
 
-        energyInsertOfBattery(BATTERY_SLOT, 10);
+        energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
 
         if (getItem(TANK_INPUT_SLOT).is(Items.WATER_BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).is(Items.BUCKET)) && (getFluidContainer().getTankCapacity(0) - getFluidContainer().getFluids().get(0).getFluidAmount()) >= 1000) {
             removeItem(TANK_INPUT_SLOT, 1);
@@ -101,8 +101,10 @@ public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity imple
 
     private boolean hasRecipe(Level level) {
         Optional<CuttingRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.CUTTING.get(), this, level);
-        ItemStack resultItem = getItem(RESULT_SLOT);
-        return match.isPresent() && (match.get().getResultItem(level.registryAccess()).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
+        if (match.isEmpty()) return true;
+
+        ItemStack resultItem = match.get().getResultItem(level.registryAccess());
+        return (resultItem.is(resultItem.getItem()) || (resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64);
     }
 
     private void craft(Level level) {
