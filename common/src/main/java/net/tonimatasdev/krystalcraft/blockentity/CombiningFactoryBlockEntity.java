@@ -53,7 +53,7 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        energyInsertOfBattery(BATTERY_SLOT, 10);
+        energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
 
         // TODO: Logic for upgrades (Slot 4, 5)
 
@@ -72,8 +72,10 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
 
     private boolean hasRecipe(Level level) {
         Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-        ItemStack resultItem = getItem(RESULT_SLOT);
-        return match.isPresent() && (match.get().getResultItem(level.registryAccess()).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
+        if (match.isEmpty()) return true;
+
+        ItemStack resultItem = match.get().getResultItem(level.registryAccess());
+        return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
     }
 
     private void craft(Level level) {
@@ -82,7 +84,8 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
         if (match.isPresent()) {
             removeItem(INPUT1_SLOT, 1);
             removeItem(INPUT2_SLOT, 1);
-            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(level.registryAccess()).getItem(), getItem(RESULT_SLOT).getCount() + 1));
+            ItemStack result = match.get().getResultItem(level.registryAccess());
+            setItem(RESULT_SLOT, new ItemStack(result.getItem(), getItem(RESULT_SLOT).getCount() + result.getCount()));
         }
     }
 }

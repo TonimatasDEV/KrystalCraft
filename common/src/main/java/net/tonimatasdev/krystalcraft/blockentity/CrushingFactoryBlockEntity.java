@@ -50,7 +50,7 @@ public class CrushingFactoryBlockEntity extends EnergyProcessingBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        energyInsertOfBattery(BATTERY_SLOT, 10);
+        energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
 
         // TODO: Logic for upgrades (Slot 3, 4)
 
@@ -69,8 +69,10 @@ public class CrushingFactoryBlockEntity extends EnergyProcessingBlockEntity {
 
     private boolean hasRecipe(Level level) {
         Optional<CrushingRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
-        ItemStack resultItem = getItem(RESULT_SLOT);
-        return match.isPresent() && (match.get().getResultItem(level.registryAccess()).is(resultItem.getItem()) || resultItem.isEmpty()) && resultItem.getCount() != 64;
+        if (match.isEmpty()) return true;
+
+        ItemStack resultItem = match.get().getResultItem(level.registryAccess());
+        return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
     }
 
     private void craft(Level level) {

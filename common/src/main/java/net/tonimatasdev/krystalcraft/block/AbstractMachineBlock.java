@@ -170,11 +170,6 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
 
             Optional<PlatformEnergyManager> platformEnergyManager = EnergyHooks.safeGetBlockEnergyManager(machineBlock, null);
             platformEnergyManager.ifPresent(energyManager -> tag.putLong("Energy", platformEnergyManager.get().getStoredEnergy()));
-
-            //if (machineBlock instanceof FluidMachineBlockEntity fluidMachine) {
-            //    tag.put("InputFluid", fluidMachine.getInputTank().serialize());
-            //    tag.put("OutputFluid", fluidMachine.getOutputTank().serialize());
-            //}
         }
         return stack;
     }
