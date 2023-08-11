@@ -4,15 +4,16 @@ import earth.terrarium.botarium.common.energy.EnergyApi;
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyBlock;
 import earth.terrarium.botarium.common.energy.base.EnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
+import earth.terrarium.botarium.common.energy.util.EnergyHooks;
 import earth.terrarium.botarium.common.item.ItemStackHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
 
+@SuppressWarnings("deprecation")
 public abstract class EnergyBlockEntity extends AbstractMachineBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
     protected WrappedBlockEnergyContainer energyContainer;
 
@@ -65,38 +66,42 @@ public abstract class EnergyBlockEntity extends AbstractMachineBlockEntity imple
     }
 
     public void energyMoveBetweenBlocks(BlockEntity from, BlockEntity to, long amount) {
-        EnergyApi.moveEnergy(from, to, amount, false);
+        EnergyHooks.moveBlockToBlockEnergy(from, to, amount);
     }
 
     public void energyMoveBetweenContainers(EnergyContainer from, EnergyContainer to, long amount) {
         EnergyApi.moveEnergy(from, to, amount, false);
     }
 
-    public void energyMoveBetweenItems(ItemStack from, ItemStack to, long amount) {
-        ItemStackHolder fromItemStackHolder = new ItemStackHolder(from);
-        ItemStackHolder toItemStackHolder = new ItemStackHolder(to);
-        EnergyApi.moveEnergy(fromItemStackHolder, toItemStackHolder, amount, false);
+    public void energyMoveBetweenItems(ItemStackHolder from, ItemStackHolder to, long amount) {
+        EnergyHooks.safeMoveItemToItemEnergy(from, to, amount);
     }
 
-    public void energyMoveItemToBlock(ItemStack from, BlockEntity to, long amount) {
-        ItemStackHolder fromItemStackHolder = new ItemStackHolder(from);
-        EnergyApi.moveEnergy(fromItemStackHolder, to, null, amount, false);
+    public long energyMoveItemToBlock(ItemStackHolder from, BlockEntity to, long amount) {
+        return EnergyHooks.safeMoveItemToBlockEnergy(from, to, null, amount);
     }
 
-    public void energyMoveBlockToItem(BlockEntity from, ItemStack to, long amount) {
-        ItemStackHolder toItemStackHolder = new ItemStackHolder(to);
-        EnergyApi.moveEnergy(from, null, toItemStackHolder, amount, false);
+    public long energyMoveBlockToItem(BlockEntity from, ItemStackHolder to, long amount) {
+        return EnergyHooks.safeMoveBlockToItemEnergy(from, null, to, amount);
     }
 
     public void energyInsertToEnergyOutputSlot(int energyOutputSlot, int amount) {
         if (!getItem(energyOutputSlot).isEmpty()) {
-            energyMoveBetweenContainers(getEnergyStorage(), EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(energyOutputSlot))), amount);
+            ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
+
+            if (energyMoveBlockToItem(this, stackHolder, amount) != 0) {
+                if (stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
+            }
         }
     }
 
     public void energyExtractFromEnergyOutputSlot(int energyOutputSlot, int amount) {
         if (!getItem(energyOutputSlot).isEmpty()) {
-            energyMoveBetweenContainers(EnergyApi.getItemEnergyContainer(new ItemStackHolder(getItem(energyOutputSlot))), getEnergyStorage(), amount);
+            ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
+
+            if (energyMoveItemToBlock(stackHolder, this, amount) != 0) {
+                if (stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
+            }
         }
     }
 }
