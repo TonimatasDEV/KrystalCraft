@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.item.custom;
 
-import earth.terrarium.botarium.common.energy.EnergyApi;
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem;
 import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer;
 import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
@@ -23,7 +22,17 @@ public class BatteryItem extends Item implements BotariumEnergyItem<WrappedItemE
 
     @Override
     public WrappedItemEnergyContainer getEnergyStorage(ItemStack holder) {
-        return new WrappedItemEnergyContainer(holder, new SimpleEnergyContainer(7500));
+        return new WrappedItemEnergyContainer(holder, new SimpleEnergyContainer(7500) {
+            @Override
+            public long maxInsert() {
+                return 10;
+            }
+
+            @Override
+            public long maxExtract() {
+                return 10;
+            }
+        });
     }
 
     @Override

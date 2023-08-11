@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.block;
+package net.tonimatasdev.krystalcraft.block.util;
 
 import com.teamresourceful.resourcefullib.common.caches.CacheableFunction;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
@@ -45,7 +45,6 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
                     .orElse(null)
     );
     private BlockEntityType<?> entity;
-
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
     public AbstractMachineBlock(Properties properties) {
