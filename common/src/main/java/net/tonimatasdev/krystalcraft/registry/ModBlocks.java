@@ -13,6 +13,7 @@ import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.block.EnergyPipeBlock;
 import net.tonimatasdev.krystalcraft.block.MachineBlock;
 
 import java.util.function.Supplier;
@@ -56,6 +57,7 @@ public class ModBlocks {
     public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", MachineBlock::new);
     public static final RegistryEntry<Block> COMBINING_FACTORY = registerBlock("combining_factory", MachineBlock::new);
     public static final RegistryEntry<Block> COMBUSTION_GENERATOR = registerBlock("combustion_generator", MachineBlock::new);
+    public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);
 
     private static <T extends Block> RegistryEntry<T> registerBlock(String name, Supplier<T> block) {
         RegistryEntry<T> toReturn = BLOCKS.register(name, block);

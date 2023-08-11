@@ -1,0 +1,8 @@
+{
+	"parent": "krystalcraft:block/pipe_core",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "krystalcraft:block/energy_pipe",
+		"particle": "minecraft:block/black_concrete"
+	}
+}
