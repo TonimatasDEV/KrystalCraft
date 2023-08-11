@@ -1,0 +1,23 @@
+{
+  "multipart": [
+    {   "apply": { "model": "krystalcraft:block/energy_pipe_core" }},
+    {   "when": { "north": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "uvlock": false }
+    },
+    {   "when": { "east": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "y": 90, "uvlock": false }
+    },
+    {   "when": { "south": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "y": 180, "uvlock": false }
+    },
+    {   "when": { "west": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "y": 270, "uvlock": false }
+    },
+    {   "when": { "up": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "x": 270, "uvlock": false }
+    },
+    {   "when": { "down": "true" },
+      "apply": { "model": "krystalcraft:block/energy_pipe_connection", "x": 90, "uvlock": false }
+    }
+  ]
+}
