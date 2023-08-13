@@ -72,7 +72,7 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
 
     private boolean hasRecipe(Level level) {
         Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-        if (match.isEmpty()) return true;
+        if (match.isEmpty()) return false;
 
         ItemStack resultItem = match.get().getResultItem(level.registryAccess());
         return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
