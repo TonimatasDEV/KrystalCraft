@@ -11,10 +11,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
 
 @SuppressWarnings("deprecation")
-public abstract class EnergyBlockEntity extends AbstractMachineBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
+public abstract class EnergyBlockEntity extends AbstractBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
     protected WrappedBlockEnergyContainer energyContainer;
 
     public EnergyBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {

@@ -4,9 +4,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
 
-public abstract class BurnProcessingBlockEntity extends AbstractMachineBlockEntity {
+public abstract class BurnProcessingBlockEntity extends AbstractBlockEntity {
     protected int burnTime;
     protected int burnTimeTotal;
     protected int progress;

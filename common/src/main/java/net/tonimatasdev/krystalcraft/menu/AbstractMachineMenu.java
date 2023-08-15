@@ -11,12 +11,12 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public abstract class AbstractMachineMenu<T extends AbstractMachineBlockEntity> extends AbstractContainerMenu {
+public abstract class AbstractMachineMenu<T extends AbstractBlockEntity> extends AbstractContainerMenu {
 
     protected final T machine;
     protected final Level level;

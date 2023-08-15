@@ -27,7 +27,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 
@@ -63,7 +63,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (entityWorld, pos, entityState, blockEntity) -> {
-            if (blockEntity instanceof AbstractMachineBlockEntity machine) {
+            if (blockEntity instanceof AbstractBlockEntity machine) {
                 machine.tick();
             }
         };
@@ -86,7 +86,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     @Override
     public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
-            if (level.getBlockEntity(pos) instanceof AbstractMachineBlockEntity machineBlock) {
+            if (level.getBlockEntity(pos) instanceof AbstractBlockEntity machineBlock) {
                 MenuHooks.openMenu((ServerPlayer) player, machineBlock);
             }
         }
@@ -112,7 +112,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
         if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof AbstractMachineBlockEntity machineBlock) {
+            if (blockEntity instanceof AbstractBlockEntity machineBlock) {
                 if (machineBlock.getInventorySize() > 0) {
                     if (this.removeOutput()) {
                         machineBlock.removeItemNoUpdate(machineBlock.getInventorySize() - 1);
@@ -157,13 +157,13 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         BlockEntity blockEntity = level.getBlockEntity(pos);
 
-        return blockEntity instanceof AbstractMachineBlockEntity ? AbstractContainerMenu.getRedstoneSignalFromBlockEntity(blockEntity) : 0;
+        return blockEntity instanceof AbstractBlockEntity ? AbstractContainerMenu.getRedstoneSignalFromBlockEntity(blockEntity) : 0;
     }
 
     @Override
     public @NotNull ItemStack getCloneItemStack(BlockGetter level, BlockPos pos, BlockState state) {
         ItemStack stack = super.getCloneItemStack(level, pos, state);
-        if (level.getBlockEntity(pos) instanceof AbstractMachineBlockEntity machineBlock) {
+        if (level.getBlockEntity(pos) instanceof AbstractBlockEntity machineBlock) {
             CompoundTag tag = stack.getOrCreateTag();
             ContainerHelper.saveAllItems(tag, machineBlock.getItems());
 
