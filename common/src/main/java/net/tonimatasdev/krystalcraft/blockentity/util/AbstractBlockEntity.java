@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.blockentity;
+package net.tonimatasdev.krystalcraft.blockentity.util;
 
 import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
 import net.minecraft.MethodsReturnNonnullByDefault;
@@ -21,10 +21,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.util.ModInventory;
 
 @MethodsReturnNonnullByDefault
-public abstract class AbstractMachineBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {
+public abstract class AbstractBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {
     public final NonNullList<ItemStack> inventory;
 
-    public AbstractMachineBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
+    public AbstractBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
         inventory = NonNullList.withSize(getInventorySize(), ItemStack.EMPTY);
     }

@@ -19,12 +19,6 @@ public class EnergyPipeBlock extends PipeBlock {
 
     @Override
     public boolean canConnect(BlockEntity blockEntity, Direction direction) {
-        return EnergyApi.isEnergyBlock(blockEntity, direction);
-    }
-
-    @Override
-    public void update(BlockState blockState, BlockPos blockPos, BlockState neighborState, BlockPos neighborPos) {
-        if (!(blockState.getBlock() instanceof EnergyPipeBlock && neighborState.getBlock() instanceof EnergyPipeBlock)) return;
-        //EnergyConnection.addOrCreate(blockPos, neighborPos);
+        return EnergyApi.isEnergyBlock(blockEntity, direction) || blockEntity instanceof EnergyPipeBlockEntity;
     }
 }

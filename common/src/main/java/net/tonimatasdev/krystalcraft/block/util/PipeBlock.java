@@ -20,7 +20,7 @@ import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.tonimatasdev.krystalcraft.blockentity.AbstractMachineBlockEntity;
+import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 @SuppressWarnings("deprecation")
@@ -51,7 +51,7 @@ public abstract class PipeBlock extends Block implements EntityBlock {
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return (entityWorld, pos, entityState, blockEntity) -> {
-            if (blockEntity instanceof AbstractMachineBlockEntity machine) {
+            if (blockEntity instanceof AbstractBlockEntity machine) {
                 machine.tick();
             }
         };
@@ -90,7 +90,6 @@ public abstract class PipeBlock extends Block implements EntityBlock {
 
                 if (neighborState.getBlock() instanceof PipeBlock) {
                     if (neighborState.getValue(getProperty(direction.getOpposite()))) continue;
-                    update(blockState, blockPos, neighborState, neighborPos);
                     level.setBlockAndUpdate(neighborPos, neighborState.setValue(getProperty(direction.getOpposite()), true));
                 }
             } else {
@@ -102,8 +101,6 @@ public abstract class PipeBlock extends Block implements EntityBlock {
     }
 
     public abstract boolean canConnect(BlockEntity blockEntity, Direction direction);
-
-    public abstract void update(BlockState blockState, BlockPos blockPos, BlockState neighborState, BlockPos neighborPos);
 
     @Override
     public @NotNull VoxelShape getShape(BlockState blockState, BlockGetter blockGetter, BlockPos blockPos, CollisionContext collisionContext) {
