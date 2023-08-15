@@ -6,7 +6,7 @@ issueTrackerURL="https://github.com/TonimatasDEV/KrystalCraft/issues"
 [[mods]]
 modId="krystalcraft"
 version="${mod_version}"
-displayName="${mod_name}"
+displayName="KrystalCraft"
 #updateJSONURL="http://myurl.me/"
 displayURL="https://tonimatas.dev"
 logoFile="icon.png"
@@ -31,5 +31,19 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
    modId="minecraft"
    mandatory=true
    versionRange="[${minecraft_version}]"
+   ordering="NONE"
+   side="BOTH"
+
+[[dependencies.krystalcraft]]
+   modId="resourcefullib"
+   mandatory=true
+   versionRange="${forge_resourcefullib_version_range}"
+   ordering="NONE"
+   side="BOTH"
+
+[[dependencies.krystalcraft]]
+   modId="botarium"
+   mandatory=true
+   versionRange="${forge_botarium_version_range}"
    ordering="NONE"
    side="BOTH"
