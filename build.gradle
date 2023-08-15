@@ -14,12 +14,6 @@ subprojects {
         silentMojangMappingsLicense()
     }
 
-    repositories {
-        maven { url = 'https://maven.resourcefulbees.com/repository/maven-public/' }
-        maven { url = 'https://maven.blamejared.com' }
-        maven { url = 'https://maven.shedaniel.me' }
-    }
-
     dependencies {
         minecraft "com.mojang:minecraft:${minecraft_version}"
         mappings loom.officialMojangMappings()
@@ -32,6 +26,12 @@ allprojects {
 
     version = mod_version
     group = "net.tonimatasdev.krystalcraft"
+
+    repositories {
+        maven { url = 'https://maven.resourcefulbees.com/repository/maven-public/' }
+        maven { url = 'https://maven.blamejared.com' }
+        maven { url = 'https://maven.shedaniel.me' }
+    }
 
     tasks.withType(JavaCompile).configureEach {
         options.encoding = "UTF-8"

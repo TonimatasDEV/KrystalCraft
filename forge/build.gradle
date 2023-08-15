@@ -33,8 +33,8 @@ dependencies {
 
 processResources {
     var replaceProperties = [
-            mod_version: mod_version, mod_name: mod_name, mod_license: mod_license,
-            forge_loader_range: forge_loader_range, minecraft_version: minecraft_version]
+            mod_version: mod_version, forge_loader_range: forge_loader_range, minecraft_version: minecraft_version,
+            forge_botarium_version_range: forge_botarium_version_range, forge_resourcefullib_version_range: forge_resourcefullib_version_range]
     inputs.properties replaceProperties
 
     filesMatching("META-INF/mods.toml") {
