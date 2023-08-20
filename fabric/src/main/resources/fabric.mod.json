@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "krystalcraft",
-  "version": "${mod_version}",
+  "version": "${modVersion}",
 
   "name": "KrystalCraft",
   "description": "Adds lots of recipes, crystals, ingots and machines to work with them, making upgradeable armor, tools, items, blocks, or even weapons.\nThis mod is mainly focused on mining but also have some different mechanics like special enchantments.\nAll you need is to craft your tool/weapon/armor in a crafting table and upgrade it with the correspondent machine and minerals for making them better.",
@@ -23,9 +23,9 @@
     "krystalcraft-common.mixins.json"
   ],
   "depends": {
-    "fabricloader": "${fabric_loader_range}",
-    "minecraft": "${minecraft_version}",
-    "resourcefullib": "${fabric_resourcefullib_version_range}",
-    "botarium": "${fabric_botarium_version_range}"
+    "fabricloader": "${fabricLoaderRange}",
+    "minecraft": "${minecraftVersion}",
+    "resourcefullib": "${fabricResourcefullibVersionRange}",
+    "botarium": "${fabricBotariumVersionRange}"
   }
 }
