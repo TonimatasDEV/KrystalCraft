@@ -27,11 +27,6 @@ public class CuttingStationBlockEntity extends BurnProcessingBlockEntity impleme
     }
 
     @Override
-    public int getMaxProgress() {
-        return 100;
-    }
-
-    @Override
     public void tick() {
 
     }
