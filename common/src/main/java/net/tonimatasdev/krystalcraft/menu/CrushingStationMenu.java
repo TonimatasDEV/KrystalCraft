@@ -14,14 +14,9 @@ public class CrushingStationMenu extends StationMenu<CrushingStationBlockEntity>
     public CrushingStationMenu(int syncId, Inventory inventory, CrushingStationBlockEntity blockEntity) {
         super(ModMenus.CRUSHING_STATION_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
-                        new Slot(blockEntity, 0, 70, 31),
-                        new Slot(blockEntity, 1, 88, 31),
-                        new Slot(blockEntity, 2, 80, 64)
+                        new Slot(blockEntity, 0, 80, 0),
+                        new Slot(blockEntity, 1, 80, 49),
+                        new Slot(blockEntity, 2, 128, 44)
                 });
-    }
-
-    @Override
-    public int getPlayerInventoryOffset() {
-        return 23;
     }
 }

@@ -30,9 +30,4 @@ public abstract class FactoryMenu<T extends EnergyProcessingBlockEntity> extends
     public int getMaxProgress() {
         return this.machine.getMaxProgress();
     }
-
-    @Override
-    public int getPlayerInventoryOffset() {
-        return -2;
-    }
 }
