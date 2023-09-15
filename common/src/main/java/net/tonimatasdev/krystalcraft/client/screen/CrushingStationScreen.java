@@ -26,10 +26,10 @@ public class CrushingStationScreen extends AbstractContainerScreen<CrushingStati
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
 
-        int x = (width - imageWidth) / 2;
-        int y = (height - imageHeight) / 2;
+        int x = (width - 176) / 2;
+        int y = (height - 180) / 2 - 10;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
     }
 
     @Override

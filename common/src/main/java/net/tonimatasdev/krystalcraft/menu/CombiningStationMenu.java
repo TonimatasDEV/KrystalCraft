@@ -14,15 +14,10 @@ public class CombiningStationMenu extends StationMenu<CombiningStationBlockEntit
     public CombiningStationMenu(int syncId, Inventory inventory, CombiningStationBlockEntity blockEntity) {
         super(ModMenus.COMBINING_STATION_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
-                        new Slot(blockEntity, 0, 70, 31),
-                        new Slot(blockEntity, 1, 88, 31),
-                        new Slot(blockEntity, 2, 80, 64),
-                        new Slot(blockEntity, 3, 80, 86)
+                        new Slot(blockEntity, 0, 80, -8),
+                        new Slot(blockEntity, 1, 80, 9),
+                        new Slot(blockEntity, 2, 80, 50),
+                        new Slot(blockEntity, 3, 128, 53)
                 });
-    }
-
-    @Override
-    public int getPlayerInventoryOffset() {
-        return 23;
     }
 }

@@ -55,9 +55,4 @@ public class CombustionGeneratorMenu extends AbstractMachineMenu<CombustionGener
     public long getMaxEnergyCapacity() {
         return machine.getEnergyStorage().getMaxCapacity();
     }
-
-    @Override
-    public int getPlayerInventoryOffset() {
-        return -2;
-    }
 }
