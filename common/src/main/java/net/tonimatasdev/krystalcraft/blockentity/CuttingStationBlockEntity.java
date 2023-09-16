@@ -1,16 +1,20 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
 import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
+import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.impl.SimpleFluidContainer;
 import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
+import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
@@ -51,14 +55,31 @@ public class CuttingStationBlockEntity extends BurnProcessingBlockEntity impleme
         if (level == null) return;
         if (level.isClientSide) return;
 
-        if (hasRecipe(level)) {
+        if (getItem(TANK_INPUT_SLOT).is(Items.WATER_BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).is(Items.BUCKET)) && (getFluidContainer().getTankCapacity(0) - getFluidContainer().getFluids().get(0).getFluidAmount()) >= 1000) {
+            removeItem(TANK_INPUT_SLOT, 1);
+            setItem(TANK_OUTPUT_SLOT, new ItemStack(Items.BUCKET, getItem(TANK_OUTPUT_SLOT).getCount() + 1));
+            getFluidContainer().internalInsert(FluidHolder.of(Fluids.WATER), true);
+            getFluidContainer().internalInsert(FluidHolder.of(Fluids.WATER), false);
+        } else if (getItem(TANK_INPUT_SLOT).is(Items.BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).getMaxStackSize() < getItem(TANK_OUTPUT_SLOT).getCount())) {
+            removeItem(TANK_INPUT_SLOT, 1);
+            setItem(TANK_OUTPUT_SLOT, new ItemStack(Items.WATER_BUCKET));
+            getFluidContainer().internalExtract(FluidHolder.of(Fluids.WATER), true);
+            getFluidContainer().internalExtract(FluidHolder.of(Fluids.WATER), false);
+        }
+
+        if (hasRecipe(level) && getFluidContainer().getFluids().get(0).getFluidAmount() > 0) {
             if (burnTime <= 0) {
                 burnTime = CommonHooks.getBurnTime(getItem(COMBUSTION_SLOT));
                 burnTimeTotal = burnTime;
                 removeItem(COMBUSTION_SLOT, 1);
             }
 
-            if (burnTime > 0) progress++;
+            if (burnTime > 0) {
+                progress++;
+                FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
+                getFluidContainer().internalExtract(fluidHolder, true);
+                getFluidContainer().internalExtract(fluidHolder, false);
+            }
 
             if (progress >= getMaxProgress()) {
                 craft(level);

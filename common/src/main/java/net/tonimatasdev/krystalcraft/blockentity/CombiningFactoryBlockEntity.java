@@ -64,7 +64,7 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
                 progress = 0;
             }
         } else {
-            if (progress > 0) progress--;
+            progress = 0;
         }
     }
 
