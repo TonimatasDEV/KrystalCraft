@@ -4,6 +4,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.tonimatasdev.krystalcraft.blockentity.CombiningStationBlockEntity;
+import net.tonimatasdev.krystalcraft.menu.slots.CombustionSlot;
+import net.tonimatasdev.krystalcraft.menu.slots.ResultSlot;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class CombiningStationMenu extends StationMenu<CombiningStationBlockEntity> {
@@ -16,8 +18,9 @@ public class CombiningStationMenu extends StationMenu<CombiningStationBlockEntit
                 new Slot[]{
                         new Slot(blockEntity, 0, 80, -8),
                         new Slot(blockEntity, 1, 80, 9),
-                        new Slot(blockEntity, 2, 80, 50),
-                        new Slot(blockEntity, 3, 128, 53)
+                        new ResultSlot(blockEntity, 2, 80, 50),
+                        new CombustionSlot(blockEntity, 3, 128, 53)
+
                 });
     }
 }

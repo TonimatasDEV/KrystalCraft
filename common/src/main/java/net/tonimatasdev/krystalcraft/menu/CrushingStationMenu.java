@@ -4,6 +4,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 import net.tonimatasdev.krystalcraft.blockentity.CrushingStationBlockEntity;
+import net.tonimatasdev.krystalcraft.menu.slots.CombustionSlot;
+import net.tonimatasdev.krystalcraft.menu.slots.ResultSlot;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class CrushingStationMenu extends StationMenu<CrushingStationBlockEntity> {
@@ -15,8 +17,8 @@ public class CrushingStationMenu extends StationMenu<CrushingStationBlockEntity>
         super(ModMenus.CRUSHING_STATION_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
                         new Slot(blockEntity, 0, 80, 0),
-                        new Slot(blockEntity, 1, 80, 49),
-                        new Slot(blockEntity, 2, 128, 44)
+                        new ResultSlot(blockEntity, 1, 80, 49),
+                        new CombustionSlot(blockEntity, 2, 128, 44)
                 });
     }
 }

@@ -13,12 +13,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
-import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 
 import java.awt.*;
 
 public class GuiUtil {
+    public static final int FIRE_WIDTH = 13;
+    public static final int FIRE_HEIGHT = 13;
     public static final int ENERGY_WIDTH = 13;
     public static final int ENERGY_HEIGHT = 46;
     public static final int FLUID_TANK_WIDTH = 14;
@@ -26,6 +27,7 @@ public class GuiUtil {
     public static final int FACTORY_LOADER_WIDTH = 6;
     public static final int FACTORY_LOADER_HEIGHT = 13;
 
+    public static final ResourceLocation FIRE_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/fire.png");
     public static final ResourceLocation ENERGY_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/energy_full.png");
     public static final ResourceLocation FLUID_TANK_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/fluid_tank.png");
     public static final ResourceLocation FACTORY_LOADER_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/loader.png");
@@ -84,6 +86,11 @@ public class GuiUtil {
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
 
+    public static void drawFire(GuiGraphics graphics, int x, int y, int burnTime, int totalBurnTime) {
+        double ratio = totalBurnTime > 0 ? (burnTime / (float) totalBurnTime) : 0;
+        drawVertical(graphics, x, y, FIRE_WIDTH, FIRE_HEIGHT, FIRE_TEXTURE, ratio);
+    }
+
     public static void drawVertical(GuiGraphics graphics, int x, int y, int width, int height, ResourceLocation resource, double ratio) {
         int ratioHeight = (int) Math.ceil(height * ratio);
         int remainHeight = height - ratioHeight;
@@ -105,4 +112,9 @@ public class GuiUtil {
     public static Rectangle getEnergyBounds(int x, int y) {
         return new Rectangle(x, y, ENERGY_WIDTH, ENERGY_HEIGHT);
     }
+
+    public static Rectangle getFireBounds(int x, int y) {
+        return new Rectangle(x, y, FIRE_WIDTH, FIRE_HEIGHT);
+    }
+
 }

@@ -26,8 +26,6 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
     protected final int UPGRADE1_SLOT = 4;
     protected final int UPGRADE2_SLOT = 5;
 
-
-
     public CombiningFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.COMBINING_FACTORY_BLOCK_ENTITY.get(), blockPos, blockState);
     }
@@ -66,7 +64,7 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
                 progress = 0;
             }
         } else {
-            progress = 0;
+            if (progress > 0) progress--;
         }
     }
 

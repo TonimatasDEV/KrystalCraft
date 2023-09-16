@@ -30,6 +30,8 @@ public class CrushingStationScreen extends AbstractContainerScreen<CrushingStati
         int y = (height - 180) / 2 - 10;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 28, this.menu.getProgress(), this.menu.getMaxProgress());
+        GuiUtil.drawFire(guiGraphics, this.leftPos + 130, this.topPos + 28, this.menu.getBurnTime(), this.menu.getBurnTimeTotal());
     }
 
     @Override
