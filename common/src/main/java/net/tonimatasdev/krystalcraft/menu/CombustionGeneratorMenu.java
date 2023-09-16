@@ -1,12 +1,12 @@
 package net.tonimatasdev.krystalcraft.menu;
 
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
 import net.tonimatasdev.krystalcraft.blockentity.CombustionGeneratorBlockEntity;
+import net.tonimatasdev.krystalcraft.menu.slots.BatterySlot;
+import net.tonimatasdev.krystalcraft.menu.slots.CombustionSlot;
 import net.tonimatasdev.krystalcraft.networking.NetworkHandler;
 import net.tonimatasdev.krystalcraft.networking.packet.messages.ClientboundMachineInfoPacket;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
@@ -24,13 +24,8 @@ public class CombustionGeneratorMenu extends AbstractMachineMenu<CombustionGener
     public CombustionGeneratorMenu(int syncId, Inventory inventory, CombustionGeneratorBlockEntity blockEntity) {
         super(ModMenus.COMBUSTION_GENERATOR_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
-                        new Slot(blockEntity, 0, 80, 0) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return CommonHooks.getBurnTime(itemStack) > 0;
-                            }
-                        },
-                        new Slot(blockEntity, 1, 129, 41)
+                        new CombustionSlot(blockEntity, 0, 80, 0),
+                        new BatterySlot(blockEntity, 1, 129, 41)
                 });
 
         this.burnTime = this.addDataSlot(DataSlot.standalone());

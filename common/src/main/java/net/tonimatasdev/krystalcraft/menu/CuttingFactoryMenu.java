@@ -4,13 +4,14 @@ import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
+import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.CuttingFactoryBlockEntity;
-import net.tonimatasdev.krystalcraft.item.custom.UpgradeItem;
+import net.tonimatasdev.krystalcraft.menu.slots.BatterySlot;
+import net.tonimatasdev.krystalcraft.menu.slots.FluidSlot;
+import net.tonimatasdev.krystalcraft.menu.slots.ResultSlot;
+import net.tonimatasdev.krystalcraft.menu.slots.UpgradeSlot;
 import net.tonimatasdev.krystalcraft.networking.NetworkHandler;
 import net.tonimatasdev.krystalcraft.networking.packet.messages.ClientboundMachineInfoPacket;
-import net.tonimatasdev.krystalcraft.registry.ModItems;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
@@ -22,42 +23,12 @@ public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
         super(ModMenus.CUTTING_FACTORY_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
                         new Slot(blockEntity, 0, 80, 0),
-                        new Slot(blockEntity, 1, 80, 50) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return false;
-                            }
-                        },
-                        new Slot(blockEntity, 2, 129, 41) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return itemStack.getItem() == ModItems.BATTERY.get();
-                            }
-                        },
-                        new Slot(blockEntity, 3, 106, -12) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return itemStack.getItem() instanceof UpgradeItem;
-                            }
-                        },
-                        new Slot(blockEntity, 4, 126, -12) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return itemStack.getItem() instanceof UpgradeItem;
-                            }
-                        },
-                        new Slot(blockEntity, 5, 6, 5) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return itemStack.getItem() == Items.WATER_BUCKET || itemStack.getItem() == Items.BUCKET;
-                            }
-                        },
-                        new Slot(blockEntity, 6, 6, 40) {
-                            @Override
-                            public boolean mayPlace(ItemStack itemStack) {
-                                return false;
-                            }
-                        }
+                        new ResultSlot(blockEntity, 1, 80, 50),
+                        new BatterySlot(blockEntity, 2, 129, 41),
+                        new UpgradeSlot(blockEntity, 3, 106, -12),
+                        new UpgradeSlot(blockEntity, 4, 126, -12),
+                        new FluidSlot(blockEntity, 5, 6, 5, Fluids.WATER),
+                        new ResultSlot(blockEntity, 6, 6, 40)
                 });
     }
 

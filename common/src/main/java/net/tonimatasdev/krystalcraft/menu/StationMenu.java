@@ -25,19 +25,19 @@ public abstract class StationMenu<T extends BurnProcessingBlockEntity> extends A
         this.progress.set(this.machine.getProgress());
     }
 
-    public DataSlot getBurnTime() {
-        return burnTime;
+    public int getBurnTime() {
+        return burnTime.get();
     }
 
-    public DataSlot getBurnTimeTotal() {
-        return burnTimeTotal;
+    public int getBurnTimeTotal() {
+        return burnTimeTotal.get();
     }
 
     public int getProgress() {
-        return this.progress.get();
+        return progress.get();
     }
 
     public int getMaxProgress() {
-        return this.machine.getMaxProgress();
+        return machine.getMaxProgress();
     }
 }
