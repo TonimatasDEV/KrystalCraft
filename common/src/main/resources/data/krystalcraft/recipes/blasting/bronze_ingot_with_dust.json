@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "group": "krystalcraft",
+  "ingredient": {
+    "tag": "krystalcraft:bronze_dust"
+  },
+  "result": "krystalcraft:bronze_ingot"
+}

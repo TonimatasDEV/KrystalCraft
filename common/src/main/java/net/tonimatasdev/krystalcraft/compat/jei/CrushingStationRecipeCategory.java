@@ -1,6 +1,6 @@
 package net.tonimatasdev.krystalcraft.compat.jei;
 
-/*
+
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -15,13 +15,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.recipe.CrushingStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlocks;
-import net.tonimatasdev.krystalcraft.registry.ModItems;
 import org.jetbrains.annotations.NotNull;
 
-public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingStationRecipe> {
-    public final static ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/coal_crusher_gui.png");
+public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingRecipe> {
+    public final static ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/crushing_station.png");
     private final IDrawable background;
     private final IDrawable icon;
 
@@ -31,13 +30,13 @@ public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingSt
     }
 
     @Override
-    public @NotNull RecipeType<CrushingStationRecipe> getRecipeType() {
-        return JEIKrystalCraftModPlugin.CRUSHING_STATION;
+    public @NotNull RecipeType<CrushingRecipe> getRecipeType() {
+        return JEIKrystalCraftModPlugin.CRUSHING;
     }
 
     @Override
     public @NotNull Component getTitle() {
-        return Component.literal("Coal Crusher");
+        return Component.literal("Crushing");
     }
 
     @Override
@@ -51,12 +50,9 @@ public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingSt
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, CrushingStationRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 25, 34).addIngredients(Ingredient.of(ModItems.SET_WATER_BOTTLES.get()));
+    public void setRecipe(IRecipeLayoutBuilder builder, CrushingRecipe recipe, IFocusGroup focusGroup) {
         builder.addSlot(RecipeIngredientRole.INPUT, 79, 5).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 79, 34).addIngredients(Ingredient.of(ModItems.GRINDING_GEAR.get()));
         builder.addSlot(RecipeIngredientRole.INPUT, 54, 64).addIngredients(Ingredient.of(Items.COAL));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.getOutput());
     }
 }
-*/

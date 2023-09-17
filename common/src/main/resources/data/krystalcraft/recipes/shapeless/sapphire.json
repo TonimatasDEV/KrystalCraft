@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "ingredients": [
     {
-      "tag": "forge:storage_blocks/sapphire"
+      "tag": "krystalcraft:storage_blocks/sapphire"
     }
   ],
   "result": {

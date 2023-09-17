@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:ingots/iron"
+    },
+    "1": {
+      "tag": "forge:storage_blocks/iron"
+    },
+    "2": {
+      "item": "minecraft:furnace"
+    },
+    "3": {
+      "item": "krystalcraft:battery"
+    }
+  },
+  "pattern": [
+    "010",
+    "323",
+    "010"
+  ],
+  "result": {
+    "item": "krystalcraft:combustion_generator"
+  },
+  "show_notification": true
+}

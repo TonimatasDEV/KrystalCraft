@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "ingredients": [
     {
-      "tag": "forge:ingots/tin"
+      "tag": "krystalcraft:ingots/tin"
     }
   ],
   "result": {

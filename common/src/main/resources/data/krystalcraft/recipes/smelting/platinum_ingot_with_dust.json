@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "forge:dusts/platinum"
+    "tag": "krystalcraft:platinum_dust"
   },
   "result": "krystalcraft:platinum_ingot"
 }

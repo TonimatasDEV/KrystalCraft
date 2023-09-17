@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "forge:raw_materials/tin"
+    "tag": "krystalcraft:raw_tin"
   },
   "result": "krystalcraft:tin_ingot"
 }
