@@ -4,24 +4,21 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "forge:ingots/lead"
+      "item": "minecraft:stick"
     },
     "1": {
       "tag": "forge:cobblestone"
     },
     "2": {
-      "tag": "forge:raw_materials/lapis"
+      "tag": "forge:ingots/iron"
     },
     "3": {
       "tag": "forge:storage_blocks/iron"
-    },
-    "4": {
-      "tag": "forge:fences"
     }
   },
   "pattern": [
-    " 3 ",
-    "042",
+    "000",
+    "232",
     "111"
   ],
   "result": {

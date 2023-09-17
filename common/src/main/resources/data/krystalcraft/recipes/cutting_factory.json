@@ -4,22 +4,22 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "item": "minecraft:stick"
+      "tag": "forge:ingots/iron"
     },
     "1": {
-      "tag": "forge:cobblestone"
+      "tag": "forge:storage_blocks/iron"
     },
     "2": {
-      "item": "minecraft:furnace"
+      "item": "krystalcraft:cutting_station"
     }
   },
   "pattern": [
-    "000",
-    "212",
-    "111"
+    "010",
+    "121",
+    "010"
   ],
   "result": {
-    "item": "krystalcraft:combining_station"
+    "item": "krystalcraft:cutting_factory"
   },
   "show_notification": true
 }
