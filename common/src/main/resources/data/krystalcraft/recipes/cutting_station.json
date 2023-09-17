@@ -4,25 +4,25 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "forge:ingots/lead"
+      "tag": "minecraft:stick"
     },
     "1": {
-      "tag": "forge:ingots/iron"
+      "tag": "forge:cobblestone"
     },
     "2": {
-      "tag": "forge:dusts/redstone"
+      "tag": "minecraft:bucket"
     },
     "3": {
       "tag": "forge:raw_materials/diamond"
     },
     "4": {
-      "tag": "forge:fences"
+      "tag": "forge:ingots/iron"
     }
   },
   "pattern": [
-    "232",
-    "040",
-    "1 1"
+    "000",
+    "234",
+    "111"
   ],
   "result": {
     "item": "krystalcraft:cutting_station"
