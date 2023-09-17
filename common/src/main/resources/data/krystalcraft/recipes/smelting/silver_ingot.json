@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "group": "krystalcraft",
+  "ingredient": {
+    "tag": "krystalcraft:raw_silver"
+  },
+  "result": "krystalcraft:silver_ingot"
+}

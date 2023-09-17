@@ -50,6 +50,10 @@ public class CombiningRecipe implements Recipe<Container> {
         return this.output.copy();
     }
 
+    public @NotNull ItemStack getOutput() {
+        return this.output.copy();
+    }
+
     @Override
     public @NotNull ResourceLocation getId() {
         return id;

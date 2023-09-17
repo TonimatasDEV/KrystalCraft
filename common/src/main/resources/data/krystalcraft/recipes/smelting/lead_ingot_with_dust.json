@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "forge:dusts/lead"
+    "tag": "krystalcraft:lead_dust"
   },
   "result": "krystalcraft:lead_ingot"
 }

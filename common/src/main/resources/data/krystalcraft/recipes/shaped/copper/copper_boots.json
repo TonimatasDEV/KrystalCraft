@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "forge:ingots/copper"
+      "tag": "krystalcraft:ingots/copper"
     }
   },
   "pattern": [

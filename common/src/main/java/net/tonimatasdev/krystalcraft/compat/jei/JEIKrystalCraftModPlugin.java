@@ -1,6 +1,6 @@
 package net.tonimatasdev.krystalcraft.compat.jei;
 
-/*
+
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
@@ -10,9 +10,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.recipe.CombiningStationRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CrushingStationRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CuttingStationRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
@@ -20,9 +20,9 @@ import java.util.Objects;
 
 @JeiPlugin
 public class JEIKrystalCraftModPlugin implements IModPlugin {
-    public static RecipeType<CuttingStationRecipe> CUTTING_STATION = RecipeType.create(KrystalCraft.MOD_ID,"cutting_station", CuttingStationRecipe.class);
-    public static RecipeType<CrushingStationRecipe> CRUSHING_STATION = RecipeType.create(KrystalCraft.MOD_ID, "crushing_station", CrushingStationRecipe.class);
-    public static RecipeType<CombiningStationRecipe> COMBINING_STATION = RecipeType.create(KrystalCraft.MOD_ID, "combining_station", CombiningStationRecipe.class);
+    public static RecipeType<CuttingRecipe> CUTTING = RecipeType.create(KrystalCraft.MOD_ID,"cutting", CuttingRecipe.class);
+    public static RecipeType<CrushingRecipe> CRUSHING = RecipeType.create(KrystalCraft.MOD_ID, "crushing", CrushingRecipe.class);
+    public static RecipeType<CombiningRecipe> COMBINING = RecipeType.create(KrystalCraft.MOD_ID, "combining", CombiningRecipe.class);
 
     @Override
     public @NotNull ResourceLocation getPluginUid() {
@@ -40,9 +40,8 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager manager = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
 
-        registration.addRecipes(CUTTING_STATION, manager.getAllRecipesFor(ModRecipes.CUTTING_STATION.get()));
-        registration.addRecipes(CRUSHING_STATION, manager.getAllRecipesFor(ModRecipes.CRUSHING_STATION.get()));
-        registration.addRecipes(COMBINING_STATION, manager.getAllRecipesFor(ModRecipes.COMBINING_STATION.get()));
+        registration.addRecipes(CUTTING, manager.getAllRecipesFor(ModRecipes.CUTTING.get()));
+        registration.addRecipes(CRUSHING, manager.getAllRecipesFor(ModRecipes.CRUSHING.get()));
+        registration.addRecipes(COMBINING, manager.getAllRecipesFor(ModRecipes.COMBINING.get()));
     }
 }
-*/

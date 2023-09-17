@@ -11,11 +11,14 @@
     },
     "2": {
       "item": "krystalcraft:combining_station"
+    },
+    "3": {
+      "item": "krystalcraft:battery"
     }
   },
   "pattern": [
     "010",
-    "121",
+    "323",
     "010"
   ],
   "result": {

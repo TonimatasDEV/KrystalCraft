@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "forge:ingots/tin"
+      "tag": "krystalcraft:ingots/tin"
     },
     "1": {
       "item": "minecraft:stick"

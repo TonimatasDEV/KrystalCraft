@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "ingredients": [
     {
-      "tag": "forge:storage_blocks/platinum"
+      "tag": "krystalcraft:storage_blocks/platinum"
     }
   ],
   "result": {

@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "ingredients": [
     {
-      "tag": "forge:ingots/lead"
+      "tag": "krystalcraft:ingots/lead"
     }
   ],
   "result": {

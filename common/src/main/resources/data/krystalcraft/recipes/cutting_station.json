@@ -4,13 +4,13 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "minecraft:stick"
+      "item": "minecraft:stick"
     },
     "1": {
       "tag": "forge:cobblestone"
     },
     "2": {
-      "tag": "minecraft:bucket"
+      "item": "minecraft:bucket"
     },
     "3": {
       "tag": "forge:raw_materials/diamond"

@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "forge:gems/sapphire"
+      "tag": "krystalcraft:gems/sapphire"
     },
     "1": {
       "item": "minecraft:stick"

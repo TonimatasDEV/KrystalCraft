@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "item": "forge:ingots/gold"
+    },
+    "1": {
+      "tag": "forge:dusts/redstone"
+    }
+  },
+  "pattern": [
+    "010",
+    "101",
+    "010"
+  ],
+  "result": {
+    "item": "krystalcraft:battery"
+  },
+  "show_notification": true
+}

@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "ingredients": [
     {
-      "tag": "forge:ingots/copper"
+      "tag": "krystalcraft:ingots/copper"
     }
   ],
   "result": {
