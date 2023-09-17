@@ -31,6 +31,7 @@ public class TagProvider {
         tags.put("silver", List.of("silver_block"));
         tags.put("tin", List.of("tin_block"));
         tags.put("topaz", List.of("topaz_block"));
+        tags.put("bronze", List.of("bronze_block"));
         createTag("storage_blocks", true, tags);
         tags.clear();
 
