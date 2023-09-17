@@ -27,6 +27,7 @@ val forgeBotariumVersionRange: String by extra
 val resourcefullibVersion: String by extra
 val forgeResourcefullibVersionRange: String by extra
 val modVersion: String by extra
+val jeiVersion: String by extra
 
 val common by configurations.creating
 val shadowCommon by configurations.creating
@@ -40,8 +41,8 @@ dependencies {
     modApi("earth.terrarium:botarium-forge-$minecraftVersion:$botariumVersion")
     modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-$minecraftVersion:$resourcefullibVersion")
 
-    //modCompileOnly "mezz.jei:jei-${minecraft_version}-forge-api:${jei_version}"
-    //modLocalRuntime("mezz.jei:jei-${minecraft_version}-forge:${jei_version}") { transitive = false }
+    modCompileOnly("mezz.jei:jei-${minecraftVersion}-forge-api:${jeiVersion}")
+    modLocalRuntime("mezz.jei:jei-${minecraftVersion}-forge:${jeiVersion}") { isTransitive = false }
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionFabric")) { isTransitive = false }
