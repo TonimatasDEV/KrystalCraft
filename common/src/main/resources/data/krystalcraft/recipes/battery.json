@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "item": "forge:ingots/gold"
+      "tag": "forge:ingots/gold"
     },
     "1": {
       "tag": "forge:dusts/redstone"
