@@ -1,15 +1,15 @@
 {
   "values": [
-    "krystalcraft:diamond_dust",
-    "krystalcraft:emerald_dust",
-    "krystalcraft:jade_dust",
-    "krystalcraft:lapis_dust",
-    "krystalcraft:lead_dust",
-    "krystalcraft:platinum_dust",
-    "krystalcraft:ruby_dust",
-    "krystalcraft:sapphire_dust",
-    "krystalcraft:silver_dust",
-    "krystalcraft:tin_dust",
-    "krystalcraft:topaz_dust"
+    "krystalcraft:raw_diamond",
+    "krystalcraft:raw_emerald",
+    "krystalcraft:raw_jade",
+    "krystalcraft:raw_lapis",
+    "krystalcraft:raw_lead",
+    "krystalcraft:raw_platinum",
+    "krystalcraft:raw_ruby",
+    "krystalcraft:raw_sapphire",
+    "krystalcraft:raw_silver",
+    "krystalcraft:raw_tin",
+    "krystalcraft:raw_topaz"
   ]
 }
