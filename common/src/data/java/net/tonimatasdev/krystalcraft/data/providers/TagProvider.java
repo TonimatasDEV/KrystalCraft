@@ -15,13 +15,9 @@ public class TagProvider {
     public static String fabricTagDir = DataGenerator.fabricDataDir + "\\data\\c\\tags";
     public static String forgeTagDir = DataGenerator.forgeDataDir + "\\data\\forge\\tags";
 
+    private static final Map<String, List<String>> tags = new HashMap<>();
+
     public static void init() {
-        new File(commonTagDir).mkdirs();
-        new File(fabricTagDir).mkdirs();
-        new File(forgeTagDir).mkdirs();
-
-        Map<String, List<String>> tags = new HashMap<>();
-
         // Storage Blocks tags
         tags.put("jade", List.of("jade_block"));
         tags.put("lead", List.of("lead_block"));
@@ -33,7 +29,6 @@ public class TagProvider {
         tags.put("topaz", List.of("topaz_block"));
         tags.put("bronze", List.of("bronze_block"));
         createTag("storage_blocks", true, tags);
-        tags.clear();
 
         // Ores tags
         tags.put("jade", List.of("jade_ore", "deepslate_jade_ore"));
@@ -46,7 +41,6 @@ public class TagProvider {
         tags.put("tin", List.of("tin_ore", "deepslate_tin_ore"));
         tags.put("topaz", List.of("topaz_ore", "deepslate_topaz_ore"));
         createTag("ores", true, tags);
-        tags.clear();
 
         // Dusts tags
         tags.put("bronze", List.of("bronze_dust"));
@@ -64,7 +58,6 @@ public class TagProvider {
         tags.put("tin", List.of("tin_dust"));
         tags.put("topaz", List.of("topaz_dust"));
         createTag("dusts", false, tags);
-        tags.clear();
 
         // Gems tags
         tags.put("jade", List.of("jade"));
@@ -72,7 +65,6 @@ public class TagProvider {
         tags.put("sapphire", List.of("sapphire"));
         tags.put("topaz", List.of("topaz"));
         createTag("gems", false, tags);
-        tags.clear();
 
         // Ingots tags
         tags.put("bronze", List.of("bronze_ingot"));
@@ -80,7 +72,6 @@ public class TagProvider {
         tags.put("platinum", List.of("platinum_ingot"));
         tags.put("tin", List.of("tin_ingot"));
         createTag("ingots", false, tags);
-        tags.clear();
 
         // Nuggets tags
         tags.put("bronze", List.of("bronze_nugget"));
@@ -88,7 +79,6 @@ public class TagProvider {
         tags.put("platinum", List.of("platinum_nugget"));
         tags.put("tin", List.of("tin_nugget"));
         createTag("nuggets", false, tags);
-        tags.clear();
 
         // Raw material tags
         tags.put("diamond", List.of("raw_diamond"));
@@ -103,7 +93,6 @@ public class TagProvider {
         tags.put("tin", List.of("raw_tin"));
         tags.put("topaz", List.of("raw_topaz"));
         createTag("raw_materials", false, tags);
-        tags.clear();
     }
 
     private static void createTag(String tag, boolean blocks, Map<String, List<String>> elements) {
@@ -141,5 +130,7 @@ public class TagProvider {
         if (blocks) {
             createTag(tag, false, elements);
         }
+
+        tags.clear();
     }
 }
