@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage", "DEPRECATION")
+
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
 import org.gradle.api.component.AdhocComponentWithVariants
@@ -22,8 +24,8 @@ val resourcefullibVersion: String by extra
 val fabricResourcefullibVersionRange: String by extra
 val modVersion: String by extra
 
-val common by configurations.creating
-val shadowCommon by configurations.creating
+val common: Configuration by configurations.creating
+val shadowCommon: Configuration by configurations.creating
 
 configurations["compileClasspath"].extendsFrom(common)
 configurations["runtimeClasspath"].extendsFrom(common)
@@ -80,5 +82,11 @@ tasks.sourcesJar {
 components.getByName<AdhocComponentWithVariants>("java").apply {
     withVariantsFromConfiguration(project.configurations["shadowRuntimeElements"]) {
         skip()
+    }
+}
+
+sourceSets {
+    main {
+        resources.srcDirs("src/data/resources")
     }
 }

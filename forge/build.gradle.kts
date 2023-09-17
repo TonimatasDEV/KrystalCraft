@@ -29,8 +29,8 @@ val forgeResourcefullibVersionRange: String by extra
 val modVersion: String by extra
 val jeiVersion: String by extra
 
-val common by configurations.creating
-val shadowCommon by configurations.creating
+val common: Configuration by configurations.creating
+val shadowCommon: Configuration by configurations.creating
 
 configurations["compileClasspath"].extendsFrom(common)
 configurations["runtimeClasspath"].extendsFrom(common)
@@ -86,5 +86,11 @@ tasks.sourcesJar {
 components.getByName<AdhocComponentWithVariants>("java").apply {
     withVariantsFromConfiguration(project.configurations["shadowRuntimeElements"]) {
         skip()
+    }
+}
+
+sourceSets {
+    main {
+        resources.srcDirs("src/data/resources")
     }
 }
