@@ -36,7 +36,7 @@ public class CombustionGeneratorMenu extends AbstractMachineMenu<CombustionGener
     public void syncClientScreen() {
         burnTime.set(machine.getBurnTime());
         totalBurnTime.set(machine.getTotalBurnTime());
-        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), player);
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.energyAmount(), List.of()), player);
     }
 
     public int getBurnTime() {

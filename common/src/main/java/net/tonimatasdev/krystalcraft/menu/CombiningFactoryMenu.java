@@ -33,6 +33,6 @@ public class CombiningFactoryMenu extends FactoryMenu<CombiningFactoryBlockEntit
     @Override
     public void syncClientScreen() {
         super.syncClientScreen();
-        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.getEnergyStorage().getStoredEnergy(), List.of()), player);
+        NetworkHandler.CHANNEL.sendToPlayer(new ClientboundMachineInfoPacket(machine.energyAmount(), List.of()), player);
     }
 }
