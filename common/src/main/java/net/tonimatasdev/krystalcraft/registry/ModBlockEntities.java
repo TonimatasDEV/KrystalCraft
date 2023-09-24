@@ -1,16 +1,16 @@
 package net.tonimatasdev.krystalcraft.registry;
 
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
 import earth.terrarium.botarium.common.registry.RegistryHelpers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.blockentity.*;
+import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
+import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
+import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
 
 public class ModBlockEntities {
-    public static final ResourcefulRegistry<BlockEntityType<?>> BLOCK_ENTITIES = ResourcefulRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, KrystalCraft.MOD_ID);
+    public static final PlorixRegistry<BlockEntityType<?>> BLOCK_ENTITIES = PlorixRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<BlockEntityType<CuttingStationBlockEntity>> CUTTING_STATION_BLOCK_ENTITY = BLOCK_ENTITIES.register("cutting_station", () -> RegistryHelpers.createBlockEntityType(CuttingStationBlockEntity::new, ModBlocks.CUTTING_STATION.get()));
     public static final RegistryEntry<BlockEntityType<CuttingFactoryBlockEntity>> CUTTING_FACTORY_BLOCK_ENTITY = BLOCK_ENTITIES.register("cutting_factory", () -> RegistryHelpers.createBlockEntityType(CuttingFactoryBlockEntity::new, ModBlocks.CUTTING_FACTORY.get()));

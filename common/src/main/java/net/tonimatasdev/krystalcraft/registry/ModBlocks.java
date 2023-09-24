@@ -1,8 +1,5 @@
 package net.tonimatasdev.krystalcraft.registry;
 
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -15,11 +12,14 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.EnergyPipeBlock;
 import net.tonimatasdev.krystalcraft.block.MachineBlock;
+import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
+import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
+import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
 
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final ResourcefulRegistry<Block> BLOCKS = ResourcefulRegistries.create(BuiltInRegistries.BLOCK, KrystalCraft.MOD_ID);
+    public static final PlorixRegistry<Block> BLOCKS = PlorixRegistries.create(BuiltInRegistries.BLOCK, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
     public static final RegistryEntry<Block> SILVER_ORE = registerBlock("silver_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
