@@ -24,8 +24,6 @@ val forgeVersion: String by extra
 val forgeLoaderRange: String by extra
 val botariumVersion: String by extra
 val forgeBotariumVersionRange: String by extra
-val resourcefullibVersion: String by extra
-val forgeResourcefullibVersionRange: String by extra
 val modVersion: String by extra
 val jeiVersion: String by extra
 
@@ -39,7 +37,6 @@ configurations["developmentForge"].extendsFrom(common)
 dependencies {
     forge("net.minecraftforge:forge:$forgeVersion")
     modApi("earth.terrarium:botarium-forge-$minecraftVersion:$botariumVersion")
-    modImplementation("com.teamresourceful.resourcefullib:resourcefullib-forge-$minecraftVersion:$resourcefullibVersion")
 
     modCompileOnly("mezz.jei:jei-${minecraftVersion}-forge-api:${jeiVersion}")
     modLocalRuntime("mezz.jei:jei-${minecraftVersion}-forge:${jeiVersion}") { isTransitive = false }
@@ -51,7 +48,7 @@ dependencies {
 tasks.withType<ProcessResources> {
     val replaceProperties = mapOf(
             "modVersion" to modVersion, "forgeLoaderRange" to forgeLoaderRange, "minecraftVersion" to minecraftVersion,
-            "forgeBotariumVersionRange" to forgeBotariumVersionRange, "forgeResourcefullibVersionRange" to forgeResourcefullibVersionRange)
+            "forgeBotariumVersionRange" to forgeBotariumVersionRange)
     inputs.properties(replaceProperties)
 
     filesMatching("META-INF/mods.toml") {

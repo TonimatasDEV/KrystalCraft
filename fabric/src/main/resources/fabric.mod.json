@@ -25,7 +25,6 @@
   "depends": {
     "fabricloader": "${fabricLoaderRange}",
     "minecraft": "${minecraftVersion}",
-    "resourcefullib": "${fabricResourcefullibVersionRange}",
     "botarium": "${fabricBotariumVersionRange}"
   }
 }

@@ -20,8 +20,6 @@ val fabricLoaderRange: String by extra
 val fabricMinecraftVersionRange: String by extra
 val botariumVersion: String by extra
 val fabricBotariumVersionRange: String by extra
-val resourcefullibVersion: String by extra
-val fabricResourcefullibVersionRange: String by extra
 val modVersion: String by extra
 
 val common: Configuration by configurations.creating
@@ -36,7 +34,6 @@ dependencies {
 
     // Dependencies
     modApi("earth.terrarium:botarium-fabric-$minecraftVersion:$botariumVersion")
-    modImplementation("com.teamresourceful.resourcefullib:resourcefullib-fabric-$minecraftVersion:$resourcefullibVersion")
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
@@ -49,7 +46,7 @@ dependencies {
 tasks.withType<ProcessResources> {
     val replaceProperties = mapOf(
             "modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion,
-            "fabricBotariumVersionRange" to fabricBotariumVersionRange, "fabricResourcefullibVersionRange" to fabricResourcefullibVersionRange)
+            "fabricBotariumVersionRange" to fabricBotariumVersionRange)
     inputs.properties(replaceProperties)
 
     filesMatching("fabric.mod.json") {

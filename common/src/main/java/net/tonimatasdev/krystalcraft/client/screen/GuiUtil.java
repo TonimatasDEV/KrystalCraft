@@ -1,7 +1,6 @@
 package net.tonimatasdev.krystalcraft.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import com.teamresourceful.resourcefullib.client.utils.RenderUtils;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.utils.ClientFluidHooks;
 import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
@@ -78,11 +77,12 @@ public class GuiUtil {
         RenderSystem.setShaderTexture(0, InventoryMenu.BLOCK_ATLAS);
 
         int calcHeight = (int) ((FLUID_TANK_HEIGHT + 1) * ratio);
-        try (var ignored = RenderUtils.createScissorBox(Minecraft.getInstance(), graphics.pose(), x, y + FLUID_TANK_HEIGHT - calcHeight, FLUID_TANK_WIDTH, calcHeight)) {
-            for (int i = 1; i < 4; i++) {
-                graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
-            }
-        }
+        // TODO: FIX THIS
+        //try (var ignored = RenderUtils.createScissorBox(Minecraft.getInstance(), graphics.pose(), x, y + FLUID_TANK_HEIGHT - calcHeight, FLUID_TANK_WIDTH, calcHeight)) {
+        //    for (int i = 1; i < 4; i++) {
+        //        graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
+        //    }
+        //}
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
 

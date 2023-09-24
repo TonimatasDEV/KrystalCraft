@@ -1,7 +1,5 @@
 package net.tonimatasdev.krystalcraft.block.util;
 
-import com.teamresourceful.resourcefullib.common.caches.CacheableFunction;
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import earth.terrarium.botarium.common.energy.base.PlatformEnergyManager;
 import earth.terrarium.botarium.common.energy.util.EnergyHooks;
 import earth.terrarium.botarium.common.menu.MenuHooks;
@@ -29,21 +27,13 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
+import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractMachineBlock extends BaseEntityBlock {
-    private static final CacheableFunction<Block, BlockEntityType<?>> BLOCK_TO_ENTITY = new CacheableFunction<>(block ->
-            ModBlockEntities.BLOCK_ENTITIES
-                    .getEntries()
-                    .stream()
-                    .map(RegistryEntry::get)
-                    .filter(type -> type.isValid(block.defaultBlockState()))
-                    .findFirst()
-                    .orElse(null)
-    );
     private BlockEntityType<?> entity;
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
 
@@ -55,7 +45,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         if (entity == null) {
-            entity = BLOCK_TO_ENTITY.apply(state.getBlock());
+            entity = ModBlockEntities.BLOCK_ENTITIES.getEntries().stream().map(RegistryEntry::get).filter(type -> type.isValid(state)).findFirst().orElse(null);
         }
         return entity.create(pos, state);
     }
