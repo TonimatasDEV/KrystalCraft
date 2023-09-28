@@ -11,7 +11,6 @@ import net.tonimatasdev.krystalcraft.plorix.networking.PacketHandler;
 
 @Environment(EnvType.CLIENT)
 public class FabricClientPacketHelper {
-
     @Environment(EnvType.CLIENT)
     public static <T extends Packet<T>> void clientOnlyRegister(ResourceLocation location, PacketHandler<T> handler) {
         ClientPlayNetworking.registerGlobalReceiver(location, (client, handler1, buf, responseSender) -> {

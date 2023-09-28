@@ -8,7 +8,6 @@ import org.apache.commons.lang3.NotImplementedException;
 import java.util.function.BooleanSupplier;
 
 public class PacketChannelHelper {
-
     @ExpectPlatform
     public static void registerChannel(ResourceLocation channel, int protocolVersion, BooleanSupplier optional) {
         throw new NotImplementedException();

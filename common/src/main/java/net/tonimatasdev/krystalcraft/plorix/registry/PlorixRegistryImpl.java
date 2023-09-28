@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.function.Supplier;
 
 public class PlorixRegistryImpl<T> implements PlorixRegistry<T> {
-
     private final PlorixRegistry<T> parent;
     private final RegistryEntries<T> entries = new RegistryEntries<>();
 

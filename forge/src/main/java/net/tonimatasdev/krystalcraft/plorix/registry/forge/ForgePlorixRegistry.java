@@ -12,7 +12,6 @@ import java.util.Collection;
 import java.util.function.Supplier;
 
 public class ForgePlorixRegistry<T> implements PlorixRegistry<T> {
-
     private final DeferredRegister<T> register;
     private final RegistryEntries<T> entries = new RegistryEntries<>();
 
