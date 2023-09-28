@@ -14,7 +14,6 @@ import net.tonimatasdev.krystalcraft.plorix.networking.PacketHandler;
 import java.util.function.BooleanSupplier;
 
 public class PacketChannelHelperImpl {
-
     public static void registerChannel(ResourceLocation channel, int protocolVersion, BooleanSupplier optional) {
     }
 

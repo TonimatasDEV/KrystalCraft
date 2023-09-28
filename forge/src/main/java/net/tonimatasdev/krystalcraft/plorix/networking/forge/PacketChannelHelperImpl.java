@@ -18,7 +18,6 @@ import java.util.Map;
 import java.util.function.BooleanSupplier;
 
 public class PacketChannelHelperImpl {
-
     public static final Map<ResourceLocation, Channel> CHANNELS = new HashMap<>();
 
     public static void registerChannel(ResourceLocation name, int protocolVersion, BooleanSupplier optional) {
