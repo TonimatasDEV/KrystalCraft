@@ -7,13 +7,10 @@ issueTrackerURL="https://github.com/TonimatasDEV/KrystalCraft/issues"
 modId="krystalcraft"
 version="${modVersion}"
 displayName="KrystalCraft"
-#updateJSONURL="http://myurl.me/"
+updateJSONURL="https://api.modrinth.com/updates/krystalcraft/forge_updates.json"
 displayURL="https://tonimatas.dev"
 logoFile="icon.png"
-#credits="Thanks for this example mod goes to Java"
 authors="TonimatasDEV"
-#displayTest="MATCH_VERSION"
-
 description='''
 Adds lots of recipes, crystals, ingots and machines to work with them, making upgradeable armor, tools, items, blocks, or even weapons.
 This mod is mainly focused on mining but also have some different mechanics like special enchantments.
