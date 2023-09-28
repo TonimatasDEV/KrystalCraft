@@ -1,7 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.energy.impl.ExtractOnlyEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -11,10 +9,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CombustionGeneratorMenu;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorage;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorageUtils;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.Nullable;
 
 public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
+    protected final EnergyStorage energyStorage = EnergyStorageUtils.create(30000, 512);
     protected int burnTime;
     protected int totalBurnTime;
     protected final int INPUT = 0;
@@ -50,8 +51,8 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
     }
 
     @Override
-    public WrappedBlockEnergyContainer getEnergyStorage() {
-        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new ExtractOnlyEnergyContainer(15000)) : energyContainer;
+    public EnergyStorage getEnergyStorage() {
+        return energyStorage;
     }
 
     @Override
@@ -60,7 +61,7 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
         if (level.isClientSide) return;
 
 
-        energyInsertToEnergyOutputSlot(BATTERY, 10);
+        //energyInsertToEnergyOutputSlot(BATTERY, 10);
 
 
         if (burnTime == 0) {
@@ -74,10 +75,10 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
 
         } else if (energyAmount() < energyCapacity()) {
             burnTime--;
-            energyInternalInsert(10);
+            getEnergyStorage().insert(10, false);
         }
 
-        energyDistributeNearby(50);
+        //energyDistributeNearby(50);
     }
 
     public int getBurnTime() {
