@@ -1,7 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,6 +9,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CombiningFactoryMenu;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorage;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorageUtils;
 import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
@@ -19,6 +19,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
+    protected final EnergyStorage energyStorage = EnergyStorageUtils.create(15000, 128);
     protected final int INPUT1_SLOT = 0;
     protected final int INPUT2_SLOT = 1;
     protected final int RESULT_SLOT = 2;
@@ -42,8 +43,8 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
     }
 
     @Override
-    public WrappedBlockEnergyContainer getEnergyStorage() {
-        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000)) : energyContainer;
+    public EnergyStorage getEnergyStorage() {
+        return energyStorage;
     }
 
     @Override
@@ -51,13 +52,13 @@ public class CombiningFactoryBlockEntity extends EnergyProcessingBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-        energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
+        //energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
 
         // TODO: Logic for upgrades (Slot 4, 5)
 
-        if (hasRecipe(level) && energyAmount() > 0) {
+        if (hasRecipe(level) && getEnergyStorage().getEnergy() > 0) {
             progress++;
-            energyInternalExtract(5);
+            energyExtract(5);
 
             if (progress >= getMaxProgress()) {
                 craft(level);

@@ -24,7 +24,7 @@ public abstract class FactoryMenu<T extends EnergyProcessingBlockEntity> extends
     }
 
     public long getEnergyMaxCapacity() {
-        return this.machine.getEnergyStorage().getMaxCapacity();
+        return this.machine.energyCapacity();
     }
 
     public int getMaxProgress() {

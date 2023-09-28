@@ -48,6 +48,6 @@ public class CombustionGeneratorMenu extends AbstractMachineMenu<CombustionGener
     }
 
     public long getMaxEnergyCapacity() {
-        return machine.getEnergyStorage().getMaxCapacity();
+        return machine.energyCapacity();
     }
 }
