@@ -1,11 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import earth.terrarium.botarium.common.fluid.impl.SimpleFluidContainer;
-import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -17,13 +11,20 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlorixFluidBlock;
+import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidContainer;
+import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class CuttingStationBlockEntity extends BurnProcessingBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingStationBlockEntity extends BurnProcessingBlockEntity implements PlorixFluidBlock<WrappedBlockFluidContainer> {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int COMBUSTION_SLOT = 2;
@@ -36,7 +37,7 @@ public class CuttingStationBlockEntity extends BurnProcessingBlockEntity impleme
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
+    public @NotNull AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
         return new CuttingStationMenu(syncId, inventory, this);
     }
 
@@ -69,12 +70,10 @@ public class CuttingStationBlockEntity extends BurnProcessingBlockEntity impleme
 
         if (hasRecipe(level) && getFluidContainer().getFluids().get(0).getFluidAmount() > 0) {
             if (burnTime <= 0) {
-                burnTime = CommonHooks.getBurnTime(getItem(COMBUSTION_SLOT));
+                burnTime = Hooks.getBurnTime(getItem(COMBUSTION_SLOT));
                 burnTimeTotal = burnTime;
                 removeItem(COMBUSTION_SLOT, 1);
-            }
-
-            if (burnTime > 0) {
+            } else {
                 progress++;
                 FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
                 getFluidContainer().internalExtract(fluidHolder, true);

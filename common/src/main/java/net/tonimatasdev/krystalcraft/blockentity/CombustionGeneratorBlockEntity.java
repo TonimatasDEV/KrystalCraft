@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -9,13 +8,13 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CombustionGeneratorMenu;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorage;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorageUtils;
+import net.tonimatasdev.krystalcraft.plorix.energy.impl.SimpleEnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
-import org.jetbrains.annotations.Nullable;
+import org.jetbrains.annotations.NotNull;
 
 public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
-    protected final EnergyStorage energyStorage = EnergyStorageUtils.create(30000, 512);
     protected int burnTime;
     protected int totalBurnTime;
     protected final int INPUT = 0;
@@ -39,9 +38,8 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
         compoundTag.putInt("TotalBurnTime", this.totalBurnTime);
     }
 
-    @Nullable
     @Override
-    public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
+    public @NotNull AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
         return new CombustionGeneratorMenu(syncId, inventory, this);
     }
 
@@ -51,8 +49,8 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
     }
 
     @Override
-    public EnergyStorage getEnergyStorage() {
-        return energyStorage;
+    public WrappedBlockEnergyContainer getEnergyStorage() {
+        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new SimpleEnergyContainer(15000)) : energyContainer;
     }
 
     @Override
@@ -60,12 +58,11 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
         if (level == null) return;
         if (level.isClientSide) return;
 
-
-        //energyInsertToEnergyOutputSlot(BATTERY, 10);
+        energyInsertToEnergySlot(BATTERY, 10);
 
 
         if (burnTime == 0) {
-            int newBurnTime = CommonHooks.getBurnTime(getItem(INPUT));
+            int newBurnTime = Hooks.getBurnTime(getItem(INPUT));
 
             if (newBurnTime != 0) {
                 removeItem(INPUT, 1);
@@ -75,10 +72,10 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
 
         } else if (energyAmount() < energyCapacity()) {
             burnTime--;
-            getEnergyStorage().insert(10, false);
+            energyInsert(10);
         }
 
-        //energyDistributeNearby(50);
+        energyDistributeNearby(50);
     }
 
     public int getBurnTime() {

@@ -1,15 +1,19 @@
 package net.tonimatasdev.krystalcraft.blockentity.util;
 
-import earth.terrarium.botarium.common.energy.base.EnergyContainer;
-import earth.terrarium.botarium.common.item.ItemStackHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorage;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyApi;
+import net.tonimatasdev.krystalcraft.plorix.energy.base.EnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.energy.base.PlorixEnergyBlock;
+import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.item.ItemStackHolder;
 
-public abstract class EnergyBlockEntity extends AbstractBlockEntity {
+public abstract class EnergyBlockEntity extends AbstractBlockEntity implements PlorixEnergyBlock<WrappedBlockEnergyContainer> {
+    protected WrappedBlockEnergyContainer energyContainer;
+
     public EnergyBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
@@ -27,11 +31,11 @@ public abstract class EnergyBlockEntity extends AbstractBlockEntity {
     }
 
     public long energyAmount() {
-        return getEnergyStorage().getEnergy();
+        return getEnergyStorage().getStoredEnergy();
     }
 
     public long energyCapacity() {
-        return getEnergyStorage().getCapacity();
+        return getEnergyStorage().getMaxCapacity();
     }
 
     public void energySet(long energy) {
@@ -39,56 +43,46 @@ public abstract class EnergyBlockEntity extends AbstractBlockEntity {
     }
 
     public void energyExtract(long energy) {
-        getEnergyStorage().extract(energy, false);
+        getEnergyStorage().internalExtract(energy, false);
     }
 
     public void energyInsert(long energy) {
-        getEnergyStorage().insert(energy, false);
+        getEnergyStorage().internalInsert(energy, false);
     }
 
     public void energyDistributeNearby(long amount) {
-        //EnergyApi.distributeEnergyNearby(this, amount);
+        EnergyApi.distributeEnergyNearby(this, amount);
     }
 
     public void energyMoveBetweenBlocks(BlockEntity from, BlockEntity to, long amount) {
-        //EnergyHooks.moveBlockToBlockEnergy(from, to, amount);
+        EnergyApi.moveEnergy(from, to, amount, false);
     }
 
     public void energyMoveBetweenContainers(EnergyContainer from, EnergyContainer to, long amount) {
-        //EnergyApi.moveEnergy(from, to, amount, false);
+        EnergyApi.moveEnergy(from, to, amount, false);
     }
 
     public void energyMoveBetweenItems(ItemStackHolder from, ItemStackHolder to, long amount) {
-        //EnergyHooks.safeMoveItemToItemEnergy(from, to, amount);
+        EnergyApi.moveEnergy(from, to, amount, false);
     }
 
-    //public long energyMoveItemToBlock(ItemStackHolder from, BlockEntity to, long amount) {
-    //    return 0; //EnergyHooks.safeMoveItemToBlockEnergy(from, to, null, amount);
-    //}
+    public long energyMoveItemToBlock(ItemStackHolder from, BlockEntity to, long amount) {
+        return EnergyApi.moveEnergy(from, to, null, amount, false);
+    }
 
-    //public long energyMoveBlockToItem(BlockEntity from, ItemStackHolder to, long amount) {
-    //    return 0; //EnergyHooks.safeMoveBlockToItemEnergy(from, null, to, amount);
-    //}
+    public long energyMoveBlockToItem(BlockEntity from, ItemStackHolder to, long amount) {
+        return EnergyApi.moveEnergy(from, null, to, EnergyApi.moveEnergy(from, null, to, amount, true), false);
+    }
 
-    //public void energyInsertToEnergyOutputSlot(int energyOutputSlot, int amount) {
-    //    if (!getItem(energyOutputSlot).isEmpty()) {
-    //        ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
-//
-    //        if (energyMoveBlockToItem(this, stackHolder, amount) != 0) {
-    //            if (stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
-    //        }
-    //    }
-    //}
-//
-    //public void energyExtractFromEnergyOutputSlot(int energyOutputSlot, int amount) {
-    //    if (!getItem(energyOutputSlot).isEmpty()) {
-    //        ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
-//
-    //        if (energyMoveItemToBlock(stackHolder, this, amount) != 0) {
-    //            if (stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
-    //        }
-    //    }
-    //}
+    public void energyInsertToEnergySlot(int energyOutputSlot, int amount) {
+        if (getItem(energyOutputSlot).isEmpty()) return;
+        ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
+        if (energyMoveBlockToItem(this, stackHolder, amount) != 0 && stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
+    }
 
-    public abstract EnergyStorage getEnergyStorage();
+    public void energyExtractFromEnergySlot(int energyOutputSlot, int amount) {
+        if (getItem(energyOutputSlot).isEmpty()) return;
+        ItemStackHolder stackHolder = new ItemStackHolder(getItem(energyOutputSlot));
+        if (energyMoveItemToBlock(stackHolder, this, amount) != 0 && stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
+    }
 }

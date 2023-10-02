@@ -1,10 +1,10 @@
 package net.tonimatasdev.krystalcraft.menu.slots;
 
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
 
 public class FluidSlot extends Slot {
     protected Fluid fluid;

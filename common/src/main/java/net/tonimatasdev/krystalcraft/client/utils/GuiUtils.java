@@ -1,9 +1,6 @@
 package net.tonimatasdev.krystalcraft.client.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import earth.terrarium.botarium.common.fluid.utils.ClientFluidHooks;
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -12,6 +9,9 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 
 import java.awt.*;
 
@@ -65,8 +65,8 @@ public class GuiUtils {
             return;
         }
 
-        TextureAtlasSprite sprite = ClientFluidHooks.getFluidSprite(fluid);
-        int colour = ClientFluidHooks.getFluidColor(fluid);
+        TextureAtlasSprite sprite = Hooks.getFluidSprite(fluid);
+        int colour = Hooks.getFluidColor(fluid);
         int spriteHeight = sprite.contents().height();
 
         RenderSystem.setShaderColor((colour >> 16 & 255) / 255.0f, (float) (colour >> 8 & 255) / 255.0f, (float) (colour & 255) / 255.0f, 1.0f);

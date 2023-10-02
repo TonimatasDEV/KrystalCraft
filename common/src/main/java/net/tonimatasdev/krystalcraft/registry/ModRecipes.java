@@ -4,12 +4,12 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
-import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
 import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
 import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
+import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
+import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 
 import java.util.function.Supplier;
 

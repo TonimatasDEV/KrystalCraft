@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.menu;
 
-import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
@@ -11,6 +10,7 @@ import net.tonimatasdev.krystalcraft.menu.slots.FluidSlot;
 import net.tonimatasdev.krystalcraft.menu.slots.ResultSlot;
 import net.tonimatasdev.krystalcraft.networking.NetworkHandler;
 import net.tonimatasdev.krystalcraft.networking.packet.messages.ClientboundMachineInfoPacket;
+import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
 import net.tonimatasdev.krystalcraft.registry.ModMenus;
 
 public class CuttingStationMenu extends StationMenu<CuttingStationBlockEntity> {
