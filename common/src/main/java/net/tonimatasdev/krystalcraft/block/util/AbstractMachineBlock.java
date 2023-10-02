@@ -1,8 +1,5 @@
 package net.tonimatasdev.krystalcraft.block.util;
 
-import earth.terrarium.botarium.common.energy.base.PlatformEnergyManager;
-import earth.terrarium.botarium.common.energy.util.EnergyHooks;
-import earth.terrarium.botarium.common.menu.MenuHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -26,11 +23,13 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
-import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
+import net.tonimatasdev.krystalcraft.plorix.energy.EnergyApi;
 import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
+import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
+import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Optional;
+import java.util.Objects;
 
 @SuppressWarnings("deprecation")
 public abstract class AbstractMachineBlock extends BaseEntityBlock {
@@ -47,7 +46,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
         if (entity == null) {
             entity = ModBlockEntities.BLOCK_ENTITIES.getEntries().stream().map(RegistryEntry::get).filter(type -> type.isValid(state)).findFirst().orElse(null);
         }
-        return entity.create(pos, state);
+        return Objects.requireNonNull(entity).create(pos, state);
     }
 
     @Override
@@ -77,7 +76,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             if (level.getBlockEntity(pos) instanceof AbstractBlockEntity machineBlock) {
-                MenuHooks.openMenu((ServerPlayer) player, machineBlock);
+                Hooks.openMenu((ServerPlayer) player, machineBlock);
             }
         }
 
@@ -157,8 +156,9 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
             CompoundTag tag = stack.getOrCreateTag();
             ContainerHelper.saveAllItems(tag, machineBlock.getItems());
 
-            Optional<PlatformEnergyManager> platformEnergyManager = EnergyHooks.safeGetBlockEnergyManager(machineBlock, null);
-            platformEnergyManager.ifPresent(energyManager -> tag.putLong("Energy", platformEnergyManager.get().getStoredEnergy()));
+            if (EnergyApi.isEnergyBlock(machineBlock, null)) {
+                tag.putLong("Energy", EnergyApi.getBlockEnergyContainer(machineBlock, null).getStoredEnergy());
+            }
         }
         return stack;
     }

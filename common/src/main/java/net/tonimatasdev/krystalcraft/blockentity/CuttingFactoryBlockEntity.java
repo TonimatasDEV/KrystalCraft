@@ -1,10 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import earth.terrarium.botarium.common.fluid.impl.SimpleFluidContainer;
-import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -16,8 +11,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingFactoryMenu;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorage;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyStorageUtils;
+import net.tonimatasdev.krystalcraft.plorix.energy.impl.InsertOnlyEnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlorixFluidBlock;
+import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidContainer;
+import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
@@ -25,8 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
-    protected final EnergyStorage energyStorage = EnergyStorageUtils.create(15000, 128);
+public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity implements PlorixFluidBlock<WrappedBlockFluidContainer> {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int BATTERY_SLOT = 2;
@@ -53,8 +52,8 @@ public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity imple
     }
 
     @Override
-    public EnergyStorage getEnergyStorage() {
-        return energyStorage;
+    public WrappedBlockEnergyContainer getEnergyStorage() {
+        return energyContainer == null ? energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000)) : energyContainer;
     }
 
     @Override
@@ -67,7 +66,7 @@ public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity imple
         if (level == null) return;
         if (level.isClientSide) return;
 
-        //energyExtractFromEnergyOutputSlot(BATTERY_SLOT, 10);
+        energyExtractFromEnergySlot(BATTERY_SLOT, 10);
 
         if (getItem(TANK_INPUT_SLOT).is(Items.WATER_BUCKET) && (getItem(TANK_OUTPUT_SLOT).isEmpty() || getItem(TANK_OUTPUT_SLOT).is(Items.BUCKET)) && (getFluidContainer().getTankCapacity(0) - getFluidContainer().getFluids().get(0).getFluidAmount()) >= 1000) {
             removeItem(TANK_INPUT_SLOT, 1);

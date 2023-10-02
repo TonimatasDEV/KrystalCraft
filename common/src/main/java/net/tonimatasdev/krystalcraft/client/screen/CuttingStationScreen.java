@@ -30,7 +30,7 @@ public class CuttingStationScreen extends AbstractContainerScreen<CuttingStation
         int y = (height - 180) / 2 - 10;
 
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
-        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 29, this.menu.getProgress(), this.menu.getMaxProgress());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 28, this.menu.getProgress(), this.menu.getMaxProgress());
         GuiUtil.drawFluidTank(guiGraphics, this.leftPos + 29, this.topPos + 8, this.menu.getFluidContainer().getTankCapacity(0), this.menu.getFluids().get(0));
         GuiUtil.drawFire(guiGraphics, this.leftPos + 130, this.topPos + 28, this.menu.getBurnTime(), this.menu.getBurnTimeTotal());
     }

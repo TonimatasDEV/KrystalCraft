@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity.util;
 
-import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -18,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import net.tonimatasdev.krystalcraft.plorix.menu.ExtraDataMenuProvider;
 import net.tonimatasdev.krystalcraft.util.ModInventory;
 
 @MethodsReturnNonnullByDefault

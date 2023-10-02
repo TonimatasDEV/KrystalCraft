@@ -1,6 +1,5 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,9 +9,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CrushingStationMenu;
+import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
@@ -27,7 +28,7 @@ public class CrushingStationBlockEntity extends BurnProcessingBlockEntity {
     }
 
     @Override
-    public AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
+    public @NotNull AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
         return new CrushingStationMenu(syncId, inventory, this);
     }
 
@@ -43,12 +44,12 @@ public class CrushingStationBlockEntity extends BurnProcessingBlockEntity {
 
         if (hasRecipe(level)) {
             if (burnTime <= 0) {
-                burnTime = CommonHooks.getBurnTime(getItem(COMBUSTION_SLOT));
+                burnTime = Hooks.getBurnTime(getItem(COMBUSTION_SLOT));
                 burnTimeTotal = burnTime;
                 removeItem(COMBUSTION_SLOT, 1);
+            } else {
+                progress++;
             }
-
-            if (burnTime > 0) progress++;
 
             if (progress >= getMaxProgress()) {
                 craft(level);

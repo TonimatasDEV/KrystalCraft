@@ -1,8 +1,6 @@
 package net.tonimatasdev.krystalcraft.menu;
 
 
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -12,6 +10,8 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

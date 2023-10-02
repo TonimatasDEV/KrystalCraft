@@ -30,10 +30,3 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
    versionRange="[${minecraftVersion}]"
    ordering="NONE"
    side="BOTH"
-
-[[dependencies.krystalcraft]]
-   modId="botarium"
-   mandatory=true
-   versionRange="${forgeBotariumVersionRange}"
-   ordering="NONE"
-   side="BOTH"

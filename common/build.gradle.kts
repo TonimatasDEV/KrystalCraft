@@ -6,7 +6,6 @@ val jeiVersion: String by extra
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
-    modImplementation("earth.terrarium:botarium-common-$minecraftVersion:$botariumVersion")
 
     modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:${jeiVersion}")
     modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:${jeiVersion}")

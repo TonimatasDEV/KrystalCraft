@@ -8,8 +8,8 @@ import java.util.List;
 public class RegistryEntries<T> {
     private final List<RegistryEntry<T>> entries = new ArrayList<>();
 
+    @SuppressWarnings("unchecked")
     public <I extends T> RegistryEntry<I> add(RegistryEntry<I> entry) {
-        //noinspection unchecked
         entries.add((RegistryEntry<T>) entry);
         return entry;
     }

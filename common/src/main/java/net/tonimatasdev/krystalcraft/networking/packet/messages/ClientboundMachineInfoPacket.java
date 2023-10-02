@@ -1,12 +1,12 @@
 package net.tonimatasdev.krystalcraft.networking.packet.messages;
 
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import earth.terrarium.botarium.common.fluid.utils.FluidHooks;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.menu.AbstractMachineMenu;
+import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
+import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
 import net.tonimatasdev.krystalcraft.plorix.networking.Packet;
 import net.tonimatasdev.krystalcraft.plorix.networking.PacketContext;
 import net.tonimatasdev.krystalcraft.plorix.networking.PacketHandler;

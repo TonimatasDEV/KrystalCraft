@@ -24,7 +24,6 @@
   ],
   "depends": {
     "fabricloader": "${fabricLoaderRange}",
-    "minecraft": "${minecraftVersion}",
-    "botarium": "${fabricBotariumVersionRange}"
+    "minecraft": "${minecraftVersion}"
   }
 }

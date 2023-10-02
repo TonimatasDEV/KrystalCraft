@@ -17,9 +17,7 @@ val minecraftVersion: String by extra
 val fabricApiVersion: String by extra
 val fabricLoaderVersion: String by extra
 val fabricLoaderRange: String by extra
-val fabricMinecraftVersionRange: String by extra
 val botariumVersion: String by extra
-val fabricBotariumVersionRange: String by extra
 val modVersion: String by extra
 
 val common: Configuration by configurations.creating
@@ -32,8 +30,11 @@ configurations["developmentFabric"].extendsFrom(common)
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    // Dependencies
-    modApi("earth.terrarium:botarium-fabric-$minecraftVersion:$botariumVersion")
+    modApi("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion")
+
+    include(modApi("teamreborn:energy:3.0.0") {
+        exclude(group = "net.fabricmc", module = "fabric-api")
+    })
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
@@ -44,9 +45,7 @@ dependencies {
 }
 
 tasks.withType<ProcessResources> {
-    val replaceProperties = mapOf(
-            "modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion,
-            "fabricBotariumVersionRange" to fabricBotariumVersionRange)
+    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion)
     inputs.properties(replaceProperties)
 
     filesMatching("fabric.mod.json") {
