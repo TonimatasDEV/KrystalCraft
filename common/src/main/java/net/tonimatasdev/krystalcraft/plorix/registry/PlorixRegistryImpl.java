@@ -23,6 +23,5 @@ public class PlorixRegistryImpl<T> implements PlorixRegistry<T> {
 
     @Override
     public void init() {
-        //NO-OP
     }
 }

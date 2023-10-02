@@ -37,6 +37,4 @@ public class PacketChannelHelper {
     public static boolean canSendPlayerPackets(ResourceLocation channel, Player player) {
         throw new NotImplementedException();
     }
-
-
 }
