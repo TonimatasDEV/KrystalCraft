@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "krystalcraft:lead_ingot",
+    "krystalcraft:bronze_ingot",
+    "krystalcraft:platinum_ingot",
+    "krystalcraft:tin_ingot"
+  ]
+}

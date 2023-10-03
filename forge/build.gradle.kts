@@ -82,9 +82,3 @@ components.getByName<AdhocComponentWithVariants>("java").apply {
         skip()
     }
 }
-
-sourceSets {
-    main {
-        resources.srcDirs("src/data/resources")
-    }
-}
