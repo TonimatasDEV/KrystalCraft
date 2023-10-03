@@ -17,7 +17,7 @@ import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlorixFluidBlock;
 import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidContainer;
 import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;

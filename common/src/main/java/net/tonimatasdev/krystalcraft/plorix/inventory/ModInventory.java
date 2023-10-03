@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.util;
+package net.tonimatasdev.krystalcraft.plorix.inventory;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;

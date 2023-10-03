@@ -13,7 +13,7 @@ import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidSnapshot;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.ItemFluidContainer;
 import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidSnapshot;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import net.tonimatasdev.krystalcraft.plorix.item.ItemStackHolder;
 import net.tonimatasdev.krystalcraft.plorix.item.ItemStackStorage;
 

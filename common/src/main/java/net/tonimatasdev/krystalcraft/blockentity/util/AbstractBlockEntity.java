@@ -18,7 +18,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.plorix.menu.ExtraDataMenuProvider;
-import net.tonimatasdev.krystalcraft.util.ModInventory;
+import net.tonimatasdev.krystalcraft.plorix.inventory.ModInventory;
 
 @MethodsReturnNonnullByDefault
 public abstract class AbstractBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {

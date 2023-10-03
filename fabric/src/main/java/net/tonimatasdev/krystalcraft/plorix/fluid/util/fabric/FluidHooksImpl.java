@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.plorix.fluid.utils.fabric;
+package net.tonimatasdev.krystalcraft.plorix.fluid.util.fabric;
 
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;

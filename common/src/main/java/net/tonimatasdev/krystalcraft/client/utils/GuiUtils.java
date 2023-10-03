@@ -10,7 +10,7 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 
 import java.awt.*;

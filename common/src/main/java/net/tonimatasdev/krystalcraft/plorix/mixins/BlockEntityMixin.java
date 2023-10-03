@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.mixins;
+package net.tonimatasdev.krystalcraft.plorix.mixins;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(BlockEntity.class)
 public class BlockEntityMixin {
-
     @Inject(method = "load", at = @At("TAIL"))
     public void deserializeData(CompoundTag compoundTag, CallbackInfo ci) {
         if (this instanceof PlorixEnergyBlock<?> energyBlock) {

@@ -4,7 +4,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.material.Fluid;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 
 import java.util.function.Predicate;
 

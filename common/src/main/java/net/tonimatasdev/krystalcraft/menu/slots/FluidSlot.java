@@ -4,7 +4,7 @@ import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 
 public class FluidSlot extends Slot {
     protected Fluid fluid;
