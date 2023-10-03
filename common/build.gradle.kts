@@ -16,10 +16,3 @@ dependencies {
 architectury {
     common("fabric", "forge")
 }
-
-sourceSets {
-    main {
-        java.srcDirs("src/data/java")
-        resources.srcDirs("src/data/resources")
-    }
-}
