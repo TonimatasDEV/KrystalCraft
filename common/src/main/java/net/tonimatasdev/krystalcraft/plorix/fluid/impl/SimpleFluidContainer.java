@@ -10,7 +10,7 @@ import net.tonimatasdev.krystalcraft.plorix.Plorix;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidContainer;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidSnapshot;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 
 import java.util.List;
 import java.util.Objects;

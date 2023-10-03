@@ -9,7 +9,7 @@ import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.world.item.ItemStack;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlatformFluidItemHandler;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import net.tonimatasdev.krystalcraft.plorix.item.ItemStackHolder;
 import net.tonimatasdev.krystalcraft.plorix.item.ItemStackStorage;
 

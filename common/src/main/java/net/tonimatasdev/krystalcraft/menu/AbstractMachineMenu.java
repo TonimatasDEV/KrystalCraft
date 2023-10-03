@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;

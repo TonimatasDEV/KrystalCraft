@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.util;
+package net.tonimatasdev.krystalcraft.plorix.util;
 
 import com.google.gson.JsonArray;
 import net.minecraft.core.NonNullList;

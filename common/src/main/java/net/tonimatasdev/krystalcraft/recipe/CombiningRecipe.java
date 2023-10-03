@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
-import net.tonimatasdev.krystalcraft.util.RecipesUtil;
+import net.tonimatasdev.krystalcraft.plorix.util.RecipesUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class CombiningRecipe implements Recipe<Container> {

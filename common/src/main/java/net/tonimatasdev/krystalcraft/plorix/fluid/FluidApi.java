@@ -7,7 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidContainer;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.ItemFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import org.apache.commons.lang3.NotImplementedException;
 
 @SuppressWarnings({"BooleanMethodIsAlwaysInverted", "unused"})

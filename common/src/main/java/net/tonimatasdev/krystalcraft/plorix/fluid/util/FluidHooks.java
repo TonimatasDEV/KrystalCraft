@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.plorix.fluid.utils;
+package net.tonimatasdev.krystalcraft.plorix.fluid.util;
 
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.core.Direction;

@@ -1,4 +1,4 @@
-package net.tonimatasdev.krystalcraft.plorix.fluid.utils.forge;
+package net.tonimatasdev.krystalcraft.plorix.fluid.util.forge;
 
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

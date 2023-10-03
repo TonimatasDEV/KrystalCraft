@@ -2,7 +2,7 @@ package net.tonimatasdev.krystalcraft.plorix.fluid.impl;
 
 import net.minecraft.util.Mth;
 import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.utils.FluidHooks;
+import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 
 import java.util.function.BiPredicate;
 import java.util.function.IntToLongFunction;
