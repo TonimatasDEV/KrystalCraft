@@ -45,7 +45,7 @@ dependencies {
 }
 
 tasks.withType<ProcessResources> {
-    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion)
+    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion, "fabricApiVersion" to fabricApiVersion)
     inputs.properties(replaceProperties)
 
     filesMatching("fabric.mod.json") {
