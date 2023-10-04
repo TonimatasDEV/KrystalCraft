@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "krystalcraft:bronze_dust"
+    "item": "krystalcraft:bronze_dust"
   },
   "result": "krystalcraft:bronze_ingot"
 }

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "c:platinum_ingots"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "00",
+    "01",
+    " 1"
+  ],
+  "result": {
+    "item": "krystalcraft:platinum_axe"
+  },
+  "show_notification": true
+}

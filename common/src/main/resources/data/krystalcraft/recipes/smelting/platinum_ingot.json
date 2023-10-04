@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "krystalcraft:raw_platinum"
+    "item": "krystalcraft:raw_platinum"
   },
   "result": "krystalcraft:platinum_ingot"
 }

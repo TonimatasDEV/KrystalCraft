@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "krystalcraft:copper_dust"
+    "item": "krystalcraft:copper_dust"
   },
   "result": "minecraft:copper_ingot"
 }

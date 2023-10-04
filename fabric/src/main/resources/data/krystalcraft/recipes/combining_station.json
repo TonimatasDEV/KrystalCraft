@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "item": "minecraft:stick"
+    },
+    "1": {
+      "item": "minecraft:cobblestone"
+    },
+    "2": {
+      "item": "minecraft:furnace"
+    }
+  },
+  "pattern": [
+    "000",
+    "212",
+    "111"
+  ],
+  "result": {
+    "item": "krystalcraft:combining_station"
+  },
+  "show_notification": true
+}

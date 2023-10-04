@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "c:silver_ingots"
+    }
+  },
+  "pattern": [
+    "000",
+    "0 0"
+  ],
+  "result": {
+    "item": "krystalcraft:silver_helmet"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:nuggets/silver"
+    }
+  },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "result": {
+    "item": "krystalcraft:silver_ingot"
+  },
+  "show_notification": true
+}
