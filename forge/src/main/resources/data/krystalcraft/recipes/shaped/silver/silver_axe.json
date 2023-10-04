@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:ingots/silver"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "00",
+    "01",
+    " 1"
+  ],
+  "result": {
+    "item": "krystalcraft:silver_axe"
+  },
+  "show_notification": true
+}

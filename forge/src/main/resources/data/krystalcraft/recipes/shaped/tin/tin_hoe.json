@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "forge:ingots/tin"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "00",
+    " 1",
+    " 1"
+  ],
+  "result": {
+    "item": "krystalcraft:tin_hoe"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "c:topazes"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "0",
+    "1",
+    "1"
+  ],
+  "result": {
+    "item": "krystalcraft:topaz_shovel"
+  },
+  "show_notification": true
+}

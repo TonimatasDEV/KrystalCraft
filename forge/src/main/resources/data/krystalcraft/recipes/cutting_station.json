@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "item": "minecraft:stick"
+    },
+    "1": {
+      "tag": "forge:cobblestone"
+    },
+    "2": {
+      "item": "minecraft:bucket"
+    },
+    "3": {
+      "tag": "forge:raw_materials/diamond"
+    },
+    "4": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    "000",
+    "234",
+    "111"
+  ],
+  "result": {
+    "item": "krystalcraft:cutting_station"
+  },
+  "show_notification": true
+}

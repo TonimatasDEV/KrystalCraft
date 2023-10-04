@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "c:jades"
+    },
+    "1": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "0",
+    "0",
+    "1"
+  ],
+  "result": {
+    "item": "krystalcraft:jade_sword"
+  },
+  "show_notification": true
+}

@@ -4,7 +4,7 @@
   "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "krystalcraft:ingots/copper"
+      "item": "minecraft:copper_ingot"
     },
     "1": {
       "item": "minecraft:stick"

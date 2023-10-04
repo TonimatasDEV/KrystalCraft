@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "krystalcraft",
+  "ingredients": [
+    {
+      "tag": "c:silver_blocks"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "krystalcraft:silver_ingot"
+  }
+}

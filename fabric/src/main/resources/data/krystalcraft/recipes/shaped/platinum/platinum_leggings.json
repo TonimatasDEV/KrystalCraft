@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "krystalcraft",
+  "key": {
+    "0": {
+      "tag": "c:platinum_ingots"
+    }
+  },
+  "pattern": [
+    "000",
+    "0 0",
+    "0 0"
+  ],
+  "result": {
+    "item": "krystalcraft:platinum_leggings"
+  },
+  "show_notification": true
+}

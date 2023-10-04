@@ -5,7 +5,7 @@
   "experience": 0.5,
   "group": "krystalcraft",
   "ingredient": {
-    "tag": "krystalcraft:raw_lead"
+    "item": "krystalcraft:raw_lead"
   },
   "result": "krystalcraft:lead_ingot"
 }
