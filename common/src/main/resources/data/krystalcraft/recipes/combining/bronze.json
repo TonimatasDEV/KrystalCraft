@@ -9,6 +9,7 @@
     }
   ],
   "result": {
-    "item": "krystalcraft:bronze_ingot"
+    "item": "krystalcraft:bronze_dust",
+    "count": 2
   }
 }
