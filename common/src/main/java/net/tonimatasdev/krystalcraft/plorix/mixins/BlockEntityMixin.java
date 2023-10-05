@@ -17,9 +17,11 @@ public class BlockEntityMixin {
         if (this instanceof PlorixEnergyBlock<?> energyBlock) {
             energyBlock.getEnergyStorage().deserialize(compoundTag);
         }
+
         if (this instanceof PlorixFluidBlock<?> fluidHoldingBlock) {
             fluidHoldingBlock.getFluidContainer().deserialize(compoundTag);
         }
+
         if (this instanceof ItemContainerBlock itemContainerBlock) {
             itemContainerBlock.getContainer().deserialize(compoundTag);
         }
@@ -30,9 +32,11 @@ public class BlockEntityMixin {
         if (this instanceof PlorixEnergyBlock<?> energyBlock) {
             energyBlock.getEnergyStorage().serialize(compoundTag);
         }
+
         if (this instanceof PlorixFluidBlock<?> fluidHoldingBlock) {
             fluidHoldingBlock.getFluidContainer().serialize(compoundTag);
         }
+
         if (this instanceof ItemContainerBlock itemContainerBlock) {
             itemContainerBlock.getContainer().serialize(compoundTag);
         }
