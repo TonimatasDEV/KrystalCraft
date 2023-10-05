@@ -11,9 +11,9 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+import net.tonimatasdev.krystalcraft.plorix.util.RecipesUtil;
 import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
-import net.tonimatasdev.krystalcraft.plorix.util.RecipesUtil;
 import org.jetbrains.annotations.NotNull;
 
 public class CrushingRecipe implements Recipe<Container> {
@@ -77,7 +77,6 @@ public class CrushingRecipe implements Recipe<Container> {
         return true;
     }
 
-    @SuppressWarnings("unused")
     public static class Serializer implements RecipeSerializer<CrushingRecipe> {
         @Override
         public @NotNull CrushingRecipe fromJson(ResourceLocation id, JsonObject json) {
