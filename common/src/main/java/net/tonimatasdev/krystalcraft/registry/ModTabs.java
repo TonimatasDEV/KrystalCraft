@@ -13,9 +13,7 @@ public class ModTabs {
     public static final PlorixRegistry<CreativeModeTab> TABS = PlorixRegistries.create(BuiltInRegistries.CREATIVE_MODE_TAB, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<CreativeModeTab> KRYSTALCRAFT = TABS.register(KrystalCraft.MOD_ID, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(ModItems.JADE_PICKAXE.get()))
+            .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY.get()))
             .title(Component.translatable("itemGroup.krystalcraft"))
-            .displayItems(((itemDisplayParameters, output) -> {
-                ModItems.ITEMS.getEntries().forEach((item) -> output.accept(item.get()));
-            })).build());
+            .displayItems(((itemDisplayParameters, output) -> ModItems.ITEMS.getEntries().forEach((item) -> output.accept(item.get())))).build());
 }
