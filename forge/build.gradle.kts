@@ -1,4 +1,4 @@
-@file:Suppress("DEPRECATION", "UnstableApiUsage")
+@file:Suppress("UnstableApiUsage")
 
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
