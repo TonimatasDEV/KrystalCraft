@@ -32,9 +32,7 @@ dependencies {
 
     modApi("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion")
 
-    include(modApi("teamreborn:energy:3.0.0") {
-        exclude(group = "net.fabricmc", module = "fabric-api")
-    })
+    modApi(files("../libs/MythLib-fabric-1.0.0.jar"))
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"

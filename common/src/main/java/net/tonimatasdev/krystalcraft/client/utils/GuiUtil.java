@@ -1,6 +1,9 @@
-package net.tonimatasdev.krystalcraft.client.screen;
+package net.tonimatasdev.krystalcraft.client.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import dev.tonimatas.mythlib.client.ClientHooks;
+import dev.tonimatas.mythlib.fluid.base.FluidHolder;
+import dev.tonimatas.mythlib.fluid.util.FluidUtils;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -10,9 +13,6 @@ import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.inventory.InventoryMenu;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
-import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 
 import java.awt.*;
 
@@ -69,8 +69,8 @@ public class GuiUtil {
             return;
         }
 
-        TextureAtlasSprite sprite = Hooks.getFluidSprite(fluid);
-        int colour = Hooks.getFluidColor(fluid);
+        TextureAtlasSprite sprite = ClientHooks.getFluidSprite(fluid);
+        int colour = ClientHooks.getFluidColor(fluid);
         int spriteHeight = sprite.contents().height();
 
         RenderSystem.setShaderColor((colour >> 16 & 255) / 255.0f, (float) (colour >> 8 & 255) / 255.0f, (float) (colour & 255) / 255.0f, 1.0f);
@@ -79,9 +79,9 @@ public class GuiUtil {
         int calcHeight = (int) ((FLUID_TANK_HEIGHT + 1) * ratio);
         // TODO: FIX THIS
         //try (var ignored = RenderUtils.createScissorBox(Minecraft.getInstance(), graphics.pose(), x, y + FLUID_TANK_HEIGHT - calcHeight, FLUID_TANK_WIDTH, calcHeight)) {
-        //    for (int i = 1; i < 4; i++) {
-        //        graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
-        //    }
+        for (int i = 1; i < 4; i++) {
+            graphics.blit(x + 1, FLUID_TANK_HEIGHT + y - (spriteHeight * i), 0, FLUID_TANK_WIDTH - 2, spriteHeight, sprite);
+        }
         //}
         RenderSystem.setShaderColor(1.0f, 1.0f, 1.0f, 1.0f);
     }
@@ -102,7 +102,7 @@ public class GuiUtil {
     }
 
     public static void drawTankTooltip(GuiGraphics graphics, FluidHolder tank, long capacity, int mouseX, int mouseY) {
-        graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(FluidHooks.toMillibuckets(tank.getFluidAmount()) + "/" + FluidHooks.toMillibuckets(capacity)).setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
+        graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(FluidUtils.toMillibuckets(tank.getFluidAmount()) + "/" + FluidUtils.toMillibuckets(capacity)).setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
     }
 
     public static Rectangle getFluidTankBounds(int x, int y) {

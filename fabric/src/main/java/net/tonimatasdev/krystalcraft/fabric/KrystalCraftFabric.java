@@ -8,12 +8,10 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
-import net.tonimatasdev.krystalcraft.plorix.PlorixFabric;
 
 public class KrystalCraftFabric implements ModInitializer {
     @Override
     public void onInitialize() {
-        PlorixFabric.init();
         KrystalCraft.init();
 
         addOre("experience_ore");

@@ -8,6 +8,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
+import net.tonimatasdev.krystalcraft.client.utils.GuiUtil;
 import net.tonimatasdev.krystalcraft.menu.CuttingFactoryMenu;
 import org.jetbrains.annotations.NotNull;
 

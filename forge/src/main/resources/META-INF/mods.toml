@@ -30,3 +30,10 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
    versionRange="[${minecraftVersion}]"
    ordering="NONE"
    side="BOTH"
+
+[[dependencies.krystalcraft]]
+modId="mythlib"
+mandatory=true
+versionRange="[1.0.0,1.1)"
+ordering="NONE"
+side="BOTH"

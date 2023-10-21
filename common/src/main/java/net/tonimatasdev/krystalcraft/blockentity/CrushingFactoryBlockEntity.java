@@ -1,5 +1,7 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
+import dev.tonimatas.mythlib.energy.impl.InsertOnlyEnergyContainer;
+import dev.tonimatas.mythlib.energy.impl.WrappedBlockEnergyContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -9,8 +11,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CrushingFactoryMenu;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.InsertOnlyEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
 import net.tonimatasdev.krystalcraft.recipe.CrushingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;

@@ -1,17 +1,17 @@
 package net.tonimatasdev.krystalcraft.blockentity.util;
 
+import dev.tonimatas.mythlib.energy.EnergyApi;
+import dev.tonimatas.mythlib.energy.base.EnergyContainer;
+import dev.tonimatas.mythlib.energy.base.MythEnergyBlock;
+import dev.tonimatas.mythlib.energy.impl.WrappedBlockEnergyContainer;
+import dev.tonimatas.mythlib.item.ItemStackHolder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyApi;
-import net.tonimatasdev.krystalcraft.plorix.energy.base.EnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.energy.base.PlorixEnergyBlock;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.item.ItemStackHolder;
 
-public abstract class EnergyBlockEntity extends AbstractBlockEntity implements PlorixEnergyBlock<WrappedBlockEnergyContainer> {
+public abstract class EnergyBlockEntity extends AbstractBlockEntity implements MythEnergyBlock<WrappedBlockEnergyContainer> {
     protected WrappedBlockEnergyContainer energyContainer;
 
     public EnergyBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {

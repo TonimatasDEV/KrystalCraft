@@ -1,6 +1,8 @@
 package net.tonimatasdev.krystalcraft.menu;
 
 
+import dev.tonimatas.mythlib.fluid.base.FluidHolder;
+import dev.tonimatas.mythlib.fluid.util.FluidUtils;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -10,8 +12,6 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -94,7 +94,7 @@ public abstract class AbstractMachineMenu<T extends AbstractBlockEntity> extends
     }
 
     public List<FluidHolder> getFluids() {
-        return fluids == null ? List.of(FluidHooks.emptyFluid(), FluidHooks.emptyFluid()) : fluids;
+        return fluids == null ? List.of(FluidUtils.emptyFluid(), FluidUtils.emptyFluid()) : fluids;
     }
 
     public void setFluids(List<FluidHolder> fluids) {

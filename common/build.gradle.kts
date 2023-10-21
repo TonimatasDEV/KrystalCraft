@@ -8,6 +8,8 @@ val reiVersion: String by extra
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
+    modApi(files("../libs/MythLib-common-1.0.0.jar"))
+
     modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
     modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:$jeiVersion")
     //modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$reiVersion")

@@ -18,13 +18,10 @@
     "main": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftFabric"],
     "client": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftClientFabric"]
   },
-  "mixins": [
-    "krystalcraft.mixins.json",
-    "krystalcraft-common.mixins.json"
-  ],
   "depends": {
     "fabricloader": "${fabricLoaderRange}",
     "fabric-api": ">=0.0.0",
-    "minecraft": "${minecraftVersion}"
+    "minecraft": "${minecraftVersion}",
+    "mythlib": ">=1.0.0"
   }
 }

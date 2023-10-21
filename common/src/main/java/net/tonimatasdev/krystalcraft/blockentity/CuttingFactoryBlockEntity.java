@@ -1,5 +1,12 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
+import dev.tonimatas.mythlib.energy.impl.InsertOnlyEnergyContainer;
+import dev.tonimatas.mythlib.energy.impl.WrappedBlockEnergyContainer;
+import dev.tonimatas.mythlib.fluid.base.FluidHolder;
+import dev.tonimatas.mythlib.fluid.base.MythFluidBlock;
+import dev.tonimatas.mythlib.fluid.impl.SimpleFluidContainer;
+import dev.tonimatas.mythlib.fluid.impl.WrappedBlockFluidContainer;
+import dev.tonimatas.mythlib.fluid.util.FluidUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,13 +18,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingFactoryMenu;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.InsertOnlyEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlorixFluidBlock;
-import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
@@ -25,7 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity implements PlorixFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity implements MythFluidBlock<WrappedBlockFluidContainer> {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int BATTERY_SLOT = 2;
@@ -85,7 +85,7 @@ public class CuttingFactoryBlockEntity extends EnergyProcessingBlockEntity imple
         if (hasRecipe(level) && energyAmount() > 0 && getFluidContainer().getFluids().get(0).getFluidAmount() > 0) {
             progress++;
             energyExtract(5);
-            FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
+            FluidHolder fluidHolder = FluidUtils.newFluidHolder(Fluids.WATER, 2, null);
             getFluidContainer().internalExtract(fluidHolder, true);
             getFluidContainer().internalExtract(fluidHolder, false);
 

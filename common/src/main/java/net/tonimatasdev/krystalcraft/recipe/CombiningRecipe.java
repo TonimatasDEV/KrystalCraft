@@ -2,6 +2,7 @@ package net.tonimatasdev.krystalcraft.recipe;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
+import dev.tonimatas.mythlib.util.RecipeUtils;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -11,7 +12,6 @@ import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import net.tonimatasdev.krystalcraft.plorix.util.RecipesUtil;
 import net.tonimatasdev.krystalcraft.registry.ModRecipeSerializers;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
@@ -82,7 +82,7 @@ public class CombiningRecipe implements Recipe<Container> {
     public static class Serializer implements RecipeSerializer<CombiningRecipe> {
         @Override
         public @NotNull CombiningRecipe fromJson(ResourceLocation id, JsonObject json) {
-            final var ingredients = RecipesUtil.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+            final var ingredients = RecipeUtils.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
             if (ingredients.isEmpty()) {
                 throw new JsonParseException("No ingredients for Combining");
             } else if (ingredients.size() > 2) {

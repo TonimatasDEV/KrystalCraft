@@ -1,16 +1,16 @@
 package net.tonimatasdev.krystalcraft.registry;
 
+import dev.tonimatas.mythlib.registry.MythRegistries;
+import dev.tonimatas.mythlib.registry.MythRegistry;
+import dev.tonimatas.mythlib.registry.RegistryEntry;
+import dev.tonimatas.mythlib.registry.RegistryHelpers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.blockentity.*;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryHelpers;
 
 public class ModBlockEntities {
-    public static final PlorixRegistry<BlockEntityType<?>> BLOCK_ENTITIES = PlorixRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, KrystalCraft.MOD_ID);
+    public static final MythRegistry<BlockEntityType<?>> BLOCK_ENTITIES = MythRegistries.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<BlockEntityType<CuttingStationBlockEntity>> CUTTING_STATION_BLOCK_ENTITY = BLOCK_ENTITIES.register("cutting_station", () -> RegistryHelpers.createBlockEntityType(CuttingStationBlockEntity::new, ModBlocks.CUTTING_STATION.get()));
     public static final RegistryEntry<BlockEntityType<CuttingFactoryBlockEntity>> CUTTING_FACTORY_BLOCK_ENTITY = BLOCK_ENTITIES.register("cutting_factory", () -> RegistryHelpers.createBlockEntityType(CuttingFactoryBlockEntity::new, ModBlocks.CUTTING_FACTORY.get()));

@@ -1,10 +1,11 @@
 package net.tonimatasdev.krystalcraft.menu.slots;
 
+import dev.tonimatas.mythlib.fluid.FluidApi;
+import dev.tonimatas.mythlib.item.ItemStackHolder;
 import net.minecraft.world.Container;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.material.Fluid;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
 
 public class FluidSlot extends Slot {
     protected Fluid fluid;
@@ -15,6 +16,6 @@ public class FluidSlot extends Slot {
 
     @Override
     public boolean mayPlace(ItemStack itemStack) {
-        return FluidHooks.isFluidContainingItem(itemStack) && FluidHooks.getItemFluidManager(itemStack).getFluidInTank(0).getFluid() == fluid;
+        return FluidApi.isFluidContainingItem(itemStack) && FluidApi.getItemFluidContainer(new ItemStackHolder(itemStack)).getFluids().get(0).getFluid() == fluid;
     }
 }

@@ -1,5 +1,11 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
+import dev.tonimatas.mythlib.fluid.base.FluidHolder;
+import dev.tonimatas.mythlib.fluid.base.MythFluidBlock;
+import dev.tonimatas.mythlib.fluid.impl.SimpleFluidContainer;
+import dev.tonimatas.mythlib.fluid.impl.WrappedBlockFluidContainer;
+import dev.tonimatas.mythlib.fluid.util.FluidUtils;
+import dev.tonimatas.mythlib.util.Hooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -11,12 +17,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
 import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CuttingStationMenu;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.PlorixFluidBlock;
-import net.tonimatasdev.krystalcraft.plorix.fluid.impl.SimpleFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.impl.WrappedBlockFluidContainer;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
-import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.recipe.CuttingRecipe;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import net.tonimatasdev.krystalcraft.registry.ModRecipes;
@@ -24,7 +24,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class CuttingStationBlockEntity extends BurnProcessingBlockEntity implements PlorixFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingStationBlockEntity extends BurnProcessingBlockEntity implements MythFluidBlock<WrappedBlockFluidContainer> {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int COMBUSTION_SLOT = 2;
@@ -75,7 +75,7 @@ public class CuttingStationBlockEntity extends BurnProcessingBlockEntity impleme
                 removeItem(COMBUSTION_SLOT, 1);
             } else {
                 progress++;
-                FluidHolder fluidHolder = FluidHooks.newFluidHolder(Fluids.WATER, 2, null);
+                FluidHolder fluidHolder = FluidUtils.newFluidHolder(Fluids.WATER, 2, null);
                 getFluidContainer().internalExtract(fluidHolder, true);
                 getFluidContainer().internalExtract(fluidHolder, false);
             }

@@ -1,16 +1,16 @@
 package net.tonimatasdev.krystalcraft.registry;
 
+import dev.tonimatas.mythlib.registry.MythRegistries;
+import dev.tonimatas.mythlib.registry.MythRegistry;
+import dev.tonimatas.mythlib.registry.RegistryEntry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.item.*;
 import net.tonimatasdev.krystalcraft.item.custom.BatteryItem;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
 
 public class ModItems {
-    public static final PlorixRegistry<Item> ITEMS = PlorixRegistries.create(BuiltInRegistries.ITEM, KrystalCraft.MOD_ID);
+    public static final MythRegistry<Item> ITEMS = MythRegistries.create(BuiltInRegistries.ITEM, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<Item> SILVER_INGOT = ITEMS.register("silver_ingot", () -> new Item(new Item.Properties()));
     public static final RegistryEntry<Item> SILVER_DUST = ITEMS.register("silver_dust", () -> new Item(new Item.Properties()));

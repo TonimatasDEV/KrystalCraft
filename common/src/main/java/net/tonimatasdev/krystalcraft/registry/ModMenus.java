@@ -1,16 +1,16 @@
 package net.tonimatasdev.krystalcraft.registry;
 
+import dev.tonimatas.mythlib.registry.MythRegistries;
+import dev.tonimatas.mythlib.registry.MythRegistry;
+import dev.tonimatas.mythlib.registry.RegistryEntry;
+import dev.tonimatas.mythlib.registry.RegistryHelpers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.inventory.MenuType;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.menu.*;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryHelpers;
 
 public class ModMenus {
-    public static final PlorixRegistry<MenuType<?>> MENUS = PlorixRegistries.create(BuiltInRegistries.MENU, KrystalCraft.MOD_ID);
+    public static final MythRegistry<MenuType<?>> MENUS = MythRegistries.create(BuiltInRegistries.MENU, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<MenuType<CuttingStationMenu>> CUTTING_STATION_MENU = MENUS.register("cutting_station_menu", () -> RegistryHelpers.createMenuType(CuttingStationMenu::new));
     public static final RegistryEntry<MenuType<CuttingFactoryMenu>> CUTTING_FACTORY_MENU = MENUS.register("cutting_factory_menu", () -> RegistryHelpers.createMenuType(CuttingFactoryMenu::new));
