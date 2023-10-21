@@ -1,5 +1,8 @@
 package net.tonimatasdev.krystalcraft.registry;
 
+import dev.tonimatas.mythlib.registry.MythRegistries;
+import dev.tonimatas.mythlib.registry.MythRegistry;
+import dev.tonimatas.mythlib.registry.RegistryEntry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -11,14 +14,11 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.block.MachineBlock;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistries;
-import net.tonimatasdev.krystalcraft.plorix.registry.PlorixRegistry;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
 
 import java.util.function.Supplier;
 
 public class ModBlocks {
-    public static final PlorixRegistry<Block> BLOCKS = PlorixRegistries.create(BuiltInRegistries.BLOCK, KrystalCraft.MOD_ID);
+    public static final MythRegistry<Block> BLOCKS = MythRegistries.create(BuiltInRegistries.BLOCK, KrystalCraft.MOD_ID);
 
     public static final RegistryEntry<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
     public static final RegistryEntry<Block> SILVER_ORE = registerBlock("silver_ore", () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));

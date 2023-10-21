@@ -1,5 +1,7 @@
 package net.tonimatasdev.krystalcraft.blockentity.util;
 
+import dev.tonimatas.mythlib.inventory.ModInventory;
+import dev.tonimatas.mythlib.menu.ExtraDataMenuProvider;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -17,8 +19,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.tonimatasdev.krystalcraft.plorix.inventory.ModInventory;
-import net.tonimatasdev.krystalcraft.plorix.menu.ExtraDataMenuProvider;
 
 @MethodsReturnNonnullByDefault
 public abstract class AbstractBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {

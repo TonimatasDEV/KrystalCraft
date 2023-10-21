@@ -1,15 +1,15 @@
 package net.tonimatasdev.krystalcraft.networking.packet.messages;
 
+import dev.tonimatas.mythlib.fluid.base.FluidHolder;
+import dev.tonimatas.mythlib.fluid.util.FluidUtils;
+import dev.tonimatas.mythlib.networking.Packet;
+import dev.tonimatas.mythlib.networking.PacketContext;
+import dev.tonimatas.mythlib.networking.PacketHandler;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.menu.AbstractMachineMenu;
-import net.tonimatasdev.krystalcraft.plorix.fluid.base.FluidHolder;
-import net.tonimatasdev.krystalcraft.plorix.fluid.util.FluidHooks;
-import net.tonimatasdev.krystalcraft.plorix.networking.Packet;
-import net.tonimatasdev.krystalcraft.plorix.networking.PacketContext;
-import net.tonimatasdev.krystalcraft.plorix.networking.PacketHandler;
 
 import java.util.List;
 
@@ -27,7 +27,7 @@ public record ClientboundMachineInfoPacket(long energy, List<FluidHolder> fluidH
 
         @Override
         public ClientboundMachineInfoPacket decode(FriendlyByteBuf buf) {
-            return new ClientboundMachineInfoPacket(buf.readLong(), buf.readList(buf2 -> FluidHooks.newFluidHolder(BuiltInRegistries.FLUID.get(buf2.readResourceLocation()), buf2.readLong(), null)));
+            return new ClientboundMachineInfoPacket(buf.readLong(), buf.readList(buf2 -> FluidUtils.newFluidHolder(BuiltInRegistries.FLUID.get(buf2.readResourceLocation()), buf2.readLong(), null)));
         }
 
         @Override

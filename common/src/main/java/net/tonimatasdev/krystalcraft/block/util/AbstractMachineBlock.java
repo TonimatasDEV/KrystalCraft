@@ -1,5 +1,8 @@
 package net.tonimatasdev.krystalcraft.block.util;
 
+import dev.tonimatas.mythlib.energy.EnergyApi;
+import dev.tonimatas.mythlib.registry.RegistryEntry;
+import dev.tonimatas.mythlib.util.Hooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -23,9 +26,6 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 import net.tonimatasdev.krystalcraft.blockentity.util.AbstractBlockEntity;
-import net.tonimatasdev.krystalcraft.plorix.energy.EnergyApi;
-import net.tonimatasdev.krystalcraft.plorix.registry.RegistryEntry;
-import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 
@@ -157,7 +157,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
             ContainerHelper.saveAllItems(tag, machineBlock.getItems());
 
             if (EnergyApi.isEnergyBlock(machineBlock, null)) {
-                tag.putLong("Energy", EnergyApi.getBlockEnergyContainer(machineBlock, null).getStoredEnergy());
+                tag.putLong("Energy", Objects.requireNonNull(EnergyApi.getBlockEnergyContainer(machineBlock, null)).getStoredEnergy());
             }
         }
         return stack;

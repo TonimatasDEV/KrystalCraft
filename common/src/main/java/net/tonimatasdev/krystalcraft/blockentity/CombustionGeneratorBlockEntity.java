@@ -1,5 +1,8 @@
 package net.tonimatasdev.krystalcraft.blockentity;
 
+import dev.tonimatas.mythlib.energy.impl.SimpleEnergyContainer;
+import dev.tonimatas.mythlib.energy.impl.WrappedBlockEnergyContainer;
+import dev.tonimatas.mythlib.util.Hooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Inventory;
@@ -8,9 +11,6 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyBlockEntity;
 import net.tonimatasdev.krystalcraft.menu.CombustionGeneratorMenu;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.SimpleEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.energy.impl.WrappedBlockEnergyContainer;
-import net.tonimatasdev.krystalcraft.plorix.util.Hooks;
 import net.tonimatasdev.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 

@@ -12,13 +12,6 @@ architectury {
     forge()
 }
 
-loom {
-    forge {
-        mixinConfig("krystalcraft-common.mixins.json")
-        mixinConfig("krystalcraft.mixins.json")
-    }
-}
-
 val minecraftVersion: String by extra
 val forgeVersion: String by extra
 val forgeLoaderRange: String by extra
@@ -38,6 +31,8 @@ dependencies {
 
     modCompileOnly("mezz.jei:jei-${minecraftVersion}-forge-api:${jeiVersion}")
     modLocalRuntime("mezz.jei:jei-${minecraftVersion}-forge:${jeiVersion}") { isTransitive = false }
+
+    modApi(files("../libs/MythLib-forge-1.0.0.jar"))
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionForge")) { isTransitive = false }
