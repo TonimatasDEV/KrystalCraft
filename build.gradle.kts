@@ -38,7 +38,6 @@ allprojects {
     group = "net.tonimatasdev.krystalcraft"
 
     repositories {
-        maven(url = "https://maven.resourcefulbees.com/repository/maven-public/")
         maven(url = "https://maven.blamejared.com")
         maven(url = "https://maven.shedaniel.me")
     }
