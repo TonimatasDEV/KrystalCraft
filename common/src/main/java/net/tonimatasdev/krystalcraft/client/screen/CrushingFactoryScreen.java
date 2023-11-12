@@ -37,7 +37,7 @@ public class CrushingFactoryScreen extends AbstractContainerScreen<CrushingFacto
 
     @Override
     public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
-        renderBackground(Objects.requireNonNull(guiGraphics));
+        renderBackground(guiGraphics, mouseX, mouseY, delta);
         super.render(guiGraphics, mouseX, mouseY, delta);
         renderTooltip(guiGraphics, mouseX, mouseY);
 

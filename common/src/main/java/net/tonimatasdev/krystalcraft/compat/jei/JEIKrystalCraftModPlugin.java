@@ -8,6 +8,7 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.tonimatasdev.krystalcraft.KrystalCraft;
 import net.tonimatasdev.krystalcraft.recipe.CombiningRecipe;
@@ -17,6 +18,7 @@ import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @JeiPlugin
 public class JEIKrystalCraftModPlugin implements IModPlugin {
@@ -40,8 +42,8 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         RecipeManager manager = Objects.requireNonNull(Minecraft.getInstance().level).getRecipeManager();
 
-        registration.addRecipes(CUTTING, manager.getAllRecipesFor(ModRecipes.CUTTING.get()));
-        registration.addRecipes(CRUSHING, manager.getAllRecipesFor(ModRecipes.CRUSHING.get()));
-        registration.addRecipes(COMBINING, manager.getAllRecipesFor(ModRecipes.COMBINING.get()));
+        registration.addRecipes(CUTTING, manager.getAllRecipesFor(ModRecipes.CUTTING.get()).stream().map(RecipeHolder::value).collect(Collectors.toList()));
+        registration.addRecipes(CRUSHING, manager.getAllRecipesFor(ModRecipes.CRUSHING.get()).stream().map(RecipeHolder::value).collect(Collectors.toList()));
+        registration.addRecipes(COMBINING, manager.getAllRecipesFor(ModRecipes.COMBINING.get()).stream().map(RecipeHolder::value).collect(Collectors.toList()));
     }
 }
