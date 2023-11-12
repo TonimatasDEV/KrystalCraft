@@ -17,13 +17,10 @@ import net.tonimatasdev.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
 public class CuttingRecipe implements Recipe<Container> {
-
-    final ResourceLocation id;
     private final NonNullList<Ingredient> inputs;
     private final ItemStack output;
 
-    public CuttingRecipe(ResourceLocation id, NonNullList<Ingredient> inputs, ItemStack output) {
-        this.id = id;
+    public CuttingRecipe(NonNullList<Ingredient> inputs, ItemStack output) {
         this.inputs = inputs;
         this.output = output;
     }
@@ -53,11 +50,6 @@ public class CuttingRecipe implements Recipe<Container> {
     }
 
     @Override
-    public @NotNull ResourceLocation getId() {
-        return id;
-    }
-
-    @Override
     public @NotNull RecipeSerializer<?> getSerializer() {
         return ModRecipeSerializers.CUTTING_SERIALIZER.get();
     }
@@ -77,31 +69,31 @@ public class CuttingRecipe implements Recipe<Container> {
         return true;
     }
 
-    public static class Serializer implements RecipeSerializer<CuttingRecipe> {
-        @Override
-        public @NotNull CuttingRecipe fromJson(ResourceLocation id, JsonObject json) {
-            final var ingredients = RecipeUtils.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
-            if (ingredients.isEmpty()) {
-                throw new JsonParseException("No ingredients for Cutting");
-            } else if (ingredients.size() > 1) {
-                throw new JsonParseException("Too many ingredients for Cutting");
-            } else {
-                return new CuttingRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
-            }
-        }
-
-        @Override
-        public @NotNull CuttingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
-            final var ingredients = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
-            ingredients.replaceAll(ignored -> Ingredient.fromNetwork(buf));
-            return new CuttingRecipe(id, ingredients, buf.readItem());
-        }
-
-        @Override
-        public void toNetwork(FriendlyByteBuf buf, CuttingRecipe recipe) {
-            buf.writeVarInt(recipe.inputs.size());
-            recipe.inputs.forEach(entry -> entry.toNetwork(buf));
-            buf.writeItem(recipe.output);
-        }
-    }
+    //public static class Serializer implements RecipeSerializer<CuttingRecipe> { TODO: Finish port
+    //    @Override
+    //    public @NotNull CuttingRecipe fromJson(ResourceLocation id, JsonObject json) {
+    //        final var ingredients = RecipeUtils.deserializeIngredients(GsonHelper.getAsJsonArray(json, "ingredients"));
+    //        if (ingredients.isEmpty()) {
+    //            throw new JsonParseException("No ingredients for Cutting");
+    //        } else if (ingredients.size() > 1) {
+    //            throw new JsonParseException("Too many ingredients for Cutting");
+    //        } else {
+    //            return new CuttingRecipe(id, ingredients, ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "result")));
+    //        }
+    //    }
+//
+    //    @Override
+    //    public @NotNull CuttingRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
+    //        final var ingredients = NonNullList.withSize(buf.readVarInt(), Ingredient.EMPTY);
+    //        ingredients.replaceAll(ignored -> Ingredient.fromNetwork(buf));
+    //        return new CuttingRecipe(id, ingredients, buf.readItem());
+    //    }
+//
+    //    @Override
+    //    public void toNetwork(FriendlyByteBuf buf, CuttingRecipe recipe) {
+    //        buf.writeVarInt(recipe.inputs.size());
+    //        recipe.inputs.forEach(entry -> entry.toNetwork(buf));
+    //        buf.writeItem(recipe.output);
+    //    }
+    //}
 }
