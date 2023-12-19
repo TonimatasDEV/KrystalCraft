@@ -15,7 +15,6 @@ architectury {
 val minecraftVersion: String by extra
 val forgeVersion: String by extra
 val forgeLoaderRange: String by extra
-val botariumVersion: String by extra
 val modVersion: String by extra
 val jeiVersion: String by extra
 
@@ -27,10 +26,10 @@ configurations["runtimeClasspath"].extendsFrom(common)
 configurations["developmentForge"].extendsFrom(common)
 
 dependencies {
-    forge("net.minecraftforge:forge:$forgeVersion")
+    forge("net.minecraftforge:forge:$minecraftVersion-$forgeVersion")
 
-    modCompileOnly("mezz.jei:jei-${minecraftVersion}-forge-api:${jeiVersion}")
-    modLocalRuntime("mezz.jei:jei-${minecraftVersion}-forge:${jeiVersion}") { isTransitive = false }
+    modCompileOnly("mezz.jei:jei-$minecraftVersion-forge-api:$jeiVersion")
+    modLocalRuntime("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion") { isTransitive = false }
 
     modApi(files("../libs/MythLib-forge-1.0.0.jar"))
 

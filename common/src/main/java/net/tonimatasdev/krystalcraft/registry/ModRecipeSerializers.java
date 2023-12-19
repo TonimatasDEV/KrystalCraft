@@ -16,10 +16,9 @@ import java.util.function.Supplier;
 public class ModRecipeSerializers {
     public static final MythRegistry<RecipeSerializer<?>> RECIPE_SERIALIZERS = MythRegistries.create(BuiltInRegistries.RECIPE_SERIALIZER, KrystalCraft.MOD_ID);
 
-    // TODO: Finish port
-    public static final RegistryEntry<RecipeSerializer<CuttingRecipe>> CUTTING_SERIALIZER = create("cutting", /*CuttingRecipe.Serializer::new*/ null);
-    public static final RegistryEntry<RecipeSerializer<CrushingRecipe>> CRUSHING_SERIALIZER = create("crushing", /*CrushingRecipe.Serializer::new*/ null);
-    public static final RegistryEntry<RecipeSerializer<CombiningRecipe>> COMBINING_SERIALIZER = create("combining", /*CombiningRecipe.Serializer::new*/ null);
+    public static final RegistryEntry<RecipeSerializer<CuttingRecipe>> CUTTING_SERIALIZER = create("cutting", CuttingRecipe.Serializer::new);
+    public static final RegistryEntry<RecipeSerializer<CrushingRecipe>> CRUSHING_SERIALIZER = create("crushing", CrushingRecipe.Serializer::new);
+    public static final RegistryEntry<RecipeSerializer<CombiningRecipe>> COMBINING_SERIALIZER = create("combining", CombiningRecipe.Serializer::new);
 
     private static <T extends Recipe<?>> RegistryEntry<RecipeSerializer<T>> create(String name, Supplier<RecipeSerializer<T>> serializer) {
         return RECIPE_SERIALIZERS.register(name, serializer);

@@ -7,16 +7,16 @@
       "item": "minecraft:stick"
     },
     "1": {
-      "tag": "forge:cobblestone"
+      "item": "minecraft:cobblestone"
     },
     "2": {
       "item": "minecraft:bucket"
     },
     "3": {
-      "tag": "forge:raw_materials/diamond"
+      "tag": "krystalcraft:raw_diamond_ores"
     },
     "4": {
-      "tag": "forge:ingots/iron"
+      "tag": "c:iron_ingots"
     }
   },
   "pattern": [

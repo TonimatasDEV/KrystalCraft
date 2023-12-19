@@ -7,7 +7,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.EnergyProcessingBlockEntity;
@@ -69,19 +68,19 @@ public class CrushingFactoryBlockEntity extends EnergyProcessingBlockEntity {
     }
 
     private boolean hasRecipe(Level level) {
-        Optional<RecipeHolder<CrushingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
+        Optional<CrushingRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
         if (match.isEmpty()) return false;
 
-        ItemStack resultItem = match.get().value().getResultItem(level.registryAccess());
+        ItemStack resultItem = match.get().getResultItem(level.registryAccess());
         return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
     }
 
     private void craft(Level level) {
-        Optional<RecipeHolder<CrushingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
+        Optional<CrushingRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
 
         if (match.isPresent()) {
             removeItem(INPUT_SLOT, 1);
-            setItem(RESULT_SLOT, new ItemStack(match.get().value().getResultItem(level.registryAccess()).getItem(), getItem(RESULT_SLOT).getCount() + 1));
+            setItem(RESULT_SLOT, new ItemStack(match.get().getResultItem(level.registryAccess()).getItem(), getItem(RESULT_SLOT).getCount() + 1));
         }
     }
 }
