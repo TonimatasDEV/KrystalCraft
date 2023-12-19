@@ -6,7 +6,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.tonimatasdev.krystalcraft.blockentity.util.BurnProcessingBlockEntity;
@@ -66,20 +65,20 @@ public class CombiningStationBlockEntity extends BurnProcessingBlockEntity {
     }
 
     private boolean hasRecipe(Level level) {
-        Optional<RecipeHolder<CombiningRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+        Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
         if (match.isEmpty()) return false;
 
-        ItemStack resultItem = match.get().value().getResultItem(level.registryAccess());
+        ItemStack resultItem = match.get().getResultItem(level.registryAccess());
         return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
     }
 
     private void craft(Level level) {
-        Optional<RecipeHolder<CombiningRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
+        Optional<CombiningRecipe> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
 
         if (match.isPresent()) {
             removeItem(INPUT1_SLOT, 1);
             removeItem(INPUT2_SLOT, 1);
-            ItemStack result = match.get().value().getResultItem(level.registryAccess());
+            ItemStack result = match.get().getResultItem(level.registryAccess());
             setItem(RESULT_SLOT, new ItemStack(result.getItem(), getItem(RESULT_SLOT).getCount() + result.getCount()));
         }
     }
