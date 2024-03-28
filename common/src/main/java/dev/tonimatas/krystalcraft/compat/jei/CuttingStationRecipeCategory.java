@@ -48,7 +48,7 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CuttingRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 57, 18).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 57, 18).addIngredients(recipe.ingredient());
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.result());
     }
 }

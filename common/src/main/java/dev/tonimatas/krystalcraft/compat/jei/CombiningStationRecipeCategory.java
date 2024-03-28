@@ -52,8 +52,8 @@ public class CombiningStationRecipeCategory implements IRecipeCategory<Combining
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CombiningRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 70, 15).addIngredients(recipe.getIngredients().get(0));
-        builder.addSlot(RecipeIngredientRole.INPUT, 88, 15).addIngredients(recipe.getIngredients().get(1));
+        builder.addSlot(RecipeIngredientRole.INPUT, 70, 15).addIngredients(recipe.ingredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 88, 15).addIngredients(recipe.ingredients().get(1));
         builder.addSlot(RecipeIngredientRole.INPUT, 80, 48).addIngredients(Ingredient.of(Items.COAL));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 70).addItemStack(recipe.result());
     }

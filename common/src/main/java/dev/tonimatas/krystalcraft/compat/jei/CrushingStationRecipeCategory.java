@@ -51,7 +51,7 @@ public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingRe
 
     @Override
     public void setRecipe(IRecipeLayoutBuilder builder, CrushingRecipe recipe, IFocusGroup focusGroup) {
-        builder.addSlot(RecipeIngredientRole.INPUT, 79, 5).addIngredients(recipe.getIngredients().get(0));
+        builder.addSlot(RecipeIngredientRole.INPUT, 79, 5).addIngredients(recipe.ingredient());
         builder.addSlot(RecipeIngredientRole.INPUT, 54, 64).addIngredients(Ingredient.of(Items.COAL));
         builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.result());
     }
