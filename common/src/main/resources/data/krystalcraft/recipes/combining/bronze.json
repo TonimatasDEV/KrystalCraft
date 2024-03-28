@@ -9,7 +9,7 @@
     }
   ],
   "result": {
-    "item": "krystalcraft:bronze_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:bronze_dust"
   }
 }

@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:jade"
     }
   ],
   "result": {
-    "item": "krystalcraft:jade_dust"
+    "count": 1,
+    "id": "krystalcraft:jade_dust"
   }
 }

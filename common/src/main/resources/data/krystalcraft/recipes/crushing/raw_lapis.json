@@ -1,12 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_lapis"
     }
   ],
   "result": {
-    "item": "krystalcraft:lapis_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:lapis_dust"
   }
 }

@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_ruby"
     }
   ],
   "result": {
-    "item": "krystalcraft:ruby"
+    "count": 1,
+    "id": "krystalcraft:ruby"
   }
 }

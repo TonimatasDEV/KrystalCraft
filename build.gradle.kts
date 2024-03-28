@@ -3,7 +3,7 @@ import net.fabricmc.loom.api.LoomGradleExtensionAPI
 plugins {
     java
     id("architectury-plugin") version "3.4-SNAPSHOT"
-    id("dev.architectury.loom") version "1.3-SNAPSHOT" apply false
+    id("dev.architectury.loom") version "1.5-SNAPSHOT" apply false
 }
 
 val minecraftVersion: String by extra
@@ -35,11 +35,12 @@ allprojects {
     apply(plugin = "architectury-plugin")
 
     version = modVersion
-    group = "net.tonimatasdev.krystalcraft"
+    group = "dev.tonimatas.krystalcraft"
 
     repositories {
         maven(url = "https://maven.blamejared.com")
         maven(url = "https://maven.shedaniel.me")
+        maven(url = "https://maven.resourcefulbees.com/repository/maven-public")
     }
 
     tasks.withType<JavaCompile> {

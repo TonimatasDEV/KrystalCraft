@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_emerald"
     }
   ],
   "result": {
-    "item": "minecraft:emerald"
+    "count": 1,
+    "id": "minecraft:emerald"
   }
 }

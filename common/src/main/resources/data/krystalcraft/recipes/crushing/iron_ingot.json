@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "minecraft:iron_ingot"
     }
   ],
   "result": {
-    "item": "krystalcraft:iron_dust"
+    "count": 1,
+    "id": "krystalcraft:iron_dust"
   }
 }

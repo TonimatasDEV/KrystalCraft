@@ -8,8 +8,9 @@ val reiVersion: String by extra
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modApi(files("../libs/MythLib-common-1.0.0.jar"))
-
+    modApi("com.teamresourceful.resourcefullib:resourcefullib-common-$minecraftVersion:$resourcefullibVersion")
+    modApi("earth.terrarium.botarium:botarium-common-$minecraftVersion:$botariumVersion")
+    
     modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
     modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:$jeiVersion")
     //modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$reiVersion")
@@ -17,5 +18,5 @@ dependencies {
 }
 
 architectury {
-    common("fabric", "forge")
+    common("fabric", "neoforge")
 }

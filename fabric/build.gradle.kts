@@ -1,4 +1,4 @@
-@file:Suppress("UnstableApiUsage", "DEPRECATION")
+@file:Suppress("DEPRECATION")
 
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 import net.fabricmc.loom.task.RemapJarTask
@@ -17,7 +17,10 @@ val minecraftVersion: String by extra
 val fabricApiVersion: String by extra
 val fabricLoaderVersion: String by extra
 val fabricLoaderRange: String by extra
+val resourcefullibVersion: String by extra
+val resourcefullibRange: String by extra
 val botariumVersion: String by extra
+val botariumRange: String by extra
 val modVersion: String by extra
 
 val common: Configuration by configurations.creating
@@ -30,9 +33,8 @@ configurations["developmentFabric"].extendsFrom(common)
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modApi("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion")
-
-    modApi(files("../libs/MythLib-fabric-1.0.0.jar"))
+    modApi("com.teamresourceful.resourcefullib:resourcefullib-fabric-$minecraftVersion:$resourcefullibVersion")
+    modApi("earth.terrarium.botarium:botarium-fabric-$minecraftVersion:$botariumVersion")
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
@@ -43,7 +45,7 @@ dependencies {
 }
 
 tasks.withType<ProcessResources> {
-    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion)
+    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion, "resourcefullibRange" to resourcefullibRange, "botariumRange" to botariumRange)
     inputs.properties(replaceProperties)
 
     filesMatching("fabric.mod.json") {

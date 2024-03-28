@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_diamond"
     }
   ],
   "result": {
-    "item": "minecraft:diamond"
+    "count": 1,
+    "id": "minecraft:diamond"
   }
 }
