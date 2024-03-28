@@ -1,12 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_topaz"
     }
   ],
   "result": {
-    "item": "krystalcraft:topaz_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:topaz_dust"
   }
 }

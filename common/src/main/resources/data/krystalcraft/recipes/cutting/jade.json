@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_jade"
     }
   ],
   "result": {
-    "item": "krystalcraft:jade"
+    "count": 1,
+    "id": "krystalcraft:jade"
   }
 }

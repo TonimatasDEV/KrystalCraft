@@ -15,13 +15,17 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftFabric"],
-    "client": ["net.tonimatasdev.krystalcraft.fabric.KrystalCraftClientFabric"]
+    "main": [
+      "dev.tonimatas.krystalcraft.fabric.KrystalCraftFabric"
+    ],
+    "client": [
+      "dev.tonimatas.krystalcraft.fabric.KrystalCraftClientFabric"
+    ]
   },
   "depends": {
     "fabricloader": "${fabricLoaderRange}",
-    "fabric-api": ">=0.0.0",
     "minecraft": "${minecraftVersion}",
-    "mythlib": ">=1.0.0"
+    "resourcefullib": ">=${resourcefullibRange}",
+    "botarium": ">=${botariumRange}"
   }
 }

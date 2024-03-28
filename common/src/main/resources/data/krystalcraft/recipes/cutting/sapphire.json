@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_sapphire"
     }
   ],
   "result": {
-    "item": "krystalcraft:sapphire"
+    "count": 1,
+    "id": "krystalcraft:sapphire"
   }
 }

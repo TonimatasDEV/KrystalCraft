@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:platinum_ingot"
     }
   ],
   "result": {
-    "item": "krystalcraft:platinum_dust"
+    "count": 1,
+    "id": "krystalcraft:platinum_dust"
   }
 }

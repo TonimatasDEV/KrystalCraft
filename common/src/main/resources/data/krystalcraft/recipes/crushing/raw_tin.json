@@ -1,12 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_tin"
     }
   ],
   "result": {
-    "item": "krystalcraft:tin_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:tin_dust"
   }
 }

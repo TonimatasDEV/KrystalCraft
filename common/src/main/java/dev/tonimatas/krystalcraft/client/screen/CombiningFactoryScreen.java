@@ -1,0 +1,31 @@
+package dev.tonimatas.krystalcraft.client.screen;
+
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
+import dev.tonimatas.krystalcraft.menu.CombiningFactoryMenu;
+import org.jetbrains.annotations.NotNull;
+
+public class CombiningFactoryScreen extends BaseScreen<CombiningFactoryMenu> {
+    public CombiningFactoryScreen(CombiningFactoryMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        super(pMenu, pPlayerInventory, pTitle, "combining_factory");
+    }
+
+    @Override
+    protected void renderBg(GuiGraphics guiGraphics, float f, int i, int j) {
+        super.renderBg(guiGraphics, f, i, j);
+        GuiUtil.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.energy.get(), this.menu.getEnergyMaxCapacity());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 33, this.menu.progress.get(), this.menu.getMaxProgress());
+    }
+
+    @Override
+    public void render(@NotNull GuiGraphics guiGraphics, int mouseX, int mouseY, float delta) {
+        super.render(guiGraphics, mouseX, mouseY, delta);
+        renderTooltip(guiGraphics, mouseX, mouseY);
+
+        if (GuiUtil.isHovering(GuiUtil.getEnergyBounds(this.leftPos + 152, this.topPos + 8), mouseX, mouseY)) {
+            GuiUtil.drawEnergyTooltip(guiGraphics, this.menu.energy.get(), this.menu.getEnergyMaxCapacity(), mouseX, mouseY);
+        }
+    }
+}

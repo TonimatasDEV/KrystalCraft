@@ -1,12 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:raw_silver"
     }
   ],
   "result": {
-    "item": "krystalcraft:silver_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:silver_dust"
   }
 }

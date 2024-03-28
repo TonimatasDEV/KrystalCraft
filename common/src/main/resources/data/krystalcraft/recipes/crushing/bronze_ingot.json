@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:bronze_ingot"
     }
   ],
   "result": {
-    "item": "krystalcraft:bronze_dust"
+    "count": 1,
+    "id": "krystalcraft:bronze_dust"
   }
 }

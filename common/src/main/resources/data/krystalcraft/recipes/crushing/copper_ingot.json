@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "minecraft:copper_ingot"
     }
   ],
   "result": {
-    "item": "krystalcraft:copper_dust"
+    "count": 1,
+    "id": "krystalcraft:copper_dust"
   }
 }

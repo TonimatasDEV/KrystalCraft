@@ -1,12 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:sapphire"
     }
   ],
   "result": {
-    "item": "krystalcraft:sapphire_dust",
-    "count": 2
+    "count": 2,
+    "id": "krystalcraft:sapphire_dust"
   }
 }

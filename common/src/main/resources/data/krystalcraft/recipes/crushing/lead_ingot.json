@@ -1,11 +1,12 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredients": [
+  "ingredient": [
     {
       "item": "krystalcraft:lead_ingot"
     }
   ],
   "result": {
-    "item": "krystalcraft:lead_dust"
+    "count": 1,
+    "id": "krystalcraft:lead_dust"
   }
 }
