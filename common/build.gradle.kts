@@ -20,3 +20,7 @@ dependencies {
 architectury {
     common("fabric", "neoforge")
 }
+
+loom {
+    accessWidenerPath.set(file("src/main/resources/krystalcraft.accesswidener"))
+}
