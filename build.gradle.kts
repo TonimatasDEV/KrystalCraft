@@ -13,11 +13,25 @@ architectury {
     minecraft = minecraftVersion
 }
 
+allprojects {
+    apply(plugin = "java")
+
+    version = modVersion
+    group = "dev.tonimatas.krystalcraft"
+
+    repositories {
+        maven(url = "https://maven.blamejared.com")
+        maven(url = "https://maven.shedaniel.me")
+        maven(url = "https://maven.resourcefulbees.com/repository/maven-public")
+    }
+}
+
 subprojects {
     apply(plugin = "dev.architectury.loom")
+    apply(plugin = "architectury-plugin")
 
     base {
-        archivesName.set("KrystalCraft-" + project.name)
+        archivesName.set("krystalcraft-" + project.name)
     }
 
     configure<LoomGradleExtensionAPI> {
@@ -28,27 +42,16 @@ subprojects {
         "minecraft"("com.mojang:minecraft:$minecraftVersion")
         "mappings"(project.the<LoomGradleExtensionAPI>().officialMojangMappings())
     }
-}
-
-allprojects {
-    apply(plugin = "java")
-    apply(plugin = "architectury-plugin")
-
-    version = modVersion
-    group = "dev.tonimatas.krystalcraft"
-
-    repositories {
-        maven(url = "https://maven.blamejared.com")
-        maven(url = "https://maven.shedaniel.me")
-        maven(url = "https://maven.resourcefulbees.com/repository/maven-public")
-    }
 
     tasks.withType<JavaCompile> {
-        options.encoding = "UTF-8"
-        options.release.set(17)
+        options.release.set(21)
     }
 
     java {
         withSourcesJar()
+        toolchain.languageVersion.set(JavaLanguageVersion.of(21))
+
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
     }
 }

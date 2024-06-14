@@ -38,7 +38,7 @@ dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
     modApi("com.teamresourceful.resourcefullib:resourcefullib-fabric-$minecraftVersion:$resourcefullibVersion")
-    modApi("earth.terrarium.botarium:botarium-fabric-$minecraftVersion:$botariumVersion")
+    //modApi("earth.terrarium.botarium:botarium-fabric-$minecraftVersion:$botariumVersion")
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"

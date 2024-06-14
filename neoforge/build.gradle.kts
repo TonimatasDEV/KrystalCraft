@@ -42,10 +42,10 @@ dependencies {
 
 
     modApi("com.teamresourceful.resourcefullib:resourcefullib-neoforge-$minecraftVersion:$resourcefullibVersion")
-    modApi("earth.terrarium.botarium:botarium-neoforge-$minecraftVersion:$botariumVersion")
+    //modApi("earth.terrarium.botarium:botarium-neoforge-$minecraftVersion:$botariumVersion")
 
-    modCompileOnly("mezz.jei:jei-$minecraftVersion-neoforge-api:$jeiVersion")
-    modLocalRuntime("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion") { isTransitive = false }
+    //modCompileOnly("mezz.jei:jei-$minecraftVersion-neoforge-api:$jeiVersion")
+    //modLocalRuntime("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion") { isTransitive = false }
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionNeoForge")) { isTransitive = false }
@@ -55,7 +55,7 @@ tasks.withType<ProcessResources> {
     val replaceProperties = mapOf("neoforgeLoaderRange" to neoforgeLoaderRange, "minecraftVersion" to minecraftVersion, "modVersion" to modVersion, "resourcefullibRange" to resourcefullibRange, "botariumRange" to botariumRange)
     inputs.properties(replaceProperties)
 
-    filesMatching("META-INF/mods.toml") {
+    filesMatching("META-INF/neoforge.mods.toml") {
         expand(replaceProperties)
     }
 }
