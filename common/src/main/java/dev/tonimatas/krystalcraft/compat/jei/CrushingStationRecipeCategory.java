@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-
+/*
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -56,3 +56,4 @@ public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingRe
         builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.result());
     }
 }
+*/
