@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-/*
+
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -20,7 +20,7 @@ import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
 public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingRecipe> {
-    public final static ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/crushing_station.png");
+    public final static ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(KrystalCraft.MOD_ID, "textures/gui/crushing_station.png");
     private final IDrawable background;
     private final IDrawable icon;
 
@@ -56,4 +56,3 @@ public class CrushingStationRecipeCategory implements IRecipeCategory<CrushingRe
         builder.addSlot(RecipeIngredientRole.OUTPUT, 133, 34).addItemStack(recipe.result());
     }
 }
-*/

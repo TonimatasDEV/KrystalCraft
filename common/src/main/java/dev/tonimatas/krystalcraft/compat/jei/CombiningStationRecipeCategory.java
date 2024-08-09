@@ -21,7 +21,7 @@ import org.jetbrains.annotations.NotNull;
 
 
 public class CombiningStationRecipeCategory implements IRecipeCategory<CombiningRecipe> {
-    public final static ResourceLocation TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
+    public final static ResourceLocation TEXTURE = ResourceLocation.fromNamespaceAndPath(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
     private final IDrawable background;
     private final IDrawable icon;
 

@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-/*
+
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -22,7 +22,7 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
     private final IDrawable icon;
 
     public CuttingStationRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/cutting_station.png"), 0, 0, 176, 85);
+        this.background = helper.createDrawable(ResourceLocation.fromNamespaceAndPath(KrystalCraft.MOD_ID, "textures/gui/cutting_station.png"), 0, 0, 176, 85);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CUTTING_STATION.get()));
     }
 
@@ -52,4 +52,3 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.result());
     }
 }
-*/

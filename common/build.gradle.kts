@@ -11,8 +11,8 @@ dependencies {
     modApi("com.teamresourceful.resourcefullib:resourcefullib-common-$minecraftVersion:$resourcefullibVersion")
     //modApi("earth.terrarium.botarium:botarium-common-$minecraftVersion:$botariumVersion")
     
-    //modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
-    //modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:$jeiVersion")
+    modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
+    modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:$jeiVersion")
     //modCompileOnly("me.shedaniel:RoughlyEnoughItems-api:$reiVersion")
     //modCompileOnly("me.shedaniel:RoughlyEnoughItems-default-plugin:$reiVersion")
 }

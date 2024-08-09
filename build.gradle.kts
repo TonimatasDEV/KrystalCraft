@@ -17,7 +17,7 @@ allprojects {
     apply(plugin = "java")
 
     version = modVersion
-    group = "dev.tonimatas.krystalcraft"
+    group = "dev.tonimatas"
 
     repositories {
         maven(url = "https://maven.blamejared.com")

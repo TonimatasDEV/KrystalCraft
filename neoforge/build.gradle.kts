@@ -44,8 +44,8 @@ dependencies {
     modApi("com.teamresourceful.resourcefullib:resourcefullib-neoforge-$minecraftVersion:$resourcefullibVersion")
     //modApi("earth.terrarium.botarium:botarium-neoforge-$minecraftVersion:$botariumVersion")
 
-    //modCompileOnly("mezz.jei:jei-$minecraftVersion-neoforge-api:$jeiVersion")
-    //modLocalRuntime("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion") { isTransitive = false }
+    modCompileOnly("mezz.jei:jei-$minecraftVersion-neoforge-api:$jeiVersion")
+    modLocalRuntime("mezz.jei:jei-$minecraftVersion-forge:$jeiVersion") { isTransitive = false }
 
     common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
     shadowCommon(project(path = ":common", configuration = "transformProductionNeoForge")) { isTransitive = false }
