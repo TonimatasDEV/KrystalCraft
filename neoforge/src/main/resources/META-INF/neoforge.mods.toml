@@ -32,15 +32,8 @@ All you need is to craft your tool/weapon/armor in a crafting table and upgrade 
    side="BOTH"
 
 [[dependencies.krystalcraft]]
-   modId="resourcefullib"
+   modId="architectury"
    mandatory=true
-   versionRange="[${resourcefullibRange},)"
-   ordering="NONE"
-   side="BOTH"
-
-[[dependencies.krystalcraft]]
-   modId="botarium"
-   mandatory=true
-   versionRange="[${botariumRange},)"
+   versionRange="[${architecturyRange},)"
    ordering="NONE"
    side="BOTH"

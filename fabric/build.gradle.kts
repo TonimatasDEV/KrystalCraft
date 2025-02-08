@@ -1,18 +1,3 @@
-@file:Suppress("DEPRECATION")
-
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
-import net.fabricmc.loom.task.RemapJarTask
-import org.gradle.api.component.AdhocComponentWithVariants
-
-plugins {
-    id("com.github.johnrengelman.shadow") version "7.1.2"
-}
-
-architectury {
-    platformSetupLoomIde()
-    fabric()
-}
-
 loom {
     accessWidenerPath.set(project(":common").loom.accessWidenerPath)
 }
@@ -21,35 +6,20 @@ val minecraftVersion: String by extra
 val fabricApiVersion: String by extra
 val fabricLoaderVersion: String by extra
 val fabricLoaderRange: String by extra
-val resourcefullibVersion: String by extra
-val resourcefullibRange: String by extra
-val botariumVersion: String by extra
-val botariumRange: String by extra
+val architecturyRange: String by extra
 val modVersion: String by extra
 
-val common: Configuration by configurations.creating
-val shadowCommon: Configuration by configurations.creating
-
-configurations["compileClasspath"].extendsFrom(common)
-configurations["runtimeClasspath"].extendsFrom(common)
-configurations["developmentFabric"].extendsFrom(common)
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
-    modApi("com.teamresourceful.resourcefullib:resourcefullib-fabric-$minecraftVersion:$resourcefullibVersion")
-    //modApi("earth.terrarium.botarium:botarium-fabric-$minecraftVersion:$botariumVersion")
-
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-api-fabric:${rei_version}"
     //modCompileOnly "me.shedaniel:RoughlyEnoughItems-default-plugin-fabric:${rei_version}"
-
-    common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
-    shadowCommon(project(path = ":common", configuration = "transformProductionFabric")) { isTransitive = false }
 }
 
 tasks.withType<ProcessResources> {
-    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion, "resourcefullibRange" to resourcefullibRange, "botariumRange" to botariumRange)
+    val replaceProperties = mapOf("modVersion" to modVersion, "fabricLoaderRange" to fabricLoaderRange, "minecraftVersion" to minecraftVersion, "architecturyRange" to architecturyRange)
     inputs.properties(replaceProperties)
 
     filesMatching("fabric.mod.json") {
@@ -57,30 +27,3 @@ tasks.withType<ProcessResources> {
     }
 }
 
-tasks.withType<ShadowJar> {
-    configurations = listOf(shadowCommon)
-    archiveClassifier.set("dev-shadow")
-}
-
-tasks.withType<RemapJarTask> {
-    val shadowTask = tasks.shadowJar.get()
-    input.set(shadowTask.archiveFile)
-    dependsOn(shadowTask)
-    archiveClassifier.set("")
-}
-
-tasks.jar {
-    archiveClassifier.set("dev")
-}
-
-tasks.sourcesJar {
-    val commonSources = project(":common").tasks.sourcesJar.get()
-    dependsOn(commonSources)
-    from(commonSources.archiveFile.map { zipTree(it) })
-}
-
-components.getByName<AdhocComponentWithVariants>("java").apply {
-    withVariantsFromConfiguration(project.configurations["shadowRuntimeElements"]) {
-        skip()
-    }
-}
