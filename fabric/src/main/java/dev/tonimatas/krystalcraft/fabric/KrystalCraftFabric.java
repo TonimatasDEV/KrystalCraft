@@ -27,6 +27,6 @@ public class KrystalCraftFabric implements ModInitializer {
 
     private void addOre(String name) {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES,
-                ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(KrystalCraft.MOD_ID, name)));
+                ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.tryBuild(KrystalCraft.MOD_ID, name)));
     }
 }
