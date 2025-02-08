@@ -17,15 +17,13 @@ architectury {
 }
 
 allprojects {
-    apply(plugin = "java")
-
     version = modVersion
     group = "dev.tonimatas"
 
     repositories {
+        maven("https://maven.neoforged.net")
         maven("https://maven.blamejared.com")
-        maven("https://maven.architectury.dev")
-        maven("https://maven.neoforged.net/")
+        maven("https://maven.resourcefulbees.com/repository/maven-public")
     }
 }
 
@@ -73,10 +71,16 @@ subprojects {
             neoForge()
         }
     }
+
+    val architecturyVersion: String by extra
+    val rlMinecraftVersion: String by extra
+    
+    dependencies {
+        "modApi"("com.teamresourceful.resourcefullib:resourcefullib-$name-$rlMinecraftVersion:$architecturyVersion")
+    }
     
     if (name != "common") {
         val loaderName = if (name == "fabric") "Fabric" else "NeoForge"
-        val architecturyVersion: String by extra
         
         val common: Configuration by configurations.creating
         val shadowCommon: Configuration by configurations.creating
@@ -86,8 +90,6 @@ subprojects {
         configurations["development$loaderName"].extendsFrom(common)
         
         dependencies {
-            "modApi"("dev.architectury:architectury-$name:$architecturyVersion")
-
             common(project(path = ":common", configuration = "namedElements")) { isTransitive = false }
             shadowCommon(project(path = ":common", configuration = "transformProduction$loaderName")) { isTransitive = false }
         }
@@ -99,7 +101,7 @@ subprojects {
 
         tasks.withType<RemapJarTask> {
             val shadowTask = tasks.getByName<ShadowJar>("shadowJar")
-            input.set(shadowTask.archiveFile)
+            inputFile.set(shadowTask.archiveFile)
             dependsOn(shadowTask)
             archiveClassifier.set("")
         }
@@ -107,12 +109,6 @@ subprojects {
         tasks.jar {
             archiveClassifier.set("dev")
         }
-
-        //tasks.sourcesJar {
-        //    val commonSources = project(":common").tasks.sourcesJar.get()
-        //    dependsOn(commonSources)
-        //    from(commonSources.archiveFile.map { zipTree(it) })
-        //}
 
         components.getByName<AdhocComponentWithVariants>("java").apply {
             withVariantsFromConfiguration(project.configurations["shadowRuntimeElements"]) {

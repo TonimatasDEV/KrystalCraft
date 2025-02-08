@@ -1,12 +1,9 @@
 val minecraftVersion: String by extra
 val fabricLoaderVersion: String by extra
-val architecturyVersion: String by extra
 val jeiVersion: String by extra
 
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
-
-    modApi("dev.architectury:architectury:$architecturyVersion")
     
     modCompileOnly("mezz.jei:jei-$minecraftVersion-common-api:$jeiVersion")
     modRuntimeOnly("mezz.jei:jei-$minecraftVersion-common:$jeiVersion")

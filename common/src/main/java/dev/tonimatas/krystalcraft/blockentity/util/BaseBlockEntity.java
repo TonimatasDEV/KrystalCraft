@@ -4,6 +4,7 @@ import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
@@ -19,6 +20,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import dev.tonimatas.krystalcraft.inventory.ModInventory;
+import org.jetbrains.annotations.Nullable;
 
 @MethodsReturnNonnullByDefault
 public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {
@@ -32,7 +34,7 @@ public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMe
     public abstract void tick();
 
     @Override
-    public AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
+    public @Nullable AbstractContainerMenu createMenu(int i, Inventory inventory, Player player) {
         return null;
     }
 
@@ -50,19 +52,21 @@ public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMe
         buffer.writeBlockPos(this.getBlockPos());
     }
 
+
     @Override
-    public void load(CompoundTag compoundTag) {
-        super.load(compoundTag);
+    protected void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.loadAdditional(compoundTag, provider);
+
         if (getInventorySize() > 0) {
-            ContainerHelper.loadAllItems(compoundTag, this.inventory);
+            ContainerHelper.loadAllItems(compoundTag, this.inventory, provider);
         }
     }
 
     @Override
-    protected void saveAdditional(CompoundTag compoundTag) {
-        super.saveAdditional(compoundTag);
+    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
+        super.saveAdditional(compoundTag, provider);
         if (getInventorySize() > 0) {
-            ContainerHelper.saveAllItems(compoundTag, this.inventory);
+            ContainerHelper.saveAllItems(compoundTag, this.inventory, provider);
         }
     }
 
@@ -90,10 +94,9 @@ public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMe
         return inventory;
     }
 
+
     @Override
-    public CompoundTag getUpdateTag() {
-        return this.saveWithoutMetadata();
+    public CompoundTag getUpdateTag(HolderLookup.Provider provider) {
+        return this.saveWithoutMetadata(provider);
     }
-    
-    
 }

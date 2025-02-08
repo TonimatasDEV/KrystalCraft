@@ -1,5 +1,7 @@
 package dev.tonimatas.krystalcraft.block;
 
+import com.teamresourceful.resourcefullib.common.menu.ContentMenuProvider;
+import com.teamresourceful.resourcefullib.common.menu.MenuContentHelper;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import earth.terrarium.botarium.common.energy.EnergyApi;
 import earth.terrarium.botarium.common.menu.MenuHooks;
@@ -76,7 +78,7 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
         if (!level.isClientSide) {
             if (level.getBlockEntity(pos) instanceof BaseBlockEntity machineBlock) {
-                MenuHooks.openMenu((ServerPlayer) player, machineBlock);
+                MenuContentHelper.open((ServerPlayer) player, machineBlock);
             }
         }
 

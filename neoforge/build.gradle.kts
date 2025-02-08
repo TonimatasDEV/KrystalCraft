@@ -25,3 +25,9 @@ tasks.withType<ProcessResources> {
         expand(replaceProperties)
     }
 }
+
+tasks.sourcesJar {
+    val commonSources = project(":common").tasks.sourcesJar.get()
+    dependsOn(commonSources)
+    from(commonSources.archiveFile.map { zipTree(it) })
+}
