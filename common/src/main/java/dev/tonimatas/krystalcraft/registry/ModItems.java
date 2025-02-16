@@ -3,11 +3,12 @@ package dev.tonimatas.krystalcraft.registry;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.item.ModArmorTier;
+import dev.tonimatas.krystalcraft.item.ModItemTier;
+import dev.tonimatas.krystalcraft.item.custom.BatteryItem;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.*;
-import dev.tonimatas.krystalcraft.KrystalCraft;
-import dev.tonimatas.krystalcraft.item.*;
-import dev.tonimatas.krystalcraft.item.custom.BatteryItem;
 
 public class ModItems {
     public static final ResourcefulRegistry<Item> ITEMS = ResourcefulRegistries.create(BuiltInRegistries.ITEM, KrystalCraft.MOD_ID);

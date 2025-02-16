@@ -1,9 +1,10 @@
 package dev.tonimatas.krystalcraft.blockentity;
 
+import dev.tonimatas.krystalcraft.blockentity.util.EnergyBlockEntity;
+import dev.tonimatas.krystalcraft.energy.Energy;
+import dev.tonimatas.krystalcraft.menu.CombustionGeneratorMenu;
+import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import earth.terrarium.botarium.common.energy.EnergyApi;
-import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
@@ -11,9 +12,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.block.state.BlockState;
-import dev.tonimatas.krystalcraft.blockentity.util.EnergyBlockEntity;
-import dev.tonimatas.krystalcraft.menu.CombustionGeneratorMenu;
-import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 
 public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
@@ -24,7 +22,7 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
 
     public CombustionGeneratorBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.COMBUSTION_GENERATOR_BLOCK_ENTITY.get(), blockPos, blockState);
-        this.energyContainer = new WrappedBlockEnergyContainer(this, new SimpleEnergyContainer(15000));
+        this.energyContainer = Energy.createExtractEnergyStorage(15000, 100);
     }
 
     @Override
@@ -61,7 +59,7 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
         System.out.println(energyContainer.getStoredEnergy());
 
         if (burnTime == 0) {
-            int newBurnTime = CommonHooks.getBurnTime(getItem(INPUT));
+            int newBurnTime = Energy.getBurnTime(getItem(INPUT));
 
             if (newBurnTime != 0) {
                 removeItem(INPUT, 1);
@@ -69,9 +67,9 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
                 burnTime = newBurnTime;
             }
 
-        } else if (energyContainer.getStoredEnergy() < energyContainer.getMaxCapacity()) {
+        } else if (energyContainer.getStoredEnergy() < energyContainer.getCapacity()) {
             burnTime--;
-            energyContainer.internalInsert(10, false);
+            energyContainer.insert(10, false);
         }
 
         EnergyApi.distributeEnergyNearby(this, 50);

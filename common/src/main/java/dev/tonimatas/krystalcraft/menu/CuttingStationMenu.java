@@ -2,23 +2,25 @@ package dev.tonimatas.krystalcraft.menu;
 
 import dev.tonimatas.krystalcraft.blockentity.CuttingStationBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.StationMenu;
+import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import dev.tonimatas.krystalcraft.menu.slots.CombustionSlot;
 import dev.tonimatas.krystalcraft.menu.slots.FluidSlot;
 import dev.tonimatas.krystalcraft.menu.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.material.Fluids;
 
+import java.util.Optional;
+
 @SuppressWarnings("DataFlowIssue")
 public class CuttingStationMenu extends StationMenu<CuttingStationBlockEntity> {
     public final DataSlot tankAmount;
     
-    public CuttingStationMenu(int syncId, Inventory inventory, FriendlyByteBuf buf) {
-        this(syncId, inventory, (CuttingStationBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+    public CuttingStationMenu(int syncId, Inventory inventory, Optional<BlockPosContent> blockPosContent) {
+        this(syncId, inventory, (CuttingStationBlockEntity) BlockPosContent.getOrNull(blockPosContent, inventory.player.level()));
     }
 
     public CuttingStationMenu(int syncId, Inventory inventory, CuttingStationBlockEntity blockEntity) {

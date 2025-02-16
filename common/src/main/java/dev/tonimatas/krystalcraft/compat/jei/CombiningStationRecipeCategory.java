@@ -1,6 +1,9 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
 
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
+import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
@@ -14,9 +17,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
-import dev.tonimatas.krystalcraft.KrystalCraft;
-import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
-import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import org.jetbrains.annotations.NotNull;
 
 

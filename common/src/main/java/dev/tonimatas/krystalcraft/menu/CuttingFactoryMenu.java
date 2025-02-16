@@ -1,25 +1,27 @@
 package dev.tonimatas.krystalcraft.menu;
 
-import earth.terrarium.botarium.common.fluid.base.FluidHolder;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.DataSlot;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.level.material.Fluids;
 import dev.tonimatas.krystalcraft.blockentity.CuttingFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
+import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import dev.tonimatas.krystalcraft.menu.slots.BatterySlot;
 import dev.tonimatas.krystalcraft.menu.slots.FluidSlot;
 import dev.tonimatas.krystalcraft.menu.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.menu.slots.UpgradeSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
+import earth.terrarium.botarium.common.fluid.base.FluidHolder;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.level.material.Fluids;
+
+import java.util.Optional;
 
 @SuppressWarnings("DataFlowIssue")
 public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
     public final DataSlot tankAmount;
     
-    public CuttingFactoryMenu(int syncId, Inventory inventory, FriendlyByteBuf buf) {
-        this(syncId, inventory, (CuttingFactoryBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+    public CuttingFactoryMenu(int syncId, Inventory inventory, Optional<BlockPosContent> blockPosContent) {
+        this(syncId, inventory, (CuttingFactoryBlockEntity) BlockPosContent.getOrNull(blockPosContent, inventory.player.level()));
     }
 
     public CuttingFactoryMenu(int syncId, Inventory inventory, CuttingFactoryBlockEntity blockEntity) {

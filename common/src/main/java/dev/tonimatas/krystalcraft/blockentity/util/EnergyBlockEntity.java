@@ -1,32 +1,23 @@
 package dev.tonimatas.krystalcraft.blockentity.util;
 
+import dev.tonimatas.krystalcraft.energy.EnergyStorageK;
 import earth.terrarium.botarium.common.energy.EnergyApi;
-import earth.terrarium.botarium.common.energy.base.BotariumEnergyBlock;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
 import earth.terrarium.botarium.common.item.ItemStackHolder;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import org.jetbrains.annotations.Nullable;
 
-public abstract class EnergyBlockEntity extends BaseBlockEntity implements BotariumEnergyBlock<WrappedBlockEnergyContainer> {
-    protected WrappedBlockEnergyContainer energyContainer;
+public abstract class EnergyBlockEntity extends BaseBlockEntity {
+    protected EnergyStorageK energyContainer;
 
     public EnergyBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
         super(blockEntityType, blockPos, blockState);
     }
 
-    @Override
-    public WrappedBlockEnergyContainer getEnergyStorage(Level level, BlockPos pos, BlockState state, @Nullable BlockEntity entity, @Nullable Direction direction) {
-        return this.energyContainer;
-    }
-
-    public WrappedBlockEnergyContainer getEnergyStorage() {
+    public EnergyStorageK getEnergyStorage() {
         return this.energyContainer;
     }
 

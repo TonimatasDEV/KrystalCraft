@@ -9,10 +9,10 @@ val fabricLoaderRange: String by extra
 val architecturyRange: String by extra
 val modVersion: String by extra
 
-
 dependencies {
     modImplementation("net.fabricmc:fabric-loader:$fabricLoaderVersion")
 
+    modApi("teamreborn:energy:4.1.0")?.let { include(it) }
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion+$minecraftVersion")
 
     //modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"

@@ -1,6 +1,11 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
 
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
+import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
+import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
+import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
@@ -10,11 +15,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import dev.tonimatas.krystalcraft.KrystalCraft;
-import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
-import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
-import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;

@@ -1,10 +1,10 @@
 package dev.tonimatas.krystalcraft.client.screen;
 
+import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
+import dev.tonimatas.krystalcraft.menu.CrushingStationMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
-import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
-import dev.tonimatas.krystalcraft.menu.CrushingStationMenu;
 import org.jetbrains.annotations.NotNull;
 
 public class CrushingStationScreen extends BaseScreen<CrushingStationMenu> {

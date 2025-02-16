@@ -1,13 +1,14 @@
 package dev.tonimatas.krystalcraft.blockentity.util;
 
-import earth.terrarium.botarium.common.menu.ExtraDataMenuProvider;
+import com.teamresourceful.resourcefullib.common.menu.ContentMenuProvider;
+import dev.tonimatas.krystalcraft.inventory.ModInventory;
+import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import net.minecraft.MethodsReturnNonnullByDefault;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.ContainerHelper;
@@ -19,11 +20,10 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import dev.tonimatas.krystalcraft.inventory.ModInventory;
 import org.jetbrains.annotations.Nullable;
 
 @MethodsReturnNonnullByDefault
-public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMenuProvider, ModInventory, WorldlyContainer {
+public abstract class BaseBlockEntity extends BlockEntity implements ModInventory, WorldlyContainer, ContentMenuProvider<BlockPosContent> {
     public final NonNullList<ItemStack> inventory;
 
     public BaseBlockEntity(BlockEntityType<?> blockEntityType, BlockPos blockPos, BlockState blockState) {
@@ -48,10 +48,9 @@ public abstract class BaseBlockEntity extends BlockEntity implements ExtraDataMe
     }
 
     @Override
-    public void writeExtraData(ServerPlayer player, FriendlyByteBuf buffer) {
-        buffer.writeBlockPos(this.getBlockPos());
+    public BlockPosContent createContent(ServerPlayer player) {
+        return new BlockPosContent(this.getBlockPos());
     }
-
 
     @Override
     protected void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {

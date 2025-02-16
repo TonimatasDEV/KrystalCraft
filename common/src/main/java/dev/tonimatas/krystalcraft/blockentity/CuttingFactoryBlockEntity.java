@@ -1,8 +1,11 @@
 package dev.tonimatas.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
-import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
+import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
+import dev.tonimatas.krystalcraft.energy.Energy;
+import dev.tonimatas.krystalcraft.menu.CuttingFactoryMenu;
+import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
+import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
+import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.impl.SimpleFluidContainer;
 import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
@@ -18,16 +21,11 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
-import dev.tonimatas.krystalcraft.menu.CuttingFactoryMenu;
-import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
-import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 
-public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
+public class CuttingFactoryBlockEntity extends FactoryBlockEntity {
     protected final int INPUT_SLOT = 0;
     protected final int RESULT_SLOT = 1;
     protected final int BATTERY_SLOT = 2;
@@ -40,7 +38,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
 
     public CuttingFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CUTTING_FACTORY_BLOCK_ENTITY.get(), blockPos, blockState);
-        this.energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000));
+        this.energyContainer = Energy.createInsertEnergyStorage(15000, 100);
     }
 
     @Nullable
@@ -84,7 +82,7 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity implements Bot
 
         if (hasRecipe(level) && energyContainer.getStoredEnergy() > 0 && fluidContainer.getFluids().get(0).getFluidAmount() > 0) {
             progress++;
-            energyContainer.internalExtract(5, false);
+            energyContainer.extract(5, false);
             FluidHolder fluidHolder = FluidHolder.of(Fluids.WATER, 2);
             fluidContainer.internalExtract(fluidHolder, false);
 

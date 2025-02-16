@@ -3,10 +3,10 @@ package dev.tonimatas.krystalcraft.registry;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.world.item.enchantment.Enchantment;
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.enchantment.*;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.item.enchantment.Enchantment;
 
 @SuppressWarnings("unused")
 public class ModEnchants {

@@ -1,6 +1,7 @@
 package dev.tonimatas.krystalcraft.menu.base;
 
 
+import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -9,7 +10,6 @@ import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import org.jetbrains.annotations.NotNull;
 
 public abstract class BaseMenu<T extends BaseBlockEntity> extends AbstractContainerMenu {

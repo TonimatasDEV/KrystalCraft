@@ -1,10 +1,15 @@
 package dev.tonimatas.krystalcraft.blockentity;
 
+import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
+import dev.tonimatas.krystalcraft.energy.Energy;
+import dev.tonimatas.krystalcraft.menu.CuttingStationMenu;
+import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
+import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
+import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import earth.terrarium.botarium.common.fluid.base.BotariumFluidBlock;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.impl.SimpleFluidContainer;
 import earth.terrarium.botarium.common.fluid.impl.WrappedBlockFluidContainer;
-import earth.terrarium.botarium.util.CommonHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Inventory;
@@ -17,11 +22,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
-import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
-import dev.tonimatas.krystalcraft.menu.CuttingStationMenu;
-import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
-import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -76,7 +76,7 @@ public class CuttingStationBlockEntity extends BurnBlockEntity implements Botari
 
         if (hasRecipe(level) && fluidContainer.getFluids().get(0).getFluidAmount() > 0) {
             if (burnTime <= 0) {
-                burnTime = CommonHooks.getBurnTime(getItem(COMBUSTION_SLOT));
+                burnTime = Energy.getBurnTime(getItem(COMBUSTION_SLOT));
                 burnTimeTotal = burnTime;
                 removeItem(COMBUSTION_SLOT, 1);
             } else {

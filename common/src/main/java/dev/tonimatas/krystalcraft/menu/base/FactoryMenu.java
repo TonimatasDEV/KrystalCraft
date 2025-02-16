@@ -1,10 +1,10 @@
 package dev.tonimatas.krystalcraft.menu.base;
 
+import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
-import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 
 public abstract class FactoryMenu<T extends FactoryBlockEntity> extends BaseMenu<T> {
     public final DataSlot progress;
@@ -20,7 +20,7 @@ public abstract class FactoryMenu<T extends FactoryBlockEntity> extends BaseMenu
     }
 
     public long getEnergyMaxCapacity() {
-        return this.machine.getEnergyStorage().getMaxCapacity();
+        return this.machine.getEnergyStorage().getCapacity();
     }
 
     @Override

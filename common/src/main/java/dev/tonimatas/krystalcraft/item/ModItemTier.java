@@ -1,9 +1,9 @@
 package dev.tonimatas.krystalcraft.item;
 
+import dev.tonimatas.krystalcraft.registry.ModItems;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
-import dev.tonimatas.krystalcraft.registry.ModItems;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;

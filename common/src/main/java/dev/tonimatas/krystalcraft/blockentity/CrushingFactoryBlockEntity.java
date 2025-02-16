@@ -1,7 +1,11 @@
 package dev.tonimatas.krystalcraft.blockentity;
 
-import earth.terrarium.botarium.common.energy.impl.InsertOnlyEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedBlockEnergyContainer;
+import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
+import dev.tonimatas.krystalcraft.energy.Energy;
+import dev.tonimatas.krystalcraft.menu.CrushingFactoryMenu;
+import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
+import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
+import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -10,11 +14,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
-import dev.tonimatas.krystalcraft.menu.CrushingFactoryMenu;
-import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
-import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
@@ -28,7 +27,7 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
 
     public CrushingFactoryBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlockEntities.CRUSHING_FACTORY_BLOCK_ENTITY.get(), blockPos, blockState);
-        this.energyContainer = new WrappedBlockEnergyContainer(this, new InsertOnlyEnergyContainer(15000));
+        this.energyContainer = Energy.createInsertEnergyStorage(15000, 100);
     }
 
     @Nullable
@@ -53,7 +52,7 @@ public class CrushingFactoryBlockEntity extends FactoryBlockEntity {
 
         if (hasRecipe(level) && energyContainer.getStoredEnergy() > 0) {
             progress++;
-            energyContainer.internalExtract(5, false);
+            energyContainer.extract(5, false);
 
             if (progress >= getMaxProgress()) {
                 craft(level);

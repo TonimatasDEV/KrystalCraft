@@ -8,13 +8,13 @@ import com.teamresourceful.resourcefullib.common.bytecodecs.ExtraByteCodecs;
 import com.teamresourceful.resourcefullib.common.codecs.recipes.ItemStackCodec;
 import com.teamresourceful.resourcefullib.common.recipe.CodecRecipe;
 import com.teamresourceful.resourcefullib.common.recipe.CodecRecipeSerializer;
+import dev.tonimatas.krystalcraft.registry.ModRecipeSerializers;
+import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import net.minecraft.world.Container;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
-import dev.tonimatas.krystalcraft.registry.ModRecipeSerializers;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import org.jetbrains.annotations.NotNull;
 
 public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements CodecRecipe<Container> {

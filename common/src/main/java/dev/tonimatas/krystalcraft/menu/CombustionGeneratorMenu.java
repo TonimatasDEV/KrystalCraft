@@ -1,22 +1,24 @@
 package dev.tonimatas.krystalcraft.menu;
 
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.DataSlot;
-import net.minecraft.world.inventory.Slot;
 import dev.tonimatas.krystalcraft.blockentity.CombustionGeneratorBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.BaseMenu;
+import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import dev.tonimatas.krystalcraft.menu.slots.BatterySlot;
 import dev.tonimatas.krystalcraft.menu.slots.CombustionSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.DataSlot;
+import net.minecraft.world.inventory.Slot;
+
+import java.util.Optional;
 
 public class CombustionGeneratorMenu extends BaseMenu<CombustionGeneratorBlockEntity> {
     public final DataSlot burnTime;
     public final DataSlot totalBurnTime;
     public final DataSlot energyAmount;
 
-    public CombustionGeneratorMenu(int syncId, Inventory inventory, FriendlyByteBuf buf) {
-        this(syncId, inventory, (CombustionGeneratorBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+    public CombustionGeneratorMenu(int syncId, Inventory inventory, Optional<BlockPosContent> blockPosContent) {
+        this(syncId, inventory, (CombustionGeneratorBlockEntity) BlockPosContent.getOrNull(blockPosContent, inventory.player.level()));
     }
 
     public CombustionGeneratorMenu(int syncId, Inventory inventory, CombustionGeneratorBlockEntity blockEntity) {
@@ -40,6 +42,6 @@ public class CombustionGeneratorMenu extends BaseMenu<CombustionGeneratorBlockEn
     }
     
     public long getMaxEnergyCapacity() {
-        return this.machine.getEnergyStorage().getMaxCapacity();
+        return this.machine.getEnergyStorage().getCapacity();
     }
 }

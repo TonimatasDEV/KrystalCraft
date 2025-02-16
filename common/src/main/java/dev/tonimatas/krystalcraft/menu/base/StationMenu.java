@@ -1,10 +1,10 @@
 package dev.tonimatas.krystalcraft.menu.base;
 
+import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.inventory.Slot;
-import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
 
 public abstract class StationMenu<T extends BurnBlockEntity> extends BaseMenu<T> {
     public final DataSlot progress;

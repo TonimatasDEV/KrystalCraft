@@ -1,18 +1,20 @@
 package dev.tonimatas.krystalcraft.menu;
 
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.world.entity.player.Inventory;
-import net.minecraft.world.inventory.Slot;
 import dev.tonimatas.krystalcraft.blockentity.CombiningFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
+import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import dev.tonimatas.krystalcraft.menu.slots.BatterySlot;
 import dev.tonimatas.krystalcraft.menu.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.menu.slots.UpgradeSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.inventory.Slot;
+
+import java.util.Optional;
 
 public class CombiningFactoryMenu extends FactoryMenu<CombiningFactoryBlockEntity> {
-    public CombiningFactoryMenu(int syncId, Inventory inventory, FriendlyByteBuf buf) {
-        this(syncId, inventory, (CombiningFactoryBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+    public CombiningFactoryMenu(int syncId, Inventory inventory, Optional<BlockPosContent> blockPosContent) {
+        this(syncId, inventory, (CombiningFactoryBlockEntity) BlockPosContent.getOrNull(blockPosContent, inventory.player.level()));
     }
 
     public CombiningFactoryMenu(int syncId, Inventory inventory, CombiningFactoryBlockEntity blockEntity) {

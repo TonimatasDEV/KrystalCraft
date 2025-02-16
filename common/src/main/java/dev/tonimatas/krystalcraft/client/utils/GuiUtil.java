@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.client.utils;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.teamresourceful.resourcefullib.client.utils.RenderUtils;
+import dev.tonimatas.krystalcraft.KrystalCraft;
 import earth.terrarium.botarium.common.fluid.FluidConstants;
 import earth.terrarium.botarium.common.fluid.base.FluidHolder;
 import earth.terrarium.botarium.common.fluid.utils.ClientFluidHooks;
@@ -12,9 +13,7 @@ import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.FastColor;
 import net.minecraft.world.inventory.InventoryMenu;
-import dev.tonimatas.krystalcraft.KrystalCraft;
 
 import java.awt.*;
 

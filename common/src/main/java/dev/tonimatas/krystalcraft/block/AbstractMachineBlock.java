@@ -1,17 +1,16 @@
 package dev.tonimatas.krystalcraft.block;
 
-import com.teamresourceful.resourcefullib.common.menu.ContentMenuProvider;
 import com.teamresourceful.resourcefullib.common.menu.MenuContentHelper;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
+import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
+import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import earth.terrarium.botarium.common.energy.EnergyApi;
-import earth.terrarium.botarium.common.menu.MenuHooks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
@@ -27,8 +26,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
-import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
-import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
@@ -75,9 +72,9 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public @NotNull InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
+    protected InteractionResult useWithoutItem(BlockState blockState, Level level, BlockPos blockPos, Player player, BlockHitResult blockHitResult) {
         if (!level.isClientSide) {
-            if (level.getBlockEntity(pos) instanceof BaseBlockEntity machineBlock) {
+            if (level.getBlockEntity(blockPos) instanceof BaseBlockEntity machineBlock) {
                 MenuContentHelper.open((ServerPlayer) player, machineBlock);
             }
         }

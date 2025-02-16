@@ -3,6 +3,8 @@ package dev.tonimatas.krystalcraft.registry;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.block.MachineBlock;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -12,8 +14,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import dev.tonimatas.krystalcraft.KrystalCraft;
-import dev.tonimatas.krystalcraft.block.MachineBlock;
 
 import java.util.function.Supplier;
 
