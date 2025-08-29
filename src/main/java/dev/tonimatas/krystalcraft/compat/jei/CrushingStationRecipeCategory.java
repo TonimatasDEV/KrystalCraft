@@ -1,7 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
 
-import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
 import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;

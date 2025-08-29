@@ -4,7 +4,6 @@ import com.teamresourceful.resourcefullib.common.menu.MenuContentHelper;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
-import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.menu.*;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import net.minecraft.core.registries.BuiltInRegistries;

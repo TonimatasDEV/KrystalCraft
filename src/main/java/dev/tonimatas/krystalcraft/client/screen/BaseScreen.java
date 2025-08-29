@@ -1,7 +1,6 @@
 package dev.tonimatas.krystalcraft.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import dev.tonimatas.krystalcraft.KrystalCraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;

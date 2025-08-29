@@ -1,23 +1,18 @@
 package dev.tonimatas.krystalcraft.item.custom;
 
-import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem;
-import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer;
-import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer;
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.Nullable;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Style;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.List;
 
 public class BatteryItem extends Item implements BotariumEnergyItem<WrappedItemEnergyContainer> {
 
-    public BatteryItem(Properties properties) {
-        super(properties);
+    public BatteryItem(Settings settings) {
+        super(settings);
     }
 
     @Override
@@ -36,8 +31,8 @@ public class BatteryItem extends Item implements BotariumEnergyItem<WrappedItemE
     }
 
     @Override
-    public void appendHoverText(ItemStack itemStack, @Nullable Level level, List<Component> list, TooltipFlag tooltipFlag) {
-        list.add(Component.literal(getEnergyStorage(itemStack).getStoredEnergy() + "/" + getEnergyStorage(itemStack).getMaxCapacity() + " FE").setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)));
-        super.appendHoverText(itemStack, level, list, tooltipFlag);
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        tooltip.add(Text.literal(getEnergyStorage(stack).getStoredEnergy() + "/" + getEnergyStorage(stack).getMaxCapacity() + " FE").setStyle(Style.EMPTY.withColor(Formatting.GOLD)));
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

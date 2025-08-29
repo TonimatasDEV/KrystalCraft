@@ -1,9 +1,9 @@
 package dev.tonimatas.krystalcraft.item.custom;
 
-import net.minecraft.world.item.Item;
+import net.minecraft.item.Item;
 
 public class UpgradeItem extends Item {
-    public UpgradeItem(Properties properties) {
-        super(properties);
+    public UpgradeItem(Item.Settings settings) {
+        super(settings);
     }
 }

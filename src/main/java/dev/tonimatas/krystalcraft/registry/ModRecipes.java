@@ -3,7 +3,6 @@ package dev.tonimatas.krystalcraft.registry;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
-import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
 import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;

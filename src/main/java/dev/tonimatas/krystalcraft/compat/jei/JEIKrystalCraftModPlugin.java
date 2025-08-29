@@ -1,7 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
 
-import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
 import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
