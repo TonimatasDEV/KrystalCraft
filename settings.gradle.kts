@@ -1,11 +1,9 @@
 pluginManagement {
     repositories {
-        maven(url = "https://maven.minecraftforge.net/")
-        maven(url = "https://maven.architectury.dev/")
         maven(url = "https://maven.fabricmc.net/")
+        mavenCentral()
         gradlePluginPortal()
     }
 }
 
-include("common", "fabric", "neoforge")
 rootProject.name = "KrystalCraft"
