@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.menu.slots;
+package dev.tonimatas.krystalcraft.screen.slots;
 
 import net.minecraft.fluid.Fluid;
 import net.minecraft.inventory.Inventory;

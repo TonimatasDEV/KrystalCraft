@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.menu.slots;
+package dev.tonimatas.krystalcraft.screen.slots;
 
 import dev.tonimatas.krystalcraft.item.custom.UpgradeItem;
 import net.minecraft.inventory.Inventory;
