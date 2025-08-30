@@ -4,6 +4,7 @@ import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
 import dev.tonimatas.krystalcraft.block.MachineBlock;
+import net.minecraft.block.Block;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -49,7 +50,7 @@ public class ModBlocks {
 
     // Custom Blocks
     public static final RegistryEntry<Block> CUTTING_STATION = registerBlock("cutting_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> CUTTING_FACTORY = registerBlock("cutting_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryEntry<Block> CRUSHING_STATION = registerBlock("crushing_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryEntry<Block> CRUSHING_FACTORY = registerBlock("crushing_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
     public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));

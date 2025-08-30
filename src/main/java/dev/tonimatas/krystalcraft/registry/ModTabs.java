@@ -1,18 +1,27 @@
 package dev.tonimatas.krystalcraft.registry;
 
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.chat.Component;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 
 public class ModTabs {
-    public static final ResourcefulRegistry<CreativeModeTab> TABS = ResourcefulRegistries.create(BuiltInRegistries.CREATIVE_MODE_TAB, KrystalCraft.MOD_ID);
+    public static final ItemGroup KRYSTALCRAFT = Registry.register(Registries.ITEM_GROUP, Identifier.of(KrystalCraft.MOD_ID, "krystalcraft"),
+            FabricItemGroup.builder()
+                    .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY))
+                    .displayName(Text.translatable("itemGroup.krystalcraft"))
+                    .entries((displayContext, entries) -> Registries.ITEM.getKeys().forEach(key -> {
+                        if (key.getRegistry().getNamespace().equalsIgnoreCase(KrystalCraft.MOD_ID)) {
+                            entries.add(Registries.ITEM.get(key));
+                        }
+                    })).build());
 
-    public static final RegistryEntry<CreativeModeTab> KRYSTALCRAFT = TABS.register(KrystalCraft.MOD_ID, () -> CreativeModeTab.builder(CreativeModeTab.Row.TOP, 0)
-            .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY.get()))
-            .title(Component.translatable("itemGroup.krystalcraft"))
-            .displayItems(((itemDisplayParameters, output) -> ModItems.ITEMS.getEntries().forEach((item) -> output.accept(item.get())))).build());
+    public static void initialize() {
+        // Initialize the class
+    }
 }

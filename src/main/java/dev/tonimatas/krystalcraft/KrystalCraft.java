@@ -22,7 +22,7 @@ public class KrystalCraft implements ModInitializer {
         ModRecipeSerializers.RECIPE_SERIALIZERS.init();
         ModRecipes.RECIPE_TYPES.init();
         ModEnchants.ENCHANTMENTS.init();
-        ModTabs.TABS.init();
+        ModTabs.initialize();
 
         addOre("experience_ore");
         addOre("jade_ore");
