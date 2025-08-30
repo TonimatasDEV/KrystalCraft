@@ -1,5 +1,6 @@
 package dev.tonimatas.krystalcraft.screen;
 
+import dev.tonimatas.krystalcraft.block.entity.CrushingStationBlockEntity;
 import dev.tonimatas.krystalcraft.screen.slots.FuelSlot;
 import dev.tonimatas.krystalcraft.screen.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.registry.ModScreenHandlers;
@@ -8,26 +9,47 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 
 public class CrushingStationScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
+    public final CrushingStationBlockEntity blockEntity;
     
     public CrushingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
     }
     
-    public CrushingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
+    public CrushingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.CRUSHING_STATION_SCREEN_HANDLER, syncId);
         this.inventory = (Inventory) blockEntity;
+        this.blockEntity = (CrushingStationBlockEntity) blockEntity;
+        this.propertyDelegate = propertyDelegate;
+
         this.addSlot(new Slot(inventory, 0, 80, 17));
         this.addSlot(new ResultSlot(inventory, 1, 80, 66));
         this.addSlot(new FuelSlot(inventory, 2, 128, 61));
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+        
+        addProperties(propertyDelegate);
+    }
+    
+    public boolean isCrafting() {
+        return propertyDelegate.get(2) > 0;
+    }
+    
+    public int getScaledLoader() {
+        int progress = this.propertyDelegate.get(2);
+        int maxProgress = this.propertyDelegate.get(3);
+        int loaderSize = 13;
+        
+        return maxProgress != 0 && progress != 0 ? progress * loaderSize / maxProgress : 0;
     }
 
     @Override

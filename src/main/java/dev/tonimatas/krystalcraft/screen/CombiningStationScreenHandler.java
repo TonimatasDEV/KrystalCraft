@@ -1,5 +1,6 @@
 package dev.tonimatas.krystalcraft.screen;
 
+import dev.tonimatas.krystalcraft.block.entity.CombiningStationBlockEntity;
 import dev.tonimatas.krystalcraft.registry.ModScreenHandlers;
 import dev.tonimatas.krystalcraft.screen.slots.FuelSlot;
 import dev.tonimatas.krystalcraft.screen.slots.ResultSlot;
@@ -8,20 +9,27 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 
 public class CombiningStationScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
+    public final CombiningStationBlockEntity blockEntity;
     
     public CombiningStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
     }
     
-    public CombiningStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
+    public CombiningStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.COMBINING_STATION_SCREEN_HANDLER, syncId);
         this.inventory = (Inventory) blockEntity;
+        this.blockEntity = (CombiningStationBlockEntity) blockEntity;
+        this.propertyDelegate = propertyDelegate;
+
         this.addSlot(new Slot(inventory, 0, 80, 9));
         this.addSlot(new Slot(inventory, 1, 80, 26));
         this.addSlot(new ResultSlot(inventory, 2, 80, 67));
@@ -29,6 +37,8 @@ public class CombiningStationScreenHandler extends ScreenHandler {
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+        
+        addProperties(propertyDelegate);
     }
 
     @Override
@@ -56,6 +66,18 @@ public class CombiningStationScreenHandler extends ScreenHandler {
         }
 
         return newStack;
+    }
+
+    public boolean isCrafting() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    public int getScaledLoader() {
+        int progress = this.propertyDelegate.get(2);
+        int maxProgress = this.propertyDelegate.get(3);
+        int loaderSize = 13;
+
+        return maxProgress != 0 && progress != 0 ? progress * loaderSize / maxProgress : 0;
     }
 
     @Override

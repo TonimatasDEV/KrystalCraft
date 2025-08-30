@@ -1,47 +1,80 @@
 package dev.tonimatas.krystalcraft.recipe;
-/*
-import com.mojang.serialization.Codec;
+
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import com.teamresourceful.bytecodecs.base.ByteCodec;
-import com.teamresourceful.bytecodecs.base.object.ObjectByteCodec;
-import com.teamresourceful.resourcefullib.common.bytecodecs.ExtraByteCodecs;
-import com.teamresourceful.resourcefullib.common.codecs.recipes.ItemStackCodec;
-import com.teamresourceful.resourcefullib.common.recipe.CodecRecipe;
-import com.teamresourceful.resourcefullib.common.recipe.CodecRecipeSerializer;
-import dev.tonimatas.krystalcraft.registry.ModRecipeSerializers;
+import dev.tonimatas.krystalcraft.recipe.input.SimpleRecipeInput;
 import dev.tonimatas.krystalcraft.registry.ModRecipes;
-import net.minecraft.world.Container;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
+import net.minecraft.item.ItemStack;
+import net.minecraft.network.RegistryByteBuf;
+import net.minecraft.network.codec.PacketCodec;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.RecipeType;
+import net.minecraft.registry.RegistryWrapper;
+import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.world.World;
 
-public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements CodecRecipe<Container> {
-    public static final Codec<CuttingRecipe> CODEC = RecordCodecBuilder.create(
-            instance -> instance.group(
-                    Ingredient.CODEC.fieldOf("ingredient").forGetter(CuttingRecipe::ingredient),
-                    ItemStackCodec.CODEC.fieldOf("result").forGetter(CuttingRecipe::result)
-            ).apply(instance, CuttingRecipe::new));
-
-    public static final ByteCodec<CuttingRecipe> NETWORK_CODEC = ObjectByteCodec.create(
-            ExtraByteCodecs.INGREDIENT.fieldOf(CuttingRecipe::ingredient),
-            ExtraByteCodecs.ITEM_STACK.fieldOf(CuttingRecipe::result),
-            CuttingRecipe::new
-    );
-
+public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements Recipe<SimpleRecipeInput> {
     @Override
-    public boolean matches(Container container, Level level) {
-        return ingredient.test(container.getItem(0));
+    public DefaultedList<Ingredient> getIngredients() {
+        DefaultedList<Ingredient> list = DefaultedList.of();
+        list.add(this.ingredient);
+        return list;
     }
 
     @Override
-    public CodecRecipeSerializer<? extends CodecRecipe<Container>> serializer() {
-        return ModRecipeSerializers.CUTTING_SERIALIZER.get();
+    public RecipeSerializer<?> getSerializer() {
+        return ModRecipes.CUTTING_RECIPE_SERIALIZER;
     }
 
     @Override
-    public @NotNull RecipeType<?> getType() {
-        return ModRecipes.CUTTING.get();
+    public RecipeType<?> getType() {
+        return ModRecipes.CUTTING_RECIPE_TYPE;
     }
-}*/
+
+    @Override
+    public boolean matches(SimpleRecipeInput input, World world) {
+        if (world.isClient) {
+            return false;
+        }
+        
+        return ingredient.test(input.getStackInSlot(0));
+    }
+
+    @Override
+    public ItemStack craft(SimpleRecipeInput input, RegistryWrapper.WrapperLookup lookup) {
+        return result.copy();
+    }
+
+    @Override
+    public boolean fits(int width, int height) {
+        return true;
+    }
+
+    @Override
+    public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
+        return result;
+    }
+    
+    public static class Serializer implements RecipeSerializer<CuttingRecipe> {
+        public static final MapCodec<CuttingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
+                Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(CuttingRecipe::ingredient),
+                ItemStack.CODEC.fieldOf("result").forGetter(CuttingRecipe::result)).apply(instance, CuttingRecipe::new));
+        public static final PacketCodec<RegistryByteBuf, CuttingRecipe> STREAM_CODEC = PacketCodec.tuple(
+                Ingredient.PACKET_CODEC, CuttingRecipe::ingredient,
+                ItemStack.PACKET_CODEC, CuttingRecipe::result,
+                CuttingRecipe::new);
+        
+        
+        @Override
+        public MapCodec<CuttingRecipe> codec() {
+            return CODEC;
+        }
+
+        @Override
+        public PacketCodec<RegistryByteBuf, CuttingRecipe> packetCodec() {
+            return STREAM_CODEC;
+        }
+    }
+}

@@ -1,10 +1,8 @@
 {
   "type": "krystalcraft:cutting",
-  "ingredient": [
-    {
+  "ingredient": {
       "item": "krystalcraft:raw_lapis"
-    }
-  ],
+  },
   "result": {
     "count": 1,
     "id": "minecraft:lapis_lazuli"

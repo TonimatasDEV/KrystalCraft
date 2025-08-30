@@ -1,10 +1,8 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredient": [
-    {
+  "ingredient": {
       "item": "minecraft:diamond"
-    }
-  ],
+  },
   "result": {
     "count": 1,
     "id": "krystalcraft:diamond_dust"

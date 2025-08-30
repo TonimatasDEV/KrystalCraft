@@ -1,5 +1,6 @@
 package dev.tonimatas.krystalcraft.screen;
 
+import dev.tonimatas.krystalcraft.block.entity.CuttingStationBlockEntity;
 import dev.tonimatas.krystalcraft.registry.ModScreenHandlers;
 import dev.tonimatas.krystalcraft.screen.slots.FluidSlot;
 import dev.tonimatas.krystalcraft.screen.slots.FuelSlot;
@@ -10,20 +11,27 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.screen.ArrayPropertyDelegate;
+import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 
 public class CuttingStationScreenHandler extends ScreenHandler {
     private final Inventory inventory;
+    private final PropertyDelegate propertyDelegate;
+    public final CuttingStationBlockEntity blockEntity;
     
     public CuttingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
     }
     
-    public CuttingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity) {
+    public CuttingStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.CUTTING_STATION_SCREEN_HANDLER, syncId);
         this.inventory = (Inventory) blockEntity;
+        this.blockEntity = (CuttingStationBlockEntity) blockEntity;
+        this.propertyDelegate = propertyDelegate;
+
         this.addSlot(new Slot(inventory, 0, 80, 17));
         this.addSlot(new FluidSlot(inventory, 1, 6, 22, Fluids.WATER));
         this.addSlot(new ResultSlot(inventory, 2, 6, 57));
@@ -32,6 +40,20 @@ public class CuttingStationScreenHandler extends ScreenHandler {
         
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
+
+        addProperties(propertyDelegate);
+    }
+
+    public boolean isCrafting() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    public int getScaledLoader() {
+        int progress = this.propertyDelegate.get(2);
+        int maxProgress = this.propertyDelegate.get(3);
+        int loaderSize = 13;
+
+        return maxProgress != 0 && progress != 0 ? progress * loaderSize / maxProgress : 0;
     }
 
     @Override

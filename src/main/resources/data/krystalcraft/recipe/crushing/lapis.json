@@ -1,10 +1,8 @@
 {
   "type": "krystalcraft:crushing",
-  "ingredient": [
-    {
+  "ingredient": {
       "item": "minecraft:lapis_lazuli"
-    }
-  ],
+  },
   "result": {
     "count": 1,
     "id": "krystalcraft:lapis_dust"

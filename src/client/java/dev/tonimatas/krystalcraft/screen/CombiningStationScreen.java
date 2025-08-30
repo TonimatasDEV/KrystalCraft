@@ -11,12 +11,12 @@ import net.minecraft.util.Identifier;
 
 public class CombiningStationScreen extends HandledScreen<CombiningStationScreenHandler> {
     public static final Identifier TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
+    public static final Identifier LOADER_TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/overlay/loader.png");
 
     public CombiningStationScreen(CombiningStationScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.backgroundHeight = this.backgroundHeight + 14;
         this.playerInventoryTitleY = this.playerInventoryTitleY + 14;
-        this.titleX = backgroundWidth / 2;
     }
 
     @Override
@@ -29,5 +29,15 @@ public class CombiningStationScreen extends HandledScreen<CombiningStationScreen
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        if (handler.isCrafting()) {
+            context.drawTexture(LOADER_TEXTURE, x + 85, y + 50, 0, 0, 6, handler.getScaledLoader(), 6, 13);
+        }
+    }
+
+    @Override
+    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+        super.render(context, mouseX, mouseY, delta);
+        drawMouseoverTooltip(context, mouseX, mouseY);
     }
 }

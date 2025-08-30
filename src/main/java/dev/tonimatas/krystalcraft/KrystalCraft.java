@@ -22,11 +22,10 @@ public class KrystalCraft implements ModInitializer {
 
         ModEnchantmentEffects.initialize();
 
-        //ModRecipeSerializers.RECIPE_SERIALIZERS.init();
-        //ModRecipes.RECIPE_TYPES.init();
-
         ModBlockEntities.initialize();
         ModScreenHandlers.initialize();
+
+        ModRecipes.initialize();
 
         ModTabs.initialize();
 
