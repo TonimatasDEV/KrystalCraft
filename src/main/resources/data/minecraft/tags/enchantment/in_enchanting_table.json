@@ -1,6 +1,10 @@
 {
   "replace": false,
   "values": [
-    "krystalcraft:freezing"
+    "krystalcraft:freezing",
+    "krystalcraft:lightning_striker",
+    "krystalcraft:venom",
+    "krystalcraft:life_leech",
+    "krystalcraft:xp_leech"
   ]
 }

@@ -13,13 +13,16 @@ import net.minecraft.util.Identifier;
 public class ModTabs {
     public static final ItemGroup KRYSTALCRAFT = Registry.register(Registries.ITEM_GROUP, Identifier.of(KrystalCraft.MOD_ID, "krystalcraft"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY))
+                    .icon(() -> new ItemStack(ModItems.JADE))
                     .displayName(Text.translatable("itemGroup.krystalcraft"))
-                    .entries((displayContext, entries) -> Registries.ITEM.getKeys().forEach(key -> {
-                        if (key.getRegistry().getNamespace().equalsIgnoreCase(KrystalCraft.MOD_ID)) {
-                            entries.add(Registries.ITEM.get(key));
-                        }
-                    })).build());
+                    .entries((displayContext, entries) -> {
+                        Registries.ITEM.getKeys().forEach(key -> {
+                            // Add one by one to keep it tidy
+                            if (key.getValue().getNamespace().equalsIgnoreCase(KrystalCraft.MOD_ID)) {
+                                entries.add(Registries.ITEM.get(key));
+                            }
+                        });
+                    }).build());
 
     public static void initialize() {
         // Initialize the class

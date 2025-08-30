@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.registry;
-
+/*
 import com.teamresourceful.resourcefullib.common.menu.MenuContentHelper;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
@@ -20,3 +20,4 @@ public class ModMenus {
     public static final RegistryEntry<MenuType<CombiningFactoryMenu>> COMBINING_FACTORY_MENU = MENUS.register("combining_factory_menu", () -> MenuContentHelper.create(CombiningFactoryMenu::new, BlockPosContent.SERIALIZER));
     public static final RegistryEntry<MenuType<CombustionGeneratorMenu>> COMBUSTION_GENERATOR_MENU = MENUS.register("combustion_generator_menu", () -> MenuContentHelper.create(CombustionGeneratorMenu::new, BlockPosContent.SERIALIZER));
 }
+*/

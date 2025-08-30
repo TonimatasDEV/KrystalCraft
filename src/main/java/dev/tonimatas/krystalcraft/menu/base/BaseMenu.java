@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.menu.base;
 
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -84,3 +84,4 @@ public abstract class BaseMenu<T extends BaseBlockEntity> extends AbstractContai
         this.broadcastFullState();
     }
 }
+*/

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft;
-
+/*
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
@@ -28,4 +28,4 @@ public class KrystalCraftFabric implements ModInitializer {
         BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Decoration.UNDERGROUND_ORES,
                 ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.tryBuild(KrystalCraft.MOD_ID, name)));
     }
-}
+}*/

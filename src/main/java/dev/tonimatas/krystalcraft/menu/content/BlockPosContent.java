@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu.content;
-
+/*
 import com.teamresourceful.resourcefullib.common.menu.MenuContent;
 import com.teamresourceful.resourcefullib.common.menu.MenuContentSerializer;
 import net.minecraft.core.BlockPos;
@@ -34,4 +34,4 @@ public record BlockPosContent(BlockPos pos) implements MenuContent<BlockPosConte
             return new BlockPosContent(buffer.readBlockPos());
         }
     }
-}
+}*/

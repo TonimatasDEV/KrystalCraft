@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu.base;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
@@ -30,3 +30,4 @@ public abstract class FactoryMenu<T extends FactoryBlockEntity> extends BaseMenu
         this.progress.set(this.machine.getProgress());
     }
 }
+*/

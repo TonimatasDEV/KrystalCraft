@@ -20,12 +20,12 @@ public class KrystalCraft implements ModInitializer {
     public void onInitialize() {
         ModItems.initialize();
         ModBlocks.initialize();
-        ModBlockEntities.BLOCK_ENTITIES.init();
+        //ModBlockEntities.BLOCK_ENTITIES.init();
         
-        ModMenus.MENUS.init();
+        //ModMenus.MENUS.init();
         
-        ModRecipeSerializers.RECIPE_SERIALIZERS.init();
-        ModRecipes.RECIPE_TYPES.init();
+        //ModRecipeSerializers.RECIPE_SERIALIZERS.init();
+        //ModRecipes.RECIPE_TYPES.init();
         
         ModEnchantmentEffects.initialize();
         

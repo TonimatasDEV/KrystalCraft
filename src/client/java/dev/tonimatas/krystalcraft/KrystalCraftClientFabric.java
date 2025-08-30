@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft;
-
+/*
 import dev.tonimatas.krystalcraft.client.screen.*;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
 import net.fabricmc.api.ClientModInitializer;
@@ -17,3 +17,4 @@ public class KrystalCraftClientFabric implements ClientModInitializer {
         MenuScreens.register(ModMenus.COMBUSTION_GENERATOR_MENU.get(), CombustionGeneratorScreen::new);
     }
 }
+*/
