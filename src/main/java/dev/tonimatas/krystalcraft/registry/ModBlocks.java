@@ -1,6 +1,9 @@
 package dev.tonimatas.krystalcraft.registry;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.block.CombiningStationBlock;
+import dev.tonimatas.krystalcraft.block.CrushingStationBlock;
+import dev.tonimatas.krystalcraft.block.CuttingStationBlock;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -70,11 +73,14 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(5f).requiresTool().sounds(BlockSoundGroup.METAL)));
     
     // Block Entities
-    //public static final Block CUTTING_STATION = registerBlock("cutting_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block CUTTING_STATION = registerBlock("cutting_station",
+            new CuttingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
     //public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    //public static final Block CRUSHING_STATION = registerBlock("crushing_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block CRUSHING_STATION = registerBlock("crushing_station",
+            new CrushingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
     //public static final Block CRUSHING_FACTORY = registerBlock("crushing_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    //public static final Block COMBINING_STATION = registerBlock("combining_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block COMBINING_STATION = registerBlock("combining_station",
+            new CombiningStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final Block COMBINING_FACTORY = registerBlock("combining_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);

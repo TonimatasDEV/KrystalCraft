@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.blockentity;
+package dev.tonimatas.krystalcraft.block.entity.old;
 /*
 import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;

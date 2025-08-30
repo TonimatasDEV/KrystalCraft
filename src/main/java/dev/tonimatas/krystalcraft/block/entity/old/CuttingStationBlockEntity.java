@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.blockentity;
+package dev.tonimatas.krystalcraft.block.entity.old;
 /*
 import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;
@@ -36,18 +36,7 @@ public class CuttingStationBlockEntity extends BurnBlockEntity implements Botari
     protected WrappedBlockFluidContainer fluidContainer;
 
     public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY.get(), blockPos, blockState);
         this.fluidContainer = new WrappedBlockFluidContainer(this, new SimpleFluidContainer(10000L, 1, (amount, fluid) -> true));
-    }
-
-    @Override
-    public @NotNull AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
-        return new CuttingStationMenu(syncId, inventory, this);
-    }
-
-    @Override
-    public int getInventorySize() {
-        return 5;
     }
 
     @Override

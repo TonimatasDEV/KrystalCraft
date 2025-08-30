@@ -3,7 +3,7 @@ package dev.tonimatas.krystalcraft.menu;
 import dev.tonimatas.krystalcraft.blockentity.CuttingStationBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.StationMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
-import dev.tonimatas.krystalcraft.menu.slots.CombustionSlot;
+import dev.tonimatas.krystalcraft.menu.slots.FuelSlot;
 import dev.tonimatas.krystalcraft.menu.slots.FluidSlot;
 import dev.tonimatas.krystalcraft.menu.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
@@ -28,7 +28,7 @@ public class CuttingStationMenu extends StationMenu<CuttingStationBlockEntity> {
                 new Slot[]{
                         new Slot(blockEntity, 0, 80, 0),
                         new ResultSlot(blockEntity, 1, 80, 50),
-                        new CombustionSlot(blockEntity, 2, 128, 44),
+                        new FuelSlot(blockEntity, 2, 128, 44),
                         new FluidSlot(blockEntity, 3, 6, 5, Fluids.WATER),
                         new ResultSlot(blockEntity, 4, 6, 40)
                 });

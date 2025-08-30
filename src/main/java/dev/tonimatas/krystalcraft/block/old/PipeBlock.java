@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.block;
+package dev.tonimatas.krystalcraft.block.old;
 /*
 import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import net.minecraft.core.BlockPos;

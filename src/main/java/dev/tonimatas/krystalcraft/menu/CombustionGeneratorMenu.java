@@ -4,7 +4,7 @@ import dev.tonimatas.krystalcraft.blockentity.CombustionGeneratorBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.BaseMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import dev.tonimatas.krystalcraft.menu.slots.BatterySlot;
-import dev.tonimatas.krystalcraft.menu.slots.CombustionSlot;
+import dev.tonimatas.krystalcraft.menu.slots.FuelSlot;
 import dev.tonimatas.krystalcraft.registry.ModMenus;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.DataSlot;
@@ -24,7 +24,7 @@ public class CombustionGeneratorMenu extends BaseMenu<CombustionGeneratorBlockEn
     public CombustionGeneratorMenu(int syncId, Inventory inventory, CombustionGeneratorBlockEntity blockEntity) {
         super(ModMenus.COMBUSTION_GENERATOR_MENU.get(), syncId, inventory, blockEntity,
                 new Slot[]{
-                        new CombustionSlot(blockEntity, 0, 80, 0),
+                        new FuelSlot(blockEntity, 0, 80, 0),
                         new BatterySlot(blockEntity, 1, 129, 41)
                 });
 

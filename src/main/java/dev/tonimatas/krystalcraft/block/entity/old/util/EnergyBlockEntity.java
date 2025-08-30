@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.blockentity.util;
+package dev.tonimatas.krystalcraft.block.entity.old.util;
 /*
 import dev.tonimatas.krystalcraft.energy.EnergyStorageK;
 import earth.terrarium.botarium.common.energy.EnergyApi;

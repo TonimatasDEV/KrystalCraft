@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.blockentity.util;
+package dev.tonimatas.krystalcraft.block.entity.old.util;
 
 /*
 import com.teamresourceful.resourcefullib.common.menu.ContentMenuProvider;

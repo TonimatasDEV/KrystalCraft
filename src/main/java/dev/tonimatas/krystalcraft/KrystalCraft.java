@@ -1,6 +1,5 @@
 package dev.tonimatas.krystalcraft;
 
-import com.mojang.logging.LogUtils;
 import dev.tonimatas.krystalcraft.registry.*;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
@@ -20,15 +19,15 @@ public class KrystalCraft implements ModInitializer {
     public void onInitialize() {
         ModItems.initialize();
         ModBlocks.initialize();
-        //ModBlockEntities.BLOCK_ENTITIES.init();
-        
-        //ModMenus.MENUS.init();
-        
+
+        ModEnchantmentEffects.initialize();
+
         //ModRecipeSerializers.RECIPE_SERIALIZERS.init();
         //ModRecipes.RECIPE_TYPES.init();
-        
-        ModEnchantmentEffects.initialize();
-        
+
+        ModBlockEntities.initialize();
+        ModScreenHandlers.initialize();
+
         ModTabs.initialize();
 
         addOre("experience_ore");
