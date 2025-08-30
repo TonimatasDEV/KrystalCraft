@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-
+/*
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
 import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
@@ -51,3 +51,4 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.result());
     }
 }
+*/

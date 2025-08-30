@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity.util;
-
+/*
 import dev.tonimatas.krystalcraft.energy.EnergyStorageK;
 import earth.terrarium.botarium.common.energy.EnergyApi;
 import earth.terrarium.botarium.common.item.ItemStackHolder;
@@ -53,3 +53,4 @@ public abstract class EnergyBlockEntity extends BaseBlockEntity {
         if (energyMoveItemToBlock(stackHolder, this, amount) != 0 && stackHolder.isDirty()) setItem(energyOutputSlot, stackHolder.getStack());
     }
 }
+*/

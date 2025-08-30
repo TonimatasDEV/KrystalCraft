@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity.util;
-
+/*
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -40,3 +40,4 @@ public abstract class FactoryBlockEntity extends EnergyBlockEntity {
         return 20;
     }
 }
+*/

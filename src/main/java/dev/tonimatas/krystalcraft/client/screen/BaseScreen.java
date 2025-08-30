@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.client.screen;
-
+/*
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -28,3 +28,4 @@ public class BaseScreen<T extends AbstractContainerMenu> extends AbstractContain
         guiGraphics.blit(TEXTURE, x, y, 0, 0, 176, 180);
     }
 }
+*/

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.registry;
-
+/*
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
@@ -29,3 +29,4 @@ public class ModRecipes {
         return RECIPE_TYPES.register(name, type);
     }
 }
+*/

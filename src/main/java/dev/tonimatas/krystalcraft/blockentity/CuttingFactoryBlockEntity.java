@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;
 import dev.tonimatas.krystalcraft.menu.CuttingFactoryMenu;
@@ -112,4 +112,4 @@ public class CuttingFactoryBlockEntity extends FactoryBlockEntity {
             setItem(RESULT_SLOT, new ItemStack(match.get().value().result().getItem(), getItem(RESULT_SLOT).getCount() + 1));
         }
     }
-}
+}*/

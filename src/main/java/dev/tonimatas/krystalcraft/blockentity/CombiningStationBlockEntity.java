@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.BurnBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;
 import dev.tonimatas.krystalcraft.menu.CombiningStationMenu;
@@ -83,4 +83,4 @@ public class CombiningStationBlockEntity extends BurnBlockEntity {
             setItem(RESULT_SLOT, new ItemStack(result.getItem(), getItem(RESULT_SLOT).getCount() + result.getCount()));
         }
     }
-}
+}*/

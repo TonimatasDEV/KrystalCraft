@@ -1,9 +1,11 @@
 package dev.tonimatas.krystalcraft.blockentity.util;
 
+/*
 import com.teamresourceful.resourcefullib.common.menu.ContentMenuProvider;
 import dev.tonimatas.krystalcraft.inventory.ModInventory;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
 import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.HolderLookup;
@@ -99,3 +101,4 @@ public abstract class BaseBlockEntity extends BlockEntity implements ModInventor
         return this.saveWithoutMetadata(provider);
     }
 }
+*/

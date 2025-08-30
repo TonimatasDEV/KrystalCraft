@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.client.screen;
-
+/*
 import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
 import dev.tonimatas.krystalcraft.menu.CombustionGeneratorMenu;
 import net.minecraft.client.gui.GuiGraphics;
@@ -29,4 +29,4 @@ public class CombustionGeneratorScreen extends BaseScreen<CombustionGeneratorMen
         }
     }
 }
-
+*/

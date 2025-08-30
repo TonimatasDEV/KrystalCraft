@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.client.utils;
-
+/*
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.teamresourceful.resourcefullib.client.utils.RenderUtils;
 import earth.terrarium.botarium.common.fluid.FluidConstants;
@@ -105,3 +105,4 @@ public class GuiUtil {
         return new Rectangle(x, y, FIRE_WIDTH, FIRE_HEIGHT);
     }
 }
+*/

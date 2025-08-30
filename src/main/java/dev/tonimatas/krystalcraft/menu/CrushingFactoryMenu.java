@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CrushingFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -27,4 +27,4 @@ public class CrushingFactoryMenu extends FactoryMenu<CrushingFactoryBlockEntity>
                         new UpgradeSlot(blockEntity, 4, 126, -12)
                 });
     }
-}
+}*/

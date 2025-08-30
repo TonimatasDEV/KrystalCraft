@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-
+/*
 import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
 import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
@@ -45,3 +45,4 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
         registration.addRecipes(COMBINING, level.getRecipeManager().getAllRecipesFor(ModRecipes.COMBINING.get()).stream().map(RecipeHolder::value).toList());
     }
 }
+*/

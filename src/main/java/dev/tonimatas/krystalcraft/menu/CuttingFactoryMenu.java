@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CuttingFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -51,4 +51,4 @@ public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
         super.broadcastChanges();
         this.tankAmount.set((int) this.machine.getFluidContainer().getFirstFluid().getFluidAmount());
     }
-}
+}*/

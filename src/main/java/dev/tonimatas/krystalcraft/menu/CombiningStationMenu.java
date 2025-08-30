@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CombiningStationBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.StationMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -26,4 +26,4 @@ public class CombiningStationMenu extends StationMenu<CombiningStationBlockEntit
 
                 });
     }
-}
+}*/

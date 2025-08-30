@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-
+/*
 import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
 import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
@@ -57,3 +57,4 @@ public class CombiningStationRecipeCategory implements IRecipeCategory<Combining
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 70).addItemStack(recipe.result());
     }
 }
+*/

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.registry;
-
+/*
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
@@ -19,4 +19,4 @@ public class ModBlockEntities {
     public static final RegistryEntry<BlockEntityType<CombiningFactoryBlockEntity>> COMBINING_FACTORY_BLOCK_ENTITY = BLOCK_ENTITIES.register("combining_factory", () -> BlockEntityType.Builder.of(CombiningFactoryBlockEntity::new, ModBlocks.COMBINING_FACTORY.get()).build(null));
     public static final RegistryEntry<BlockEntityType<CombustionGeneratorBlockEntity>> COMBUSTION_GENERATOR_BLOCK_ENTITY = BLOCK_ENTITIES.register("combustion_generator", () -> BlockEntityType.Builder.of(CombustionGeneratorBlockEntity::new, ModBlocks.COMBUSTION_GENERATOR.get()).build(null));
     //public static final RegistryEntry<BlockEntityType<EnergyPipeBlockEntity>> ENERGY_PIPE_BLOCK_ENTITY = BLOCK_ENTITIES.register("energy_pipe", () -> PlorixRegistryUtils.createBlockEntityType(EnergyPipeBlockEntity::new, ModBlocks.ENERGY_PIPE.get()));
-}
+}*/

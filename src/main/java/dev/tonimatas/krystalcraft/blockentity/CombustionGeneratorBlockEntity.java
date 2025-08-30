@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.EnergyBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;
 import dev.tonimatas.krystalcraft.menu.CombustionGeneratorMenu;
@@ -83,3 +83,4 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
         return totalBurnTime;
     }
 }
+*/

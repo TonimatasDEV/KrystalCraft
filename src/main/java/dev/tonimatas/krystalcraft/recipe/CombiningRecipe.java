@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.recipe;
-
+/*
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.teamresourceful.bytecodecs.base.ByteCodec;
@@ -48,4 +48,4 @@ public record CombiningRecipe(List<Ingredient> ingredients, ItemStack result) im
     public @NotNull RecipeType<?> getType() {
         return ModRecipes.COMBINING.get();
     }
-}
+}*/

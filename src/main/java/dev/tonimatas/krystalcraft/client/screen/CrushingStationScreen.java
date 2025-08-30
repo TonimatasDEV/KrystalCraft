@@ -1,5 +1,6 @@
 package dev.tonimatas.krystalcraft.client.screen;
 
+/*
 import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
 import dev.tonimatas.krystalcraft.menu.CrushingStationMenu;
 import net.minecraft.client.gui.GuiGraphics;
@@ -25,3 +26,4 @@ public class CrushingStationScreen extends BaseScreen<CrushingStationMenu> {
         renderTooltip(guiGraphics, mouseX, mouseY);
     }
 }
+*/

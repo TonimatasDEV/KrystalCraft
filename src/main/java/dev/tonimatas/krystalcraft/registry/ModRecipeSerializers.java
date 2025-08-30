@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.registry;
-
+/*
 import com.teamresourceful.resourcefullib.common.recipe.CodecRecipeSerializer;
 import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
 import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
@@ -20,3 +20,4 @@ public class ModRecipeSerializers {
     public static final RegistryEntry<CodecRecipeSerializer<CombiningRecipe>> COMBINING_SERIALIZER = RECIPE_SERIALIZERS.register("combining", () ->
             new CodecRecipeSerializer<>(ModRecipes.COMBINING.get(), CombiningRecipe.CODEC, CombiningRecipe.NETWORK_CODEC));
 }
+*/

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.recipe;
-
+/*
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 import com.teamresourceful.bytecodecs.base.ByteCodec;
@@ -44,4 +44,4 @@ public record CrushingRecipe(Ingredient ingredient, ItemStack result) implements
     public @NotNull RecipeType<?> getType() {
         return ModRecipes.CRUSHING.get();
     }
-}
+}*/

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.client.screen;
-
+/*
 import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
 import dev.tonimatas.krystalcraft.menu.CuttingFactoryMenu;
 import net.minecraft.client.gui.GuiGraphics;
@@ -34,3 +34,4 @@ public class CuttingFactoryScreen extends BaseScreen<CuttingFactoryMenu> {
         }
     }
 }
+*/

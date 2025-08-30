@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.inventory;
-
+/*
 import net.minecraft.core.NonNullList;
 import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
@@ -83,3 +83,4 @@ public interface ModInventory extends Container {
         return true;
     }
 }
+*/

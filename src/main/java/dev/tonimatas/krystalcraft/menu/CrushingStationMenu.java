@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CrushingStationBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.StationMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -24,4 +24,4 @@ public class CrushingStationMenu extends StationMenu<CrushingStationBlockEntity>
                         new CombustionSlot(blockEntity, 2, 128, 44)
                 });
     }
-}
+}*/

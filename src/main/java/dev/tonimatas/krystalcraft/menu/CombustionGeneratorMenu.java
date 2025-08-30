@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CombustionGeneratorBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.BaseMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -44,4 +44,4 @@ public class CombustionGeneratorMenu extends BaseMenu<CombustionGeneratorBlockEn
     public long getMaxEnergyCapacity() {
         return this.machine.getEnergyStorage().getCapacity();
     }
-}
+}*/

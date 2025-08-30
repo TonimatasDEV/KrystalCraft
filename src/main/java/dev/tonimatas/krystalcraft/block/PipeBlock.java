@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.block;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -121,3 +121,4 @@ public abstract class PipeBlock extends Block implements EntityBlock {
         builder.add(DOWN, UP, NORTH, SOUTH, WEST, EAST);
     }
 }
+*/

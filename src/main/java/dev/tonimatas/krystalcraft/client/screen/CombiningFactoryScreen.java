@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.client.screen;
-
+/*
 import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
 import dev.tonimatas.krystalcraft.menu.CombiningFactoryMenu;
 import net.minecraft.client.gui.GuiGraphics;
@@ -29,3 +29,4 @@ public class CombiningFactoryScreen extends BaseScreen<CombiningFactoryMenu> {
         }
     }
 }
+*/

@@ -1,55 +1,35 @@
 package dev.tonimatas.krystalcraft.block;
-
-import com.teamresourceful.resourcefullib.common.menu.MenuContentHelper;
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.BaseBlockEntity;
 import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
-import earth.terrarium.botarium.common.energy.EnergyApi;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.Containers;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.context.BlockPlaceContext;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
-import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityTicker;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
-import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.inventory.Inventories;
+import net.minecraft.item.ItemStack;
+import net.minecraft.state.property.DirectionProperty;
+import net.minecraft.util.BlockMirror;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Objects;
 
 @SuppressWarnings("deprecation")
-public abstract class AbstractMachineBlock extends BaseEntityBlock {
-    private BlockEntityType<?> entity;
-    public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+public abstract class AbstractMachineBlock extends BlockWithEntity implements BlockEntityProvider {
+    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 
-    public AbstractMachineBlock(Properties properties) {
+    public AbstractMachineBlock(Settings properties) {
         super(properties);
         this.registerDefaultState(this.buildDefaultState());
     }
 
     @Override
-    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        if (entity == null) {
-            entity = ModBlockEntities.BLOCK_ENTITIES.getEntries().stream().map(RegistryEntry::get).filter(type -> type.isValid(state)).findFirst().orElse(null);
-        }
-        return Objects.requireNonNull(entity).create(pos, state);
-    }
-
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return (entityWorld, pos, entityState, blockEntity) -> {
             if (blockEntity instanceof BaseBlockEntity machine) {
                 machine.tick();
@@ -97,19 +77,19 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean moved) {
-        if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
+    public void onBroken(WorldAccess world, BlockPos pos, BlockState state) {
+        if (state.getBlock() != state.getBlock()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof BaseBlockEntity machineBlock) {
                 if (machineBlock.getInventorySize() > 0) {
                     if (this.removeOutput()) {
                         machineBlock.removeItemNoUpdate(machineBlock.getInventorySize() - 1);
                     }
-                    Containers.dropContents(level, pos, machineBlock);
-                    level.updateNeighbourForOutputSignal(pos, this);
+                    Containers.dropContents(world, pos, machineBlock);
+                    world.updateNeighbourForOutputSignal(pos, this);
                 }
             }
-            super.onRemove(state, level, pos, newState, moved);
+            super.onBroken(world, pos, state);
         }
     }
 
@@ -118,10 +98,10 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public @NotNull BlockState mirror(BlockState state, Mirror mirror) {
-        return state.rotate(mirror.getRotation(state.getValue(FACING)));
+    protected BlockState mirror(BlockState state, BlockMirror mirror) {
+        return state.rotate(mirror.getRotation(state.get(FACING)));
     }
-
+    
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
 
@@ -137,23 +117,16 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
     }
 
     @Override
-    public void neighborChanged(BlockState state, Level level, BlockPos pos, Block block, BlockPos fromPos, boolean notify) {
-        super.neighborChanged(state, level, pos, block, fromPos, notify);
+    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
+        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
     }
 
     @Override
-    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        BlockEntity blockEntity = level.getBlockEntity(pos);
-
-        return blockEntity instanceof BaseBlockEntity ? AbstractContainerMenu.getRedstoneSignalFromBlockEntity(blockEntity) : 0;
-    }
-
-    @Override
-    public @NotNull ItemStack getCloneItemStack(LevelReader levelReader, BlockPos blockPos, BlockState blockState) {
-        ItemStack stack = super.getCloneItemStack(levelReader, blockPos, blockState);
-        if (levelReader.getBlockEntity(blockPos) instanceof BaseBlockEntity machineBlock) {
+    public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
+        ItemStack stack = super.getPickStack(world, pos, state);
+        if (world.getBlockEntity(pos) instanceof BaseBlockEntity machineBlock) {
             CompoundTag tag = stack.getOrCreateTag();
-            ContainerHelper.saveAllItems(tag, machineBlock.getItems());
+            Inventories.saveAllItems(tag, machineBlock.getItems());
 
             if (EnergyApi.getEnergyBlock(machineBlock.getType()) != null) {
                 tag.putLong("Energy", Objects.requireNonNull(EnergyApi.getEnergyBlock(machineBlock.getType())).getEnergyStorage(machineBlock.getLevel(), blockPos, blockState, machineBlock, null).getStoredEnergy());
@@ -161,4 +134,4 @@ public abstract class AbstractMachineBlock extends BaseEntityBlock {
         }
         return stack;
     }
-}
+}*/

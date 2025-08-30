@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.blockentity;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.util.FactoryBlockEntity;
 import dev.tonimatas.krystalcraft.energy.Energy;
 import dev.tonimatas.krystalcraft.menu.CombiningFactoryMenu;
@@ -82,3 +82,4 @@ public class CombiningFactoryBlockEntity extends FactoryBlockEntity {
         }
     }
 }
+*/

@@ -9,14 +9,17 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.GenerationStep;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class KrystalCraft implements ModInitializer {
     public static final String MOD_ID = "krystalcraft";
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
     
     @Override
     public void onInitialize() {
-        ModBlocks.BLOCKS.init();
         ModItems.initialize();
+        ModBlocks.initialize();
         ModBlockEntities.BLOCK_ENTITIES.init();
         
         ModMenus.MENUS.init();
@@ -38,7 +41,7 @@ public class KrystalCraft implements ModInitializer {
         addOre("tin_ore");
         addOre("topaz_ore");
 
-        LogUtils.getLogger().info("KystalCraft started successfully.");
+        LOGGER.info("KystalCraft started successfully.");
     }
 
     private void addOre(String name) {

@@ -1,5 +1,5 @@
 package dev.tonimatas.krystalcraft.menu;
-
+/*
 import dev.tonimatas.krystalcraft.blockentity.CombiningFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
@@ -28,4 +28,4 @@ public class CombiningFactoryMenu extends FactoryMenu<CombiningFactoryBlockEntit
                         new UpgradeSlot(blockEntity, 5, 126, -12)
                 });
     }
-}
+}*/
