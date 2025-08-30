@@ -1,20 +1,20 @@
 package dev.tonimatas.krystalcraft.menu.slots;
 
-import earth.terrarium.botarium.common.fluid.base.FluidContainer;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.material.Fluid;
+import net.minecraft.fluid.Fluid;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 
 public class FluidSlot extends Slot {
     protected Fluid fluid;
-    public FluidSlot(Container container, int i, int j, int k, Fluid fluid) {
-        super(container, i, j, k);
+    public FluidSlot(Inventory inventory, int i, int j, int k, Fluid fluid) {
+        super(inventory, i, j, k);
         this.fluid = fluid;
     }
 
     @Override
-    public boolean mayPlace(ItemStack itemStack) {
-        return FluidContainer.holdsFluid(itemStack);
+    public boolean canInsert(ItemStack stack) {
+        return false;
+        //return FluidContainer.holdsFluid(itemStack);
     }
 }

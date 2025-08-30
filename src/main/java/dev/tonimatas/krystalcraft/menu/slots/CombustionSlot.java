@@ -1,17 +1,17 @@
 package dev.tonimatas.krystalcraft.menu.slots;
 
-import dev.tonimatas.krystalcraft.energy.Energy;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
+import net.fabricmc.fabric.impl.content.registry.FuelRegistryImpl;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 
 public class CombustionSlot extends Slot {
-    public CombustionSlot(Container container, int i, int j, int k) {
-        super(container, i, j, k);
+    public CombustionSlot(Inventory inventory, int i, int j, int k) {
+        super(inventory, i, j, k);
     }
 
     @Override
-    public boolean mayPlace(ItemStack itemStack) {
-        return Energy.getBurnTime(itemStack) > 0;
+    public boolean canInsert(ItemStack stack) {
+        return FuelRegistryImpl.INSTANCE.get(stack.getItem()) > 0;
     }
 }

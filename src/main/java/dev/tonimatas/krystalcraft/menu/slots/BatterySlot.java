@@ -1,18 +1,18 @@
 package dev.tonimatas.krystalcraft.menu.slots;
 
-import earth.terrarium.botarium.common.energy.base.EnergyContainer;
-import net.minecraft.world.Container;
-import net.minecraft.world.inventory.Slot;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.item.ItemStack;
+import net.minecraft.screen.slot.Slot;
 
 public class BatterySlot extends Slot {
 
-    public BatterySlot(Container container, int i, int j, int k) {
-        super(container, i, j, k);
+    public BatterySlot(Inventory inventory, int i, int j, int k) {
+        super(inventory, i, j, k);
     }
 
     @Override
-    public boolean mayPlace(ItemStack itemStack) {
-        return EnergyContainer.holdsEnergy(itemStack);
+    public boolean canInsert(ItemStack stack) {
+        return false;
+        //return EnergyContainer.holdsEnergy(stack);
     }
 }

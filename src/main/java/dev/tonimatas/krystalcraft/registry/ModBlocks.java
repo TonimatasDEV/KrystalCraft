@@ -1,66 +1,94 @@
 package dev.tonimatas.krystalcraft.registry;
 
-import com.teamresourceful.resourcefullib.common.registry.RegistryEntry;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistries;
-import com.teamresourceful.resourcefullib.common.registry.ResourcefulRegistry;
-import dev.tonimatas.krystalcraft.block.MachineBlock;
+import dev.tonimatas.krystalcraft.KrystalCraft;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.util.valueproviders.UniformInt;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.DropExperienceBlock;
-import net.minecraft.world.level.block.SoundType;
-import net.minecraft.world.level.block.state.BlockBehaviour;
-
-import java.util.function.Supplier;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.ExperienceDroppingBlock;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.util.Identifier;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 
 public class ModBlocks {
-    public static final ResourcefulRegistry<Block> BLOCKS = ResourcefulRegistries.create(BuiltInRegistries.BLOCK, KrystalCraft.MOD_ID);
-
-    public static final RegistryEntry<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> SILVER_ORE = registerBlock("silver_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> JADE_BLOCK = registerBlock("jade_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> JADE_ORE = registerBlock("jade_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_JADE_ORE = registerBlock("deepslate_jade_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> TOPAZ_BLOCK = registerBlock("topaz_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> TOPAZ_ORE = registerBlock("topaz_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> LEAD_BLOCK = registerBlock("lead_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> LEAD_ORE = registerBlock("lead_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> TIN_BLOCK = registerBlock("tin_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> TIN_ORE = registerBlock("tin_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(6f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> PLATINUM_BLOCK = registerBlock("platinum_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(7f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> PLATINUM_ORE = registerBlock("platinum_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(6f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_PLATINUM_ORE = registerBlock("deepslate_platinum_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(8f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> SAPPHIRE_BLOCK = registerBlock("sapphire_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(6f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> SAPPHIRE_ORE = registerBlock("sapphire_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_SAPPHIRE_ORE = registerBlock("deepslate_sapphire_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(7f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> RUBY_BLOCK = registerBlock("ruby_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-    public static final RegistryEntry<Block> RUBY_ORE = registerBlock("ruby_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(6f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> EXPERIENCE_ORE = registerBlock("experience_ore", () -> new DropExperienceBlock(UniformInt.of(15, 30), BlockBehaviour.Properties.ofFullCopy(Blocks.STONE).strength(4f).requiresCorrectToolForDrops().sound(SoundType.STONE)));
-    public static final RegistryEntry<Block> DEEPSLATE_EXPERIENCE_ORE = registerBlock("deepslate_experience_ore", () -> new DropExperienceBlock(UniformInt.of(20, 40), BlockBehaviour.Properties.ofFullCopy(Blocks.DEEPSLATE).strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
-    public static final RegistryEntry<Block> BRONZE_BLOCK = registerBlock("bronze_block", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).strength(5f).requiresCorrectToolForDrops().sound(SoundType.METAL)));
-
-    // Custom Blocks
-    public static final RegistryEntry<Block> CUTTING_STATION = registerBlock("cutting_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> CRUSHING_STATION = registerBlock("crushing_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> CRUSHING_FACTORY = registerBlock("crushing_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> COMBINING_STATION = registerBlock("combining_station", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> COMBINING_FACTORY = registerBlock("combining_factory", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
-    public static final RegistryEntry<Block> COMBUSTION_GENERATOR = registerBlock("combustion_generator", () -> new MachineBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion()));
+    public static final Block SILVER_BLOCK = registerBlock("silver_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(6f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block SILVER_ORE = registerBlock("silver_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(7f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block JADE_BLOCK = registerBlock("jade_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(6f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block JADE_ORE = registerBlock("jade_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_JADE_ORE = registerBlock("deepslate_jade_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(7f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block TOPAZ_BLOCK = registerBlock("topaz_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(6f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block TOPAZ_ORE = registerBlock("topaz_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_TOPAZ_ORE = registerBlock("deepslate_topaz_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(7f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block LEAD_BLOCK = registerBlock("lead_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(6f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block LEAD_ORE = registerBlock("lead_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_LEAD_ORE = registerBlock("deepslate_lead_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(7f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block TIN_BLOCK = registerBlock("tin_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(5f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block TIN_ORE = registerBlock("tin_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(4f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_TIN_ORE = registerBlock("deepslate_tin_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(6f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block PLATINUM_BLOCK = registerBlock("platinum_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(7f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block PLATINUM_ORE = registerBlock("platinum_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(6f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_PLATINUM_ORE = registerBlock("deepslate_platinum_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(8f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block SAPPHIRE_BLOCK = registerBlock("sapphire_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(6f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block SAPPHIRE_ORE = registerBlock("sapphire_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(5f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_SAPPHIRE_ORE = registerBlock("deepslate_sapphire_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(7f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block RUBY_BLOCK = registerBlock("ruby_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(5f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    public static final Block RUBY_ORE = registerBlock("ruby_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.STONE).strength(4f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_RUBY_ORE = registerBlock("deepslate_ruby_ore",
+            new Block(AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(6f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block EXPERIENCE_ORE = registerBlock("experience_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(15, 30), AbstractBlock.Settings.copy(Blocks.STONE).strength(4f).requiresTool().sounds(BlockSoundGroup.STONE)));
+    public static final Block DEEPSLATE_EXPERIENCE_ORE = registerBlock("deepslate_experience_ore",
+            new ExperienceDroppingBlock(UniformIntProvider.create(20, 40), AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
+    public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
+            new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(5f).requiresTool().sounds(BlockSoundGroup.METAL)));
+    
+    // Block Entities
+    //public static final Block CUTTING_STATION = registerBlock("cutting_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block CRUSHING_STATION = registerBlock("crushing_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block CRUSHING_FACTORY = registerBlock("crushing_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block COMBINING_STATION = registerBlock("combining_station", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block COMBINING_FACTORY = registerBlock("combining_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    //public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);
 
-    private static <T extends Block> RegistryEntry<T> registerBlock(String name, Supplier<T> block) {
-        RegistryEntry<T> toReturn = BLOCKS.register(name, block);
-        ModItems.ITEMS.register(name, () -> new BlockItem(toReturn.get(), new Item.Properties()));
-        return toReturn;
+    private static Block registerBlock(String name, Block block) {
+        registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(KrystalCraft.MOD_ID, name), block);
+    }
+    
+    private static void registerBlockItem(String name, Block block) {
+        Registry.register(Registries.ITEM, Identifier.of(KrystalCraft.MOD_ID, name), new BlockItem(block, new Item.Settings()));
+    }
+    
+    public static void initialize() {
+        // Initialize the class
     }
 }
