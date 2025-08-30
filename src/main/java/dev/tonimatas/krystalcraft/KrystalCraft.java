@@ -18,10 +18,14 @@ public class KrystalCraft implements ModInitializer {
         ModBlocks.BLOCKS.init();
         ModItems.initialize();
         ModBlockEntities.BLOCK_ENTITIES.init();
+        
         ModMenus.MENUS.init();
+        
         ModRecipeSerializers.RECIPE_SERIALIZERS.init();
         ModRecipes.RECIPE_TYPES.init();
-        ModEnchants.ENCHANTMENTS.init();
+        
+        ModEnchantmentEffects.initialize();
+        
         ModTabs.initialize();
 
         addOre("experience_ore");
