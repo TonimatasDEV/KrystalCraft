@@ -1,9 +1,7 @@
 package dev.tonimatas.krystalcraft.registry;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
-import dev.tonimatas.krystalcraft.item.custom.BatteryItem;
-import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import dev.tonimatas.krystalcraft.item.BatteryItem;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

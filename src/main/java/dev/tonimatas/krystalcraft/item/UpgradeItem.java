@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.item.custom;
+package dev.tonimatas.krystalcraft.item;
 
 import net.minecraft.item.Item;
 
