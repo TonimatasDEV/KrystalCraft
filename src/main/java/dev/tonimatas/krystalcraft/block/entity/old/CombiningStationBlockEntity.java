@@ -19,11 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 public class CombiningStationBlockEntity extends BurnBlockEntity {
-    protected final int INPUT1_SLOT = 0;
-    protected final int INPUT2_SLOT = 1;
-    protected final int RESULT_SLOT = 2;
-    protected final int COMBUSTION_SLOT = 3;
-
     @Override
     public void tick() {
         if (level == null) return;
@@ -47,24 +42,5 @@ public class CombiningStationBlockEntity extends BurnBlockEntity {
         }
 
         if (burnTime > 0) burnTime--;
-    }
-
-    private boolean hasRecipe(Level level) {
-        Optional<RecipeHolder<CombiningRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-        if (match.isEmpty()) return false;
-
-        ItemStack resultItem = match.get().value().result();
-        return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
-    }
-
-    private void craft(Level level) {
-        Optional<RecipeHolder<CombiningRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.COMBINING.get(), this, level);
-
-        if (match.isPresent()) {
-            removeItem(INPUT1_SLOT, 1);
-            removeItem(INPUT2_SLOT, 1);
-            ItemStack result = match.get().value().result();
-            setItem(RESULT_SLOT, new ItemStack(result.getItem(), getItem(RESULT_SLOT).getCount() + result.getCount()));
-        }
     }
 }*/

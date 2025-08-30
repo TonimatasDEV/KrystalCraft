@@ -28,11 +28,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class CuttingStationBlockEntity extends BurnBlockEntity implements BotariumFluidBlock<WrappedBlockFluidContainer> {
-    protected final int INPUT_SLOT = 0;
-    protected final int RESULT_SLOT = 1;
-    protected final int COMBUSTION_SLOT = 2;
-    protected final int TANK_INPUT_SLOT = 3;
-    protected final int TANK_OUTPUT_SLOT = 4;
     protected WrappedBlockFluidContainer fluidContainer;
 
     public CuttingStationBlockEntity(BlockPos blockPos, BlockState blockState) {
@@ -83,22 +78,5 @@ public class CuttingStationBlockEntity extends BurnBlockEntity implements Botari
         }
 
         if (burnTime > 0) burnTime--;
-    }
-
-    private boolean hasRecipe(Level level) {
-        Optional<RecipeHolder<CuttingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CUTTING.get(), this, level);
-        if (match.isEmpty()) return false;
-
-        ItemStack resultItem = match.get().value().result();
-        return (resultItem.is(resultItem.getItem()) || (resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64);
-    }
-
-    private void craft(Level level) {
-        Optional<RecipeHolder<CuttingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CUTTING.get(), this, level);
-
-        if (match.isPresent()) {
-            removeItem(INPUT_SLOT, 1);
-            setItem(RESULT_SLOT, new ItemStack(match.get().value().result().getItem(), getItem(RESULT_SLOT).getCount() + 1));
-        }
     }
 }*/

@@ -19,10 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Optional;
 
 public class CrushingStationBlock extends BurnBlockEntity {
-    protected final int INPUT_SLOT = 0;
-    protected final int RESULT_SLOT = 1;
-    protected final int COMBUSTION_SLOT = 2;
-
     @Override
     public void tick() {
         if (level == null) return;
@@ -46,22 +42,5 @@ public class CrushingStationBlock extends BurnBlockEntity {
         }
 
         if (burnTime > 0) burnTime--;
-    }
-
-    private boolean hasRecipe(Level level) {
-        Optional<RecipeHolder<CrushingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
-        if (match.isEmpty()) return false;
-
-        ItemStack resultItem = match.get().value().result();
-        return (resultItem.is(resultItem.getItem()) || resultItem.isEmpty()) && (resultItem.getCount() + getItem(RESULT_SLOT).getCount()) <= 64;
-    }
-
-    private void craft(Level level) {
-        Optional<RecipeHolder<CrushingRecipe>> match = level.getRecipeManager().getRecipeFor(ModRecipes.CRUSHING.get(), this, level);
-
-        if (match.isPresent()) {
-            removeItem(INPUT_SLOT, 1);
-            setItem(RESULT_SLOT, new ItemStack(match.get().value().result().getItem(), getItem(RESULT_SLOT).getCount() + 1));
-        }
     }
 }*/

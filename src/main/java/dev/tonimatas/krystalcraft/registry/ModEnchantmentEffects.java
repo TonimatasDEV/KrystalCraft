@@ -20,6 +20,6 @@ public class ModEnchantmentEffects {
     }
     
     public static void initialize() {
-        // 
+        // Initialize the class
     }
 }

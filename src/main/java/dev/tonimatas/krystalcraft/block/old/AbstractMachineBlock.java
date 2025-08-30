@@ -20,21 +20,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public abstract class AbstractMachineBlock extends BlockWithEntity implements BlockEntityProvider {
-
-    @Override
-    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return (entityWorld, pos, entityState, blockEntity) -> {
-            if (blockEntity instanceof BaseBlockEntity machine) {
-                machine.tick();
-            }
-        };
-    }
-
-    @Override
-    protected void neighborUpdate(BlockState state, World world, BlockPos pos, Block sourceBlock, BlockPos sourcePos, boolean notify) {
-        super.neighborUpdate(state, world, pos, sourceBlock, sourcePos, notify);
-    }
-
     @Override
     public ItemStack getPickStack(WorldView world, BlockPos pos, BlockState state) {
         ItemStack stack = super.getPickStack(world, pos, state);
