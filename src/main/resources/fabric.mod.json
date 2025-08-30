@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "krystalcraft",
+  "version": "${version}",
+  "name": "KrystalCraft",
+  "description": "Make your mining more complex",
+  "authors": [
+    "TonimatasDEV"
+  ],
+  "contact": {
+    "homepage": "https://tonimatas.dev",
+    "sources": "https://github.com/TonimatasDEV/KrystalCraft"
+  },
+  "license": "MIT",
+  "icon": "assets/krystalcraft/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.tonimatas.krystalcraft.KrystalCraft"
+    ],
+    "fabric-datagen": [
+      "dev.tonimatas.krystalcraft.KrystalCraftData"
+    ],
+    "client": [
+      "dev.tonimatas.krystalcraft.KrystalCraftClient"
+    ]
+  },
+  "mixins": [
+  ],
+  "depends": {
+    "fabricloader": ">=0.15.11",
+    "minecraft": "~1.21",
+    "java": ">=21",
+    "fabric-api": "*"
+  },
+  "suggests": {
+  }
+}
