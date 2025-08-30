@@ -9,9 +9,9 @@ import net.minecraft.util.Identifier;
 
 public class ModItems {
     public static final Item SILVER_INGOT = register("silver_ingot", new Item(new Item.Settings()));
+    public static final Item SILVER_NUGGET = register("silver_nugget", new Item(new Item.Settings()));
     public static final Item SILVER_DUST = register("silver_dust", new Item(new Item.Settings()));
     public static final Item RAW_SILVER = register("raw_silver", new Item(new Item.Settings()));
-    public static final Item SILVER_NUGGET = register("silver_nugget", new Item(new Item.Settings()));
     public static final Item SILVER_HELMET = register("silver_helmet", new ArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.HELMET,
             new ArmorItem.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item SILVER_CHESTPLATE = register("silver_chestplate", new ArmorItem(ModArmorMaterials.SILVER, ArmorItem.Type.CHESTPLATE,
@@ -79,9 +79,9 @@ public class ModItems {
 
     //--------------------------------------------------------------------------------------------------------------Lead
     public static final Item LEAD_INGOT = register("lead_ingot", new Item(new Item.Settings()));
+    public static final Item LEAD_NUGGET = register("lead_nugget", new Item(new Item.Settings()));
     public static final Item LEAD_DUST = register("lead_dust", new Item(new Item.Settings()));
     public static final Item RAW_LEAD = register("raw_lead", new Item(new Item.Settings()));
-    public static final Item LEAD_NUGGET = register("lead_nugget", new Item(new Item.Settings()));
     public static final Item LEAD_HELMET = register("lead_helmet", new ArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.HELMET,
             new ArmorItem.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item LEAD_CHESTPLATE = register("lead_chestplate", new ArmorItem(ModArmorMaterials.LEAD, ArmorItem.Type.CHESTPLATE,
@@ -103,9 +103,9 @@ public class ModItems {
 
 //-------------------------------------------------------------------------------------------------------------------Tin
     public static final Item TIN_INGOT = register("tin_ingot", new Item(new Item.Settings()));
+    public static final Item TIN_NUGGET = register("tin_nugget", new Item(new Item.Settings()));
     public static final Item TIN_DUST = register("tin_dust", new Item(new Item.Settings()));
     public static final Item RAW_TIN = register("raw_tin", new Item(new Item.Settings()));
-    public static final Item TIN_NUGGET = register("tin_nugget", new Item(new Item.Settings()));
     public static final Item TIN_HELMET = register("tin_helmet", new ArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.HELMET,
             new ArmorItem.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item TIN_CHESTPLATE = register("tin_chestplate", new ArmorItem(ModArmorMaterials.TIN, ArmorItem.Type.CHESTPLATE,
@@ -149,9 +149,9 @@ public class ModItems {
 
 //--------------------------------------------------------------------------------------------------------------Platinum
     public static final Item PLATINUM_INGOT = register("platinum_ingot", new Item(new Item.Settings()));
+    public static final Item PLATINUM_NUGGET = register("platinum_nugget", new Item(new Item.Settings()));
     public static final Item PLATINUM_DUST = register("platinum_dust", new Item(new Item.Settings()));
     public static final Item RAW_PLATINUM = register("raw_platinum", new Item(new Item.Settings()));
-    public static final Item PLATINUM_NUGGET = register("platinum_nugget", new Item(new Item.Settings()));
     public static final Item PLATINUM_HELMET = register("platinum_helmet", new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.HELMET,
             new ArmorItem.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item PLATINUM_CHESTPLATE = register("platinum_chestplate", new ArmorItem(ModArmorMaterials.PLATINUM, ArmorItem.Type.CHESTPLATE,
@@ -220,8 +220,8 @@ public class ModItems {
 
 //----------------------------------------------------------------------------------------------------------------Bronze
     public static final Item BRONZE_INGOT = register("bronze_ingot", new Item(new Item.Settings()));
-    public static final Item BRONZE_DUST = register("bronze_dust", new Item(new Item.Settings()));
     public static final Item BRONZE_NUGGET = register("bronze_nugget", new Item(new Item.Settings()));
+    public static final Item BRONZE_DUST = register("bronze_dust", new Item(new Item.Settings()));
     public static final Item BRONZE_HELMET = register("bronze_helmet", new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.HELMET,
             new ArmorItem.Settings().maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item BRONZE_CHESTPLATE = register("bronze_chestplate", new ArmorItem(ModArmorMaterials.BRONZE, ArmorItem.Type.CHESTPLATE,
