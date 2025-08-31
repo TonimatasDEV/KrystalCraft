@@ -5,6 +5,7 @@ import dev.tonimatas.krystalcraft.recipe.input.CombiningRecipeInput;
 import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import dev.tonimatas.krystalcraft.screen.CombiningStationScreenHandler;
+import dev.tonimatas.krystalcraft.util.FabricUtils;
 import dev.tonimatas.krystalcraft.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -125,7 +126,14 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
 
     public void tick(World world, BlockPos pos, BlockState state) {
         if (hasRecipe()) {
-            this.progress++;
+            if (burnTime <= 0) {
+                burnTime = FabricUtils.getBurnTime(getStack(FUEL_SLOT));
+                burnTimeTotal = burnTime;
+                removeStack(FUEL_SLOT, 1);
+            } else {
+                progress++;
+            }
+
             markDirty(world, pos, state);
 
             if (this.progress >= this.maxProgress) {
@@ -135,6 +143,8 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
         } else {
             this.progress = 0;
         }
+
+        if (burnTime > 0) burnTime--;
     }
     
     private boolean hasRecipe() {

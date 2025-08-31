@@ -1,6 +1,6 @@
 package dev.tonimatas.krystalcraft.screen.slots;
 
-import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
+import dev.tonimatas.krystalcraft.util.FabricUtils;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.slot.Slot;
@@ -12,6 +12,6 @@ public class FuelSlot extends Slot {
 
     @Override
     public boolean canInsert(ItemStack stack) {
-        return AbstractFurnaceBlockEntity.canUseAsFuel(stack);
+        return FabricUtils.getBurnTime(stack) > 0;
     }
 }

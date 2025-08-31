@@ -17,19 +17,13 @@ import net.minecraft.world.inventory.InventoryMenu;
 import java.awt.*;
 
 public class GuiUtil {
-    public static final int FIRE_WIDTH = 13;
-    public static final int FIRE_HEIGHT = 13;
     public static final int ENERGY_WIDTH = 13;
     public static final int ENERGY_HEIGHT = 46;
     public static final int FLUID_TANK_WIDTH = 14;
     public static final int FLUID_TANK_HEIGHT = 48;
-    public static final int FACTORY_LOADER_WIDTH = 6;
-    public static final int FACTORY_LOADER_HEIGHT = 13;
 
-    public static final ResourceLocation FIRE_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/fire.png");
     public static final ResourceLocation ENERGY_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/energy_full.png");
     public static final ResourceLocation FLUID_TANK_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/fluid_tank.png");
-    public static final ResourceLocation FACTORY_LOADER_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/loader.png");
 
     public static boolean isHovering(Rectangle bounds, double x, double y) {
         double left = bounds.getX();
@@ -37,11 +31,6 @@ public class GuiUtil {
         double top = bounds.getY();
         double bottom = top + bounds.getHeight();
         return left <= x && x < right && top <= y && y < bottom;
-    }
-
-    public static void drawProgress(GuiGraphics graphics, int x, int y, float progress, float maxProgress) {
-        double ratio = maxProgress > 0 ? (progress / maxProgress) : 0;
-        drawVertical(graphics, x, y, FACTORY_LOADER_WIDTH, FACTORY_LOADER_HEIGHT, FACTORY_LOADER_TEXTURE, ratio);
     }
 
     public static void drawEnergy(GuiGraphics graphics, int x, int y, long energy, long maxEnergy) {
@@ -72,17 +61,6 @@ public class GuiUtil {
         RenderSystem.enableBlend();
         drawVertical(graphics, x, y, FLUID_TANK_WIDTH, FLUID_TANK_HEIGHT, FLUID_TANK_TEXTURE, 1.0);
         RenderSystem.disableBlend();
-    }
-
-    public static void drawFire(GuiGraphics graphics, int x, int y, int burnTime, int totalBurnTime) {
-        double ratio = totalBurnTime > 0 ? (burnTime / (float) totalBurnTime) : 0;
-        drawVertical(graphics, x, y, FIRE_WIDTH, FIRE_HEIGHT, FIRE_TEXTURE, ratio);
-    }
-
-    public static void drawVertical(GuiGraphics graphics, int x, int y, int width, int height, ResourceLocation resource, double ratio) {
-        int ratioHeight = (int) Math.ceil(height * ratio);
-        int remainHeight = height - ratioHeight;
-        graphics.blit(resource, x, y + remainHeight, 0, remainHeight, width, ratioHeight, width, height);
     }
 
     public static void drawEnergyTooltip(GuiGraphics graphics, long energy, long energyCapacity, int mouseX, int mouseY) {

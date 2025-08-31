@@ -56,6 +56,14 @@ public class CuttingStationScreenHandler extends ScreenHandler {
         return maxProgress != 0 && progress != 0 ? progress * loaderSize / maxProgress : 0;
     }
 
+    public int getBurnTime() {
+        return this.propertyDelegate.get(0);
+    }
+
+    public int getBurnTimeTotal() {
+        return this.propertyDelegate.get(1);
+    }
+
     @Override
     public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;

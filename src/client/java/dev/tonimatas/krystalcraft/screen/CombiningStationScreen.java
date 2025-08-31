@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import dev.tonimatas.krystalcraft.KrystalCraft;
+import dev.tonimatas.krystalcraft.utils.GuiUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
@@ -11,7 +12,6 @@ import net.minecraft.util.Identifier;
 
 public class CombiningStationScreen extends HandledScreen<CombiningStationScreenHandler> {
     public static final Identifier TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
-    public static final Identifier LOADER_TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/overlay/loader.png");
 
     public CombiningStationScreen(CombiningStationScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -31,8 +31,10 @@ public class CombiningStationScreen extends HandledScreen<CombiningStationScreen
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
         if (handler.isCrafting()) {
-            context.drawTexture(LOADER_TEXTURE, x + 85, y + 50, 0, 0, 6, handler.getScaledLoader(), 6, 13);
+            GuiUtils.drawLoaderProgress(context, x + 85, y + 50, handler.getScaledLoader());
         }
+
+        GuiUtils.drawFire(context, x + 130, y + 54, handler.getBurnTime(), handler.getBurnTimeTotal());
     }
 
     @Override
