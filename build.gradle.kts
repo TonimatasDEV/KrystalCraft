@@ -21,6 +21,7 @@ fabricApi {
 }
 
 loom {
+    accessWidenerPath.set(file("src/main/resources/krystalcraft.accesswidener"))
     splitEnvironmentSourceSets()
 
     mods {

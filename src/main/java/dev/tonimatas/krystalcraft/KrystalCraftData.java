@@ -2,6 +2,8 @@ package dev.tonimatas.krystalcraft;
 
 import dev.tonimatas.krystalcraft.data.*;
 import dev.tonimatas.krystalcraft.registry.ModEnchantments;
+import dev.tonimatas.krystalcraft.world.ModConfiguredFeatures;
+import dev.tonimatas.krystalcraft.world.ModPlacedFeatures;
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
 import net.minecraft.registry.RegistryBuilder;
@@ -22,6 +24,8 @@ public class KrystalCraftData implements DataGeneratorEntrypoint {
 
     @Override
     public void buildRegistry(RegistryBuilder registryBuilder) {
+        registryBuilder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap);
+        registryBuilder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap);
         registryBuilder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap);
     }
 }
