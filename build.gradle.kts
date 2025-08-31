@@ -7,6 +7,7 @@ val loaderVersion: String by extra
 val modVersion: String by extra
 val fabricVersion: String by extra
 val yarnMappings: String by extra
+val energyVersion: String by extra
 val jeiVersion: String by extra
 
 version = modVersion
@@ -48,6 +49,10 @@ dependencies {
     // Compatibility
     modCompileOnlyApi("mezz.jei:jei-$minecraftVersion-fabric-api:$jeiVersion")
     //modRuntimeOnly("mezz.jei:jei-$minecraftVersion-fabric:$jeiVersion")
+    
+    include(modApi("teamreborn:energy:$energyVersion") {
+        exclude(group = "net.fabricmc.fabric-api")
+    })
 }
 
 tasks.processResources {
