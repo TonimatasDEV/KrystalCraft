@@ -1,6 +1,7 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-/*
+
+import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
 import dev.tonimatas.krystalcraft.registry.ModBlocks;
 import mezz.jei.api.constants.VanillaTypes;
@@ -11,9 +12,9 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
-import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.item.ItemStack;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
 public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingRecipe> {
@@ -21,18 +22,18 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
     private final IDrawable icon;
 
     public CuttingStationRecipeCategory(IGuiHelper helper) {
-        this.background = helper.createDrawable(ResourceLocation.fromNamespaceAndPath(KrystalCraft.MOD_ID, "textures/gui/cutting_station.png"), 0, 0, 176, 85);
-        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CUTTING_STATION.get()));
+        this.background = helper.createDrawable(Identifier.of(KrystalCraft.MOD_ID, "textures/gui/cutting_station.png"), 0, 0, 176, 85);
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.CUTTING_STATION));
     }
 
     @Override
     public @NotNull RecipeType<CuttingRecipe> getRecipeType() {
-        return JEIKrystalCraftModPlugin.CUTTING;
+        return JEIKrystalCraftPlugin.CUTTING;
     }
 
     @Override
-    public @NotNull Component getTitle() {
-        return Component.literal("Cutting");
+    public @NotNull Text getTitle() {
+        return Text.literal("Cutting");
     }
 
     @Override
@@ -51,4 +52,3 @@ public class CuttingStationRecipeCategory implements IRecipeCategory<CuttingReci
         builder.addSlot(RecipeIngredientRole.OUTPUT, 80, 60).addItemStack(recipe.result());
     }
 }
-*/

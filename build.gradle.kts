@@ -7,6 +7,7 @@ val loaderVersion: String by extra
 val modVersion: String by extra
 val fabricVersion: String by extra
 val yarnMappings: String by extra
+val jeiVersion: String by extra
 
 version = modVersion
 group = "dev.tonimatas.krystalcraft"
@@ -15,7 +16,8 @@ base {
     archivesName = "krystalcraft"
 }
 
-repositories {
+fabricApi {
+    configureDataGeneration()
 }
 
 loom {
@@ -29,12 +31,22 @@ loom {
     }
 }
 
+repositories {
+    maven("https://maven.blamejared.com")
+    maven("https://modmaven.dev")
+}
+
 dependencies {
     minecraft("com.mojang:minecraft:$minecraftVersion")
     mappings("net.fabricmc:yarn:$minecraftVersion+build.$yarnMappings:v2")
+    
+    // Fabric
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
 
+    // Compatibility
+    modCompileOnlyApi("mezz.jei:jei-$minecraftVersion-fabric-api:$jeiVersion")
+    //modRuntimeOnly("mezz.jei:jei-$minecraftVersion-fabric:$jeiVersion")
 }
 
 tasks.processResources {

@@ -1,32 +1,28 @@
 package dev.tonimatas.krystalcraft.compat.jei;
 
-/*
+
+import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.recipe.CombiningRecipe;
 import dev.tonimatas.krystalcraft.recipe.CrushingRecipe;
 import dev.tonimatas.krystalcraft.recipe.CuttingRecipe;
-import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.Objects;
-
 @JeiPlugin
-public class JEIKrystalCraftModPlugin implements IModPlugin {
+public class JEIKrystalCraftPlugin implements IModPlugin {
     public static RecipeType<CuttingRecipe> CUTTING = RecipeType.create(KrystalCraft.MOD_ID,"cutting", CuttingRecipe.class);
     public static RecipeType<CrushingRecipe> CRUSHING = RecipeType.create(KrystalCraft.MOD_ID, "crushing", CrushingRecipe.class);
     public static RecipeType<CombiningRecipe> COMBINING = RecipeType.create(KrystalCraft.MOD_ID, "combining", CombiningRecipe.class);
 
+
     @Override
-    public @NotNull ResourceLocation getPluginUid() {
-        return ResourceLocation.fromNamespaceAndPath(KrystalCraft.MOD_ID, "jei_plugin");
+    public @NotNull Identifier getPluginUid() {
+        return Identifier.of(KrystalCraft.MOD_ID, "jei_plugin");
     }
 
     @Override
@@ -38,11 +34,11 @@ public class JEIKrystalCraftModPlugin implements IModPlugin {
 
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
-        ClientLevel level = Objects.requireNonNull(Minecraft.getInstance().level);
-
-        registration.addRecipes(CUTTING, level.getRecipeManager().getAllRecipesFor(ModRecipes.CUTTING.get()).stream().map(RecipeHolder::value).toList());
-        registration.addRecipes(CRUSHING, level.getRecipeManager().getAllRecipesFor(ModRecipes.CRUSHING.get()).stream().map(RecipeHolder::value).toList());
-        registration.addRecipes(COMBINING, level.getRecipeManager().getAllRecipesFor(ModRecipes.COMBINING.get()).stream().map(RecipeHolder::value).toList());
+        //ClientWorld world = Objects.requireNonNull(MinecraftClient.getInstance().world);
+        //RecipeManager recipeManager = world.getRecipeManager();
+//
+        //registration.addRecipes(CUTTING, recipeManager.listAllOfType(ModRecipes.CUTTING_RECIPE_TYPE).stream().map(RecipeEntry::value).toList());
+        //registration.addRecipes(CRUSHING, recipeManager.listAllOfType(ModRecipes.CRUSHING_RECIPE_TYPE).stream().map(RecipeEntry::value).toList());
+        //registration.addRecipes(COMBINING, recipeManager.listAllOfType(ModRecipes.COMBINING_RECIPE_TYPE).stream().map(RecipeEntry::value).toList());
     }
 }
-*/

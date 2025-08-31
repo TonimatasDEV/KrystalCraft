@@ -23,6 +23,9 @@
     ],
     "client": [
       "dev.tonimatas.krystalcraft.KrystalCraftClient"
+    ],
+    "jei_mod_plugin": [
+      "dev.tonimatas.krystalcraft.compat.jei.JEIKrystalCraftPlugin"
     ]
   },
   "mixins": [
