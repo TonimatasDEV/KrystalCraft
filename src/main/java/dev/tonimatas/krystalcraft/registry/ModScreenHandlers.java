@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.registry;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.screen.CombiningStationScreenHandler;
+import dev.tonimatas.krystalcraft.screen.CombustionGeneratorScreenHandler;
 import dev.tonimatas.krystalcraft.screen.CrushingStationScreenHandler;
 import dev.tonimatas.krystalcraft.screen.CuttingStationScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
@@ -19,6 +20,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(CrushingStationScreenHandler::new, BlockPos.PACKET_CODEC));
     public static final ScreenHandlerType<CombiningStationScreenHandler> COMBINING_STATION_SCREEN_HANDLER = registerScreenHandler("combining_station_screen_handler",
             new ExtendedScreenHandlerType<>(CombiningStationScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<CombustionGeneratorScreenHandler> COMBUSTION_GENERATOR_SCREEN_HANDLER = registerScreenHandler("combustion_generator_screen_handler",
+            new ExtendedScreenHandlerType<>(CombustionGeneratorScreenHandler::new, BlockPos.PACKET_CODEC));
     
     //public static final RegistryEntry<MenuType<CuttingFactoryMenu>> CUTTING_FACTORY_MENU = MENUS.register("cutting_factory_menu", () -> MenuContentHelper.create(CuttingFactoryMenu::new, BlockPosContent.SERIALIZER));
     //public static final RegistryEntry<MenuType<CrushingFactoryMenu>> CRUSHING_FACTORY_MENU = MENUS.register("crushing_factory_menu", () -> MenuContentHelper.create(CrushingFactoryMenu::new, BlockPosContent.SERIALIZER));

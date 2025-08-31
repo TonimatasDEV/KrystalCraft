@@ -11,7 +11,6 @@ import team.reborn.energy.api.base.SimpleEnergyItem;
 import java.util.List;
 
 public class BatteryItem extends Item implements SimpleEnergyItem {
-
     public BatteryItem(Settings settings) {
         super(settings);
     }

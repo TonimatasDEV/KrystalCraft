@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.utils;
+package dev.tonimatas.krystalcraft.util;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import net.minecraft.client.gui.DrawContext;

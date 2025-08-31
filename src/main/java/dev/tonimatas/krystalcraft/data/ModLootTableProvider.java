@@ -27,6 +27,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.COMBINING_STATION);
         addDrop(ModBlocks.CRUSHING_STATION);
         addDrop(ModBlocks.CUTTING_STATION);
+        addDrop(ModBlocks.COMBUSTION_GENERATOR);
         
         addDrop(ModBlocks.DEEPSLATE_JADE_ORE, oreDrops(ModBlocks.DEEPSLATE_JADE_ORE, ModItems.RAW_JADE));
         addDrop(ModBlocks.DEEPSLATE_LEAD_ORE, oreDrops(ModBlocks.DEEPSLATE_LEAD_ORE, ModItems.RAW_LEAD));

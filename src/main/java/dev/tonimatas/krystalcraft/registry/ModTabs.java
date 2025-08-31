@@ -201,6 +201,7 @@ public class ModTabs {
                         entries.add(ModBlocks.CUTTING_STATION);
                         entries.add(ModBlocks.CRUSHING_STATION);
                         entries.add(ModBlocks.COMBINING_STATION);
+                        entries.add(ModBlocks.COMBUSTION_GENERATOR);
                     }).build());
 
     public static void initialize() {

@@ -45,7 +45,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.DEEPSLATE_RUBY_ORE)
                 .add(ModBlocks.BRONZE_BLOCK)
                 .add(ModBlocks.DEEPSLATE_EXPERIENCE_ORE)
-                .add(ModBlocks.EXPERIENCE_ORE);
+                .add(ModBlocks.EXPERIENCE_ORE)
+                .add(ModBlocks.COMBUSTION_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.TIN_BLOCK)
@@ -76,7 +77,8 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RUBY_BLOCK)
                 .add(ModBlocks.RUBY_ORE)
                 .add(ModBlocks.DEEPSLATE_RUBY_ORE)
-                .add(ModBlocks.BRONZE_BLOCK);
+                .add(ModBlocks.BRONZE_BLOCK)
+                .add(ModBlocks.COMBUSTION_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)
                 .add(ModBlocks.PLATINUM_BLOCK)

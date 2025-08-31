@@ -3,7 +3,7 @@ package dev.tonimatas.krystalcraft.menu;
 import dev.tonimatas.krystalcraft.blockentity.CuttingFactoryBlockEntity;
 import dev.tonimatas.krystalcraft.menu.base.FactoryMenu;
 import dev.tonimatas.krystalcraft.menu.content.BlockPosContent;
-import dev.tonimatas.krystalcraft.menu.slots.BatterySlot;
+import dev.tonimatas.krystalcraft.menu.slots.EnergySlot;
 import dev.tonimatas.krystalcraft.menu.slots.FluidSlot;
 import dev.tonimatas.krystalcraft.menu.slots.ResultSlot;
 import dev.tonimatas.krystalcraft.menu.slots.UpgradeSlot;
@@ -29,7 +29,7 @@ public class CuttingFactoryMenu extends FactoryMenu<CuttingFactoryBlockEntity> {
                 new Slot[]{
                         new Slot(blockEntity, 0, 80, 0),
                         new ResultSlot(blockEntity, 1, 80, 50),
-                        new BatterySlot(blockEntity, 2, 129, 41),
+                        new EnergySlot(blockEntity, 2, 129, 41),
                         new UpgradeSlot(blockEntity, 3, 106, -12),
                         new UpgradeSlot(blockEntity, 4, 126, -12),
                         new FluidSlot(blockEntity, 5, 6, 5, Fluids.WATER),

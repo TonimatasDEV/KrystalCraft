@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.registry;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.block.CombiningStationBlock;
+import dev.tonimatas.krystalcraft.block.CombustionGeneratorBlock;
 import dev.tonimatas.krystalcraft.block.CrushingStationBlock;
 import dev.tonimatas.krystalcraft.block.CuttingStationBlock;
 import net.minecraft.block.AbstractBlock;
@@ -82,7 +83,8 @@ public class ModBlocks {
     public static final Block COMBINING_STATION = registerBlock("combining_station",
             new CombiningStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final Block COMBINING_FACTORY = registerBlock("combining_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    //public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator",
+            new CombustionGeneratorBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);
 
     private static Block registerBlock(String name, Block block) {

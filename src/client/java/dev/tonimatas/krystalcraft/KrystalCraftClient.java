@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft;
 
 import dev.tonimatas.krystalcraft.registry.ModScreenHandlers;
 import dev.tonimatas.krystalcraft.screen.CombiningStationScreen;
+import dev.tonimatas.krystalcraft.screen.CombustionGeneratorScreen;
 import dev.tonimatas.krystalcraft.screen.CrushingStationScreen;
 import dev.tonimatas.krystalcraft.screen.CuttingStationScreen;
 import net.fabricmc.api.ClientModInitializer;
@@ -16,6 +17,6 @@ public class KrystalCraftClient implements ClientModInitializer {
         //HandledScreens.register(ModScreenHandlers.CRUSHING_FACTORY_SCREEN_HANDLER, CrushingFactoryScreen::new);
         HandledScreens.register(ModScreenHandlers.CUTTING_STATION_SCREEN_HANDLER, CuttingStationScreen::new);
         //HandledScreens.register(ModScreenHandlers.CUTTING_FACTORY_SCREEN_HANDLER, CuttingFactoryScreen::new);
-        //HandledScreens.register(ModScreenHandlers.COMBUSTION_GENERATOR_SCREEN_HANDLER, CombustionGeneratorScreen::new);
+        HandledScreens.register(ModScreenHandlers.COMBUSTION_GENERATOR_SCREEN_HANDLER, CombustionGeneratorScreen::new);
     }
 }

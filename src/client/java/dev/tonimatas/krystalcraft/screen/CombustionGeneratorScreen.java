@@ -10,10 +10,10 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class CombiningStationScreen extends HandledScreen<CombiningStationScreenHandler> {
-    public static final Identifier TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/combining_station.png");
+public class CombustionGeneratorScreen extends HandledScreen<CombustionGeneratorScreenHandler> {
+    public static final Identifier TEXTURE = Identifier.of(KrystalCraft.MOD_ID, "textures/gui/combustion_generator.png");
 
-    public CombiningStationScreen(CombiningStationScreenHandler handler, PlayerInventory inventory, Text title) {
+    public CombustionGeneratorScreen(CombustionGeneratorScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
         this.backgroundHeight = this.backgroundHeight + 14;
         this.playerInventoryTitleY = this.playerInventoryTitleY + 14;
@@ -29,12 +29,10 @@ public class CombiningStationScreen extends HandledScreen<CombiningStationScreen
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-
-        if (handler.isCrafting()) {
-            GuiUtils.drawLoaderProgress(context, x + 85, y + 50, handler.getScaledLoader());
+        
+        if (handler.isBurning()) {
+            GuiUtils.drawLoaderProgress(context, x + 85, y + 45, handler.getScaledLoader());
         }
-
-        GuiUtils.drawFire(context, x + 130, y + 54, handler.getBurnTime(), handler.getBurnTimeTotal());
     }
 
     @Override

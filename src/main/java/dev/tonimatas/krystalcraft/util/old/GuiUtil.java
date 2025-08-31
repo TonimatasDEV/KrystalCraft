@@ -1,4 +1,4 @@
-package dev.tonimatas.krystalcraft.client.utils;
+package dev.tonimatas.krystalcraft.util.old;
 /*
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.teamresourceful.resourcefullib.client.utils.RenderUtils;

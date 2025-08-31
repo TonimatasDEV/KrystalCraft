@@ -1,22 +1,22 @@
-package dev.tonimatas.krystalcraft.client.screen;
+package dev.tonimatas.krystalcraft.screen.old;
 /*
 import dev.tonimatas.krystalcraft.client.utils.GuiUtil;
-import dev.tonimatas.krystalcraft.menu.CombiningFactoryMenu;
+import dev.tonimatas.krystalcraft.menu.CrushingFactoryMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
 
-public class CombiningFactoryScreen extends BaseScreen<CombiningFactoryMenu> {
-    public CombiningFactoryScreen(CombiningFactoryMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
-        super(pMenu, pPlayerInventory, pTitle, "combining_factory");
+public class CrushingFactoryScreen extends BaseScreen<CrushingFactoryMenu> {
+    public CrushingFactoryScreen(CrushingFactoryMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
+        super(pMenu, pPlayerInventory, pTitle, "crushing_factory");
     }
 
     @Override
     protected void renderBg(GuiGraphics guiGraphics, float f, int i, int j) {
         super.renderBg(guiGraphics, f, i, j);
         GuiUtil.drawEnergy(guiGraphics, this.leftPos + 152, this.topPos + 8, this.menu.energy.get(), this.menu.getEnergyMaxCapacity());
-        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 33, this.menu.progress.get(), this.menu.getMaxProgress());
+        GuiUtil.drawProgress(guiGraphics, this.leftPos + 85, this.topPos + 29, this.menu.progress.get(), this.menu.getMaxProgress());
     }
 
     @Override

@@ -42,7 +42,6 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_TOPAZ_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.EXPERIENCE_ORE);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.DEEPSLATE_EXPERIENCE_ORE);
-
     }
 
     @Override

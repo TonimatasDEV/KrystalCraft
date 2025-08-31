@@ -6,6 +6,8 @@ import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import team.reborn.energy.api.EnergyStorage;
+import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public class ModItems {
     public static final Item SILVER_INGOT = register("silver_ingot", new Item(new Item.Settings()));
@@ -258,6 +260,15 @@ public class ModItems {
     }
     
     public static void initialize() {
-        // Initialize the class
+        EnergyStorage.ITEM.registerForItems((itemStack, context) -> {
+            if (itemStack.getItem() instanceof BatteryItem batteryItem) {
+                return new SimpleEnergyStorage(
+                        batteryItem.getEnergyCapacity(itemStack),
+                        batteryItem.getEnergyMaxInput(itemStack),
+                        batteryItem.getEnergyMaxOutput(itemStack)
+                );
+            }
+            return null;
+        }, BATTERY);
     }
 }

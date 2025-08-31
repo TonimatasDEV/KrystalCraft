@@ -26,30 +26,6 @@ public class CombustionGeneratorBlockEntity extends EnergyBlockEntity {
     }
 
     @Override
-    protected void loadAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
-        super.loadAdditional(compoundTag, provider);
-        this.burnTime = compoundTag.getInt("BurnTime");
-        this.totalBurnTime = compoundTag.getInt("TotalBurnTime");
-    }
-
-    @Override
-    protected void saveAdditional(CompoundTag compoundTag, HolderLookup.Provider provider) {
-        super.saveAdditional(compoundTag, provider);
-        compoundTag.putInt("BurnTime", this.burnTime);
-        compoundTag.putInt("TotalBurnTime", this.totalBurnTime);
-    }
-
-    @Override
-    public @NotNull AbstractContainerMenu createMenu(int syncId, Inventory inventory, Player player) {
-        return new CombustionGeneratorMenu(syncId, inventory, this);
-    }
-
-    @Override
-    public int getInventorySize() {
-        return 2;
-    }
-
-    @Override
     public void tick() {
         if (level == null) return;
         if (level.isClientSide) return;
