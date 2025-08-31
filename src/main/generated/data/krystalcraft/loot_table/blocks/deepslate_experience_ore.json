@@ -7,21 +7,23 @@
         {
           "condition": "minecraft:match_tool",
           "predicate": {
-            "enchantments": [
-              {
-                "enchantment": "minecraft:silk_touch",
-                "levels": {
-                  "min": 1
+            "predicates": {
+              "minecraft:enchantments": [
+                {
+                  "enchantments": "minecraft:silk_touch",
+                  "levels": {
+                    "min": 1
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
         }
       ],
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "krystalcraft:experience_ore"
+          "name": "krystalcraft:deepslate_experience_ore"
         }
       ],
       "rolls": 1.0

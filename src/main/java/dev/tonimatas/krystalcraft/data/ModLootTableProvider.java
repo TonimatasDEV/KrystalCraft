@@ -45,5 +45,8 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.SILVER_ORE, oreDrops(ModBlocks.SILVER_ORE, ModItems.RAW_SILVER));
         addDrop(ModBlocks.TIN_ORE, oreDrops(ModBlocks.TIN_ORE, ModItems.RAW_TIN));
         addDrop(ModBlocks.TOPAZ_ORE, oreDrops(ModBlocks.TOPAZ_ORE, ModItems.RAW_TOPAZ));
+        
+        addDropWithSilkTouch(ModBlocks.EXPERIENCE_ORE, ModBlocks.EXPERIENCE_ORE);
+        addDropWithSilkTouch(ModBlocks.DEEPSLATE_EXPERIENCE_ORE, ModBlocks.DEEPSLATE_EXPERIENCE_ORE);
     }
 }

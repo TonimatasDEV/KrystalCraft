@@ -1,6 +1,7 @@
 package dev.tonimatas.krystalcraft;
 
 import dev.tonimatas.krystalcraft.registry.*;
+import dev.tonimatas.krystalcraft.util.ModLootTableModifiers;
 import dev.tonimatas.krystalcraft.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -24,6 +25,7 @@ public class KrystalCraft implements ModInitializer {
 
         ModTabs.initialize();
         ModWorldGeneration.initialize();
+        ModLootTableModifiers.initialize();
 
         LOGGER.info("KystalCraft started successfully.");
     }
