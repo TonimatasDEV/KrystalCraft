@@ -29,6 +29,7 @@ public class CombustionGeneratorScreen extends HandledScreen<CombustionGenerator
         int y = (height - backgroundHeight) / 2;
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        GuiUtils.drawEnergy(context, x + 152, y + 25, this.handler.blockEntity.energyStorage);
         
         if (handler.isBurning()) {
             GuiUtils.drawLoaderProgress(context, x + 85, y + 45, handler.getScaledLoader());
@@ -39,5 +40,12 @@ public class CombustionGeneratorScreen extends HandledScreen<CombustionGenerator
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
+
+        int x = (width - backgroundWidth) / 2;
+        int y = (height - backgroundHeight) / 2;
+
+        if (GuiUtils.isHovering(GuiUtils.getEnergyBounds(x + 152, y + 25), mouseX, mouseY)) {
+            GuiUtils.drawEnergyTooltip(context, this.handler.blockEntity.energyStorage, mouseX, mouseY);
+        }
     }
 }

@@ -26,8 +26,6 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import team.reborn.energy.api.EnergyStorage;
-import team.reborn.energy.api.EnergyStorageUtil;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public class CombustionGeneratorBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
@@ -126,8 +124,7 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
         if (world == null) return;
         if (world.isClient) return;
 
-        //energyInsertToEnergySlot(BATTERY, 10);
-
+        EnergyUtils.moveToItem(this, energyStorage, BATTERY);
 
         if (burnTime == 0) {
             int newBurnTime = FabricUtils.getBurnTime(getStack(INPUT));

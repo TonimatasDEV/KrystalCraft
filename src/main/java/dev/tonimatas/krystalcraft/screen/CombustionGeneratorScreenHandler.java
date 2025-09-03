@@ -20,7 +20,7 @@ public class CombustionGeneratorScreenHandler extends ScreenHandler {
     public final CombustionGeneratorBlockEntity blockEntity;
     
     public CombustionGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
-        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
+        this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
     }
     
     public CombustionGeneratorScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {

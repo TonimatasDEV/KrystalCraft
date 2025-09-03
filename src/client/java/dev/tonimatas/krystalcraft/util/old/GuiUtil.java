@@ -17,26 +17,12 @@ import net.minecraft.world.inventory.InventoryMenu;
 import java.awt.*;
 
 public class GuiUtil {
-    public static final int ENERGY_WIDTH = 13;
-    public static final int ENERGY_HEIGHT = 46;
     public static final int FLUID_TANK_WIDTH = 14;
     public static final int FLUID_TANK_HEIGHT = 48;
 
-    public static final ResourceLocation ENERGY_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/energy_full.png");
     public static final ResourceLocation FLUID_TANK_TEXTURE = new ResourceLocation(KrystalCraft.MOD_ID, "textures/gui/overlay/fluid_tank.png");
 
-    public static boolean isHovering(Rectangle bounds, double x, double y) {
-        double left = bounds.getX();
-        double right = left + bounds.getWidth();
-        double top = bounds.getY();
-        double bottom = top + bounds.getHeight();
-        return left <= x && x < right && top <= y && y < bottom;
-    }
-
-    public static void drawEnergy(GuiGraphics graphics, int x, int y, long energy, long maxEnergy) {
-        double ratio = maxEnergy > 0 ? (energy / (float) maxEnergy) : 0;
-        drawVertical(graphics, x, y, ENERGY_WIDTH, ENERGY_HEIGHT, ENERGY_TEXTURE, ratio);
-    }
+    
 
     public static void drawFluidTank(GuiGraphics graphics, int x, int y, FluidHolder fluid, long capacity, int amount) {
         if (!fluid.isEmpty()) {
@@ -63,20 +49,12 @@ public class GuiUtil {
         RenderSystem.disableBlend();
     }
 
-    public static void drawEnergyTooltip(GuiGraphics graphics, long energy, long energyCapacity, int mouseX, int mouseY) {
-        graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(energy + "/" + energyCapacity + " FE").setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
-    }
-
     public static void drawTankTooltip(GuiGraphics graphics, int amount, long capacity, int mouseX, int mouseY) {
         graphics.renderTooltip(Minecraft.getInstance().font, Component.literal(FluidConstants.toMillibuckets(amount) + "/" + FluidConstants.toMillibuckets(capacity)).setStyle(Style.EMPTY.withColor(ChatFormatting.GOLD)), mouseX, mouseY);
     }
 
     public static Rectangle getFluidTankBounds(int x, int y) {
         return new Rectangle(x, y, FLUID_TANK_WIDTH, FLUID_TANK_HEIGHT);
-    }
-
-    public static Rectangle getEnergyBounds(int x, int y) {
-        return new Rectangle(x, y, ENERGY_WIDTH, ENERGY_HEIGHT);
     }
 
     public static Rectangle getFireBounds(int x, int y) {
