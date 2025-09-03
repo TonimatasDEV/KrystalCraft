@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.block.entity;
 
 import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import dev.tonimatas.krystalcraft.screen.CombustionGeneratorScreenHandler;
+import dev.tonimatas.krystalcraft.util.EnergyUtils;
 import dev.tonimatas.krystalcraft.util.FabricUtils;
 import dev.tonimatas.krystalcraft.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
@@ -25,6 +26,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import team.reborn.energy.api.EnergyStorage;
+import team.reborn.energy.api.EnergyStorageUtil;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public class CombustionGeneratorBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
@@ -35,10 +38,11 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
     protected int burnTime;
     protected int totalBurnTime;
 
-    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 0, 50) {
+    public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 50, 50) {
         @Override
         protected void onFinalCommit() {
             markDirty();
+            getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
 
@@ -48,11 +52,9 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
-                return (int) switch (index) {
+                return switch (index) {
                     case 0 -> CombustionGeneratorBlockEntity.this.burnTime;
                     case 1 -> CombustionGeneratorBlockEntity.this.totalBurnTime;
-                    case 2 -> CombustionGeneratorBlockEntity.this.energyStorage.amount;
-                    case 3 -> CombustionGeneratorBlockEntity.this.energyStorage.capacity;
                     default -> 0;
                 };
             }
@@ -62,13 +64,12 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
                 switch (index) {
                     case 0: CombustionGeneratorBlockEntity.this.burnTime = value;
                     case 1: CombustionGeneratorBlockEntity.this.totalBurnTime  = value;
-                    case 2: CombustionGeneratorBlockEntity.this.energyStorage.amount  = value;
                 }
             }
 
             @Override
             public int size() {
-                return 4;
+                return 2;
             }
         };
     }
@@ -107,7 +108,6 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
-        Inventories.writeNbt(nbt, inventory, registryLookup);
         nbt.putInt("combustion_generator.burn_time", burnTime);
         nbt.putInt("combustion_generator.total_burn_time", totalBurnTime);
         nbt.putLong("combustion_generator.energy", energyStorage.amount);
@@ -145,9 +145,10 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
                 energyStorage.insert(10, transaction);
                 transaction.commit();
             }
-            System.out.println(energyStorage.amount);
         }
 
-        //EnergyApi.distributeEnergyNearby(this, 50);
+        EnergyUtils.distributeEnergyNearby(this.energyStorage, world, pos);
     }
+
+    
 }

@@ -84,7 +84,6 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
     protected void writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registryLookup) {
         super.writeNbt(nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
-        Inventories.writeNbt(nbt, inventory, registryLookup);
         nbt.putInt("combining_station.burn_time", burnTime);
         nbt.putInt("combining_station.burn_time_total", burnTimeTotal);
         nbt.putInt("combining_station.progress", progress);
