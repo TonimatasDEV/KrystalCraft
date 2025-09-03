@@ -1,0 +1,13 @@
+{
+  "values": [
+    "#c:storage_blocks/bronze",
+    "#c:storage_blocks/jade",
+    "#c:storage_blocks/lead",
+    "#c:storage_blocks/platinum",
+    "#c:storage_blocks/ruby",
+    "#c:storage_blocks/sapphire",
+    "#c:storage_blocks/silver",
+    "#c:storage_blocks/tin",
+    "#c:storage_blocks/topaz"
+  ]
+}

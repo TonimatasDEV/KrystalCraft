@@ -29,6 +29,7 @@
     "krystalcraft:deepslate_ruby_ore",
     "krystalcraft:bronze_block",
     "krystalcraft:deepslate_experience_ore",
-    "krystalcraft:experience_ore"
+    "krystalcraft:experience_ore",
+    "krystalcraft:combustion_generator"
   ]
 }
