@@ -6,7 +6,6 @@ import dev.tonimatas.krystalcraft.util.EnergyUtils;
 import dev.tonimatas.krystalcraft.util.FabricUtils;
 import dev.tonimatas.krystalcraft.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
-import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -29,8 +28,8 @@ import org.jetbrains.annotations.Nullable;
 import team.reborn.energy.api.base.SimpleEnergyStorage;
 
 public class CombustionGeneratorBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
-    protected static final int INPUT = 0;
-    protected static final int BATTERY = 1;
+    protected static final int INPUT_SLOT = 0;
+    protected static final int BATTERY_SLOT = 1;
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
     protected int burnTime;
@@ -124,28 +123,22 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
         if (world == null) return;
         if (world.isClient) return;
 
-        EnergyUtils.moveToItem(this, energyStorage, BATTERY);
+        EnergyUtils.moveToItem(this, energyStorage, BATTERY_SLOT);
 
         if (burnTime == 0) {
-            int newBurnTime = FabricUtils.getBurnTime(getStack(INPUT));
+            int newBurnTime = FabricUtils.getBurnTime(getStack(INPUT_SLOT));
 
             if (newBurnTime != 0) {
-                removeStack(INPUT, 1);
+                removeStack(INPUT_SLOT, 1);
                 totalBurnTime = newBurnTime;
                 burnTime = newBurnTime;
             }
 
         } else if (energyStorage.amount < energyStorage.capacity) {
             burnTime--;
-            
-            try (Transaction transaction = Transaction.openOuter()) {
-                energyStorage.insert(10, transaction);
-                transaction.commit();
-            }
+            EnergyUtils.insertInternal(energyStorage, 10);
         }
 
         EnergyUtils.distributeEnergyNearby(this.energyStorage, world, pos);
     }
-
-    
 }

@@ -125,6 +125,9 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
+        if (world == null) return;
+        if (world.isClient) return;
+
         if (hasRecipe()) {
             if (burnTime <= 0) {
                 burnTime = FabricUtils.getBurnTime(getStack(FUEL_SLOT));
