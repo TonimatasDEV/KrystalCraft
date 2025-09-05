@@ -9,34 +9,45 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import team.reborn.energy.api.EnergyStorage;
 import team.reborn.energy.api.EnergyStorageUtil;
 
 public class EnergyUtils {
-    public static void distributeEnergyNearby(EnergyStorage energyStorage, World world, BlockPos pos) {
-        EnergyStorageUtil.move(energyStorage, EnergyStorage.SIDED.find(world, pos.up(), null), Long.MAX_VALUE, null);
+    public static long distributeEnergyNearby(EnergyStorage from, World world, BlockPos pos) {
+        for (Direction direction : Direction.values()) {
+            EnergyStorage energyStorage = EnergyStorage.SIDED.find(world, pos.offset(direction), null);
+            
+            if (energyStorage != null) {
+                return EnergyStorageUtil.move(from, energyStorage, Long.MAX_VALUE, null);
+            }
+        }
+        
+        return 0;
     }
     
-    public static void moveToItem(BlockEntity blockEntity, EnergyStorage energyStorage, int slot) {
-        EnergyStorageUtil.move(energyStorage,  getStackEnergyStorage(blockEntity, slot), Long.MAX_VALUE, null);
+    public static long moveToItem(BlockEntity blockEntity, EnergyStorage from, int slot) {
+        return EnergyStorageUtil.move(from,  getStackEnergyStorage(blockEntity, slot), Long.MAX_VALUE, null);
     }
 
-    public static void moveFromItem(BlockEntity blockEntity, EnergyStorage energyStorage, int slot) {
-        EnergyStorageUtil.move(getStackEnergyStorage(blockEntity, slot), energyStorage, Long.MAX_VALUE, null);
+    public static long moveFromItem(BlockEntity blockEntity, EnergyStorage to, int slot) {
+        return EnergyStorageUtil.move(getStackEnergyStorage(blockEntity, slot), to, Long.MAX_VALUE, null);
     }
     
-    public static void extractInternal(EnergyStorage energyStorage, long amount) {
+    public static long extractInternal(EnergyStorage energyStorage, long amount) {
         try (Transaction transaction = Transaction.openOuter()) {
-            energyStorage.extract(amount, transaction);
+            long transferred = energyStorage.extract(amount, transaction);
             transaction.commit();
+            return transferred;
         }
     }
     
-    public static void insertInternal(EnergyStorage energyStorage, long amount) {
+    public static long insertInternal(EnergyStorage energyStorage, long amount) {
         try (Transaction transaction = Transaction.openOuter()) {
-            energyStorage.insert(amount, transaction);
+            long transferred = energyStorage.insert(amount, transaction);
             transaction.commit();
+            return transferred;
         }
     }
     

@@ -20,6 +20,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.CUTTING_STATION)
                 .add(ModBlocks.CRUSHING_STATION)
+                .add(ModBlocks.CRUSHING_FACTORY)
                 .add(ModBlocks.COMBINING_STATION)
                 .add(ModBlocks.PLATINUM_BLOCK)
                 .add(ModBlocks.PLATINUM_ORE)
@@ -80,6 +81,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RUBY_ORE)
                 .add(ModBlocks.DEEPSLATE_RUBY_ORE)
                 .add(ModBlocks.BRONZE_BLOCK)
+                .add(ModBlocks.CRUSHING_FACTORY)
                 .add(ModBlocks.COMBUSTION_GENERATOR);
 
         getOrCreateTagBuilder(BlockTags.NEEDS_DIAMOND_TOOL)

@@ -130,10 +130,9 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
                 totalBurnTime = newBurnTime;
                 burnTime = newBurnTime;
             }
-
-        } else if (energyStorage.amount < energyStorage.capacity) {
-            burnTime--;
+        } else {
             EnergyUtils.insertInternal(energyStorage, 10);
+            burnTime--;
         }
 
         EnergyUtils.distributeEnergyNearby(this.energyStorage, world, pos);

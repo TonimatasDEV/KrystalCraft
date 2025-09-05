@@ -26,6 +26,7 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.TOPAZ_BLOCK);
         addDrop(ModBlocks.COMBINING_STATION);
         addDrop(ModBlocks.CRUSHING_STATION);
+        addDrop(ModBlocks.CRUSHING_FACTORY);
         addDrop(ModBlocks.CUTTING_STATION);
         addDrop(ModBlocks.COMBUSTION_GENERATOR);
         
