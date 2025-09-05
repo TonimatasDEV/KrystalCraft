@@ -25,9 +25,6 @@ public class CrushingStationScreen extends HandledScreen<CrushingStationScreenHa
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
         RenderSystem.setShaderTexture(0, TEXTURE);
 
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
-
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         
         if (handler.isCrafting()) {

@@ -120,9 +120,6 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
-        if (world == null) return;
-        if (world.isClient) return;
-
         EnergyUtils.moveToItem(this, energyStorage, BATTERY_SLOT);
 
         if (burnTime == 0) {
