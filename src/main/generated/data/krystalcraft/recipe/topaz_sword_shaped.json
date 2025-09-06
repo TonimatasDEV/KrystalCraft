@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:gems/topaz"
+    },
+    "1": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "0",
+    "0",
+    "1"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:topaz_sword"
+  }
+}

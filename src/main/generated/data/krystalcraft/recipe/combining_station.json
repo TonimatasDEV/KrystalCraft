@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": {
+      "tag": "c:rods/wooden"
+    },
+    "1": {
+      "tag": "c:cobblestones"
+    },
+    "2": {
+      "tag": "c:player_workstations/furnaces"
+    }
+  },
+  "pattern": [
+    "000",
+    "212",
+    "111"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:combining_station"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:ingots/silver"
+    }
+  },
+  "pattern": [
+    "0 0",
+    "000",
+    "000"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:silver_chestplate"
+  }
+}

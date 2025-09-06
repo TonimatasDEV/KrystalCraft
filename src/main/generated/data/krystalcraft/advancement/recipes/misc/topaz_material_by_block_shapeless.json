@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "krystalcraft:topaz_material_by_block_shapeless"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_topaz_block": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:storage_blocks/topaz"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_topaz_block"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "krystalcraft:topaz_material_by_block_shapeless"
+    ]
+  }
+}

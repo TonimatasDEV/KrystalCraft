@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:ingots/tin"
+    }
+  },
+  "pattern": [
+    "000",
+    "0 0"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:tin_helmet"
+  }
+}

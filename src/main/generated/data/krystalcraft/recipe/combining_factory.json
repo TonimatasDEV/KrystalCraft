@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": {
+      "tag": "c:ingots/iron"
+    },
+    "1": {
+      "tag": "c:storage_blocks/iron"
+    },
+    "2": {
+      "item": "krystalcraft:combining_station"
+    },
+    "3": {
+      "item": "krystalcraft:battery"
+    }
+  },
+  "pattern": [
+    "010",
+    "323",
+    "010"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:combining_factory"
+  }
+}

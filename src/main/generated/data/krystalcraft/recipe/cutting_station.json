@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": {
+      "tag": "c:rods/wooden"
+    },
+    "1": {
+      "tag": "c:cobblestones"
+    },
+    "2": {
+      "tag": "c:buckets/empty"
+    },
+    "3": {
+      "tag": "c:raw_materials/diamond"
+    },
+    "4": {
+      "tag": "c:ingots/iron"
+    }
+  },
+  "pattern": [
+    "000",
+    "234",
+    "111"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:cutting_station"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "0": {
+      "tag": "c:rods/wooden"
+    },
+    "1": {
+      "tag": "c:cobblestones"
+    },
+    "2": {
+      "tag": "c:ingots/iron"
+    },
+    "3": {
+      "tag": "c:storage_blocks/iron"
+    }
+  },
+  "pattern": [
+    "000",
+    "232",
+    "111"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:crushing_station"
+  }
+}

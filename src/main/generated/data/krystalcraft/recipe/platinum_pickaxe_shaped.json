@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:ingots/platinum"
+    },
+    "1": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "000",
+    " 1 ",
+    " 1 "
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:platinum_pickaxe"
+  }
+}

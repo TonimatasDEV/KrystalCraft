@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "krystalcraft:lead_dust"
+  },
+  "result": {
+    "id": "krystalcraft:lead_ingot"
+  }
+}

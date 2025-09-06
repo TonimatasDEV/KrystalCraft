@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "building",
+  "key": {
+    "0": {
+      "tag": "c:ingots/tin"
+    }
+  },
+  "pattern": [
+    "000",
+    "000",
+    "000"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:tin_block"
+  }
+}

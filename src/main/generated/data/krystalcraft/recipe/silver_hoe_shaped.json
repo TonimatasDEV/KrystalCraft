@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:ingots/silver"
+    },
+    "1": {
+      "tag": "c:rods/wooden"
+    }
+  },
+  "pattern": [
+    "00",
+    " 1",
+    " 1"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:silver_hoe"
+  }
+}

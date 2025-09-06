@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "0": {
+      "tag": "c:ingots/bronze"
+    }
+  },
+  "pattern": [
+    "000",
+    "0 0",
+    "0 0"
+  ],
+  "result": {
+    "count": 1,
+    "id": "krystalcraft:bronze_leggings"
+  }
+}

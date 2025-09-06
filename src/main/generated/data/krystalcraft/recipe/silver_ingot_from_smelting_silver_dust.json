@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.5,
+  "ingredient": {
+    "item": "krystalcraft:silver_dust"
+  },
+  "result": {
+    "id": "krystalcraft:silver_ingot"
+  }
+}
