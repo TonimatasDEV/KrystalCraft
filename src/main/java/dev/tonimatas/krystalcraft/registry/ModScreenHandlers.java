@@ -19,13 +19,13 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(CrushingFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
     public static final ScreenHandlerType<CombiningStationScreenHandler> COMBINING_STATION_SCREEN_HANDLER = registerScreenHandler("combining_station_screen_handler",
             new ExtendedScreenHandlerType<>(CombiningStationScreenHandler::new, BlockPos.PACKET_CODEC));
+    public static final ScreenHandlerType<CombiningFactoryScreenHandler> COMBINING_FACTORY_SCREEN_HANDLER = registerScreenHandler("combining_factory_screen_handler",
+            new ExtendedScreenHandlerType<>(CombiningFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
     public static final ScreenHandlerType<CombustionGeneratorScreenHandler> COMBUSTION_GENERATOR_SCREEN_HANDLER = registerScreenHandler("combustion_generator_screen_handler",
             new ExtendedScreenHandlerType<>(CombustionGeneratorScreenHandler::new, BlockPos.PACKET_CODEC));
     
     //public static final ScreenHandlerType<CuttingFactoryScreenHandler> CUTTING_FACTORY_SCREEN_HANDLER = registerScreenHandler("cutting_factory_screen_handler", 
     // new ExtendedScreenHandlerType<>(CuttingFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
-    //public static final ScreenHandlerType<CombiningFactoryScreenHandler> COMBINING_FACTORY_SCREEN_HANDLER = registerScreenHandler("combining_factory_screen_handler", 
-    // new ExtendedScreenHandlerType<>(CombiningFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
     public static <T extends ScreenHandler> ScreenHandlerType<T> registerScreenHandler(String name, ScreenHandlerType<T> screenHandlerType) {
         return Registry.register(Registries.SCREEN_HANDLER, Identifier.of(KrystalCraft.MOD_ID, name), screenHandlerType);
     }

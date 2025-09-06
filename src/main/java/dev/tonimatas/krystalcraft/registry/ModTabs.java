@@ -202,6 +202,7 @@ public class ModTabs {
                         entries.add(ModBlocks.CRUSHING_STATION);
                         entries.add(ModBlocks.CRUSHING_FACTORY);
                         entries.add(ModBlocks.COMBINING_STATION);
+                        entries.add(ModBlocks.COMBINING_FACTORY);
                         entries.add(ModBlocks.COMBUSTION_GENERATOR);
                     }).build());
 

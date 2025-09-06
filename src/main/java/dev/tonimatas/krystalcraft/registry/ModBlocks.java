@@ -80,7 +80,8 @@ public class ModBlocks {
             new CrushingFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COMBINING_STATION = registerBlock("combining_station",
             new CombiningStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    //public static final Block COMBINING_FACTORY = registerBlock("combining_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block COMBINING_FACTORY = registerBlock("combining_factory", 
+            new CombiningFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator",
             new CombustionGeneratorBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     //public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);
