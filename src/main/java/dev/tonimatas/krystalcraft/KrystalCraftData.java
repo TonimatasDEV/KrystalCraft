@@ -20,6 +20,7 @@ public class KrystalCraftData implements DataGeneratorEntrypoint {
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModRegistryDataGenerator::new);
+        pack.addProvider(ModEnglishLangProvider::new);
     }
 
     @Override
