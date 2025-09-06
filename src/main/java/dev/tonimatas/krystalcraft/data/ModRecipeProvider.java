@@ -33,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("000")
                 .pattern("000")
                 .input('0', ModTags.Items.BRONZE_NUGGETS)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_INGOT), FabricRecipeProvider.conditionsFromTag(ModTags.Items.BRONZE_INGOTS))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.BRONZE_NUGGET), FabricRecipeProvider.conditionsFromTag(ModTags.Items.BRONZE_NUGGETS))
                 .offerTo(recipeExporter, "bronze_material_by_nugget_shaped");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BRONZE_INGOT, 9)
                 .input(ModTags.Items.BRONZE_BLOCKS)
@@ -125,7 +125,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("000")
                 .pattern("000")
                 .input('0', ModTags.Items.LEAD_NUGGETS)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.LEAD_INGOT), FabricRecipeProvider.conditionsFromTag(ModTags.Items.LEAD_INGOTS))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.LEAD_NUGGET), FabricRecipeProvider.conditionsFromTag(ModTags.Items.LEAD_NUGGETS))
                 .offerTo(recipeExporter, "lead_material_by_nugget_shaped");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.LEAD_INGOT, 9)
                 .input(ModTags.Items.LEAD_BLOCKS)
@@ -219,7 +219,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("000")
                 .pattern("000")
                 .input('0', ModTags.Items.TIN_NUGGETS)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.TIN_INGOT), FabricRecipeProvider.conditionsFromTag(ModTags.Items.TIN_INGOTS))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.TIN_NUGGET), FabricRecipeProvider.conditionsFromTag(ModTags.Items.TIN_NUGGETS))
                 .offerTo(recipeExporter, "tin_material_by_nugget_shaped");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TIN_INGOT, 9)
                 .input(ModTags.Items.TIN_BLOCKS)
@@ -313,7 +313,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("000")
                 .pattern("000")
                 .input('0', ModTags.Items.PLATINUM_NUGGETS)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.PLATINUM_INGOT), FabricRecipeProvider.conditionsFromTag(ModTags.Items.PLATINUM_INGOTS))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.PLATINUM_NUGGET), FabricRecipeProvider.conditionsFromTag(ModTags.Items.PLATINUM_NUGGETS))
                 .offerTo(recipeExporter, "platinum_material_by_nugget_shaped");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.PLATINUM_INGOT, 9)
                 .input(ModTags.Items.PLATINUM_BLOCKS)
@@ -407,7 +407,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .pattern("000")
                 .pattern("000")
                 .input('0', ModTags.Items.SILVER_NUGGETS)
-                .criterion(FabricRecipeProvider.hasItem(ModItems.SILVER_INGOT), FabricRecipeProvider.conditionsFromTag(ModTags.Items.SILVER_INGOTS))
+                .criterion(FabricRecipeProvider.hasItem(ModItems.SILVER_NUGGET), FabricRecipeProvider.conditionsFromTag(ModTags.Items.SILVER_NUGGETS))
                 .offerTo(recipeExporter, "silver_material_by_nugget_shaped");
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.SILVER_INGOT, 9)
                 .input(ModTags.Items.SILVER_BLOCKS)
