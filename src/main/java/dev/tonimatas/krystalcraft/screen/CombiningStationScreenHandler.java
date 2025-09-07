@@ -30,8 +30,8 @@ public class CombiningStationScreenHandler extends ScreenHandler {
         this.blockEntity = (CombiningStationBlockEntity) blockEntity;
         this.propertyDelegate = propertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 80, 9));
-        this.addSlot(new Slot(inventory, 1, 80, 26));
+        this.addSlot(new Slot(inventory, 0, 71, 26));
+        this.addSlot(new Slot(inventory, 1, 89, 26));
         this.addSlot(new ResultSlot(inventory, 2, 80, 67));
         this.addSlot(new FuelSlot(inventory, 3, 128, 70));
         

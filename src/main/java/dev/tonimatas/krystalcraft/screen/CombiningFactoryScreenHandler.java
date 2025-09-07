@@ -31,8 +31,8 @@ public class CombiningFactoryScreenHandler extends ScreenHandler {
         this.blockEntity = (CombiningFactoryBlockEntity) blockEntity;
         this.propertyDelegate = propertyDelegate;
 
-        this.addSlot(new Slot(inventory, 0, 80, 9));
-        this.addSlot(new Slot(inventory, 1, 80, 26));
+        this.addSlot(new Slot(inventory, 0, 71, 26));
+        this.addSlot(new Slot(inventory, 1, 89, 26));
         this.addSlot(new ResultSlot(inventory, 2, 80, 67));
         this.addSlot(new EnergySlot(inventory, 3, 129, 58));
         this.addSlot(new UpgradeSlot(inventory, 4, 106, 5));
