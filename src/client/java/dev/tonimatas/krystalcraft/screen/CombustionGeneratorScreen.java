@@ -29,7 +29,7 @@ public class CombustionGeneratorScreen extends HandledScreen<CombustionGenerator
         GuiUtils.drawEnergy(context, x + 152, y + 25, this.handler.blockEntity.energyStorage);
         
         if (handler.isBurning()) {
-            GuiUtils.drawLoaderProgress(context, x + 85, y + 45, handler.getScaledLoader());
+            GuiUtils.drawFire(context, x + 82, y + 49, handler.getBurnTime(), handler.getTotalBurnTime());
         }
     }
 

@@ -41,13 +41,13 @@ public class CombustionGeneratorScreenHandler extends ScreenHandler {
     public boolean isBurning() {
         return propertyDelegate.get(0) > 0;
     }
+    
+    public int getBurnTime() {
+        return this.propertyDelegate.get(0);
+    }
 
-    public int getScaledLoader() {
-        int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);
-        int loaderSize = 13;
-
-        return maxProgress != 0 && progress != 0 ?  progress * loaderSize / maxProgress : 0;
+    public int getTotalBurnTime() {
+        return this.propertyDelegate.get(1);
     }
 
     @Override
