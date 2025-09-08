@@ -2,6 +2,7 @@ package dev.tonimatas.krystalcraft.registry;
 
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.block.entity.*;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
@@ -35,5 +36,6 @@ public class ModBlockEntities {
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, COMBUSTION_GENERATOR_BLOCK_ENTITY);
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, CRUSHING_FACTORY_BLOCK_ENTITY);
         EnergyStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.energyStorage, COMBINING_FACTORY_BLOCK_ENTITY);
+        FluidStorage.SIDED.registerForBlockEntity((blockEntity, direction) -> blockEntity.fluidStorage, CUTTING_STATION_BLOCK_ENTITY);
     }
 }

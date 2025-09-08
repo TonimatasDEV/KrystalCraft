@@ -1,11 +1,9 @@
 package dev.tonimatas.krystalcraft.screen;
 
-import com.mojang.blaze3d.systems.RenderSystem;
 import dev.tonimatas.krystalcraft.KrystalCraft;
 import dev.tonimatas.krystalcraft.util.GuiUtils;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.render.GameRenderer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
@@ -21,9 +19,7 @@ public class CuttingStationScreen extends HandledScreen<CuttingStationScreenHand
 
     @Override
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        RenderSystem.setShaderColor(1f, 1f, 1f, 1f);
-        RenderSystem.setShaderTexture(0, TEXTURE);
+        GuiUtils.setDefaultRender(TEXTURE);
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
@@ -32,11 +28,16 @@ public class CuttingStationScreen extends HandledScreen<CuttingStationScreenHand
         }
 
         GuiUtils.drawFire(context, x + 130, y + 45, handler.getBurnTime(), handler.getBurnTimeTotal());
+        GuiUtils.drawFluid(context, handler.blockEntity.fluidStorage, x + 29, y + 25);
     }
 
     @Override
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         super.render(context, mouseX, mouseY, delta);
         drawMouseoverTooltip(context, mouseX, mouseY);
+
+        if (GuiUtils.isHovering(GuiUtils.getFluidTankBounds(x + 29, y + 25), mouseX, mouseY)) {
+            GuiUtils.drawTankTooltip(context, this.handler.blockEntity.fluidStorage, mouseX, mouseY);
+        }
     }
 }

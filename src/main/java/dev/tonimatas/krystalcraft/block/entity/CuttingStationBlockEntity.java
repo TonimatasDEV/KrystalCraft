@@ -8,10 +8,14 @@ import dev.tonimatas.krystalcraft.screen.CuttingStationScreenHandler;
 import dev.tonimatas.krystalcraft.util.FabricUtils;
 import dev.tonimatas.krystalcraft.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidVariant;
+import net.fabricmc.fabric.api.transfer.v1.storage.base.SingleVariantStorage;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.fluid.Fluids;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
@@ -43,6 +47,24 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
     protected int burnTimeTotal;
     protected int progress;
     protected int maxProgress = 100;
+
+    public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
+        @Override
+        protected FluidVariant getBlankVariant() {
+            return FluidVariant.of(Fluids.WATER);
+        }
+
+        @Override
+        protected long getCapacity(FluidVariant variant) {
+            return (FluidConstants.BUCKET / 81) * 10;
+        }
+
+        @Override
+        protected void onFinalCommit() {
+            markDirty();
+            getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
+        }
+    };
 
     public CuttingStationBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY, pos, state);
@@ -87,6 +109,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
         nbt.putInt("cutting_station.burn_time", burnTime);
         nbt.putInt("cutting_station.burn_time_total", burnTimeTotal);
         nbt.putInt("cutting_station.progress", progress);
+        nbt.putLong("cutting_station.fluid", fluidStorage.amount);
         Inventories.writeNbt(nbt, inventory, registryLookup);
     }
 
@@ -96,6 +119,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
         burnTime = nbt.getInt("cutting_station.burn_time");
         burnTimeTotal = nbt.getInt("cutting_station.burn_time_total");
         progress = nbt.getInt("cutting_station.progress");
+        fluidStorage.amount = nbt.getLong("cutting_station.fluid");
         super.readNbt(nbt, registryLookup);
     }
 
