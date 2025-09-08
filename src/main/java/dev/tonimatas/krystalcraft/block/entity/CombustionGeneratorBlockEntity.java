@@ -122,13 +122,15 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
     public void tick(World world, BlockPos pos, BlockState state) {
         EnergyUtils.moveToItem(this, energyStorage, BATTERY_SLOT);
 
-        if (burnTime == 0) {
-            int newBurnTime = FabricUtils.getBurnTime(getStack(INPUT_SLOT));
+        if (burnTime <= 0) {
+            if (energyStorage.getAmount() < energyStorage.getCapacity()) {
+                int newBurnTime = FabricUtils.getBurnTime(getStack(INPUT_SLOT));
 
-            if (newBurnTime != 0) {
-                removeStack(INPUT_SLOT, 1);
-                totalBurnTime = newBurnTime;
-                burnTime = newBurnTime;
+                if (newBurnTime != 0) {
+                    removeStack(INPUT_SLOT, 1);
+                    totalBurnTime = newBurnTime;
+                    burnTime = newBurnTime;
+                }
             }
         } else {
             EnergyUtils.insertInternal(energyStorage, 10);
