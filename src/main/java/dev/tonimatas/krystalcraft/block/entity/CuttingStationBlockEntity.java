@@ -6,6 +6,7 @@ import dev.tonimatas.krystalcraft.registry.ModBlockEntities;
 import dev.tonimatas.krystalcraft.registry.ModRecipes;
 import dev.tonimatas.krystalcraft.screen.CuttingStationScreenHandler;
 import dev.tonimatas.krystalcraft.util.FabricUtils;
+import dev.tonimatas.krystalcraft.util.FluidUtils;
 import dev.tonimatas.krystalcraft.util.ImplementedInventory;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.fabricmc.fabric.api.transfer.v1.fluid.FluidConstants;
@@ -155,7 +156,11 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
                 burnTimeTotal = burnTime;
                 removeStack(FUEL_SLOT, 1);
             } else {
-                progress++;
+                long amount = FluidUtils.extractInternal(fluidStorage, 5);
+
+                if (amount == 5) {
+                    progress++;
+                }
             }
    
             markDirty(world, pos, state);
