@@ -110,7 +110,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
         nbt.putInt("cutting_station.burn_time", burnTime);
         nbt.putInt("cutting_station.burn_time_total", burnTimeTotal);
         nbt.putInt("cutting_station.progress", progress);
-        nbt.putLong("cutting_station.fluid", fluidStorage.amount);
+        SingleVariantStorage.writeNbt(fluidStorage, FluidVariant.CODEC, nbt, registryLookup);
         Inventories.writeNbt(nbt, inventory, registryLookup);
     }
 
@@ -120,7 +120,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
         burnTime = nbt.getInt("cutting_station.burn_time");
         burnTimeTotal = nbt.getInt("cutting_station.burn_time_total");
         progress = nbt.getInt("cutting_station.progress");
-        fluidStorage.amount = nbt.getLong("cutting_station.fluid");
+        SingleVariantStorage.readNbt(fluidStorage, FluidVariant.CODEC, FluidVariant::blank, nbt, registryLookup);
         super.readNbt(nbt, registryLookup);
     }
 

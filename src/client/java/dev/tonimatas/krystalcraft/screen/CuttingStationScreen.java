@@ -29,6 +29,7 @@ public class CuttingStationScreen extends HandledScreen<CuttingStationScreenHand
 
         GuiUtils.drawFire(context, x + 130, y + 45, handler.getBurnTime(), handler.getBurnTimeTotal());
         GuiUtils.drawFluid(context, handler.blockEntity.fluidStorage, x + 29, y + 25);
+        GuiUtils.drawTank(context, x + 29, y + 25);
     }
 
     @Override

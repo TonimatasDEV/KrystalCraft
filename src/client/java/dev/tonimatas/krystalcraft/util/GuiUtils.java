@@ -97,8 +97,10 @@ public class GuiUtils {
         if (handler != null) {
             RenderSystem.setShaderTexture(0, handler.getFluidSprites(MinecraftClient.getInstance().world, null, fluidStorage.variant.getFluid().getDefaultState())[0].getAtlasId());
         }
-
-        drawVertical(context, x, y - FLUID_TANK_HEIGHT, FLUID_TANK_WIDTH, FLUID_TANK_HEIGHT, FLUID_TANK_TEXTURE, 1.0);
+    }
+    
+    public static void drawTank(DrawContext context, int x, int y) {
+        drawVertical(context, x, y, FLUID_TANK_WIDTH, FLUID_TANK_HEIGHT, FLUID_TANK_TEXTURE, 1.0);
     }
 
     public static void drawVertical(DrawContext context, int x, int y, int width, int height, Identifier identifier, double ratio) {
