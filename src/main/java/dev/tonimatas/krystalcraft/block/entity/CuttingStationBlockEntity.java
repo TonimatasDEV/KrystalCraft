@@ -150,6 +150,8 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
     }
 
     public void tick(World world, BlockPos pos, BlockState state) {
+        FluidUtils.tryBucketTransfer(inventory, TANK_INPUT_SLOT, TANK_OUTPUT_SLOT, fluidStorage);
+        
         if (hasRecipe()) {
             if (burnTime <= 0) {
                 burnTime = FabricUtils.getBurnTime(getStack(FUEL_SLOT));
