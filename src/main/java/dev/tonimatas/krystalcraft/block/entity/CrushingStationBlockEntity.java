@@ -35,8 +35,8 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
     protected static final int INPUT_SLOT = 0;
     protected static final int RESULT_SLOT = 1;
     protected static final int FUEL_SLOT = 2;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(3, ItemStack.EMPTY);
     protected int burnTime;
     protected int burnTimeTotal;
     protected int progress;
@@ -44,7 +44,7 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
 
     public CrushingStationBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRUSHING_STATION_BLOCK_ENTITY, pos, state);
-        
+
         this.propertyDelegate = new PropertyDelegate() {
             @Override
             public int get(int index) {
@@ -60,10 +60,14 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CrushingStationBlockEntity.this.burnTime = value;
-                    case 1: CrushingStationBlockEntity.this.burnTimeTotal  = value;
-                    case 2: CrushingStationBlockEntity.this.progress  = value;
-                    case 3: CrushingStationBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CrushingStationBlockEntity.this.burnTime = value;
+                    case 1:
+                        CrushingStationBlockEntity.this.burnTimeTotal = value;
+                    case 2:
+                        CrushingStationBlockEntity.this.progress = value;
+                    case 3:
+                        CrushingStationBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -121,7 +125,7 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         return new CrushingStationScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
-    
+
     public void tick(World world, BlockPos pos, BlockState state) {
         if (hasRecipe()) {
             if (burnTime <= 0) {
@@ -133,7 +137,7 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
             }
 
             markDirty(world, pos, state);
-            
+
             if (this.progress >= this.maxProgress) {
                 craftItem();
                 this.progress = 0;
@@ -144,16 +148,16 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
 
         if (burnTime > 0) burnTime--;
     }
-    
+
     private boolean hasRecipe() {
         Optional<RecipeEntry<CrushingRecipe>> recipe = getCurrentRecipe();
-        
+
         if (recipe.isEmpty()) {
             return false;
         }
-        
+
         ItemStack output = recipe.get().value().result();
-        
+
         return canInsertItemStack(output);
     }
 
@@ -163,12 +167,12 @@ public class CrushingStationBlockEntity extends BlockEntity implements Implement
 
     private void craftItem() {
         Optional<RecipeEntry<CrushingRecipe>> recipe = getCurrentRecipe();
-        
+
         ItemStack output = recipe.get().value().result();
         this.removeStack(INPUT_SLOT, 1);
         this.setStack(RESULT_SLOT, new ItemStack(output.getItem(), this.getStack(RESULT_SLOT).getCount() + output.getCount()));
     }
-    
+
     private boolean canInsertItemStack(ItemStack newStack) {
         ItemStack stack = this.getStack(RESULT_SLOT);
         int maxCount = stack.isEmpty() ? 64 : stack.getMaxCount();

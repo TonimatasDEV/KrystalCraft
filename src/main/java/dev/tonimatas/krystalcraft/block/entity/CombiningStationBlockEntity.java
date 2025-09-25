@@ -36,8 +36,8 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
     protected static final int INPUT2_SLOT = 1;
     protected static final int RESULT_SLOT = 2;
     protected static final int FUEL_SLOT = 3;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(4, ItemStack.EMPTY);
     protected int burnTime;
     protected int burnTimeTotal;
     protected int progress;
@@ -61,10 +61,14 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CombiningStationBlockEntity.this.burnTime = value;
-                    case 1: CombiningStationBlockEntity.this.burnTimeTotal  = value;
-                    case 2: CombiningStationBlockEntity.this.progress  = value;
-                    case 3: CombiningStationBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CombiningStationBlockEntity.this.burnTime = value;
+                    case 1:
+                        CombiningStationBlockEntity.this.burnTimeTotal = value;
+                    case 2:
+                        CombiningStationBlockEntity.this.progress = value;
+                    case 3:
+                        CombiningStationBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -145,7 +149,7 @@ public class CombiningStationBlockEntity extends BlockEntity implements Implemen
 
         if (burnTime > 0) burnTime--;
     }
-    
+
     private boolean hasRecipe() {
         Optional<RecipeEntry<CombiningRecipe>> recipe = getCurrentRecipe();
 

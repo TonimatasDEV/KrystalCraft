@@ -47,7 +47,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
         itemModelGenerator.register(ModItems.BATTERY, Models.GENERATED);
-        
+
         // Bronze
         itemModelGenerator.register(ModItems.BRONZE_INGOT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_NUGGET, Models.GENERATED);
@@ -61,7 +61,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.BRONZE_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.BRONZE_BOOTS, Models.GENERATED);
-        
+
         // Copper
         itemModelGenerator.register(ModItems.COPPER_NUGGET, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_DUST, Models.GENERATED);
@@ -74,7 +74,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.COPPER_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.COPPER_BOOTS, Models.GENERATED);
-        
+
         // Jade
         itemModelGenerator.register(ModItems.RAW_JADE, Models.GENERATED);
         itemModelGenerator.register(ModItems.JADE, Models.GENERATED);
@@ -88,7 +88,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.JADE_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.JADE_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.JADE_BOOTS, Models.GENERATED);
-        
+
         // Lead
         itemModelGenerator.register(ModItems.RAW_LEAD, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_INGOT, Models.GENERATED);
@@ -103,7 +103,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.LEAD_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.LEAD_BOOTS, Models.GENERATED);
-        
+
         // Platinum
         itemModelGenerator.register(ModItems.RAW_PLATINUM, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATINUM_INGOT, Models.GENERATED);
@@ -118,7 +118,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.PLATINUM_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATINUM_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.PLATINUM_BOOTS, Models.GENERATED);
-        
+
         // Ruby
         itemModelGenerator.register(ModItems.RAW_RUBY, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY, Models.GENERATED);
@@ -132,7 +132,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.RUBY_CHESTPLATE, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_LEGGINGS, Models.GENERATED);
         itemModelGenerator.register(ModItems.RUBY_BOOTS, Models.GENERATED);
-        
+
         // Sapphire
         itemModelGenerator.register(ModItems.RAW_SAPPHIRE, Models.GENERATED);
         itemModelGenerator.register(ModItems.SAPPHIRE, Models.GENERATED);

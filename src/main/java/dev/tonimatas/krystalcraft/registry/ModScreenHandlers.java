@@ -11,9 +11,14 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 
 public class ModScreenHandlers {
-    public static final ScreenHandlerType<CuttingStationScreenHandler> CUTTING_STATION_SCREEN_HANDLER = registerScreenHandler("cutting_station_screen_handler",
+    public static <T extends ScreenHandler> ScreenHandlerType<T> registerScreenHandler(String name, ScreenHandlerType<T> screenHandlerType) {
+        return Registry.register(Registries.SCREEN_HANDLER, Identifier.of(KrystalCraft.MOD_ID, name), screenHandlerType);
+    }    public static final ScreenHandlerType<CuttingStationScreenHandler> CUTTING_STATION_SCREEN_HANDLER = registerScreenHandler("cutting_station_screen_handler",
             new ExtendedScreenHandlerType<>(CuttingStationScreenHandler::new, BlockPos.PACKET_CODEC));
-    public static final ScreenHandlerType<CuttingFactoryScreenHandler> CUTTING_FACTORY_SCREEN_HANDLER = registerScreenHandler("cutting_factory_screen_handler",
+
+    public static void initialize() {
+        // Initialize the class
+    }    public static final ScreenHandlerType<CuttingFactoryScreenHandler> CUTTING_FACTORY_SCREEN_HANDLER = registerScreenHandler("cutting_factory_screen_handler",
             new ExtendedScreenHandlerType<>(CuttingFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
     public static final ScreenHandlerType<CrushingStationScreenHandler> CRUSHING_STATION_SCREEN_HANDLER = registerScreenHandler("crushing_station_screen_handler",
             new ExtendedScreenHandlerType<>(CrushingStationScreenHandler::new, BlockPos.PACKET_CODEC));
@@ -25,12 +30,8 @@ public class ModScreenHandlers {
             new ExtendedScreenHandlerType<>(CombiningFactoryScreenHandler::new, BlockPos.PACKET_CODEC));
     public static final ScreenHandlerType<CombustionGeneratorScreenHandler> COMBUSTION_GENERATOR_SCREEN_HANDLER = registerScreenHandler("combustion_generator_screen_handler",
             new ExtendedScreenHandlerType<>(CombustionGeneratorScreenHandler::new, BlockPos.PACKET_CODEC));
-    
-    public static <T extends ScreenHandler> ScreenHandlerType<T> registerScreenHandler(String name, ScreenHandlerType<T> screenHandlerType) {
-        return Registry.register(Registries.SCREEN_HANDLER, Identifier.of(KrystalCraft.MOD_ID, name), screenHandlerType);
-    }
-    
-    public static void initialize() {
-        // Initialize the class
-    }
+
+
+
+
 }

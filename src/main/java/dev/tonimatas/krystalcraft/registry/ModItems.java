@@ -33,7 +33,7 @@ public class ModItems {
     public static final Item SILVER_HOE = register("silver_hoe", new HoeItem(ModToolMaterials.SILVER, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.SILVER, 0, -1.0F))));
 
-//------------------------------------------------------------------------------------------------------------------Jade
+    //------------------------------------------------------------------------------------------------------------------Jade
     public static final Item JADE = register("jade", new Item(new Item.Settings()));
     public static final Item JADE_DUST = register("jade_dust", new Item(new Item.Settings()));
     public static final Item RAW_JADE = register("raw_jade", new Item(new Item.Settings()));
@@ -103,7 +103,7 @@ public class ModItems {
     public static final Item LEAD_HOE = register("lead_hoe", new HoeItem(ModToolMaterials.LEAD, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.LEAD, 0, -1f))));
 
-//-------------------------------------------------------------------------------------------------------------------Tin
+    //-------------------------------------------------------------------------------------------------------------------Tin
     public static final Item TIN_INGOT = register("tin_ingot", new Item(new Item.Settings()));
     public static final Item TIN_NUGGET = register("tin_nugget", new Item(new Item.Settings()));
     public static final Item TIN_DUST = register("tin_dust", new Item(new Item.Settings()));
@@ -127,7 +127,7 @@ public class ModItems {
     public static final Item TIN_HOE = register("tin_hoe", new HoeItem(ModToolMaterials.TIN, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.TIN, 0, -2.0F))));
 
-//----------------------------------------------------------------------------------------------------------------Copper
+    //----------------------------------------------------------------------------------------------------------------Copper
     public static final Item COPPER_NUGGET = register("copper_nugget", new Item(new Item.Settings()));
     public static final Item COPPER_DUST = register("copper_dust", new Item(new Item.Settings()));
     public static final Item COPPER_HELMET = register("copper_helmet", new ArmorItem(ModArmorMaterials.COPPER, ArmorItem.Type.HELMET,
@@ -149,7 +149,7 @@ public class ModItems {
     public static final Item COPPER_HOE = register("copper_hoe", new HoeItem(ModToolMaterials.COPPER, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.COPPER, 0, -2.0F))));
 
-//--------------------------------------------------------------------------------------------------------------Platinum
+    //--------------------------------------------------------------------------------------------------------------Platinum
     public static final Item PLATINUM_INGOT = register("platinum_ingot", new Item(new Item.Settings()));
     public static final Item PLATINUM_NUGGET = register("platinum_nugget", new Item(new Item.Settings()));
     public static final Item PLATINUM_DUST = register("platinum_dust", new Item(new Item.Settings()));
@@ -197,7 +197,7 @@ public class ModItems {
     public static final Item SAPPHIRE_HOE = register("sapphire_hoe", new HoeItem(ModToolMaterials.SAPPHIRE, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.SAPPHIRE, -1, -1f))));
 
-//--------------------------------------------------------------------------------------------------------------Sapphire
+    //--------------------------------------------------------------------------------------------------------------Sapphire
     public static final Item RUBY = register("ruby", new Item(new Item.Settings()));
     public static final Item RUBY_DUST = register("ruby_dust", new Item(new Item.Settings()));
     public static final Item RAW_RUBY = register("raw_ruby", new Item(new Item.Settings()));
@@ -220,7 +220,7 @@ public class ModItems {
     public static final Item RUBY_HOE = register("ruby_hoe", new HoeItem(ModToolMaterials.RUBY, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.RUBY, -1, -1f))));
 
-//----------------------------------------------------------------------------------------------------------------Bronze
+    //----------------------------------------------------------------------------------------------------------------Bronze
     public static final Item BRONZE_INGOT = register("bronze_ingot", new Item(new Item.Settings()));
     public static final Item BRONZE_NUGGET = register("bronze_nugget", new Item(new Item.Settings()));
     public static final Item BRONZE_DUST = register("bronze_dust", new Item(new Item.Settings()));
@@ -243,7 +243,7 @@ public class ModItems {
     public static final Item BRONZE_HOE = register("bronze_hoe", new HoeItem(ModToolMaterials.BRONZE, new Item.Settings().attributeModifiers(
             HoeItem.createAttributeModifiers(ModToolMaterials.BRONZE, 0, -1.0F))));
 
-//-----------------------------------------------------------------------------------------------------------------Items
+    //-----------------------------------------------------------------------------------------------------------------Items
     public static final Item RAW_DIAMOND = register("raw_diamond", new Item(new Item.Settings()));
     public static final Item DIAMOND_DUST = register("diamond_dust", new Item(new Item.Settings()));
     public static final Item RAW_EMERALD = register("raw_emerald", new Item(new Item.Settings()));
@@ -258,7 +258,7 @@ public class ModItems {
         Identifier itemID = Identifier.of(KrystalCraft.MOD_ID, id);
         return Registry.register(Registries.ITEM, itemID, item);
     }
-    
+
     public static void initialize() {
         EnergyStorage.ITEM.registerForItems((itemStack, context) -> {
             if (itemStack.getItem() instanceof BatteryItem batteryItem) {

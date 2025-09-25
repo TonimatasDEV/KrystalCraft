@@ -24,13 +24,13 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .addTag(ModTags.Items.PLATINUM_INGOTS)
                 .addTag(ModTags.Items.SILVER_INGOTS)
                 .addTag(ModTags.Items.TIN_INGOTS);
-        
+
         getOrCreateTagBuilder(ModTags.Items.BRONZE_INGOTS).add(ModItems.BRONZE_INGOT);
         getOrCreateTagBuilder(ModTags.Items.LEAD_INGOTS).add(ModItems.LEAD_INGOT);
         getOrCreateTagBuilder(ModTags.Items.PLATINUM_INGOTS).add(ModItems.PLATINUM_INGOT);
         getOrCreateTagBuilder(ModTags.Items.SILVER_INGOTS).add(ModItems.SILVER_INGOT);
         getOrCreateTagBuilder(ModTags.Items.TIN_INGOTS).add(ModItems.TIN_INGOT);
-        
+
         // Common tags - NUGGETS
         getOrCreateTagBuilder(ConventionalItemTags.NUGGETS)
                 .addTag(ModTags.Items.BRONZE_NUGGETS)
@@ -106,7 +106,7 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
         getOrCreateTagBuilder(ModTags.Items.LAPIS_RAW_MATERIALS).add(ModItems.RAW_LAPIS);
         getOrCreateTagBuilder(ModTags.Items.EMERALD_RAW_MATERIALS).add(ModItems.RAW_EMERALD);
         getOrCreateTagBuilder(ModTags.Items.REDSTONE_RAW_MATERIALS).add(ModItems.RAW_REDSTONE);
-        
+
         // Common tags - GEMS
         getOrCreateTagBuilder(ConventionalItemTags.GEMS)
                 .addTag(ModTags.Items.JADE_GEMS)

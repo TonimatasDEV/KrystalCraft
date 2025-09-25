@@ -24,7 +24,7 @@ public class CuttingFactoryScreen extends HandledScreen<CuttingFactoryScreenHand
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         GuiUtils.drawFluid(context, handler.blockEntity.fluidStorage, x + 29, y + 25);
         GuiUtils.drawEnergy(context, x + 152, y + 25, this.handler.blockEntity.energyStorage);
-        
+
         if (handler.isCrafting()) {
             GuiUtils.drawLoaderProgress(context, x + 85, y + 45, handler.getScaledLoader());
         }

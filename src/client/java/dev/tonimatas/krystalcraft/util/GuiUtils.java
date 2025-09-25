@@ -48,7 +48,7 @@ public class GuiUtils {
         double ratio = energyStorage.getCapacity() > 0 ? (energyStorage.getAmount() / (float) energyStorage.getCapacity()) : 0;
         drawVertical(context, x, y, ENERGY_WIDTH, ENERGY_HEIGHT, ENERGY_TEXTURE, ratio);
     }
-    
+
     public static void drawLoaderProgress(DrawContext context, int x, int y, int scaledProgress) {
         context.drawTexture(LOADER_TEXTURE, x, y, 0, 0, LOADER_WIDTH, scaledProgress, LOADER_WIDTH, LOADER_HEIGHT);
     }
@@ -98,7 +98,7 @@ public class GuiUtils {
             RenderSystem.setShaderTexture(0, handler.getFluidSprites(MinecraftClient.getInstance().world, null, fluidStorage.variant.getFluid().getDefaultState())[0].getAtlasId());
         }
     }
-    
+
     public static void drawTank(DrawContext context, int x, int y) {
         drawVertical(context, x, y, FLUID_TANK_WIDTH, FLUID_TANK_HEIGHT, FLUID_TANK_TEXTURE, 1.0);
     }
@@ -128,7 +128,7 @@ public class GuiUtils {
     public static Rectangle getEnergyBounds(int x, int y) {
         return new Rectangle(x, y, ENERGY_WIDTH, ENERGY_HEIGHT);
     }
-    
+
     public static void setDefaultRender(Identifier texture) {
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1f, 1f, 1f, 1f);

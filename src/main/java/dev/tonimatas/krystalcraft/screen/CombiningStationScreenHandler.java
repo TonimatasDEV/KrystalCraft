@@ -16,14 +16,14 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 
 public class CombiningStationScreenHandler extends ScreenHandler {
+    public final CombiningStationBlockEntity blockEntity;
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final CombiningStationBlockEntity blockEntity;
-    
+
     public CombiningStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(4));
     }
-    
+
     public CombiningStationScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.COMBINING_STATION_SCREEN_HANDLER, syncId);
         this.inventory = (Inventory) blockEntity;
@@ -34,10 +34,10 @@ public class CombiningStationScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 1, 89, 26));
         this.addSlot(new ResultSlot(inventory, 2, 80, 67));
         this.addSlot(new FuelSlot(inventory, 3, 128, 70));
-        
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-        
+
         addProperties(propertyDelegate);
     }
 
@@ -95,7 +95,7 @@ public class CombiningStationScreenHandler extends ScreenHandler {
 
     private void addPlayerInventory(PlayerInventory playerInventory) {
         int y = 99;
-        
+
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, y + i * 18));
@@ -105,7 +105,7 @@ public class CombiningStationScreenHandler extends ScreenHandler {
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         int y = 157;
-        
+
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, y));
         }

@@ -45,11 +45,6 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
     public static final int BATTERY_SLOT = 4;
     public static final int UPGRADE1_SLOT = 5;
     public static final int UPGRADE2_SLOT = 6;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(7, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
-    protected int progress;
-    protected int maxProgress = 100;
-
     public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
         @Override
         protected FluidVariant getBlankVariant() {
@@ -67,7 +62,6 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
-
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 50, 50) {
         @Override
         protected void onFinalCommit() {
@@ -75,6 +69,10 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
+    protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(7, ItemStack.EMPTY);
+    protected int progress;
+    protected int maxProgress = 100;
 
     public CuttingFactoryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CUTTING_FACTORY_BLOCK_ENTITY, pos, state);
@@ -92,8 +90,10 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CuttingFactoryBlockEntity.this.progress = value;
-                    case 1: CuttingFactoryBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CuttingFactoryBlockEntity.this.progress = value;
+                    case 1:
+                        CuttingFactoryBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -151,11 +151,11 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         return new CuttingFactoryScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
-    
+
     public void tick(World world, BlockPos pos, BlockState state) {
         EnergyUtils.moveFromItem(this, energyStorage, BATTERY_SLOT);
         FluidUtils.tryBucketTransfer(inventory, TANK_INPUT_SLOT, TANK_OUTPUT_SLOT, fluidStorage);
-        
+
         if (hasRecipe()) {
             if ((energyStorage.amount >= 5 && fluidStorage.amount >= 5) && EnergyUtils.extractInternal(energyStorage, 5) == 5) {
                 long amount = FluidUtils.extractInternal(fluidStorage, 5);
@@ -164,7 +164,7 @@ public class CuttingFactoryBlockEntity extends BlockEntity implements Implemente
                     progress++;
                 }
             }
-            
+
             if (this.progress >= this.maxProgress) {
                 craftItem();
                 this.progress = 0;

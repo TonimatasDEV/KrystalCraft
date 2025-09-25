@@ -15,7 +15,7 @@ public record LightningStrikeEnchantmentEffect() implements EnchantmentEntityEff
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
         if (user == null) return;
-        if (Math.random() <= ((double) level/10)) return;
+        if (Math.random() <= ((double) level / 10)) return;
         EntityType.LIGHTNING_BOLT.spawn(world, user.getBlockPos(), SpawnReason.TRIGGERED);
     }
 

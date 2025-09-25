@@ -18,7 +18,7 @@ public class ModEnchantmentEffects {
     private static MapCodec<? extends EnchantmentEntityEffect> registerEntityEffect(String name, MapCodec<? extends EnchantmentEntityEffect> codec) {
         return Registry.register(Registries.ENCHANTMENT_ENTITY_EFFECT_TYPE, Identifier.of(KrystalCraft.MOD_ID, name), codec);
     }
-    
+
     public static void initialize() {
         // Initialize the class
     }

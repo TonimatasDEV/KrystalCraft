@@ -42,13 +42,6 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
     protected static final int TANK_OUTPUT_SLOT = 2;
     protected static final int FUEL_SLOT = 3;
     protected static final int RESULT_SLOT = 4;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
-    protected int burnTime;
-    protected int burnTimeTotal;
-    protected int progress;
-    protected int maxProgress = 100;
-
     public final SingleVariantStorage<FluidVariant> fluidStorage = new SingleVariantStorage<>() {
         @Override
         protected FluidVariant getBlankVariant() {
@@ -66,6 +59,12 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
+    protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
+    protected int burnTime;
+    protected int burnTimeTotal;
+    protected int progress;
+    protected int maxProgress = 100;
 
     public CuttingStationBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CUTTING_STATION_BLOCK_ENTITY, pos, state);
@@ -85,10 +84,14 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CuttingStationBlockEntity.this.burnTime = value;
-                    case 1: CuttingStationBlockEntity.this.burnTimeTotal  = value;
-                    case 2: CuttingStationBlockEntity.this.progress  = value;
-                    case 3: CuttingStationBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CuttingStationBlockEntity.this.burnTime = value;
+                    case 1:
+                        CuttingStationBlockEntity.this.burnTimeTotal = value;
+                    case 2:
+                        CuttingStationBlockEntity.this.progress = value;
+                    case 3:
+                        CuttingStationBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -151,7 +154,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
 
     public void tick(World world, BlockPos pos, BlockState state) {
         FluidUtils.tryBucketTransfer(inventory, TANK_INPUT_SLOT, TANK_OUTPUT_SLOT, fluidStorage);
-        
+
         if (hasRecipe()) {
             if (burnTime <= 0) {
                 burnTime = FabricUtils.getBurnTime(getStack(FUEL_SLOT));
@@ -164,7 +167,7 @@ public class CuttingStationBlockEntity extends BlockEntity implements Implemente
                     progress++;
                 }
             }
-   
+
             markDirty(world, pos, state);
 
             if (this.progress >= this.maxProgress) {

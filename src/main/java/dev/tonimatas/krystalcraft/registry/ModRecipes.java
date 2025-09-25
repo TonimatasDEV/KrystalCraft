@@ -33,7 +33,7 @@ public class ModRecipes {
             return "cutting";
         }
     });
-    
+
     public static <T extends Recipe<?>> RecipeSerializer<T> registerSerializer(String name, RecipeSerializer<T> recipeSerializer) {
         return Registry.register(Registries.RECIPE_SERIALIZER, Identifier.of(KrystalCraft.MOD_ID, name), recipeSerializer);
     }

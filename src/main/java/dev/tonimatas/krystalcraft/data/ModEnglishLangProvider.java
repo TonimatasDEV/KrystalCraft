@@ -188,7 +188,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.BRONZE_SHOVEL, "Bronze Shovel");
         translationBuilder.add(ModItems.BRONZE_HOE, "Bronze Hoe");
         translationBuilder.add(ModBlocks.BRONZE_BLOCK, "Bronze Block");
-        
+
         // Other
         translationBuilder.add(ModItems.RAW_DIAMOND, "Raw Diamond");
         translationBuilder.add(ModItems.DIAMOND_DUST, "Diamond Dust");
@@ -211,78 +211,78 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
 
         Optional<RegistryKey<ItemGroup>> itemGroup = Registries.ITEM_GROUP.getKey(ModTabs.KRYSTALCRAFT);
         itemGroup.ifPresent(itemGroupRegistryKey -> translationBuilder.add(itemGroupRegistryKey, "KrystalCraft"));
-        
+
         // Tags - Dusts
-        translationBuilder.add(ModTags.Items.DIAMOND_DUSTS,  "Diamond Dusts Tag");
-        translationBuilder.add(ModTags.Items.LEAD_DUSTS,  "Lead Dusts Tag");
-        translationBuilder.add(ModTags.Items.COPPER_DUSTS,  "Copper Dusts Tag");
-        translationBuilder.add(ModTags.Items.IRON_DUSTS,  "Iron Dusts Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_DUSTS,  "Platinum Dusts Tag");
-        translationBuilder.add(ModTags.Items.TIN_DUSTS,  "Tin Dusts Tag");
-        translationBuilder.add(ModTags.Items.SILVER_DUSTS,  "Silver Dusts Tag");
-        translationBuilder.add(ModTags.Items.JADE_DUSTS,  "Jade Dusts Tag");
-        translationBuilder.add(ModTags.Items.EMERALD_DUSTS,  "Emerald Dusts Tag");
-        translationBuilder.add(ModTags.Items.LAPIS_DUSTS,  "Lapis Lazuli Dusts Tag");
-        translationBuilder.add(ModTags.Items.BRONZE_DUSTS,  "Bronze Dusts Tag");
-        translationBuilder.add(ModTags.Items.RUBY_DUSTS,  "Ruby Dusts Tag");
-        translationBuilder.add(ModTags.Items.TOPAZ_DUSTS,  "Topaz Dusts Tag");
-        translationBuilder.add(ModTags.Items.SAPPHIRE_DUSTS,  "Sapphire Dusts Tag");
+        translationBuilder.add(ModTags.Items.DIAMOND_DUSTS, "Diamond Dusts Tag");
+        translationBuilder.add(ModTags.Items.LEAD_DUSTS, "Lead Dusts Tag");
+        translationBuilder.add(ModTags.Items.COPPER_DUSTS, "Copper Dusts Tag");
+        translationBuilder.add(ModTags.Items.IRON_DUSTS, "Iron Dusts Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_DUSTS, "Platinum Dusts Tag");
+        translationBuilder.add(ModTags.Items.TIN_DUSTS, "Tin Dusts Tag");
+        translationBuilder.add(ModTags.Items.SILVER_DUSTS, "Silver Dusts Tag");
+        translationBuilder.add(ModTags.Items.JADE_DUSTS, "Jade Dusts Tag");
+        translationBuilder.add(ModTags.Items.EMERALD_DUSTS, "Emerald Dusts Tag");
+        translationBuilder.add(ModTags.Items.LAPIS_DUSTS, "Lapis Lazuli Dusts Tag");
+        translationBuilder.add(ModTags.Items.BRONZE_DUSTS, "Bronze Dusts Tag");
+        translationBuilder.add(ModTags.Items.RUBY_DUSTS, "Ruby Dusts Tag");
+        translationBuilder.add(ModTags.Items.TOPAZ_DUSTS, "Topaz Dusts Tag");
+        translationBuilder.add(ModTags.Items.SAPPHIRE_DUSTS, "Sapphire Dusts Tag");
 
         // Tags - Ingots
-        translationBuilder.add(ModTags.Items.SILVER_INGOTS,  "Silver Ingots Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_INGOTS,  "Platinum Ingots Tag");
-        translationBuilder.add(ModTags.Items.TIN_INGOTS,  "Tin Ingots Tag");
-        translationBuilder.add(ModTags.Items.BRONZE_INGOTS,  "Bronze Ingots Tag");
-        translationBuilder.add(ModTags.Items.LEAD_INGOTS,  "Lead Ingots Tag");
+        translationBuilder.add(ModTags.Items.SILVER_INGOTS, "Silver Ingots Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_INGOTS, "Platinum Ingots Tag");
+        translationBuilder.add(ModTags.Items.TIN_INGOTS, "Tin Ingots Tag");
+        translationBuilder.add(ModTags.Items.BRONZE_INGOTS, "Bronze Ingots Tag");
+        translationBuilder.add(ModTags.Items.LEAD_INGOTS, "Lead Ingots Tag");
 
         // Tags - Gems
-        translationBuilder.add(ModTags.Items.RUBY_GEMS,  "Ruby Gems Tag");
-        translationBuilder.add(ModTags.Items.SAPPHIRE_GEMS,  "Sapphire Gems Tag");
-        translationBuilder.add(ModTags.Items.JADE_GEMS,  "JAde Gems Tag");
-        translationBuilder.add(ModTags.Items.TOPAZ_GEMS,  "Topaz Gems Tag");
+        translationBuilder.add(ModTags.Items.RUBY_GEMS, "Ruby Gems Tag");
+        translationBuilder.add(ModTags.Items.SAPPHIRE_GEMS, "Sapphire Gems Tag");
+        translationBuilder.add(ModTags.Items.JADE_GEMS, "JAde Gems Tag");
+        translationBuilder.add(ModTags.Items.TOPAZ_GEMS, "Topaz Gems Tag");
 
         // Tags - Raw Materials
-        translationBuilder.add(ModTags.Items.DIAMOND_RAW_MATERIALS,  "Diamond Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.LEAD_RAW_MATERIALS,  "Lead Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_RAW_MATERIALS,  "Platinum Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.TIN_RAW_MATERIALS,  "Tin Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.SILVER_RAW_MATERIALS,  "Silver Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.JADE_RAW_MATERIALS,  "Jade Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.EMERALD_RAW_MATERIALS,  "Emerald Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.LAPIS_RAW_MATERIALS,  "Lapis Lazuli Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.RUBY_RAW_MATERIALS,  "Ruby Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.TOPAZ_RAW_MATERIALS,  "Topaz Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.SAPPHIRE_RAW_MATERIALS,  "Sapphire Raw Materials Tag");
-        translationBuilder.add(ModTags.Items.REDSTONE_RAW_MATERIALS,  "Redstone Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.DIAMOND_RAW_MATERIALS, "Diamond Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.LEAD_RAW_MATERIALS, "Lead Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_RAW_MATERIALS, "Platinum Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.TIN_RAW_MATERIALS, "Tin Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.SILVER_RAW_MATERIALS, "Silver Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.JADE_RAW_MATERIALS, "Jade Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.EMERALD_RAW_MATERIALS, "Emerald Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.LAPIS_RAW_MATERIALS, "Lapis Lazuli Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.RUBY_RAW_MATERIALS, "Ruby Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.TOPAZ_RAW_MATERIALS, "Topaz Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.SAPPHIRE_RAW_MATERIALS, "Sapphire Raw Materials Tag");
+        translationBuilder.add(ModTags.Items.REDSTONE_RAW_MATERIALS, "Redstone Raw Materials Tag");
 
         // Tags - Nuggets
-        translationBuilder.add(ModTags.Items.SILVER_NUGGETS,  "Silver Nuggets Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_NUGGETS,  "Platinum Nuggets Tag");
-        translationBuilder.add(ModTags.Items.TIN_NUGGETS,  "Tin Nuggets Tag");
-        translationBuilder.add(ModTags.Items.BRONZE_NUGGETS,  "Bronze Nuggets Tag");
-        translationBuilder.add(ModTags.Items.LEAD_NUGGETS,  "Lead Nuggets Tag");
-        translationBuilder.add(ModTags.Items.COPPER_NUGGETS,  "Copper Nuggets Tag");
+        translationBuilder.add(ModTags.Items.SILVER_NUGGETS, "Silver Nuggets Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_NUGGETS, "Platinum Nuggets Tag");
+        translationBuilder.add(ModTags.Items.TIN_NUGGETS, "Tin Nuggets Tag");
+        translationBuilder.add(ModTags.Items.BRONZE_NUGGETS, "Bronze Nuggets Tag");
+        translationBuilder.add(ModTags.Items.LEAD_NUGGETS, "Lead Nuggets Tag");
+        translationBuilder.add(ModTags.Items.COPPER_NUGGETS, "Copper Nuggets Tag");
 
         // Tags - Ores
-        translationBuilder.add(ModTags.Items.SILVER_ORES,  "Silver Ores Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_ORES,  "Platinum Ores Tag");
-        translationBuilder.add(ModTags.Items.TIN_ORES,  "Tin Ores Tag");
-        translationBuilder.add(ModTags.Items.LEAD_ORES,  "Lead Ores Tag");
-        translationBuilder.add(ModTags.Items.TOPAZ_ORES,  "Topaz Ores Tag");
-        translationBuilder.add(ModTags.Items.EXPERIENCE_ORES,  "Experience Ores Tag");
-        translationBuilder.add(ModTags.Items.RUBY_ORES,  "Ruby Ores Tag");
-        translationBuilder.add(ModTags.Items.JADE_ORES,  "Jade Ores Tag");
-        translationBuilder.add(ModTags.Items.SAPPHIRE_ORES,  "Sapphire Ores Tag");
+        translationBuilder.add(ModTags.Items.SILVER_ORES, "Silver Ores Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_ORES, "Platinum Ores Tag");
+        translationBuilder.add(ModTags.Items.TIN_ORES, "Tin Ores Tag");
+        translationBuilder.add(ModTags.Items.LEAD_ORES, "Lead Ores Tag");
+        translationBuilder.add(ModTags.Items.TOPAZ_ORES, "Topaz Ores Tag");
+        translationBuilder.add(ModTags.Items.EXPERIENCE_ORES, "Experience Ores Tag");
+        translationBuilder.add(ModTags.Items.RUBY_ORES, "Ruby Ores Tag");
+        translationBuilder.add(ModTags.Items.JADE_ORES, "Jade Ores Tag");
+        translationBuilder.add(ModTags.Items.SAPPHIRE_ORES, "Sapphire Ores Tag");
 
         // Tags - Storage Blocks
-        translationBuilder.add(ModTags.Items.SILVER_BLOCKS,  "Silver Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.PLATINUM_BLOCKS,  "Platinum Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.TIN_BLOCKS,  "Tin Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.LEAD_BLOCKS,  "Lead Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.TOPAZ_BLOCKS,  "Topaz Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.RUBY_BLOCKS,  "Ruby Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.JADE_BLOCKS,  "Jade Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.SAPPHIRE_BLOCKS,  "Sapphire Storage Blocks Tag");
-        translationBuilder.add(ModTags.Items.BRONZE_BLOCKS,  "Bronze Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.SILVER_BLOCKS, "Silver Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.PLATINUM_BLOCKS, "Platinum Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.TIN_BLOCKS, "Tin Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.LEAD_BLOCKS, "Lead Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.TOPAZ_BLOCKS, "Topaz Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.RUBY_BLOCKS, "Ruby Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.JADE_BLOCKS, "Jade Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.SAPPHIRE_BLOCKS, "Sapphire Storage Blocks Tag");
+        translationBuilder.add(ModTags.Items.BRONZE_BLOCKS, "Bronze Storage Blocks Tag");
     }
 }

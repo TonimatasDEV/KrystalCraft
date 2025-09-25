@@ -38,7 +38,7 @@ public record CrushingRecipe(Ingredient ingredient, ItemStack result) implements
         if (world.isClient) {
             return false;
         }
-        
+
         return ingredient.test(input.getStackInSlot(0));
     }
 
@@ -56,7 +56,7 @@ public record CrushingRecipe(Ingredient ingredient, ItemStack result) implements
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return result;
     }
-    
+
     public static class Serializer implements RecipeSerializer<CrushingRecipe> {
         public static final MapCodec<CrushingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(CrushingRecipe::ingredient),
@@ -65,8 +65,8 @@ public record CrushingRecipe(Ingredient ingredient, ItemStack result) implements
                 Ingredient.PACKET_CODEC, CrushingRecipe::ingredient,
                 ItemStack.PACKET_CODEC, CrushingRecipe::result,
                 CrushingRecipe::new);
-        
-        
+
+
         @Override
         public MapCodec<CrushingRecipe> codec() {
             return CODEC;

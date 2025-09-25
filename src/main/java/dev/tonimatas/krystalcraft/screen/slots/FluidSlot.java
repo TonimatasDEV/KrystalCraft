@@ -8,6 +8,7 @@ import net.minecraft.screen.slot.Slot;
 
 public class FluidSlot extends Slot {
     protected Fluid fluid;
+
     public FluidSlot(Inventory inventory, int i, int j, int k, Fluid fluid) {
         super(inventory, i, j, k);
         this.fluid = fluid;

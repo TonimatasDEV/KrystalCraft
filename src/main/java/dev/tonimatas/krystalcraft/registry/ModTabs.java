@@ -15,7 +15,7 @@ public class ModTabs {
                     .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY))
                     .displayName(Text.translatable("itemGroup.krystalcraft"))
                     .entries((displayContext, entries) -> {
-                        
+
                         // Silver
                         entries.add(ModItems.SILVER_INGOT);
                         entries.add(ModItems.SILVER_NUGGET);
@@ -33,7 +33,7 @@ public class ModTabs {
                         entries.add(ModItems.SILVER_AXE);
                         entries.add(ModItems.SILVER_SHOVEL);
                         entries.add(ModItems.SILVER_HOE);
-                        
+
                         // Jade
                         entries.add(ModItems.JADE);
                         entries.add(ModItems.JADE_DUST);
@@ -50,7 +50,7 @@ public class ModTabs {
                         entries.add(ModItems.JADE_AXE);
                         entries.add(ModItems.JADE_SHOVEL);
                         entries.add(ModItems.JADE_HOE);
-                        
+
                         // Topaz
                         entries.add(ModItems.TOPAZ);
                         entries.add(ModItems.TOPAZ_DUST);
@@ -67,7 +67,7 @@ public class ModTabs {
                         entries.add(ModItems.TOPAZ_AXE);
                         entries.add(ModItems.TOPAZ_SHOVEL);
                         entries.add(ModItems.TOPAZ_HOE);
-                        
+
                         // Lead
                         entries.add(ModItems.LEAD_INGOT);
                         entries.add(ModItems.LEAD_NUGGET);
@@ -85,7 +85,7 @@ public class ModTabs {
                         entries.add(ModItems.LEAD_AXE);
                         entries.add(ModItems.LEAD_SHOVEL);
                         entries.add(ModItems.LEAD_HOE);
-                        
+
                         // Tin
                         entries.add(ModItems.TIN_INGOT);
                         entries.add(ModItems.TIN_NUGGET);
@@ -103,7 +103,7 @@ public class ModTabs {
                         entries.add(ModItems.TIN_AXE);
                         entries.add(ModItems.TIN_SHOVEL);
                         entries.add(ModItems.TIN_HOE);
-                        
+
                         // Copper
                         entries.add(ModItems.COPPER_NUGGET);
                         entries.add(ModItems.COPPER_DUST);
@@ -134,7 +134,7 @@ public class ModTabs {
                         entries.add(ModItems.PLATINUM_AXE);
                         entries.add(ModItems.PLATINUM_SHOVEL);
                         entries.add(ModItems.PLATINUM_HOE);
-                        
+
                         // Sapphire
                         entries.add(ModItems.SAPPHIRE);
                         entries.add(ModItems.SAPPHIRE_DUST);
@@ -151,7 +151,7 @@ public class ModTabs {
                         entries.add(ModItems.SAPPHIRE_AXE);
                         entries.add(ModItems.SAPPHIRE_SHOVEL);
                         entries.add(ModItems.SAPPHIRE_HOE);
-                        
+
                         // Ruby
                         entries.add(ModItems.RUBY);
                         entries.add(ModItems.RUBY_DUST);
@@ -168,7 +168,7 @@ public class ModTabs {
                         entries.add(ModItems.RUBY_AXE);
                         entries.add(ModItems.RUBY_SHOVEL);
                         entries.add(ModItems.RUBY_HOE);
-                        
+
                         // Bronze
                         entries.add(ModItems.BRONZE_INGOT);
                         entries.add(ModItems.BRONZE_NUGGET);
@@ -183,7 +183,7 @@ public class ModTabs {
                         entries.add(ModItems.BRONZE_AXE);
                         entries.add(ModItems.BRONZE_SHOVEL);
                         entries.add(ModItems.BRONZE_HOE);
-                        
+
                         // Other
                         entries.add(ModItems.RAW_DIAMOND);
                         entries.add(ModItems.DIAMOND_DUST);

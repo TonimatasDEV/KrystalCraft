@@ -29,11 +29,11 @@ public class FluidUtils {
             return transferred;
         }
     }
-    
+
     public static void tryBucketTransfer(DefaultedList<ItemStack> inventory, int inputSlot, int outputSlot, SingleVariantStorage<FluidVariant> fluidStorage) {
         ItemStack inputStack = inventory.get(inputSlot);
         ItemStack outputStack = inventory.get(outputSlot);
-        
+
         if (inputStack.isOf(Items.BUCKET)) {
             if (fluidStorage.getAmount() >= 1000 && outputStack.isEmpty()) {
                 inputStack.setCount(inputStack.getCount() - 1);
@@ -43,7 +43,7 @@ public class FluidUtils {
             }
         } else if (inputStack.isOf(Items.WATER_BUCKET)) {
             if (fluidStorage.getCapacity() - fluidStorage.getAmount() < 1000) return;
-            
+
             if (outputStack.isEmpty() || (outputStack.isOf(Items.BUCKET) && outputStack.getCount() < 16)) {
                 inventory.set(inputSlot, ItemStack.EMPTY);
                 inventory.set(outputSlot, new ItemStack(Items.BUCKET, outputStack.getCount() + 1));

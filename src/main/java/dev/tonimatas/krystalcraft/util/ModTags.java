@@ -14,7 +14,7 @@ public class ModTags {
         public static TagKey<Item> BRONZE_NUGGETS = register("nuggets/bronze");
         public static TagKey<Item> BRONZE_DUSTS = register("dusts/bronze");
         public static TagKey<Item> BRONZE_BLOCKS = register("storage_blocks/bronze");
-        
+
         // Jade
         public static TagKey<Item> JADE_RAW_MATERIALS = register("raw_materials/jade");
         public static TagKey<Item> JADE_GEMS = register("gems/jade");
@@ -74,7 +74,7 @@ public class ModTags {
         public static TagKey<Item> TOPAZ_DUSTS = register("dusts/topaz");
         public static TagKey<Item> TOPAZ_BLOCKS = register("storage_blocks/topaz");
         public static TagKey<Item> TOPAZ_ORES = register("ores/topaz");
-        
+
         // Other
         public static TagKey<Item> COPPER_NUGGETS = register("nuggets/copper");
         public static TagKey<Item> COPPER_DUSTS = register("dusts/copper");
@@ -87,8 +87,7 @@ public class ModTags {
         public static TagKey<Item> REDSTONE_RAW_MATERIALS = register("raw_materials/redstone");
         public static TagKey<Item> IRON_DUSTS = register("dusts/iron");
         public static TagKey<Item> EXPERIENCE_ORES = register("ores/experience");
-        
-        
+
 
         public static TagKey<Item> register(String tagId) {
             return TagKey.of(RegistryKeys.ITEM, Identifier.of(TagUtil.C_TAG_NAMESPACE, tagId));

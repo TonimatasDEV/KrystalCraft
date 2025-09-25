@@ -69,19 +69,19 @@ public class ModBlocks {
             new ExperienceDroppingBlock(UniformIntProvider.create(20, 40), AbstractBlock.Settings.copy(Blocks.DEEPSLATE).strength(5f).requiresTool().sounds(BlockSoundGroup.DEEPSLATE)));
     public static final Block BRONZE_BLOCK = registerBlock("bronze_block",
             new Block(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).strength(5f).requiresTool().sounds(BlockSoundGroup.METAL)));
-    
+
     // Block Entities
     public static final Block CUTTING_STATION = registerBlock("cutting_station",
             new CuttingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
-    public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", 
+    public static final Block CUTTING_FACTORY = registerBlock("cutting_factory",
             new CuttingFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block CRUSHING_STATION = registerBlock("crushing_station",
             new CrushingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
-    public static final Block CRUSHING_FACTORY = registerBlock("crushing_factory", 
+    public static final Block CRUSHING_FACTORY = registerBlock("crushing_factory",
             new CrushingFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COMBINING_STATION = registerBlock("combining_station",
             new CombiningStationBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    public static final Block COMBINING_FACTORY = registerBlock("combining_factory", 
+    public static final Block COMBINING_FACTORY = registerBlock("combining_factory",
             new CombiningFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator",
             new CombustionGeneratorBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
@@ -90,11 +90,11 @@ public class ModBlocks {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(KrystalCraft.MOD_ID, name), block);
     }
-    
+
     private static void registerBlockItem(String name, Block block) {
         Registry.register(Registries.ITEM, Identifier.of(KrystalCraft.MOD_ID, name), new BlockItem(block, new Item.Settings()));
     }
-    
+
     public static void initialize() {
         // Initialize the class
     }

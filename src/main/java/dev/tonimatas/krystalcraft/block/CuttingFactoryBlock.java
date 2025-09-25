@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class CuttingFactoryBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final MapCodec<CuttingFactoryBlock> CODEC = CuttingFactoryBlock.createCodec(CuttingFactoryBlock::new);
-    
+
     public CuttingFactoryBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
@@ -73,7 +73,7 @@ public class CuttingFactoryBlock extends BlockWithEntity implements BlockEntityP
                 ItemScatterer.spawn(world, pos, specifiedBlockEntity);
                 world.updateComparators(pos, this);
             }
-            
+
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
@@ -85,7 +85,7 @@ public class CuttingFactoryBlock extends BlockWithEntity implements BlockEntityP
                 player.openHandledScreen(specifiedBlockEntity);
             }
         }
-        
+
         return ItemActionResult.SUCCESS;
     }
 

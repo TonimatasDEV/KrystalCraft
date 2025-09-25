@@ -38,7 +38,7 @@ public record CombiningRecipe(Ingredient ingredients, ItemStack result) implemen
         if (world.isClient) {
             return false;
         }
-        
+
         return ingredients.test(input.getStackInSlot(0)) && ingredients.test(input.getStackInSlot(1));
     }
 
@@ -56,7 +56,7 @@ public record CombiningRecipe(Ingredient ingredients, ItemStack result) implemen
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return result;
     }
-    
+
     public static class Serializer implements RecipeSerializer<CombiningRecipe> {
         public static final MapCodec<CombiningRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredients").forGetter(CombiningRecipe::ingredients),
@@ -65,8 +65,8 @@ public record CombiningRecipe(Ingredient ingredients, ItemStack result) implemen
                 Ingredient.PACKET_CODEC, CombiningRecipe::ingredients,
                 ItemStack.PACKET_CODEC, CombiningRecipe::result,
                 CombiningRecipe::new);
-        
-        
+
+
         @Override
         public MapCodec<CombiningRecipe> codec() {
             return CODEC;

@@ -92,7 +92,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.PLATINUM_BLOCK)
                 .add(ModBlocks.PLATINUM_ORE)
                 .add(ModBlocks.DEEPSLATE_PLATINUM_ORE);
-        
+
         // Common Tags - ORES
         getOrCreateTagBuilder(ConventionalBlockTags.ORES)
                 .addTag(ModTags.Blocks.EXPERIENCE_ORES)
@@ -108,7 +108,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
         getOrCreateTagBuilder(ModTags.Blocks.EXPERIENCE_ORES)
                 .add(ModBlocks.EXPERIENCE_ORE)
                 .add(ModBlocks.DEEPSLATE_EXPERIENCE_ORE);
-        
+
         getOrCreateTagBuilder(ModTags.Blocks.JADE_ORES)
                 .add(ModBlocks.JADE_ORE)
                 .add(ModBlocks.DEEPSLATE_JADE_ORE);

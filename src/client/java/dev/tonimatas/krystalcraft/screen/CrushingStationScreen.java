@@ -22,7 +22,7 @@ public class CrushingStationScreen extends HandledScreen<CrushingStationScreenHa
         GuiUtils.setDefaultRender(TEXTURE);
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        
+
         if (handler.isCrafting()) {
             GuiUtils.drawLoaderProgress(context, x + 85, y + 45, handler.getScaledLoader());
         }

@@ -208,7 +208,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
         offerBlasting(recipeExporter, List.of(ModItems.LEAD_DUST), RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.5f, 100, "");
         offerSmelting(recipeExporter, List.of(ModItems.RAW_LEAD), RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.5f, 200, "");
         offerBlasting(recipeExporter, List.of(ModItems.RAW_LEAD), RecipeCategory.MISC, ModItems.LEAD_INGOT, 0.5f, 100, "");
-        
+
         // Tin
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TIN_NUGGET, 9)
                 .input(ModTags.Items.TIN_INGOTS)
@@ -569,7 +569,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('1', ConventionalItemTags.WOODEN_RODS)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.JADE), FabricRecipeProvider.conditionsFromTag(ModTags.Items.JADE_GEMS))
                 .offerTo(recipeExporter, "jade_hoe_shaped");
-        
+
         // Topaz
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.TOPAZ, 9)
                 .input(ModTags.Items.TOPAZ_BLOCKS)
@@ -806,7 +806,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .input('1', ConventionalItemTags.WOODEN_RODS)
                 .criterion(FabricRecipeProvider.hasItem(ModItems.SAPPHIRE), FabricRecipeProvider.conditionsFromTag(ModTags.Items.SAPPHIRE_GEMS))
                 .offerTo(recipeExporter, "sapphire_hoe_shaped");
-        
+
         // Copper
         ShapelessRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.COPPER_NUGGET, 9)
                 .input(ConventionalItemTags.COPPER_INGOTS)
@@ -887,7 +887,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .offerTo(recipeExporter, "copper_hoe_shaped");
         offerSmelting(recipeExporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT, 0.5f, 200, "");
         offerBlasting(recipeExporter, List.of(ModItems.COPPER_DUST), RecipeCategory.MISC, Items.COPPER_INGOT, 0.5f, 100, "");
-        
+
         // Other
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModItems.BATTERY)
                 .pattern("010")

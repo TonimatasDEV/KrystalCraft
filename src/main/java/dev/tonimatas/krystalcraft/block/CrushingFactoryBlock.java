@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class CrushingFactoryBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final MapCodec<CrushingFactoryBlock> CODEC = CrushingFactoryBlock.createCodec(CrushingFactoryBlock::new);
-    
+
     public CrushingFactoryBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
@@ -73,7 +73,7 @@ public class CrushingFactoryBlock extends BlockWithEntity implements BlockEntity
                 ItemScatterer.spawn(world, pos, (CrushingFactoryBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
-            
+
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
@@ -85,7 +85,7 @@ public class CrushingFactoryBlock extends BlockWithEntity implements BlockEntity
                 player.openHandledScreen(crushingFactory);
             }
         }
-        
+
         return ItemActionResult.SUCCESS;
     }
 
@@ -94,8 +94,8 @@ public class CrushingFactoryBlock extends BlockWithEntity implements BlockEntity
         if (world.isClient) {
             return null;
         }
-        
-        return validateTicker(type, ModBlockEntities.CRUSHING_FACTORY_BLOCK_ENTITY, 
+
+        return validateTicker(type, ModBlockEntities.CRUSHING_FACTORY_BLOCK_ENTITY,
                 ((world1, pos, state1, blockEntity) -> blockEntity.tick(world1, pos, state1)));
     }
 }

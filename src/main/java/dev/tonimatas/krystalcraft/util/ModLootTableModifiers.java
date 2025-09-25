@@ -35,7 +35,7 @@ public class ModLootTableModifiers {
     private static final Identifier DEEPSLATE_LAPIS_ORE = Identifier.ofVanilla("blocks/deepslate_lapis_ore");
     private static final Identifier REDSTONE_ORE = Identifier.ofVanilla("blocks/redstone_ore");
     private static final Identifier DEEPSLATE_REDSTONE_ORE = Identifier.ofVanilla("blocks/deepslate_redstone_ore");
-    
+
     public static void initialize() {
         LootTableEvents.REPLACE.register((registryKey, lootTable, lootTableSource, wrapperLookup) -> {
             if (registryKey.getValue().equals(DIAMOND_ORE)) {
@@ -69,8 +69,8 @@ public class ModLootTableModifiers {
             if (registryKey.getValue().equals(DEEPSLATE_REDSTONE_ORE)) {
                 return multipleOreDrop(wrapperLookup, Blocks.DEEPSLATE_REDSTONE_ORE, ModItems.RAW_REDSTONE, 4.0F, 5.0F).build();
             }
-            
-            
+
+
             return lootTable;
         });
     }
@@ -85,12 +85,12 @@ public class ModLootTableModifiers {
                         .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))
                         .apply(ExplosionDecayLootFunction.builder()));
     }
-    
+
     public static LootTable.Builder oreDrop(RegistryWrapper.WrapperLookup registryLookup, Block withSilkTouch, Item withoutSilkTouch) {
         RegistryWrapper.Impl<Enchantment> impl = registryLookup.getWrapperOrThrow(RegistryKeys.ENCHANTMENT);
         return BlockLootTableGenerator.drops(withSilkTouch, MatchToolLootCondition.builder(ItemPredicate.Builder.create()
-                .subPredicate(ItemSubPredicateTypes.ENCHANTMENTS, EnchantmentsPredicate.enchantments(
-                        List.of(new EnchantmentPredicate(impl.getOrThrow(Enchantments.SILK_TOUCH), NumberRange.IntRange.atLeast(1)))))), 
+                        .subPredicate(ItemSubPredicateTypes.ENCHANTMENTS, EnchantmentsPredicate.enchantments(
+                                List.of(new EnchantmentPredicate(impl.getOrThrow(Enchantments.SILK_TOUCH), NumberRange.IntRange.atLeast(1)))))),
                 ItemEntry.builder(withoutSilkTouch)
                         .apply(ApplyBonusLootFunction.oreDrops(impl.getOrThrow(Enchantments.FORTUNE)))
                         .apply(ExplosionDecayLootFunction.builder()));

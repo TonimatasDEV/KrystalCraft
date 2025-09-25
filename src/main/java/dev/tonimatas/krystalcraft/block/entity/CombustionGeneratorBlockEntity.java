@@ -30,11 +30,6 @@ import team.reborn.energy.api.base.SimpleEnergyStorage;
 public class CombustionGeneratorBlockEntity extends BlockEntity implements ImplementedInventory, ExtendedScreenHandlerFactory<BlockPos> {
     protected static final int INPUT_SLOT = 0;
     protected static final int BATTERY_SLOT = 1;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
-    protected int burnTime;
-    protected int totalBurnTime;
-
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 50, 50) {
         @Override
         protected void onFinalCommit() {
@@ -42,6 +37,10 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
+    protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+    protected int burnTime;
+    protected int totalBurnTime;
 
     public CombustionGeneratorBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.COMBUSTION_GENERATOR_BLOCK_ENTITY, pos, state);
@@ -59,8 +58,10 @@ public class CombustionGeneratorBlockEntity extends BlockEntity implements Imple
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CombustionGeneratorBlockEntity.this.burnTime = value;
-                    case 1: CombustionGeneratorBlockEntity.this.totalBurnTime  = value;
+                    case 0:
+                        CombustionGeneratorBlockEntity.this.burnTime = value;
+                    case 1:
+                        CombustionGeneratorBlockEntity.this.totalBurnTime = value;
                 }
             }
 

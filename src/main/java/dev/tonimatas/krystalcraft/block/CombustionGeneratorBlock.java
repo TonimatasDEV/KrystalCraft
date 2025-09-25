@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 public class CombustionGeneratorBlock extends BlockWithEntity implements BlockEntityProvider {
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final MapCodec<CombustionGeneratorBlock> CODEC = CombustionGeneratorBlock.createCodec(CombustionGeneratorBlock::new);
-    
+
     public CombustionGeneratorBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
@@ -73,7 +73,7 @@ public class CombustionGeneratorBlock extends BlockWithEntity implements BlockEn
                 ItemScatterer.spawn(world, pos, specificBlockEntity);
                 world.updateComparators(pos, this);
             }
-            
+
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
@@ -85,7 +85,7 @@ public class CombustionGeneratorBlock extends BlockWithEntity implements BlockEn
                 player.openHandledScreen(specificBlockEntity);
             }
         }
-        
+
         return ItemActionResult.SUCCESS;
     }
 

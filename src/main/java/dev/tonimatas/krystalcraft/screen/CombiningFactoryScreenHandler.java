@@ -17,14 +17,14 @@ import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
 
 public class CombiningFactoryScreenHandler extends ScreenHandler {
+    public final CombiningFactoryBlockEntity blockEntity;
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
-    public final CombiningFactoryBlockEntity blockEntity;
-    
+
     public CombiningFactoryScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos pos) {
         this(syncId, playerInventory, playerInventory.player.getWorld().getBlockEntity(pos), new ArrayPropertyDelegate(2));
     }
-    
+
     public CombiningFactoryScreenHandler(int syncId, PlayerInventory playerInventory, BlockEntity blockEntity, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.COMBINING_FACTORY_SCREEN_HANDLER, syncId);
         this.inventory = (Inventory) blockEntity;
@@ -37,22 +37,22 @@ public class CombiningFactoryScreenHandler extends ScreenHandler {
         this.addSlot(new EnergySlot(inventory, 3, 129, 58));
         this.addSlot(new UpgradeSlot(inventory, 4, 106, 5));
         this.addSlot(new UpgradeSlot(inventory, 5, 126, 5));
-        
+
         addPlayerInventory(playerInventory);
         addPlayerHotbar(playerInventory);
-        
+
         addProperties(propertyDelegate);
     }
-    
+
     public boolean isCrafting() {
         return propertyDelegate.get(0) > 0;
     }
-    
+
     public int getScaledLoader() {
         int progress = this.propertyDelegate.get(0);
         int maxProgress = this.propertyDelegate.get(1);
         int loaderSize = 13;
-        
+
         return maxProgress != 0 && progress != 0 ? progress * loaderSize / maxProgress : 0;
     }
 
@@ -90,7 +90,7 @@ public class CombiningFactoryScreenHandler extends ScreenHandler {
 
     private void addPlayerInventory(PlayerInventory playerInventory) {
         int y = 99;
-        
+
         for (int i = 0; i < 3; ++i) {
             for (int l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, y + i * 18));
@@ -100,7 +100,7 @@ public class CombiningFactoryScreenHandler extends ScreenHandler {
 
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         int y = 157;
-        
+
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, y));
         }

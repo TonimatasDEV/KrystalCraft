@@ -16,7 +16,7 @@ public record XpLeechEnchantmentEffect() implements EnchantmentEntityEffect {
         if (user instanceof ServerPlayerEntity player) {
             player.addExperience(level);
         }
-        
+
     }
 
     @Override

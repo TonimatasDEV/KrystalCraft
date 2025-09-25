@@ -15,7 +15,7 @@ import org.jetbrains.annotations.NotNull;
 
 @JeiPlugin
 public class JEIKrystalCraftPlugin implements IModPlugin {
-    public static RecipeType<CuttingRecipe> CUTTING = RecipeType.create(KrystalCraft.MOD_ID,"cutting", CuttingRecipe.class);
+    public static RecipeType<CuttingRecipe> CUTTING = RecipeType.create(KrystalCraft.MOD_ID, "cutting", CuttingRecipe.class);
     public static RecipeType<CrushingRecipe> CRUSHING = RecipeType.create(KrystalCraft.MOD_ID, "crushing", CrushingRecipe.class);
     public static RecipeType<CombiningRecipe> COMBINING = RecipeType.create(KrystalCraft.MOD_ID, "combining", CombiningRecipe.class);
 

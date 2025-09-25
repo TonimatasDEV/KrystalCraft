@@ -26,7 +26,7 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> TIN_ORE_KEY = registerKey("tin_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> TOPAZ_ORE_KEY = registerKey("topaz_ore");
     public static final RegistryKey<ConfiguredFeature<?, ?>> EXPERIENCE_ORE_KEY = registerKey("experience_ore");
-    
+
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
         RuleTest stoneReplaceables = new TagMatchRuleTest(BlockTags.STONE_ORE_REPLACEABLES);
         RuleTest deepslateReplaceables = new TagMatchRuleTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES);
@@ -66,7 +66,7 @@ public class ModConfiguredFeatures {
         List<OreFeatureConfig.Target> overworldExperienceOres = List.of(
                 OreFeatureConfig.createTarget(stoneReplaceables, ModBlocks.EXPERIENCE_ORE.getDefaultState()),
                 OreFeatureConfig.createTarget(deepslateReplaceables, ModBlocks.DEEPSLATE_EXPERIENCE_ORE.getDefaultState()));
-        
+
         register(context, JADE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldJadeOres, 3));
         register(context, LEAD_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldLeadOres, 4));
         register(context, PLATINUM_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldPlatinumOres, 2));
@@ -77,7 +77,7 @@ public class ModConfiguredFeatures {
         register(context, TOPAZ_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldTopazOres, 5));
         register(context, EXPERIENCE_ORE_KEY, Feature.ORE, new OreFeatureConfig(overworldExperienceOres, 10));
     }
-    
+
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return RegistryKey.of(RegistryKeys.CONFIGURED_FEATURE, Identifier.of(KrystalCraft.MOD_ID, name));
     }

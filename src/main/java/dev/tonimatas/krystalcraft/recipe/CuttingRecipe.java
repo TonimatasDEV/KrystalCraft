@@ -38,7 +38,7 @@ public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements 
         if (world.isClient) {
             return false;
         }
-        
+
         return ingredient.test(input.getStackInSlot(0));
     }
 
@@ -56,7 +56,7 @@ public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements 
     public ItemStack getResult(RegistryWrapper.WrapperLookup registriesLookup) {
         return result;
     }
-    
+
     public static class Serializer implements RecipeSerializer<CuttingRecipe> {
         public static final MapCodec<CuttingRecipe> CODEC = RecordCodecBuilder.mapCodec(instance -> instance.group(
                 Ingredient.DISALLOW_EMPTY_CODEC.fieldOf("ingredient").forGetter(CuttingRecipe::ingredient),
@@ -65,8 +65,8 @@ public record CuttingRecipe(Ingredient ingredient, ItemStack result) implements 
                 Ingredient.PACKET_CODEC, CuttingRecipe::ingredient,
                 ItemStack.PACKET_CODEC, CuttingRecipe::result,
                 CuttingRecipe::new);
-        
-        
+
+
         @Override
         public MapCodec<CuttingRecipe> codec() {
             return CODEC;

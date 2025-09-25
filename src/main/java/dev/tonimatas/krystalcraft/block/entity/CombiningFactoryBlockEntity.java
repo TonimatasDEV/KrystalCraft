@@ -39,11 +39,6 @@ public class CombiningFactoryBlockEntity extends BlockEntity implements Implemen
     private static final int BATTERY_SLOT = 3;
     private static final int UPGRADE1_SLOT = 4;
     private static final int UPGRADE2_SLOT = 5;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
-    protected int progress;
-    protected int maxProgress = 100;
-
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 50, 50) {
         @Override
         protected void onFinalCommit() {
@@ -51,6 +46,10 @@ public class CombiningFactoryBlockEntity extends BlockEntity implements Implemen
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
+    protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
+    protected int progress;
+    protected int maxProgress = 100;
 
     public CombiningFactoryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.COMBINING_FACTORY_BLOCK_ENTITY, pos, state);
@@ -68,8 +67,10 @@ public class CombiningFactoryBlockEntity extends BlockEntity implements Implemen
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CombiningFactoryBlockEntity.this.progress  = value;
-                    case 1: CombiningFactoryBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CombiningFactoryBlockEntity.this.progress = value;
+                    case 1:
+                        CombiningFactoryBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -142,7 +143,7 @@ public class CombiningFactoryBlockEntity extends BlockEntity implements Implemen
             this.progress = 0;
         }
     }
-    
+
     private boolean hasRecipe() {
         Optional<RecipeEntry<CombiningRecipe>> recipe = getCurrentRecipe();
 

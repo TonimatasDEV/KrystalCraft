@@ -38,11 +38,6 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
     private static final int BATTERY_SLOT = 2;
     private static final int UPGRADE1_SLOT = 3;
     private static final int UPGRADE2_SLOT = 4;
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
-    protected final PropertyDelegate propertyDelegate;
-    protected int progress;
-    protected int maxProgress = 100;
-
     public final SimpleEnergyStorage energyStorage = new SimpleEnergyStorage(30000, 50, 50) {
         @Override
         protected void onFinalCommit() {
@@ -50,6 +45,10 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
             getWorld().updateListeners(pos, getCachedState(), getCachedState(), 3);
         }
     };
+    protected final PropertyDelegate propertyDelegate;
+    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(5, ItemStack.EMPTY);
+    protected int progress;
+    protected int maxProgress = 100;
 
     public CrushingFactoryBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.CRUSHING_FACTORY_BLOCK_ENTITY, pos, state);
@@ -67,8 +66,10 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
             @Override
             public void set(int index, int value) {
                 switch (index) {
-                    case 0: CrushingFactoryBlockEntity.this.progress = value;
-                    case 1: CrushingFactoryBlockEntity.this.maxProgress  = value;
+                    case 0:
+                        CrushingFactoryBlockEntity.this.progress = value;
+                    case 1:
+                        CrushingFactoryBlockEntity.this.maxProgress = value;
                 }
             }
 
@@ -124,15 +125,15 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
     public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
         return new CrushingFactoryScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
-    
+
     public void tick(World world, BlockPos pos, BlockState state) {
         EnergyUtils.moveFromItem(this, energyStorage, BATTERY_SLOT);
-        
+
         if (hasRecipe()) {
             if (energyStorage.amount >= 5 && EnergyUtils.extractInternal(energyStorage, 5) == 5) {
                 progress++;
             }
-            
+
             if (this.progress >= this.maxProgress) {
                 craftItem();
                 this.progress = 0;
@@ -141,16 +142,16 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
             this.progress = 0;
         }
     }
-    
+
     private boolean hasRecipe() {
         Optional<RecipeEntry<CrushingRecipe>> recipe = getCurrentRecipe();
-        
+
         if (recipe.isEmpty()) {
             return false;
         }
-        
+
         ItemStack output = recipe.get().value().result();
-        
+
         return canInsertItemStack(output);
     }
 
@@ -160,12 +161,12 @@ public class CrushingFactoryBlockEntity extends BlockEntity implements Implement
 
     private void craftItem() {
         Optional<RecipeEntry<CrushingRecipe>> recipe = getCurrentRecipe();
-        
+
         ItemStack output = recipe.get().value().result();
         this.removeStack(INPUT_SLOT, 1);
         this.setStack(RESULT_SLOT, new ItemStack(output.getItem(), this.getStack(RESULT_SLOT).getCount() + output.getCount()));
     }
-    
+
     private boolean canInsertItemStack(ItemStack newStack) {
         ItemStack stack = this.getStack(RESULT_SLOT);
         int maxCount = stack.isEmpty() ? 64 : stack.getMaxCount();

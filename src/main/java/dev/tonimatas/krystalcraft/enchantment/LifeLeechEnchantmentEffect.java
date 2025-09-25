@@ -15,7 +15,7 @@ public record LifeLeechEnchantmentEffect() implements EnchantmentEntityEffect {
     @Override
     public void apply(ServerWorld world, int level, EnchantmentEffectContext context, Entity user, Vec3d pos) {
         if (context.owner() instanceof ServerPlayerEntity player) {
-            player.setHealth(player.getHealth() + ((float) level /10));
+            player.setHealth(player.getHealth() + ((float) level / 10));
         }
     }
 

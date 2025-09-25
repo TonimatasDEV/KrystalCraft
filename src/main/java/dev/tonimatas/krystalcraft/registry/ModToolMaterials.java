@@ -38,7 +38,7 @@ public enum ModToolMaterials implements ToolMaterial {
         this.enchantability = enchantability;
         this.repairIngredient = Suppliers.memoize(repairIngredient::get);
     }
-    
+
     @Override
     public int getDurability() {
         return this.durability;

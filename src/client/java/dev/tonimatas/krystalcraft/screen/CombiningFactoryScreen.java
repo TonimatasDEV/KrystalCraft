@@ -23,7 +23,7 @@ public class CombiningFactoryScreen extends HandledScreen<CombiningFactoryScreen
 
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
         GuiUtils.drawEnergy(context, x + 152, y + 25, this.handler.blockEntity.energyStorage);
-        
+
         if (handler.isCrafting()) {
             GuiUtils.drawLoaderProgress(context, x + 85, y + 50, handler.getScaledLoader());
         }

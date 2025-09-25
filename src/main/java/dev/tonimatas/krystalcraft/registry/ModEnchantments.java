@@ -23,16 +23,16 @@ public class ModEnchantments {
     public static void bootstrap(Registerable<Enchantment> registerable) {
         var enchantments = registerable.getRegistryLookup(RegistryKeys.ENCHANTMENT);
         var items = registerable.getRegistryLookup(RegistryKeys.ITEM);
-        
+
         register(registerable, FREEZING, Enchantment.builder(Enchantment.definition(
-                items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
-                items.getOrThrow(ItemTags.SWORD_ENCHANTABLE),
-                5,
-                3,
-                Enchantment.leveledCost(5, 7),
-                Enchantment.leveledCost(25, 9),
-                2,
-                AttributeModifierSlot.MAINHAND))
+                        items.getOrThrow(ItemTags.WEAPON_ENCHANTABLE),
+                        items.getOrThrow(ItemTags.SWORD_ENCHANTABLE),
+                        5,
+                        3,
+                        Enchantment.leveledCost(5, 7),
+                        Enchantment.leveledCost(25, 9),
+                        2,
+                        AttributeModifierSlot.MAINHAND))
                 .addEffect(EnchantmentEffectComponentTypes.POST_ATTACK, EnchantmentEffectTarget.ATTACKER,
                         EnchantmentEffectTarget.VICTIM, new FreezingEnchantmentEffect()));
 

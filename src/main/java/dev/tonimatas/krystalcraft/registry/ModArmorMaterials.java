@@ -24,7 +24,7 @@ public class ModArmorMaterials {
                 map.put(ArmorItem.Type.CHESTPLATE, 6);
                 map.put(ArmorItem.Type.HELMET, 3);
                 map.put(ArmorItem.Type.BODY, 6);
-            }), 16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, () -> Ingredient.ofItems(ModItems.JADE), 
+            }), 16, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, () -> Ingredient.ofItems(ModItems.JADE),
             List.of(new ArmorMaterial.Layer(Identifier.of(KrystalCraft.MOD_ID, "jade"))), 1.0f, 0.0f));
 
     public static final RegistryEntry<ArmorMaterial> TOPAZ = registerArmorMaterial("topaz", () -> new ArmorMaterial(
