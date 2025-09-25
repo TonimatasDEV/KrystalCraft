@@ -73,7 +73,8 @@ public class ModBlocks {
     // Block Entities
     public static final Block CUTTING_STATION = registerBlock("cutting_station",
             new CuttingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
-    //public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", new MachineBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
+    public static final Block CUTTING_FACTORY = registerBlock("cutting_factory", 
+            new CuttingFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block CRUSHING_STATION = registerBlock("crushing_station",
             new CrushingStationBlock(AbstractBlock.Settings.copy(Blocks.STONE).nonOpaque()));
     public static final Block CRUSHING_FACTORY = registerBlock("crushing_factory", 
@@ -84,7 +85,6 @@ public class ModBlocks {
             new CombiningFactoryBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
     public static final Block COMBUSTION_GENERATOR = registerBlock("combustion_generator",
             new CombustionGeneratorBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK).nonOpaque()));
-    //public static final RegistryEntry<Block> ENERGY_PIPE = registerBlock("energy_pipe", EnergyPipeBlock::new);
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

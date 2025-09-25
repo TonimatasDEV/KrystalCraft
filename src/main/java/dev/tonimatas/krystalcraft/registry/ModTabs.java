@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class ModTabs {
     public static final ItemGroup KRYSTALCRAFT = Registry.register(Registries.ITEM_GROUP, Identifier.of(KrystalCraft.MOD_ID, "krystalcraft"),
             FabricItemGroup.builder()
-                    .icon(() -> new ItemStack(ModBlocks.CUTTING_STATION))
+                    .icon(() -> new ItemStack(ModBlocks.CUTTING_FACTORY))
                     .displayName(Text.translatable("itemGroup.krystalcraft"))
                     .entries((displayContext, entries) -> {
                         
@@ -199,6 +199,7 @@ public class ModTabs {
 
                         // Machines
                         entries.add(ModBlocks.CUTTING_STATION);
+                        entries.add(ModBlocks.CUTTING_FACTORY);
                         entries.add(ModBlocks.CRUSHING_STATION);
                         entries.add(ModBlocks.CRUSHING_FACTORY);
                         entries.add(ModBlocks.COMBINING_STATION);

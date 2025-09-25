@@ -941,6 +941,17 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion(FabricRecipeProvider.hasItem(ModBlocks.CRUSHING_STATION), FabricRecipeProvider.conditionsFromItem(ModBlocks.CRUSHING_STATION))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.CUTTING_FACTORY)
+                .pattern("010")
+                .pattern("323")
+                .pattern("010")
+                .input('0', ConventionalItemTags.IRON_INGOTS)
+                .input('1', ConventionalItemTags.STORAGE_BLOCKS_IRON)
+                .input('2', ModBlocks.CUTTING_STATION)
+                .input('3', ModItems.BATTERY)
+                .criterion(FabricRecipeProvider.hasItem(ModBlocks.CUTTING_STATION), FabricRecipeProvider.conditionsFromItem(ModBlocks.CUTTING_STATION))
+                .offerTo(recipeExporter);
+
         ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.COMBUSTION_GENERATOR)
                 .pattern("010")
                 .pattern("323")

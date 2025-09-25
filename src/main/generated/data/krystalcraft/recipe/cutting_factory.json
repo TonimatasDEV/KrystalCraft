@@ -1,13 +1,12 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "krystalcraft",
   "key": {
     "0": {
-      "tag": "c:iron_ingots"
+      "tag": "c:ingots/iron"
     },
     "1": {
-      "item": "minecraft:iron_block"
+      "tag": "c:storage_blocks/iron"
     },
     "2": {
       "item": "krystalcraft:cutting_station"
@@ -22,7 +21,7 @@
     "010"
   ],
   "result": {
-    "item": "krystalcraft:cutting_factory"
-  },
-  "show_notification": true
+    "count": 1,
+    "id": "krystalcraft:cutting_factory"
+  }
 }

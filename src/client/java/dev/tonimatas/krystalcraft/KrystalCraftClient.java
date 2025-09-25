@@ -13,7 +13,7 @@ public class KrystalCraftClient implements ClientModInitializer {
         HandledScreens.register(ModScreenHandlers.CRUSHING_STATION_SCREEN_HANDLER, CrushingStationScreen::new);
         HandledScreens.register(ModScreenHandlers.CRUSHING_FACTORY_SCREEN_HANDLER, CrushingFactoryScreen::new);
         HandledScreens.register(ModScreenHandlers.CUTTING_STATION_SCREEN_HANDLER, CuttingStationScreen::new);
-        //HandledScreens.register(ModScreenHandlers.CUTTING_FACTORY_SCREEN_HANDLER, CuttingFactoryScreen::new);
+        HandledScreens.register(ModScreenHandlers.CUTTING_FACTORY_SCREEN_HANDLER, CuttingFactoryScreen::new);
         HandledScreens.register(ModScreenHandlers.COMBUSTION_GENERATOR_SCREEN_HANDLER, CombustionGeneratorScreen::new);
     }
 }

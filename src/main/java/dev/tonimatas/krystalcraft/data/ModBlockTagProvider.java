@@ -19,6 +19,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
     protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
         getOrCreateTagBuilder(BlockTags.PICKAXE_MINEABLE)
                 .add(ModBlocks.CUTTING_STATION)
+                .add(ModBlocks.CUTTING_FACTORY)
                 .add(ModBlocks.CRUSHING_STATION)
                 .add(ModBlocks.CRUSHING_FACTORY)
                 .add(ModBlocks.COMBINING_STATION)
@@ -82,6 +83,7 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.RUBY_ORE)
                 .add(ModBlocks.DEEPSLATE_RUBY_ORE)
                 .add(ModBlocks.BRONZE_BLOCK)
+                .add(ModBlocks.CUTTING_FACTORY)
                 .add(ModBlocks.CRUSHING_FACTORY)
                 .add(ModBlocks.COMBINING_FACTORY)
                 .add(ModBlocks.COMBUSTION_GENERATOR);

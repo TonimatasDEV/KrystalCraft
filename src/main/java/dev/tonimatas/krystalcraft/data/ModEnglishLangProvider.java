@@ -202,7 +202,7 @@ public class ModEnglishLangProvider extends FabricLanguageProvider {
         translationBuilder.add(ModBlocks.EXPERIENCE_ORE, "Experience Ore");
         translationBuilder.add(ModBlocks.DEEPSLATE_EXPERIENCE_ORE, "Deepslate Experience Ore");
         translationBuilder.add(ModBlocks.CUTTING_STATION, "Cutting Station");
-        //translationBuilder.add(ModBlocks.CUTTING_FACTORY, "Cutting Factory");
+        translationBuilder.add(ModBlocks.CUTTING_FACTORY, "Cutting Factory");
         translationBuilder.add(ModBlocks.CRUSHING_STATION, "Crushing Station");
         translationBuilder.add(ModBlocks.CRUSHING_FACTORY, "Crushing Factory");
         translationBuilder.add(ModBlocks.COMBINING_STATION, "Combining Station");
