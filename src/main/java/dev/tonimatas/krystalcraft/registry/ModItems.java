@@ -268,6 +268,7 @@ public class ModItems {
                         batteryItem.getEnergyMaxOutput(itemStack)
                 );
             }
+
             return null;
         }, BATTERY);
     }
