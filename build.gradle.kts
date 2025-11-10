@@ -1,5 +1,5 @@
 plugins {
-    id("fabric-loom") version "1.11-SNAPSHOT"
+    id("fabric-loom") version "1.13-SNAPSHOT"
 }
 
 val minecraftVersion: String by extra
@@ -44,7 +44,7 @@ dependencies {
     
     // Fabric
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion+$minecraftVersion")
 
     // Compatibility
     modCompileOnlyApi("mezz.jei:jei-$minecraftVersion-fabric-api:$jeiVersion")
